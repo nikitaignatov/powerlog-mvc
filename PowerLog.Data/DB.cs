@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PowerLog.Data
 {
-    public class Class1
+    public class DB
     {
     }
 }
