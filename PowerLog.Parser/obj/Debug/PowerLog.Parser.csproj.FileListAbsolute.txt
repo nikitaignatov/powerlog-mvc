@@ -1,0 +1,6 @@
+e:\docs\visual studio 2010\Projects\PowerLog\PowerLog.Parser\bin\Debug\PowerLog.Parser.dll
+e:\docs\visual studio 2010\Projects\PowerLog\PowerLog.Parser\bin\Debug\PowerLog.Parser.pdb
+e:\docs\visual studio 2010\Projects\PowerLog\PowerLog.Parser\bin\Debug\Sprache.dll
+e:\docs\visual studio 2010\Projects\PowerLog\PowerLog.Parser\obj\Debug\PowerLog.Parser.csprojResolveAssemblyReference.cache
+e:\docs\visual studio 2010\Projects\PowerLog\PowerLog.Parser\obj\Debug\PowerLog.Parser.dll
+e:\docs\visual studio 2010\Projects\PowerLog\PowerLog.Parser\obj\Debug\PowerLog.Parser.pdb
