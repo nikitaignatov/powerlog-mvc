@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="e5906693-3e63-4c01-9adc-040d1f077b6c" name="Blah@BLAH-PC 2012-09-22 01:00:44" runUser="Blah-PC\Blah" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="7b492518-779d-4471-8c19-d9ea2525db16">
+    <Deployment runDeploymentRoot="Blah_BLAH-PC 2012-09-22 01_00_44">
+      <DeploymentItem filename="e:\docs\visual studio 2010\Projects\PowerLog\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll" />
+      <DeploymentItem filename="e:\docs\visual studio 2010\Projects\PowerLog\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll" />
+      <DeploymentItem filename="e:\docs\visual studio 2010\Projects\PowerLog\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll" />
+      <DeploymentItem filename="e:\docs\visual studio 2010\Projects\PowerLog\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll" />
+      <DeploymentItem filename="e:\docs\visual studio 2010\Projects\PowerLog\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll" />
+      <DeploymentItem filename="e:\docs\visual studio 2010\Projects\PowerLog\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll" />
+      <DeploymentItem filename="e:\docs\visual studio 2010\Projects\PowerLog\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll" />
+      <DeploymentItem filename="e:\docs\visual studio 2010\Projects\PowerLog\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll" />
+      <DeploymentItem filename="e:\docs\visual studio 2010\Projects\PowerLog\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll" />
+      <DeploymentItem filename="e:\docs\visual studio 2010\Projects\PowerLog\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll" />
+      <DeploymentItem filename="e:\docs\visual studio 2010\Projects\PowerLog\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll" />
+      <DeploymentItem filename="e:\docs\visual studio 2010\Projects\PowerLog\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll" />
+      <DeploymentItem filename="e:\docs\visual studio 2010\Projects\PowerLog\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll" />
+      <DeploymentItem filename="e:\docs\visual studio 2010\Projects\PowerLog\PowerLog\bin\PowerLog.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-09-22T01:00:44.5237685+02:00" queuing="2012-09-22T01:00:52.6532334+02:00" start="2012-09-22T01:00:53.2082652+02:00" finish="2012-09-22T01:00:54.4523363+02:00" />
+  <ResultSummary outcome="Warning">
+    <Counters total="3" executed="3" passed="3" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="BLAH-PC" outcome="Warning" timestamp="2012-09-22T01:00:51.9361924+02:00">
+        <Text>Warning: Test Run deployment issue: The assembly or module 'log4net' directly or indirectly referenced by the test container 'e:\docs\visual studio 2010\projects\powerlog\powerlog.tests\bin\debug\powerlog.tests.dll' was not found.</Text>
+      </RunInfo>
+      <RunInfo computerName="BLAH-PC" outcome="Warning" timestamp="2012-09-22T01:00:51.9371925+02:00">
+        <Text>Warning: Test Run deployment issue: The assembly or module 'Org.Mentalis.Security.Cryptography' directly or indirectly referenced by the test container 'e:\docs\visual studio 2010\projects\powerlog\powerlog.tests\bin\debug\powerlog.tests.dll' was not found.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="Index" storage="e:\docs\visual studio 2010\projects\powerlog\powerlog.tests\bin\debug\powerlog.tests.dll" id="7c086ecb-9fcf-baec-9b07-10bed2f20f77">
+      <Execution id="42532b5a-6050-44dc-beb2-29d8a32657a3" />
+      <TestMethod codeBase="e:/docs/visual studio 2010/Projects/PowerLog/PowerLog.Tests/bin/Debug/PowerLog.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PowerLog.Tests.Controllers.HomeControllerTest, PowerLog.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Index" />
+    </UnitTest>
+    <UnitTest name="About" storage="e:\docs\visual studio 2010\projects\powerlog\powerlog.tests\bin\debug\powerlog.tests.dll" id="e71381ed-e577-9a90-0b4b-9d0f7acfb79d">
+      <Execution id="2b08961a-bb5f-49d0-8906-7678c9118f7f" />
+      <TestMethod codeBase="e:/docs/visual studio 2010/Projects/PowerLog/PowerLog.Tests/bin/Debug/PowerLog.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PowerLog.Tests.Controllers.HomeControllerTest, PowerLog.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="About" />
+    </UnitTest>
+    <UnitTest name="Contact" storage="e:\docs\visual studio 2010\projects\powerlog\powerlog.tests\bin\debug\powerlog.tests.dll" id="fd8d3d3a-6ad9-bf94-15f4-c9747a377dec">
+      <Execution id="91307838-4eb2-4c27-96b6-8e41c2fa4f59" />
+      <TestMethod codeBase="e:/docs/visual studio 2010/Projects/PowerLog/PowerLog.Tests/bin/Debug/PowerLog.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PowerLog.Tests.Controllers.HomeControllerTest, PowerLog.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Contact" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="7c086ecb-9fcf-baec-9b07-10bed2f20f77" executionId="42532b5a-6050-44dc-beb2-29d8a32657a3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e71381ed-e577-9a90-0b4b-9d0f7acfb79d" executionId="2b08961a-bb5f-49d0-8906-7678c9118f7f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fd8d3d3a-6ad9-bf94-15f4-c9747a377dec" executionId="91307838-4eb2-4c27-96b6-8e41c2fa4f59" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="42532b5a-6050-44dc-beb2-29d8a32657a3" testId="7c086ecb-9fcf-baec-9b07-10bed2f20f77" testName="Index" computerName="BLAH-PC" duration="00:00:00.1971670" startTime="2012-09-22T01:00:53.5752862+02:00" endTime="2012-09-22T01:00:54.3993333+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="42532b5a-6050-44dc-beb2-29d8a32657a3">
+    </UnitTestResult>
+    <UnitTestResult executionId="2b08961a-bb5f-49d0-8906-7678c9118f7f" testId="e71381ed-e577-9a90-0b4b-9d0f7acfb79d" testName="About" computerName="BLAH-PC" duration="00:00:00.0013408" startTime="2012-09-22T01:00:54.4013334+02:00" endTime="2012-09-22T01:00:54.4043336+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2b08961a-bb5f-49d0-8906-7678c9118f7f">
+    </UnitTestResult>
+    <UnitTestResult executionId="91307838-4eb2-4c27-96b6-8e41c2fa4f59" testId="fd8d3d3a-6ad9-bf94-15f4-c9747a377dec" testName="Contact" computerName="BLAH-PC" duration="00:00:00.0012226" startTime="2012-09-22T01:00:54.4063337+02:00" endTime="2012-09-22T01:00:54.4093339+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="91307838-4eb2-4c27-96b6-8e41c2fa4f59">
+    </UnitTestResult>
+  </Results>
+</TestRun>
