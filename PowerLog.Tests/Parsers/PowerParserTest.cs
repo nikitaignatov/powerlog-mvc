@@ -66,6 +66,7 @@ namespace PowerLog.Tests.Parsers
         [TestMethod]
         public void FailToParseANumberBecauseItHasTextInIt()
         {
+            // x9cX0o3NMKbNSYUaSZ9yzz	b7ee365c4b5108e84c61b05da1ebbad1
             string result = PowerParser.numberParser.TryParse("abc").ToString();
             Assert.IsTrue(result.StartsWith("Parsing failure"));
         }
