@@ -1,0 +1,59 @@
+﻿@model PowerLog.Models.ExerciseLog
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ExerciseLog</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ExerciseID, "Exercise")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ExerciseID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ExerciseID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Date)
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Weight)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Weight)
+            @Html.ValidationMessageFor(model => model.Weight)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Reps)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Reps)
+            @Html.ValidationMessageFor(model => model.Reps)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
