@@ -35,6 +35,9 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.1\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="Sprache, Version=1.10.0.11, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Sprache.1.10.0.11\lib\net40\Sprache.dll</HintPath>
     </Reference>
@@ -112,7 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PowerLog.Parser\PowerLog.Parser.csproj">
-      <Project>{291AF57C-57D6-464F-9259-3270FFB4B27F}</Project>
+      <Project>{033b5d5a-6f6d-43fc-bb5b-e9325ca16c9a}</Project>
       <Name>PowerLog.Parser</Name>
     </ProjectReference>
     <ProjectReference Include="..\PowerLog\PowerLog.csproj">
