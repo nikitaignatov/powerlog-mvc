@@ -1,15 +1,17 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerLog", "PowerLog\PowerLog.csproj", "{87B3A2EE-5E71-424F-A64B-515945307BA1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerLog.Tests", "PowerLog.Tests\PowerLog.Tests.csproj", "{B44CCA2D-CAAC-4158-9D28-662F4650BACE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerLog.Parser", "PowerLog.Parser\PowerLog.Parser.csproj", "{291AF57C-57D6-464F-9259-3270FFB4B27F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerLog.Model", "PowerLog.Model\PowerLog.Model.csproj", "{8CB9AB41-50EA-42E4-A1AD-687991D999DB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerLog.Data", "PowerLog.Data\PowerLog.Data.csproj", "{AF95578E-8D2A-4C5A-B102-DAAFF9C0BA45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerLog.Parser", "PowerLog.Parser\PowerLog.Parser.csproj", "{033B5D5A-6F6D-43FC-BB5B-E9325CA16C9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerLog.Repl", "PowerLog.Repl\PowerLog.Repl.csproj", "{3B6B4FB7-3F0F-423A-8B29-C06CC28D1641}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +27,6 @@ Global
 		{B44CCA2D-CAAC-4158-9D28-662F4650BACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B44CCA2D-CAAC-4158-9D28-662F4650BACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B44CCA2D-CAAC-4158-9D28-662F4650BACE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{291AF57C-57D6-464F-9259-3270FFB4B27F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{291AF57C-57D6-464F-9259-3270FFB4B27F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{291AF57C-57D6-464F-9259-3270FFB4B27F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{291AF57C-57D6-464F-9259-3270FFB4B27F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8CB9AB41-50EA-42E4-A1AD-687991D999DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8CB9AB41-50EA-42E4-A1AD-687991D999DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CB9AB41-50EA-42E4-A1AD-687991D999DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -37,6 +35,14 @@ Global
 		{AF95578E-8D2A-4C5A-B102-DAAFF9C0BA45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF95578E-8D2A-4C5A-B102-DAAFF9C0BA45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF95578E-8D2A-4C5A-B102-DAAFF9C0BA45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{033B5D5A-6F6D-43FC-BB5B-E9325CA16C9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{033B5D5A-6F6D-43FC-BB5B-E9325CA16C9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{033B5D5A-6F6D-43FC-BB5B-E9325CA16C9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{033B5D5A-6F6D-43FC-BB5B-E9325CA16C9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B6B4FB7-3F0F-423A-8B29-C06CC28D1641}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B6B4FB7-3F0F-423A-8B29-C06CC28D1641}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B6B4FB7-3F0F-423A-8B29-C06CC28D1641}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B6B4FB7-3F0F-423A-8B29-C06CC28D1641}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
