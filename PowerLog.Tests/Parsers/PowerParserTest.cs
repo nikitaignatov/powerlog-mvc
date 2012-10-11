@@ -2,91 +2,190 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Sprache;
 using PowerLog.Parser;
+using NUnit.Framework;
 
 namespace PowerLog.Tests.Parsers
 {
-    [TestClass]
+    [TestFixture]
     public class PowerParserTest
     {
-        public PowerParserTest()
+        private static Log ParseInput(string input)
         {
-            //
-            // TODO: Add constructor logic here
-            //
+            return PowerLogParser.ParseInput(input);
         }
 
-        private TestContext testContextInstance;
+        [Test]
+        public void shold_parse_front_squat_2x20()
+        {
+            // arrange
+            const string input = "front squat 2x20";
 
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
+            // act
+            var result = ParseInput(input);
+            var set = result.Sets.SingleOrDefault();
+
+            // assert
+            Assert.AreEqual("front squat", result.Name);
+            Assert.NotNull(set);
+            Assert.AreEqual(2, set.Reps);
+            Assert.AreEqual(20, set.Weight);
         }
 
-        #region Additional test attributes
-        //
-        // You can use the following additional attributes as you write your tests:
-        //
-        // Use ClassInitialize to run code before running the first test in the class
-        // [ClassInitialize()]
-        // public static void MyClassInitialize(TestContext testContext) { }
-        //
-        // Use ClassCleanup to run code after all tests in a class have run
-        // [ClassCleanup()]
-        // public static void MyClassCleanup() { }
-        //
-        // Use TestInitialize to run code before running each test 
-        // [TestInitialize()]
-        // public void MyTestInitialize() { }
-        //
-        // Use TestCleanup to run code after each test has run
-        // [TestCleanup()]
-        // public void MyTestCleanup() { }
-        //
-        #endregion
-        [TestMethod]
-        public void ParseANumber()
+        [Test]
+        public void shold_parse_front_squat_2x20_DOT_5()
         {
-            string result = PowerParser.numberParser.Parse("101");
-            Assert.AreEqual("101", result);
+            // arrange
+            const string input = "front squat 2x20.5";
+
+            // act
+            var result = ParseInput(input);
+            var set = result.Sets.SingleOrDefault();
+
+            // assert
+            Assert.AreEqual("front squat", result.Name);
+            Assert.NotNull(set);
+            Assert.AreEqual(2, set.Reps);
+            Assert.AreEqual(20.5, set.Weight);
         }
-        [TestMethod]
-        public void FailToParseANumberBecauseItHasTextInIt()
+
+        [Test]
+        public void shold_parse_front_squat_30_max_ftl()
         {
-            // x9cX0o3NMKbNSYUaSZ9yzz	b7ee365c4b5108e84c61b05da1ebbad1
-            string result = PowerParser.numberParser.TryParse("abc").ToString();
-            Assert.IsTrue(result.StartsWith("Parsing failure"));
+            // arrange
+            const string input = "front squat 30-max-ftl";
+
+            // act
+            var result = ParseInput(input);
+            var set = result.Sets.SingleOrDefault();
+
+            // assert
+            Assert.AreEqual("front squat", result.Name);
+            Assert.NotNull(set);
+            Assert.AreEqual(1, set.Reps);
+            Assert.AreEqual(30, set.Weight);
+            Assert.IsTrue(set.MaxEffort);
+            Assert.IsTrue(set.FailedToLift);
         }
-        [TestMethod]
-        public void ParseJustThreeNumbers()
+
+        [Test]
+        public void shold_parse_front_squat_30_note_hello_world_max()
         {
-            string result = PowerParser.threeNumberParser.Parse("123");
-            Assert.AreEqual("123", result);
+            // arrange
+            const string input = "front squat 30-note(hello world)-max";
+
+            // act
+            var result = ParseInput(input);
+            var set = result.Sets.SingleOrDefault();
+
+            // assert
+            Assert.AreEqual("front squat", result.Name);
+            Assert.NotNull(set);
+            Assert.AreEqual(1, set.Reps);
+            Assert.AreEqual(30, set.Weight);
+            Assert.AreEqual("hello world", set.Comment);
+            Assert.IsTrue(set.MaxEffort);
         }
-        [TestMethod]
-        public void ParseJustThreeNumbersOutOfMore()
+
+        [Test]
+        public void shold_parse_front_squat_30_note_hello_world_max_fr_1()
         {
-            string result = PowerParser.threeNumberParser.Parse("12345678");
-            Assert.AreEqual("123", result);
+            // arrange
+            const string input = "front squat 30-note(hello world)-max-fr(1)";
+
+            // act
+            var result = ParseInput(input);
+            var set = result.Sets.SingleOrDefault();
+
+            // assert
+            Assert.AreEqual("front squat", result.Name);
+            Assert.NotNull(set);
+            Assert.AreEqual(1, set.Reps);
+            Assert.AreEqual(30, set.Weight);
+            Assert.AreEqual("hello world", set.Comment);
+            Assert.IsTrue(set.MaxEffort);
+            Assert.AreEqual(1, set.ForcedReps);
         }
-        [TestMethod]
-        public void FailToParseAThreeDigitNumberBecauseItIsTooShort()
+
+        [Test]
+        public void shold_parse_front_squat_30_note_hello_world()
         {
-            var result = PowerParser.threeNumberParser.TryParse("10");
-            Assert.IsTrue(result.ToString().StartsWith("Parsing failure"));
+            // arrange
+            const string input = "front squat 30-note(hello world)";
+
+            // act
+            var result = ParseInput(input);
+            var set = result.Sets.SingleOrDefault();
+
+            // assert
+            Assert.AreEqual("front squat", result.Name);
+            Assert.NotNull(set);
+            Assert.AreEqual(1, set.Reps);
+            Assert.AreEqual(30, set.Weight);
+            Assert.AreEqual("hello world", set.Comment);
+        }
+
+        [Test]
+        public void shold_parse_front_squat_2x20_30()
+        {
+            // arrange
+            const string input = "front squat 2x20 30";
+
+            // act
+            var result = ParseInput(input);
+            var first = result.Sets.FirstOrDefault();
+            var second = result.Sets.Skip(1).SingleOrDefault();
+
+            // assert
+            Assert.AreEqual("front squat", result.Name);
+
+            Assert.NotNull(first);
+            Assert.NotNull(second);
+
+            Assert.AreEqual(2, first.Reps);
+            Assert.AreEqual(20, first.Weight);
+
+            Assert.AreEqual(1, second.Reps);
+            Assert.AreEqual(30, second.Weight);
+        }
+
+        [Test]
+        public void shold_parse_front_squat_4x20_fr_2()
+        {
+            // arrange
+            const string input = "front squat 4x20-fr(1)";
+
+            // act
+            var result = ParseInput(input);
+            var set = result.Sets.SingleOrDefault();
+
+            // assert
+            Assert.AreEqual("front squat", result.Name);
+            Assert.NotNull(set);
+            Assert.AreEqual(4, set.Reps);
+            Assert.AreEqual(20, set.Weight);
+            Assert.AreEqual(1, set.ForcedReps);
+        }
+
+        [Test]
+        public void shold_parse_front_squat_6x4x20_fr_2()
+        {
+            // arrange
+            const string input = "front squat 6x4x20-fr(2)";
+
+            // act
+            var result = ParseInput(input);
+            var set = result.Sets.FirstOrDefault();
+            var count = result.Sets.Count;
+
+            // assert
+            Assert.AreEqual("front squat", result.Name);
+            Assert.NotNull(set);
+            Assert.AreEqual(6, count);
+            Assert.AreEqual(4, set.Reps);
+            Assert.AreEqual(20, set.Weight);
+            Assert.AreEqual(2, set.ForcedReps);
         }
     }
 }

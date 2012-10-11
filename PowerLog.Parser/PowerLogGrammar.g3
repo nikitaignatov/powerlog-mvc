@@ -1,0 +1,102 @@
+﻿grammar PowerLogGrammar;
+
+
+options {
+  language = CSharp3;
+}
+
+
+@lexer::namespace{PowerLog.Parser}
+@parser::namespace{PowerLog.Parser}
+@parser::header {
+using System.Globalization;
+using System.Linq;
+}
+
+
+annotatedSet  returns [ICollection<Set> result]
+	  @init
+	  {
+			var temp= new Set{};
+			$result = new List<Set>();
+	  }
+      :   set ( (note {temp.Comment=$note.message;})
+				| (forced {temp.ForcedReps=$forced.Reps;})
+				| (flag {temp.AddFlag($flag.text);}))*
+	  {
+			foreach (var s in $set.result)
+			{
+				temp.Reps=s.Reps;
+				temp.Weight=s.Weight;
+				$result.Add(temp.Return());
+			}
+	  }   
+      ; 
+
+set   returns [ICollection<Set> result]
+	  @init
+	  {
+			$result = new List<Set>();
+	  }
+      :   sets X reps X weight				{$result.AddRange($sets.num, new Set{ Reps= $reps.num,  Weight=$weight.num }.Return());}    
+      |   reps X weight						{$result.Add(new Set{ Reps= $reps.num,  Weight=$weight.num }.Return());}    
+      |   weight							{$result.Add(new Set{ Reps= 1,			Weight=$weight.num }.Return());}      
+      ;
+
+public exercise  returns [Log result]
+      @init
+      {
+    		$result = new Log();
+      }
+      : text { $result.Name= $text.text;} (WS+ annotatedSet {$result.Sets.AddRange($annotatedSet.result);})+ 
+      ;
+      
+flag   returns [string text]
+      : '-'! f=(MAX|FTL|TF) {$text=$f.Text;}
+      ; 
+      
+note   returns [string message]
+      : '-' NOTE '(' text ')' {$message=$text.text;}
+      ;
+      
+forced returns [int Reps]
+      : '-' FR '(' reps ')'  {$Reps=$reps.num;}
+      ;
+      
+text  returns [string text]
+      : a=WORD{$text = $a.Text;} (WS!+ b=WORD {$text +=" " + $b.Text;})*
+      ;
+      
+weight  returns [double num]
+      : n=(FLOAT|NUMBER) {$num = double.Parse($n.Text,NumberStyles.Float, CultureInfo.InvariantCulture);};
+      
+reps  returns [int num]
+      : NUMBER {$num = int.Parse($NUMBER.Text);};
+      
+sets  returns [int num]
+      : NUMBER {$num = int.Parse($NUMBER.Text);};
+
+// lexer
+
+NUMBER: '0'..'9'+; 
+FLOAT
+      :   ('0'..'9')+ '.' ('0'..'9')*     
+      |   '.' ('0'..'9')+ 
+      ;      
+      
+X     : 'x';
+
+MAX   : 'max';  //  max effort
+FTL   : 'ftl';  //  failed to lift
+FR    : 'fr';   //  forced reps
+TF    : 'tf';   //  to failure
+NOTE  : 'note'; //  note
+
+fragment LETTER
+      : 'a'..'z';
+      
+WORD  :  LETTER(LETTER)*
+      ;
+
+WS    : (' ' | '\t' | '\n' | '\r' | '\f')+ 
+      ;

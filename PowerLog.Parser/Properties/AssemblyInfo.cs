@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("PowerLog.Parser")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Simple Vision")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("PowerLog.Parser")]
-[assembly: AssemblyCopyright("Copyright © Simple Vision 2012")]
+[assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e73cdd6c-94ec-4b27-8fcd-0dd70e3e68a8")]
+[assembly: Guid("5e08c5c6-c716-46d4-85b4-bd410771fffa")]
 
 // Version information for an assembly consists of the following four values:
 //
