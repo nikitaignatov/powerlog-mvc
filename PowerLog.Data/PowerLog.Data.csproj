@@ -31,8 +31,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Sprache">
+      <HintPath>..\packages\Sprache.1.10.0.11\lib\net40\Sprache.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,6 +54,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="random.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PowerLog.Model\PowerLog.Model.csproj">
+      <Project>{8cb9ab41-50ea-42e4-a1ad-687991d999db}</Project>
+      <Name>PowerLog.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PowerLog.Parser\PowerLog.Parser.csproj">
+      <Project>{033b5d5a-6f6d-43fc-bb5b-e9325ca16c9a}</Project>
+      <Name>PowerLog.Parser</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

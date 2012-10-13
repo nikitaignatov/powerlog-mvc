@@ -1,13 +1,101 @@
-﻿@if (Request.IsAuthenticated) {
+﻿@if (Request.IsAuthenticated)
+{
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account
+                <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="@Url.Action("Manage", "Account")"><i class="picons-16-basic2-253"></i>
+                    Edit Profile
+                </a>
+            </li>
+            <li>
+                <a href="/account/subscription"><i class="picons-16-basic2-014"></i>
+                    Subscription & Billing Info
+                </a>
+
+            </li>
+            <li>
+                <a href="/account/members"><i class="picons-16-basic2-106"></i>
+                    Users
+                </a>
+
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="/account/locations"><i class="picons-16-basic2-056"></i>
+                    Locations
+                </a>
+
+            </li>
+            <li>
+                <a href="/vendors"><i class="picons-16-basic2-258"></i>
+                    Vendors
+                </a>
+
+            </li>
+            <li>
+                <a href="/vehicles/service_types"><i class="picons-16-basic2-291"></i>
+                    Service Types
+                </a>
+
+            </li>
+        </ul>
+    </li>
+    <li class="dropdown" id="nav-user">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <img alt="Gravatar" src="https://secure.gravatar.com/avatar/fcfb41eb9763ccac3e72ffbe031abfbe.png?d=mm&amp;r=R&amp;s=18" style="vertical-align: top;">
+            @User.Identity.Name
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li class="">
+                <a href="/4ef1a28fbc/welcome"><i class="picons-16-basic2-031"></i>
+                    Welcome
+                </a>
+
+            </li>
+            <li class="divider"></li>
+            @*  <li>@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                    {
+                    @Html.AntiForgeryToken()
+                    <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                    }
+                    <a href="https://secure.fleetio.com/logout"><i class="picons-16-basic2-171"></i>
+                        Log out
+                    </a></li>*@
+        </ul>
+    </li>
+    <li id="nav-help">
+        <a href="/help/" rel="facebox"><i class="picons-16-white-basic2-004"></i>Help
+        </a></li>@*
     <text>
-        Hello, @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
-        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
+    Hello, !
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        {
             @Html.AntiForgeryToken()
             <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
         }
-    </text>
-} else {
-    <ul>
+    </text> *@
+}
+else
+{
+    @*<ul class="nav">
+                    <li class="menu open">
+                        <a class="menu login button" href="http://vi.sualize.us/register/">Join now</a>
+                        <div class="menu-dropdown login-account">
+                            <a rel="popup" class="button facebook" href="http://vi.sualize.us/login/facebook/?popup">
+                                Using Facebook                                <span class="icons facebook"></span>
+                            </a>
+                            <a rel="popup" class="button twitter" href="http://vi.sualize.us/login/twitter/?popup">
+                                Using Twitter                                <span class="icons twitter"></span>
+                            </a>
+                            <a class="normal" href="http://vi.sualize.us/register/">or using a password</a>
+                        </div>
+                    </li>
+                </ul>*@
+    <ul class="nav">
         <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>

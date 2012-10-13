@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PowerLog;
-using PowerLog.Controllers;
+using PowerLog.Web;
+using PowerLog.Web.Controllers;
 
 namespace PowerLog.Tests.Controllers
 {

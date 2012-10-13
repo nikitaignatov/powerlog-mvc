@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Antlr.Runtime;
+using Antlr.Runtime.Tree;
 
 namespace PowerLog.Parser
 {
@@ -10,6 +11,8 @@ namespace PowerLog.Parser
    {
        public static Log ParseInput(string input)
        {
+           input = input.ToLowerInvariant();
+
            var cStream = new ANTLRStringStream(input);
            var lexer = new PowerLogGrammarLexer(cStream);
            var tStream = new CommonTokenStream(lexer);
@@ -18,6 +21,14 @@ namespace PowerLog.Parser
            var log = res.result;
            log.OriginalInput = input;
            return log.Return();
+       }
+
+
+       public static CommonTree Convert(string input)
+       {
+           var lexer = new PowerLogASTLexer(new ANTLRStringStream(input));
+           var parser = new PowerLogASTParser(new CommonTokenStream(lexer));
+           return parser.evaluate().Tree;
        }
     }
 }

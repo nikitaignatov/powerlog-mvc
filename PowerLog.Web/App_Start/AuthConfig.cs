@@ -18,15 +18,15 @@ namespace PowerLog.Web
             //    clientId: "",
             //    clientSecret: "");
 
-            //OAuthWebSecurity.RegisterTwitterClient(
-            //    consumerKey: "",
-            //    consumerSecret: "");
+            OAuthWebSecurity.RegisterTwitterClient(
+                consumerKey: "MtgnhFefAWmyDniRjm9TA",
+                consumerSecret: "Lu9PrdPXyBoKN33oj8dKOoJ61uXRjyV4wYTxY8T4");
 
             //OAuthWebSecurity.RegisterFacebookClient(
             //    appId: "",
             //    appSecret: "");
 
-            //OAuthWebSecurity.RegisterGoogleClient();
+            OAuthWebSecurity.RegisterGoogleClient();
         }
     }
 }

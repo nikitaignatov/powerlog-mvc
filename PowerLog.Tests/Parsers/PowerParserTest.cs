@@ -15,7 +15,25 @@ namespace PowerLog.Tests.Parsers
         {
             return PowerLogParser.ParseInput(input);
         }
+        
+        [Test]
+        public void shold_parse_row_LP_stirrups_RP_12x17()
+        {
+            // arrange
+            const string input = "row (stirrups) 12x17";
 
+            // act
+            var result = ParseInput(input);
+            var set = result.Sets.SingleOrDefault();
+
+            // assert
+            Assert.AreEqual("row (stirrups)", result.Name);
+            Assert.NotNull(set);
+            Assert.AreEqual(12, set.Reps);
+            Assert.AreEqual(17, set.Weight);
+        }
+
+        
         [Test]
         public void shold_parse_front_squat_2x20()
         {

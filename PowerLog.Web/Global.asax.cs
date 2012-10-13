@@ -18,6 +18,7 @@ namespace PowerLog.Web
         {
             AreaRegistration.RegisterAllAreas();
 
+            ViewEngineConfig.RegisterEngines(ViewEngines.Engines);
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
