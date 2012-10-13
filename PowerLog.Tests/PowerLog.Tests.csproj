@@ -118,9 +118,9 @@
       <Project>{033b5d5a-6f6d-43fc-bb5b-e9325ca16c9a}</Project>
       <Name>PowerLog.Parser</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PowerLog\PowerLog.csproj">
-      <Project>{87B3A2EE-5E71-424F-A64B-515945307BA1}</Project>
-      <Name>PowerLog</Name>
+    <ProjectReference Include="..\PowerLog.Web\PowerLog.Web.csproj">
+      <Project>{22257790-882b-47c2-b450-8489c4fe6f15}</Project>
+      <Name>PowerLog.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

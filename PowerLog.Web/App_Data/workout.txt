@@ -1,0 +1,53 @@
+﻿#
+2012-07-06, barbell bench press 5x70 5x85 2x95-max 6x80 5x80
+2012-07-06, dumbbell incline bench press 5x30
+2012-07-06, barbell bench press 8x3x60-note(speed work)
+2012-07-06, dumbbell incline fly 10x14 8x18 6x20
+2012-07-06, cable pushdown 12x30 8x35 4x40-max 6x35 8x32 6x32 8x30
+#
+2012-08-29,barbell bench press 102-note(easy)
+#
+2012-09-12,barbell bench press 2x100-note(easy) 105-note(forholdsvis tungt) 107.5-max-note(spotter holdte fast i stangen)
+#
+2012-09-25,cable pulldown 12x45 12x55 12x65 10x75 8x85 6x95 6x105 8x85
+#
+2012-09-27,barbell bench press 3x20 3x40 3x60 3x80 3x90 3x95 3x100-max
+2012-09-27,barbell incline bench press 12x40 10x50 10x60 8x70-max 6x70 6x60
+2012-09-27,dumbbell fly 12x14 10x18 5x24 5x22 5x6x18
+#
+2012-09-27,barbell front squat 3x40 3x60 1x80-max-ftl
+#
+2012-09-29,barbell bench press 3x60 3x70 3x80 3x90-max 2x100-max 4x100-max
+2012-09-29,barbell close grip bench press 10x60 8x60
+2012-09-29,dumbbell fly 5x16 5x22 5x22 5x22 5x24-max 5x24-max 5x24-max 5x22 12x14 12x14
+2012-09-29,cable pushdown 4x47-max 6x45 8x42 8x40 8x37 8x35 8x32 8x32
+#
+2012-09-29,dumbbell seated rear lateral raise 12x5 12x6 12x6 10x7 10x7 10x7 8x8 8x8
+2012-09-29,cable rear delt row stirrups 12x17 12x17 12x17
+2012-09-29,barbell upright row 12x20 12x20 12x20
+#
+2012-09-30,barbell front squat 5x20 5x30 5x60 3x70 80-note(to parallel)-max 85-note(to parallel)-max 90-note(to parallel)-max 90-note(helt ned, failede da kom lidt over parallel)-max-ftl
+2012-09-30,cable pulldown 10x60 10x65 10x70 8x75 8x80 6x90 6x95 4x105-max 6x110-max
+2012-09-30,lever narrow grip seated row plate loaded 20x40
+#
+2012-10-01,dumbbell shoulder press 10x16 10x20 10x24 10x28 6x30 8x26
+2012-10-01,dumbbell front raise 10x5 10x5 10x5 10x5
+2012-10-01,dumbbell lateral raise 10x6 10x6 10x7 10x7 10x7 10x7
+2012-10-01,dumbbell rear lateral raise 8x7 10x6 12x6 12x6 8x6
+2012-10-01,barbell upright row 10x20 10x25 10x30 8x35
+2012-10-01,sled leg press 8x1 8x2 8x3 6x3
+2012-10-01,lever seated leg curl 8x45 8x50 8x55
+2012-10-01,lever leg extension 8x40 8x45 8x50 8x55 8x60
+#
+2012-10-03,dumbbell incline bench press 5x18 5x24 3x32 3x38 4x42-max 8x38-max 5x38-max-tf
+2012-10-03,dumbbell fly 5x22 5x22 5x22 5x22 5x24-max 4x26-max 4x24-max 8x20-max 10x18-max 5x18-tf
+2012-10-03,barbell upright row 12x22.5 12x27.5 12x32.5 12x37.5
+2012-10-03,dumbbell lateral raise 12x6 12x6 12x6 12x7 12x7 12x7
+2012-10-03,dumbbell rear lateral raise 12x6 12x6 12x6 12x6 12x6 12x6
+#
+2012-10-04,barbell front squat 5x40 5x50 5x60 6x70-tf 10x50 80 92-ftl
+2012-10-04,cable pulldown 10x70 10x80 10x90 8x95 8x100
+2012-10-04,cable seated row 12x40 12x50 8x60
+#
+2012-10-05,dumbbell incline bench press 5x18 5x24 5x24 8x38-max 9x38-max-tf 7x38-max-tf 9x34 7x34-tf
+2012-10-05,dumbbell fly 6x20 5x20 12x14 12x14 12x14 10x14 12x14 11x14

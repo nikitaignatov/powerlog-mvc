@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model.cs" />
+    <Compile Include="Generated\PowerLogASTLexer.cs" />
+    <Compile Include="Generated\PowerLogASTParser.cs" />
     <Compile Include="PowerLogGrammarLexer.cs">
       <DependentUpon>PowerLogGrammar.g3</DependentUpon>
     </Compile>

@@ -1,0 +1,234 @@
+﻿@model IEnumerable<PowerLog.Model.LoggedExercise>
+
+
+
+@{
+    var totalVolume = Model.Sum(x => x.Reps * x.Weight);
+    var totalLifts = Model.Sum(x => x.Reps);
+    var avgRepPerSet = Model.Any() ? Model.Average(x => x.Reps) : 0;
+
+    var maxLifts = Model.Where(x => x.MaxEffort).Sum(x => x.Reps);
+    var fails = Model.Count(x => x.FailedToLift);
+    var maxSets = Model.Count(x => x.MaxEffort);
+
+    var pushVolume = Model.Where(x => x.Exercise.Force == "Push").Sum(x => x.Reps * x.Weight);
+    var pullVolume = Model.Where(x => x.Exercise.Force == "Pull").Sum(x => x.Reps * x.Weight);
+    var pushLifts = Model.Where(x => x.Exercise.Force == "Push").Sum(x => x.Reps);
+    var pullLifts = Model.Where(x => x.Exercise.Force == "Pull").Sum(x => x.Reps);
+
+    var compoundVolume = Model.Where(x => x.Exercise.Mechanics == "Compound").Sum(x => x.Reps * x.Weight);
+    var isolatedVolume = Model.Where(x => x.Exercise.Mechanics == "Isolated").Sum(x => x.Reps * x.Weight);
+    var compoundLifts = Model.Where(x => x.Exercise.Mechanics == "Compound").Sum(x => x.Reps);
+    var isolatedLifts = Model.Where(x => x.Exercise.Mechanics == "Isolated").Sum(x => x.Reps);
+}
+
+
+<h2>@ViewBag.Title / @(string.Join(", ", Model.GroupBy(x=>x.Exercise.BodyPart).OrderByDescending(x => x.Sum(y => y.Weight * y.Reps)).Select(x=>x.Key).Take(3)))</h2>
+
+
+
+<div class="well">
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="stat-block">
+                <h6 class="stat-heading">Total Volume</h6>
+                <h3>@totalVolume.ToString("#,0")
+                    <small>kg</small>
+                </h3>
+
+            </div>
+        </div>
+        <div class="span6">
+            <div class="stat-block">
+                <h6 class="stat-heading">Push / Pull - Volume</h6>
+                <h3>
+                    @pushVolume.ToString("#,0") <small>kg</small> / 
+                        @pullVolume.ToString("#,0") <small>kg</small>
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="stat-block">
+                <h6 class="stat-heading">Average Reps</h6>
+                <h3>@avgRepPerSet.ToString("0.#")
+                </h3>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="stat-block">
+                <h6 class="stat-heading">Push / Pull - Lifts</h6>
+                <h3>@pushLifts.ToString("#,0") / @pullLifts.ToString("#,0")</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="stat-block">
+                <h6 class="stat-heading">Total Lifts / Failed Lifts</h6>
+                <h3>@totalLifts / @fails
+                </h3>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="stat-block">
+                <h6 class="stat-heading">Compound / Isolated - Lifts</h6>
+                <h3>@compoundLifts / @isolatedLifts</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="stat-block">
+                <h6 class="stat-heading">Max Sets / Max Lifts</h6>
+                <h3>@maxSets / @maxLifts</h3>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="stat-block">
+                <h6 class="stat-heading">Compound / Isolated - Volume</h6>
+                <h3>
+                    @compoundVolume.ToString("#,0") <small>kg</small> /
+                        @isolatedVolume.ToString("#,0") <small>kg</small>
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table class="table table-bordered table-condensed table-hover">
+    <thead>
+        <tr>
+            <th>Max Effort</th>
+            <th>Actual</th>
+            <th>Calculated 1 rep MAX</th>
+        </tr>
+    </thead>
+    @foreach (var exercises in Model.Where(x => !x.FailedToLift).GroupBy(x => x.Exercise).OrderByDescending(x => x.Max(y => y.OneRepMax)))
+    {
+        var set = exercises.OrderByDescending(x => x.OneRepMax).FirstOrDefault();
+        
+        <tr>
+            <td>
+                @exercises.Key.Name
+            </td>
+            <td>
+                @set.Reps x  @set.Weight kg
+            </td>
+            <td>
+                <strong>@set.OneRepMax</strong>   kg
+            </td>
+        </tr>
+    }
+    <thead>
+        <tr>
+            <th>Exercise type</th>
+            <th>Lifts</th>
+            <th>Load</th>
+        </tr>
+    </thead>
+    @foreach (var exercises in Model.GroupBy(x => x.Exercise.Mechanics).OrderByDescending(x => x.Sum(y => y.Weight / y.Reps)))
+    {
+        <tr>
+            <td>
+                @exercises.Key
+            </td>
+            <td>
+                @exercises.Sum(x => x.Reps)
+            </td>
+            <td>
+                @exercises.Sum(x => x.Weight * x.Reps) kg
+            </td>
+        </tr>        
+    }
+    <thead>
+        <tr>
+            <th colspan="3">Exercise Volume</th>
+        </tr>
+    </thead>
+    @foreach (var exercises in Model.GroupBy(x => x.Exercise).OrderByDescending(x => x.Sum(y => y.Weight / y.Reps)))
+    {
+        <tr>
+            <td>
+                @exercises.Key.Name
+            </td>
+            <td>
+                @exercises.Sum(x => x.Reps)
+            </td>
+            <td>
+                @exercises.Sum(x => x.Weight * x.Reps) kg
+            </td>
+        </tr>
+        
+    }
+    <thead>
+        <tr class="info">
+            <th colspan="3">Force</th>
+        </tr>
+    </thead>
+    @foreach (var exercises in Model.GroupBy(x => x.Exercise.Force).OrderByDescending(x => x.Sum(y => y.Weight / y.Reps)))
+    {
+        <tr>
+            <td>
+                @exercises.Key
+            </td>
+            <td>
+                @exercises.Sum(x => x.Reps)
+            </td>
+            <td>
+                @exercises.Sum(x => x.Weight * x.Reps) kg
+            </td>
+        </tr>        
+    }
+    <thead>
+        <tr class="info">
+            <th colspan="3">Bodypart</th>
+        </tr>
+    </thead>
+    @foreach (var exercises in Model.GroupBy(x => x.Exercise.BodyPart).OrderByDescending(x => x.Sum(y => y.Weight / y.Reps)))
+    {
+        <tr>
+            <td>
+                @exercises.Key
+            </td>
+            <td>
+                @exercises.Sum(x => x.Reps)
+            </td>
+            <td>
+                @exercises.Sum(x => x.Weight * x.Reps) kg
+            </td>
+        </tr>        
+    }
+    <thead>
+        <tr class="info">
+            <th colspan="3">Other</th>
+        </tr>
+    </thead>
+    <tr>
+        <td>Max effort lifts
+        </td>
+        <td colspan="2">
+            @Model.Where(x => x.MaxEffort).Sum(x => x.Reps)
+        </td>
+    </tr>
+    <tr>
+        <td>Failed to lift
+        </td>
+        <td colspan="2">
+            @Model.Where(x => x.FailedToLift).Sum(x => x.Reps)
+        </td>
+    </tr>
+</table>
