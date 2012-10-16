@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -51,20 +52,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KillStonesWithBirds.cs" />
     <Compile Include="Model.cs" />
-    <Compile Include="Generated\PowerLogASTLexer.cs" />
-    <Compile Include="Generated\PowerLogASTParser.cs" />
+    <Compile Include="Generated\PowerLogASTLexer.cs">
+      <DependentUpon>Generated\PowerLogAST.g3</DependentUpon>
+    </Compile>
     <Compile Include="PowerLogGrammarLexer.cs">
       <DependentUpon>PowerLogGrammar.g3</DependentUpon>
     </Compile>
     <Compile Include="PowerLogGrammarParser.cs">
       <DependentUpon>PowerLogGrammar.g3</DependentUpon>
     </Compile>
+    <Compile Include="Generated\PowerLogASTParser.cs">
+      <DependentUpon>Generated\PowerLogAST.g3</DependentUpon>
+    </Compile>
     <Compile Include="PowerLogParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TexasRanger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PowerLogGrammar.g3" />
+    <None Include="Generated\PowerLogAST.g3" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -74,7 +82,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>java -cp "$(ProjectDir)antlr-3.4-complete.jar" org.antlr.Tool "$(ProjectDir)PowerLogGrammar.g3</PreBuildEvent>
+    <PreBuildEvent>java -cp "$(ProjectDir)antlr-3.4-complete.jar" org.antlr.Tool "$(ProjectDir)PowerLogGrammar.g3
+java -cp "$(ProjectDir)antlr-3.4-complete.jar" org.antlr.Tool "$(ProjectDir)Generated\PowerLogAST.g3</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>

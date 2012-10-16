@@ -2,12 +2,65 @@
 
 @{
     ViewBag.Title = "Dashboard";
-}
 
+    var total = Model.Where(x => x.Date.Date == DateTime.Now.Date).Sum(x => x.Reps);
+    var data = string.Join(",", Model.Where(x => x.Date.Date == DateTime.Now.Date).GroupBy(x => x.Exercise.Name).Select(x => string.Format(@"[""{0}"",{1}]", x.Key, x.Sum(y => y.Reps * 1.0) / total * 100)));
+}
+@total
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryui")
+
+    <script src="/Scripts/js/highcharts.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            var chart;
+            $(document).ready(function () {
+                chart = new Highcharts.Chart({
+                    chart: {
+                        renderTo: 'container',
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false
+                    },
+                    title: {
+                        text: 'Browser market shares at a specific website, 2010'
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.percentage}%</b>',
+                        percentageDecimals: 1
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: false,
+                                color: '#000000',
+                                connectorColor: '#000000',
+                                formatter: function () {
+                                    return '<b>' + this.point.name + '</b>: ' + this.percentage + ' %';
+                                }
+                            },
+                            showInLegend: true
+
+                        }
+                    },
+                    series: [{
+                        type: 'pie',
+                        name: 'Browser share',
+                        data: [
+                           @Html.Raw(data)
+                        ]
+                    }]
+                });
+            });
+
+        });
+    </script>
 }
+
+<div id="container"></div>
 
 <div class="container-fluid">
     <div class="row-fluid">

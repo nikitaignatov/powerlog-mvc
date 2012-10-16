@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.4 C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3 2012-10-13 15:54:26
+// $ANTLR 3.4 C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3 2012-10-16 17:19:14
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -31,20 +31,21 @@ namespace PowerLog.Parser
 public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 {
 	public const int EOF=-1;
-	public const int T__15=15;
 	public const int T__16=16;
 	public const int T__17=17;
-	public const int FLOAT=4;
-	public const int FR=5;
-	public const int FTL=6;
-	public const int LETTER=7;
-	public const int MAX=8;
-	public const int NOTE=9;
-	public const int NUMBER=10;
-	public const int TF=11;
-	public const int WORD=12;
-	public const int WS=13;
-	public const int X=14;
+	public const int T__18=18;
+	public const int DIGIT=4;
+	public const int FLOAT=5;
+	public const int FR=6;
+	public const int FTL=7;
+	public const int LETTER=8;
+	public const int MAX=9;
+	public const int NOTE=10;
+	public const int NUMBER=11;
+	public const int TF=12;
+	public const int WORD=13;
+	public const int WS=14;
+	public const int X=15;
 
     // delegates
     // delegators
@@ -72,19 +73,19 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 	partial void EnterRule(string ruleName, int ruleIndex);
 	partial void LeaveRule(string ruleName, int ruleIndex);
 
-	partial void EnterRule_T__15();
-	partial void LeaveRule_T__15();
+	partial void EnterRule_T__16();
+	partial void LeaveRule_T__16();
 
-	// $ANTLR start "T__15"
-	[GrammarRule("T__15")]
-	private void mT__15()
+	// $ANTLR start "T__16"
+	[GrammarRule("T__16")]
+	private void mT__16()
 	{
-		EnterRule_T__15();
-		EnterRule("T__15", 1);
-		TraceIn("T__15", 1);
+		EnterRule_T__16();
+		EnterRule("T__16", 1);
+		TraceIn("T__16", 1);
 		try
 		{
-			int _type = T__15;
+			int _type = T__16;
 			int _channel = DefaultTokenChannel;
 			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:9:7: ( '(' )
 			DebugEnterAlt(1);
@@ -100,26 +101,26 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__15", 1);
-			LeaveRule("T__15", 1);
-			LeaveRule_T__15();
+			TraceOut("T__16", 1);
+			LeaveRule("T__16", 1);
+			LeaveRule_T__16();
 		}
 	}
-	// $ANTLR end "T__15"
+	// $ANTLR end "T__16"
 
-	partial void EnterRule_T__16();
-	partial void LeaveRule_T__16();
+	partial void EnterRule_T__17();
+	partial void LeaveRule_T__17();
 
-	// $ANTLR start "T__16"
-	[GrammarRule("T__16")]
-	private void mT__16()
+	// $ANTLR start "T__17"
+	[GrammarRule("T__17")]
+	private void mT__17()
 	{
-		EnterRule_T__16();
-		EnterRule("T__16", 2);
-		TraceIn("T__16", 2);
+		EnterRule_T__17();
+		EnterRule("T__17", 2);
+		TraceIn("T__17", 2);
 		try
 		{
-			int _type = T__16;
+			int _type = T__17;
 			int _channel = DefaultTokenChannel;
 			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:10:7: ( ')' )
 			DebugEnterAlt(1);
@@ -135,26 +136,26 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__16", 2);
-			LeaveRule("T__16", 2);
-			LeaveRule_T__16();
+			TraceOut("T__17", 2);
+			LeaveRule("T__17", 2);
+			LeaveRule_T__17();
 		}
 	}
-	// $ANTLR end "T__16"
+	// $ANTLR end "T__17"
 
-	partial void EnterRule_T__17();
-	partial void LeaveRule_T__17();
+	partial void EnterRule_T__18();
+	partial void LeaveRule_T__18();
 
-	// $ANTLR start "T__17"
-	[GrammarRule("T__17")]
-	private void mT__17()
+	// $ANTLR start "T__18"
+	[GrammarRule("T__18")]
+	private void mT__18()
 	{
-		EnterRule_T__17();
-		EnterRule("T__17", 3);
-		TraceIn("T__17", 3);
+		EnterRule_T__18();
+		EnterRule("T__18", 3);
+		TraceIn("T__18", 3);
 		try
 		{
-			int _type = T__17;
+			int _type = T__18;
 			int _channel = DefaultTokenChannel;
 			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:11:7: ( '-' )
 			DebugEnterAlt(1);
@@ -170,12 +171,54 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__17", 3);
-			LeaveRule("T__17", 3);
-			LeaveRule_T__17();
+			TraceOut("T__18", 3);
+			LeaveRule("T__18", 3);
+			LeaveRule_T__18();
 		}
 	}
-	// $ANTLR end "T__17"
+	// $ANTLR end "T__18"
+
+	partial void EnterRule_DIGIT();
+	partial void LeaveRule_DIGIT();
+
+	// $ANTLR start "DIGIT"
+	[GrammarRule("DIGIT")]
+	private void mDIGIT()
+	{
+		EnterRule_DIGIT();
+		EnterRule("DIGIT", 4);
+		TraceIn("DIGIT", 4);
+		try
+		{
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:90:5: ( '\\u0030' .. '\\u0039' | '\\u0660' .. '\\u0669' | '\\u06f0' .. '\\u06f9' | '\\u0966' .. '\\u096f' | '\\u09e6' .. '\\u09ef' | '\\u0a66' .. '\\u0a6f' | '\\u0ae6' .. '\\u0aef' | '\\u0b66' .. '\\u0b6f' | '\\u0be7' .. '\\u0bef' | '\\u0c66' .. '\\u0c6f' | '\\u0ce6' .. '\\u0cef' | '\\u0d66' .. '\\u0d6f' | '\\u0e50' .. '\\u0e59' | '\\u0ed0' .. '\\u0ed9' | '\\u1040' .. '\\u1049' )
+			DebugEnterAlt(1);
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
+			{
+			DebugLocation(90, 5);
+			if ((input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='\u0660' && input.LA(1)<='\u0669')||(input.LA(1)>='\u06F0' && input.LA(1)<='\u06F9')||(input.LA(1)>='\u0966' && input.LA(1)<='\u096F')||(input.LA(1)>='\u09E6' && input.LA(1)<='\u09EF')||(input.LA(1)>='\u0A66' && input.LA(1)<='\u0A6F')||(input.LA(1)>='\u0AE6' && input.LA(1)<='\u0AEF')||(input.LA(1)>='\u0B66' && input.LA(1)<='\u0B6F')||(input.LA(1)>='\u0BE7' && input.LA(1)<='\u0BEF')||(input.LA(1)>='\u0C66' && input.LA(1)<='\u0C6F')||(input.LA(1)>='\u0CE6' && input.LA(1)<='\u0CEF')||(input.LA(1)>='\u0D66' && input.LA(1)<='\u0D6F')||(input.LA(1)>='\u0E50' && input.LA(1)<='\u0E59')||(input.LA(1)>='\u0ED0' && input.LA(1)<='\u0ED9')||(input.LA(1)>='\u1040' && input.LA(1)<='\u1049'))
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("DIGIT", 4);
+			LeaveRule("DIGIT", 4);
+			LeaveRule_DIGIT();
+		}
+	}
+	// $ANTLR end "DIGIT"
 
 	partial void EnterRule_NUMBER();
 	partial void LeaveRule_NUMBER();
@@ -185,18 +228,18 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 	private void mNUMBER()
 	{
 		EnterRule_NUMBER();
-		EnterRule("NUMBER", 4);
-		TraceIn("NUMBER", 4);
+		EnterRule("NUMBER", 5);
+		TraceIn("NUMBER", 5);
 		try
 		{
 			int _type = NUMBER;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:81:7: ( ( '0' .. '9' )+ )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:106:7: ( ( '0' .. '9' )+ )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:81:9: ( '0' .. '9' )+
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:106:9: ( '0' .. '9' )+
 			{
-			DebugLocation(81, 9);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:81:9: ( '0' .. '9' )+
+			DebugLocation(106, 9);
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:106:9: ( '0' .. '9' )+
 			int cnt1=0;
 			try { DebugEnterSubRule(1);
 			while (true)
@@ -218,7 +261,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 					DebugEnterAlt(1);
 					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
 					{
-					DebugLocation(81, 9);
+					DebugLocation(106, 9);
 					input.Consume();
 
 
@@ -248,8 +291,8 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("NUMBER", 4);
-			LeaveRule("NUMBER", 4);
+			TraceOut("NUMBER", 5);
+			LeaveRule("NUMBER", 5);
 			LeaveRule_NUMBER();
 		}
 	}
@@ -263,13 +306,13 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 	private void mFLOAT()
 	{
 		EnterRule_FLOAT();
-		EnterRule("FLOAT", 5);
-		TraceIn("FLOAT", 5);
+		EnterRule("FLOAT", 6);
+		TraceIn("FLOAT", 6);
 		try
 		{
 			int _type = FLOAT;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:83:7: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* | '.' ( '0' .. '9' )+ )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:108:7: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* | '.' ( '0' .. '9' )+ )
 			int alt5=2;
 			try { DebugEnterDecision(5, false);
 			int LA5_0 = input.LA(1);
@@ -293,10 +336,10 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:83:11: ( '0' .. '9' )+ '.' ( '0' .. '9' )*
+				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:108:11: ( '0' .. '9' )+ '.' ( '0' .. '9' )*
 				{
-				DebugLocation(83, 11);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:83:11: ( '0' .. '9' )+
+				DebugLocation(108, 11);
+				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:108:11: ( '0' .. '9' )+
 				int cnt2=0;
 				try { DebugEnterSubRule(2);
 				while (true)
@@ -318,7 +361,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 						DebugEnterAlt(1);
 						// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
 						{
-						DebugLocation(83, 11);
+						DebugLocation(108, 11);
 						input.Consume();
 
 
@@ -340,10 +383,10 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 
 				} finally { DebugExitSubRule(2); }
 
-				DebugLocation(83, 23);
+				DebugLocation(108, 23);
 				Match('.'); 
-				DebugLocation(83, 27);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:83:27: ( '0' .. '9' )*
+				DebugLocation(108, 27);
+				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:108:27: ( '0' .. '9' )*
 				try { DebugEnterSubRule(3);
 				while (true)
 				{
@@ -364,7 +407,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 						DebugEnterAlt(1);
 						// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
 						{
-						DebugLocation(83, 27);
+						DebugLocation(108, 27);
 						input.Consume();
 
 
@@ -386,12 +429,12 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:84:11: '.' ( '0' .. '9' )+
+				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:109:11: '.' ( '0' .. '9' )+
 				{
-				DebugLocation(84, 11);
+				DebugLocation(109, 11);
 				Match('.'); 
-				DebugLocation(84, 15);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:84:15: ( '0' .. '9' )+
+				DebugLocation(109, 15);
+				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:109:15: ( '0' .. '9' )+
 				int cnt4=0;
 				try { DebugEnterSubRule(4);
 				while (true)
@@ -413,7 +456,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 						DebugEnterAlt(1);
 						// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
 						{
-						DebugLocation(84, 15);
+						DebugLocation(109, 15);
 						input.Consume();
 
 
@@ -445,8 +488,8 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("FLOAT", 5);
-			LeaveRule("FLOAT", 5);
+			TraceOut("FLOAT", 6);
+			LeaveRule("FLOAT", 6);
 			LeaveRule_FLOAT();
 		}
 	}
@@ -460,17 +503,17 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 	private void mX()
 	{
 		EnterRule_X();
-		EnterRule("X", 6);
-		TraceIn("X", 6);
+		EnterRule("X", 7);
+		TraceIn("X", 7);
 		try
 		{
 			int _type = X;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:87:7: ( 'x' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:112:7: ( 'x' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:87:9: 'x'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:112:9: 'x'
 			{
-			DebugLocation(87, 9);
+			DebugLocation(112, 9);
 			Match('x'); 
 
 			}
@@ -480,8 +523,8 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("X", 6);
-			LeaveRule("X", 6);
+			TraceOut("X", 7);
+			LeaveRule("X", 7);
 			LeaveRule_X();
 		}
 	}
@@ -495,17 +538,17 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 	private void mMAX()
 	{
 		EnterRule_MAX();
-		EnterRule("MAX", 7);
-		TraceIn("MAX", 7);
+		EnterRule("MAX", 8);
+		TraceIn("MAX", 8);
 		try
 		{
 			int _type = MAX;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:89:7: ( 'max' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:114:7: ( 'max' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:89:9: 'max'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:114:9: 'max'
 			{
-			DebugLocation(89, 9);
+			DebugLocation(114, 9);
 			Match("max"); 
 
 
@@ -516,8 +559,8 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("MAX", 7);
-			LeaveRule("MAX", 7);
+			TraceOut("MAX", 8);
+			LeaveRule("MAX", 8);
 			LeaveRule_MAX();
 		}
 	}
@@ -531,17 +574,17 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 	private void mFTL()
 	{
 		EnterRule_FTL();
-		EnterRule("FTL", 8);
-		TraceIn("FTL", 8);
+		EnterRule("FTL", 9);
+		TraceIn("FTL", 9);
 		try
 		{
 			int _type = FTL;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:90:7: ( 'ftl' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:115:7: ( 'ftl' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:90:9: 'ftl'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:115:9: 'ftl'
 			{
-			DebugLocation(90, 9);
+			DebugLocation(115, 9);
 			Match("ftl"); 
 
 
@@ -552,8 +595,8 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("FTL", 8);
-			LeaveRule("FTL", 8);
+			TraceOut("FTL", 9);
+			LeaveRule("FTL", 9);
 			LeaveRule_FTL();
 		}
 	}
@@ -567,17 +610,17 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 	private void mFR()
 	{
 		EnterRule_FR();
-		EnterRule("FR", 9);
-		TraceIn("FR", 9);
+		EnterRule("FR", 10);
+		TraceIn("FR", 10);
 		try
 		{
 			int _type = FR;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:91:7: ( 'fr' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:116:7: ( 'fr' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:91:9: 'fr'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:116:9: 'fr'
 			{
-			DebugLocation(91, 9);
+			DebugLocation(116, 9);
 			Match("fr"); 
 
 
@@ -588,8 +631,8 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("FR", 9);
-			LeaveRule("FR", 9);
+			TraceOut("FR", 10);
+			LeaveRule("FR", 10);
 			LeaveRule_FR();
 		}
 	}
@@ -603,17 +646,17 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 	private void mTF()
 	{
 		EnterRule_TF();
-		EnterRule("TF", 10);
-		TraceIn("TF", 10);
+		EnterRule("TF", 11);
+		TraceIn("TF", 11);
 		try
 		{
 			int _type = TF;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:92:7: ( 'tf' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:117:7: ( 'tf' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:92:9: 'tf'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:117:9: 'tf'
 			{
-			DebugLocation(92, 9);
+			DebugLocation(117, 9);
 			Match("tf"); 
 
 
@@ -624,8 +667,8 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("TF", 10);
-			LeaveRule("TF", 10);
+			TraceOut("TF", 11);
+			LeaveRule("TF", 11);
 			LeaveRule_TF();
 		}
 	}
@@ -639,17 +682,17 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 	private void mNOTE()
 	{
 		EnterRule_NOTE();
-		EnterRule("NOTE", 11);
-		TraceIn("NOTE", 11);
+		EnterRule("NOTE", 12);
+		TraceIn("NOTE", 12);
 		try
 		{
 			int _type = NOTE;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:93:7: ( 'note' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:118:7: ( 'note' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:93:9: 'note'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:118:9: 'note'
 			{
-			DebugLocation(93, 9);
+			DebugLocation(118, 9);
 			Match("note"); 
 
 
@@ -660,8 +703,8 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("NOTE", 11);
-			LeaveRule("NOTE", 11);
+			TraceOut("NOTE", 12);
+			LeaveRule("NOTE", 12);
 			LeaveRule_NOTE();
 		}
 	}
@@ -675,16 +718,16 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 	private void mLETTER()
 	{
 		EnterRule_LETTER();
-		EnterRule("LETTER", 12);
-		TraceIn("LETTER", 12);
+		EnterRule("LETTER", 13);
+		TraceIn("LETTER", 13);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:96:7: ( 'a' .. 'z' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:123:5: ( '\\u0024' | '\\u0041' .. '\\u005a' | '\\u005f' | '\\u0061' .. '\\u007a' | '\\u00c0' .. '\\u00d6' | '\\u00d8' .. '\\u00f6' | '\\u00f8' .. '\\u00ff' | '\\u0100' .. '\\u1fff' | '\\u3040' .. '\\u318f' | '\\u3300' .. '\\u337f' | '\\u3400' .. '\\u3d2d' | '\\u4e00' .. '\\u9fff' | '\\uf900' .. '\\ufaff' | '.' | ',' | ':' | ';' )
 			DebugEnterAlt(1);
 			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
 			{
-			DebugLocation(96, 7);
-			if ((input.LA(1)>='a' && input.LA(1)<='z'))
+			DebugLocation(123, 5);
+			if (input.LA(1)=='$'||input.LA(1)==','||input.LA(1)=='.'||(input.LA(1)>=':' && input.LA(1)<=';')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z')||(input.LA(1)>='\u00C0' && input.LA(1)<='\u00D6')||(input.LA(1)>='\u00D8' && input.LA(1)<='\u00F6')||(input.LA(1)>='\u00F8' && input.LA(1)<='\u1FFF')||(input.LA(1)>='\u3040' && input.LA(1)<='\u318F')||(input.LA(1)>='\u3300' && input.LA(1)<='\u337F')||(input.LA(1)>='\u3400' && input.LA(1)<='\u3D2D')||(input.LA(1)>='\u4E00' && input.LA(1)<='\u9FFF')||(input.LA(1)>='\uF900' && input.LA(1)<='\uFAFF'))
 			{
 				input.Consume();
 			}
@@ -702,8 +745,8 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("LETTER", 12);
-			LeaveRule("LETTER", 12);
+			TraceOut("LETTER", 13);
+			LeaveRule("LETTER", 13);
 			LeaveRule_LETTER();
 		}
 	}
@@ -717,20 +760,20 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 	private void mWORD()
 	{
 		EnterRule_WORD();
-		EnterRule("WORD", 13);
-		TraceIn("WORD", 13);
+		EnterRule("WORD", 14);
+		TraceIn("WORD", 14);
 		try
 		{
 			int _type = WORD;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:98:7: ( LETTER ( LETTER )* )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:138:7: ( LETTER ( LETTER | DIGIT )* )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:98:10: LETTER ( LETTER )*
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:138:9: LETTER ( LETTER | DIGIT )*
 			{
-			DebugLocation(98, 10);
+			DebugLocation(138, 9);
 			mLETTER(); 
-			DebugLocation(98, 16);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:98:16: ( LETTER )*
+			DebugLocation(138, 15);
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:138:15: ( LETTER | DIGIT )*
 			try { DebugEnterSubRule(6);
 			while (true)
 			{
@@ -738,7 +781,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 				try { DebugEnterDecision(6, false);
 				int LA6_0 = input.LA(1);
 
-				if (((LA6_0>='a' && LA6_0<='z')))
+				if ((LA6_0=='$'||LA6_0==','||LA6_0=='.'||(LA6_0>='0' && LA6_0<=';')||(LA6_0>='A' && LA6_0<='Z')||LA6_0=='_'||(LA6_0>='a' && LA6_0<='z')||(LA6_0>='\u00C0' && LA6_0<='\u00D6')||(LA6_0>='\u00D8' && LA6_0<='\u00F6')||(LA6_0>='\u00F8' && LA6_0<='\u1FFF')||(LA6_0>='\u3040' && LA6_0<='\u318F')||(LA6_0>='\u3300' && LA6_0<='\u337F')||(LA6_0>='\u3400' && LA6_0<='\u3D2D')||(LA6_0>='\u4E00' && LA6_0<='\u9FFF')||(LA6_0>='\uF900' && LA6_0<='\uFAFF')))
 				{
 					alt6 = 1;
 				}
@@ -751,7 +794,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 					DebugEnterAlt(1);
 					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
 					{
-					DebugLocation(98, 16);
+					DebugLocation(138, 15);
 					input.Consume();
 
 
@@ -776,8 +819,8 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("WORD", 13);
-			LeaveRule("WORD", 13);
+			TraceOut("WORD", 14);
+			LeaveRule("WORD", 14);
 			LeaveRule_WORD();
 		}
 	}
@@ -791,18 +834,18 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 	private void mWS()
 	{
 		EnterRule_WS();
-		EnterRule("WS", 14);
-		TraceIn("WS", 14);
+		EnterRule("WS", 15);
+		TraceIn("WS", 15);
 		try
 		{
 			int _type = WS;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:101:7: ( ( ' ' | '\\t' | '\\n' | '\\r' | '\\f' )+ )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:141:7: ( ( ' ' | '\\t' | '\\n' | '\\r' | '\\f' )+ )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:101:9: ( ' ' | '\\t' | '\\n' | '\\r' | '\\f' )+
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:141:9: ( ' ' | '\\t' | '\\n' | '\\r' | '\\f' )+
 			{
-			DebugLocation(101, 9);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:101:9: ( ' ' | '\\t' | '\\n' | '\\r' | '\\f' )+
+			DebugLocation(141, 9);
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:141:9: ( ' ' | '\\t' | '\\n' | '\\r' | '\\f' )+
 			int cnt7=0;
 			try { DebugEnterSubRule(7);
 			while (true)
@@ -824,7 +867,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 					DebugEnterAlt(1);
 					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
 					{
-					DebugLocation(101, 9);
+					DebugLocation(141, 9);
 					input.Consume();
 
 
@@ -854,8 +897,8 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("WS", 14);
-			LeaveRule("WS", 14);
+			TraceOut("WS", 15);
+			LeaveRule("WS", 15);
 			LeaveRule_WS();
 		}
 	}
@@ -863,7 +906,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 
 	public override void mTokens()
 	{
-		// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:8: ( T__15 | T__16 | T__17 | NUMBER | FLOAT | X | MAX | FTL | FR | TF | NOTE | WORD | WS )
+		// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:8: ( T__16 | T__17 | T__18 | NUMBER | FLOAT | X | MAX | FTL | FR | TF | NOTE | WORD | WS )
 		int alt8=13;
 		try { DebugEnterDecision(8, false);
 		try
@@ -880,28 +923,28 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		{
 		case 1:
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:10: T__15
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:10: T__16
 			{
 			DebugLocation(1, 10);
-			mT__15(); 
+			mT__16(); 
 
 			}
 			break;
 		case 2:
 			DebugEnterAlt(2);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:16: T__16
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:16: T__17
 			{
 			DebugLocation(1, 16);
-			mT__16(); 
+			mT__17(); 
 
 			}
 			break;
 		case 3:
 			DebugEnterAlt(3);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:22: T__17
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:22: T__18
 			{
 			DebugLocation(1, 22);
-			mT__17(); 
+			mT__18(); 
 
 			}
 			break;
@@ -1013,55 +1056,81 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 	private class DFA8 : DFA
 	{
 		private const string DFA8_eotS =
-			"\x4\xFFFF\x1\xD\x1\xFFFF\x1\xE\x4\xB\x4\xFFFF\x2\xB\x1\x16\x1\x17\x1"+
-			"\xB\x1\x19\x1\x1A\x2\xFFFF\x1\xB\x2\xFFFF\x1\x1C\x1\xFFFF";
+			"\x4\xFFFF\x1\xD\x1\xB\x1\x10\x4\xB\x4\xFFFF\x1\xE\x1\xFFFF\x2\xB\x1\x18"+
+			"\x1\x19\x1\xB\x1\x1B\x1\x1C\x2\xFFFF\x1\xB\x2\xFFFF\x1\x1E\x1\xFFFF";
 		private const string DFA8_eofS =
-			"\x1D\xFFFF";
+			"\x1F\xFFFF";
 		private const string DFA8_minS =
-			"\x1\x9\x3\xFFFF\x1\x2E\x1\xFFFF\x2\x61\x1\x72\x1\x66\x1\x6F\x4\xFFFF"+
-			"\x1\x78\x1\x6C\x2\x61\x1\x74\x2\x61\x2\xFFFF\x1\x65\x2\xFFFF\x1\x61\x1"+
-			"\xFFFF";
+			"\x1\x9\x3\xFFFF\x1\x2E\x1\x30\x1\x24\x1\x61\x1\x72\x1\x66\x1\x6F\x4\xFFFF"+
+			"\x1\x24\x1\xFFFF\x1\x78\x1\x6C\x2\x24\x1\x74\x2\x24\x2\xFFFF\x1\x65\x2"+
+			"\xFFFF\x1\x24\x1\xFFFF";
 		private const string DFA8_maxS =
-			"\x1\x7A\x3\xFFFF\x1\x39\x1\xFFFF\x1\x7A\x1\x61\x1\x74\x1\x66\x1\x6F\x4"+
-			"\xFFFF\x1\x78\x1\x6C\x2\x7A\x1\x74\x2\x7A\x2\xFFFF\x1\x65\x2\xFFFF\x1"+
-			"\x7A\x1\xFFFF";
+			"\x1\xFAFF\x3\xFFFF\x2\x39\x1\xFAFF\x1\x61\x1\x74\x1\x66\x1\x6F\x4\xFFFF"+
+			"\x1\xFAFF\x1\xFFFF\x1\x78\x1\x6C\x2\xFAFF\x1\x74\x2\xFAFF\x2\xFFFF\x1"+
+			"\x65\x2\xFFFF\x1\xFAFF\x1\xFFFF";
 		private const string DFA8_acceptS =
-			"\x1\xFFFF\x1\x1\x1\x2\x1\x3\x1\xFFFF\x1\x5\x5\xFFFF\x1\xC\x1\xD\x1\x4"+
+			"\x1\xFFFF\x1\x1\x1\x2\x1\x3\x7\xFFFF\x1\xC\x1\xD\x1\x4\x1\x5\x1\xFFFF"+
 			"\x1\x6\x7\xFFFF\x1\x9\x1\xA\x1\xFFFF\x1\x7\x1\x8\x1\xFFFF\x1\xB";
 		private const string DFA8_specialS =
-			"\x1D\xFFFF}>";
+			"\x1F\xFFFF}>";
 		private static readonly string[] DFA8_transitionS =
 			{
-				"\x2\xC\x1\xFFFF\x2\xC\x12\xFFFF\x1\xC\x7\xFFFF\x1\x1\x1\x2\x3\xFFFF"+
-				"\x1\x3\x1\x5\x1\xFFFF\xA\x4\x27\xFFFF\x5\xB\x1\x8\x6\xB\x1\x7\x1\xA"+
-				"\x5\xB\x1\x9\x3\xB\x1\x6\x2\xB",
+				"\x2\xC\x1\xFFFF\x2\xC\x12\xFFFF\x1\xC\x3\xFFFF\x1\xB\x3\xFFFF\x1\x1"+
+				"\x1\x2\x2\xFFFF\x1\xB\x1\x3\x1\x5\x1\xFFFF\xA\x4\x2\xB\x5\xFFFF\x1A"+
+				"\xB\x4\xFFFF\x1\xB\x1\xFFFF\x5\xB\x1\x8\x6\xB\x1\x7\x1\xA\x5\xB\x1\x9"+
+				"\x3\xB\x1\x6\x2\xB\x45\xFFFF\x17\xB\x1\xFFFF\x1F\xB\x1\xFFFF\x1F08\xB"+
+				"\x1040\xFFFF\x150\xB\x170\xFFFF\x80\xB\x80\xFFFF\x92E\xB\x10D2\xFFFF"+
+				"\x5200\xB\x5900\xFFFF\x200\xB",
 				"",
 				"",
 				"",
-				"\x1\x5\x1\xFFFF\xA\x4",
-				"",
-				"\x1A\xB",
-				"\x1\xF",
-				"\x1\x11\x1\xFFFF\x1\x10",
-				"\x1\x12",
-				"\x1\x13",
-				"",
-				"",
-				"",
-				"",
+				"\x1\xE\x1\xFFFF\xA\x4",
+				"\xA\xF",
+				"\x1\xB\x7\xFFFF\x1\xB\x1\xFFFF\x1\xB\x1\xFFFF\xC\xB\x5\xFFFF\x1A\xB"+
+				"\x4\xFFFF\x1\xB\x1\xFFFF\x1A\xB\x45\xFFFF\x17\xB\x1\xFFFF\x1F\xB\x1"+
+				"\xFFFF\x1F08\xB\x1040\xFFFF\x150\xB\x170\xFFFF\x80\xB\x80\xFFFF\x92E"+
+				"\xB\x10D2\xFFFF\x5200\xB\x5900\xFFFF\x200\xB",
+				"\x1\x11",
+				"\x1\x13\x1\xFFFF\x1\x12",
 				"\x1\x14",
 				"\x1\x15",
-				"\x1A\xB",
-				"\x1A\xB",
-				"\x1\x18",
-				"\x1A\xB",
-				"\x1A\xB",
 				"",
 				"",
-				"\x1\x1B",
 				"",
 				"",
-				"\x1A\xB",
+				"\x1\xB\x7\xFFFF\x1\xB\x1\xFFFF\x1\xB\x1\xFFFF\xA\xF\x2\xB\x5\xFFFF"+
+				"\x1A\xB\x4\xFFFF\x1\xB\x1\xFFFF\x1A\xB\x45\xFFFF\x17\xB\x1\xFFFF\x1F"+
+				"\xB\x1\xFFFF\x1F08\xB\x1040\xFFFF\x150\xB\x170\xFFFF\x80\xB\x80\xFFFF"+
+				"\x92E\xB\x10D2\xFFFF\x5200\xB\x5900\xFFFF\x200\xB",
+				"",
+				"\x1\x16",
+				"\x1\x17",
+				"\x1\xB\x7\xFFFF\x1\xB\x1\xFFFF\x1\xB\x1\xFFFF\xC\xB\x5\xFFFF\x1A\xB"+
+				"\x4\xFFFF\x1\xB\x1\xFFFF\x1A\xB\x45\xFFFF\x17\xB\x1\xFFFF\x1F\xB\x1"+
+				"\xFFFF\x1F08\xB\x1040\xFFFF\x150\xB\x170\xFFFF\x80\xB\x80\xFFFF\x92E"+
+				"\xB\x10D2\xFFFF\x5200\xB\x5900\xFFFF\x200\xB",
+				"\x1\xB\x7\xFFFF\x1\xB\x1\xFFFF\x1\xB\x1\xFFFF\xC\xB\x5\xFFFF\x1A\xB"+
+				"\x4\xFFFF\x1\xB\x1\xFFFF\x1A\xB\x45\xFFFF\x17\xB\x1\xFFFF\x1F\xB\x1"+
+				"\xFFFF\x1F08\xB\x1040\xFFFF\x150\xB\x170\xFFFF\x80\xB\x80\xFFFF\x92E"+
+				"\xB\x10D2\xFFFF\x5200\xB\x5900\xFFFF\x200\xB",
+				"\x1\x1A",
+				"\x1\xB\x7\xFFFF\x1\xB\x1\xFFFF\x1\xB\x1\xFFFF\xC\xB\x5\xFFFF\x1A\xB"+
+				"\x4\xFFFF\x1\xB\x1\xFFFF\x1A\xB\x45\xFFFF\x17\xB\x1\xFFFF\x1F\xB\x1"+
+				"\xFFFF\x1F08\xB\x1040\xFFFF\x150\xB\x170\xFFFF\x80\xB\x80\xFFFF\x92E"+
+				"\xB\x10D2\xFFFF\x5200\xB\x5900\xFFFF\x200\xB",
+				"\x1\xB\x7\xFFFF\x1\xB\x1\xFFFF\x1\xB\x1\xFFFF\xC\xB\x5\xFFFF\x1A\xB"+
+				"\x4\xFFFF\x1\xB\x1\xFFFF\x1A\xB\x45\xFFFF\x17\xB\x1\xFFFF\x1F\xB\x1"+
+				"\xFFFF\x1F08\xB\x1040\xFFFF\x150\xB\x170\xFFFF\x80\xB\x80\xFFFF\x92E"+
+				"\xB\x10D2\xFFFF\x5200\xB\x5900\xFFFF\x200\xB",
+				"",
+				"",
+				"\x1\x1D",
+				"",
+				"",
+				"\x1\xB\x7\xFFFF\x1\xB\x1\xFFFF\x1\xB\x1\xFFFF\xC\xB\x5\xFFFF\x1A\xB"+
+				"\x4\xFFFF\x1\xB\x1\xFFFF\x1A\xB\x45\xFFFF\x17\xB\x1\xFFFF\x1F\xB\x1"+
+				"\xFFFF\x1F08\xB\x1040\xFFFF\x150\xB\x170\xFFFF\x80\xB\x80\xFFFF\x92E"+
+				"\xB\x10D2\xFFFF\x5200\xB\x5900\xFFFF\x200\xB",
 				""
 			};
 
@@ -1096,7 +1165,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 			this.transition = DFA8_transition;
 		}
 
-		public override string Description { get { return "1:1: Tokens : ( T__15 | T__16 | T__17 | NUMBER | FLOAT | X | MAX | FTL | FR | TF | NOTE | WORD | WS );"; } }
+		public override string Description { get { return "1:1: Tokens : ( T__16 | T__17 | T__18 | NUMBER | FLOAT | X | MAX | FTL | FR | TF | NOTE | WORD | WS );"; } }
 
 		public override void Error(NoViableAltException nvae)
 		{

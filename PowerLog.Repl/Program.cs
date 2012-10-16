@@ -60,7 +60,9 @@ namespace PowerLog.Repl
                 try
                 {
                     if (!string.IsNullOrEmpty(line))
+                    {
                         Console.WriteLine(PowerLogParser.ParseInput(line));
+                    }
                 }
                 catch (Exception e)
                 {
@@ -70,6 +72,8 @@ namespace PowerLog.Repl
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.Write(@" LOLz haha! ");
                     Console.WriteLine(e.Message);
+                    Console.WriteLine(e.HelpLink);
+                    Console.WriteLine(e.StackTrace);
                     Console.WriteLine();
                     Console.WriteLine();
                     Console.ForegroundColor = ConsoleColor.DarkGreen;

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.4 C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3 2012-10-13 15:54:26
+// $ANTLR 3.4 C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3 2012-10-16 17:19:14
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -39,23 +39,24 @@ namespace PowerLog.Parser
 public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 {
 	internal static readonly string[] tokenNames = new string[] {
-		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "FLOAT", "FR", "FTL", "LETTER", "MAX", "NOTE", "NUMBER", "TF", "WORD", "WS", "X", "'('", "')'", "'-'"
+		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "DIGIT", "FLOAT", "FR", "FTL", "LETTER", "MAX", "NOTE", "NUMBER", "TF", "WORD", "WS", "X", "'('", "')'", "'-'"
 	};
 	public const int EOF=-1;
-	public const int T__15=15;
 	public const int T__16=16;
 	public const int T__17=17;
-	public const int FLOAT=4;
-	public const int FR=5;
-	public const int FTL=6;
-	public const int LETTER=7;
-	public const int MAX=8;
-	public const int NOTE=9;
-	public const int NUMBER=10;
-	public const int TF=11;
-	public const int WORD=12;
-	public const int WS=13;
-	public const int X=14;
+	public const int T__18=18;
+	public const int DIGIT=4;
+	public const int FLOAT=5;
+	public const int FR=6;
+	public const int FTL=7;
+	public const int LETTER=8;
+	public const int MAX=9;
+	public const int NOTE=10;
+	public const int NUMBER=11;
+	public const int TF=12;
+	public const int WORD=13;
+	public const int WS=14;
+	public const int X=15;
 
 	public PowerLogGrammarParser(ITokenStream input)
 		: this(input, new RecognizerSharedState())
@@ -107,7 +108,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 	partial void LeaveRule_annotatedSet();
 
 	// $ANTLR start "annotatedSet"
-	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:17:1: annotatedSet returns [ICollection<Set> result] : set ( ( note ) | ( forced ) | ( flag ) )* ;
+	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:20:1: annotatedSet returns [ICollection<Set> result] : set ( ( note ) | ( forced ) | ( flag ) )* ;
 	[GrammarRule("annotatedSet")]
 	private PowerLogGrammarParser.annotatedSet_return annotatedSet()
 	{
@@ -129,23 +130,23 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 					retval.result = new List<Set>();
 			  
 		try { DebugEnterRule(GrammarFileName, "annotatedSet");
-		DebugLocation(17, 6);
+		DebugLocation(20, 6);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:23:7: ( set ( ( note ) | ( forced ) | ( flag ) )* )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:26:7: ( set ( ( note ) | ( forced ) | ( flag ) )* )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:23:11: set ( ( note ) | ( forced ) | ( flag ) )*
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:26:11: set ( ( note ) | ( forced ) | ( flag ) )*
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(23, 11);
-			PushFollow(Follow._set_in_annotatedSet74);
+			DebugLocation(26, 11);
+			PushFollow(Follow._set_in_annotatedSet77);
 			set1=set();
 			PopFollow();
 
 			adaptor.AddChild(root_0, set1.Tree);
-			DebugLocation(23, 15);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:23:15: ( ( note ) | ( forced ) | ( flag ) )*
+			DebugLocation(26, 15);
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:26:15: ( ( note ) | ( forced ) | ( flag ) )*
 			try { DebugEnterSubRule(1);
 			while (true)
 			{
@@ -153,7 +154,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 				try { DebugEnterDecision(1, false);
 				int LA1_0 = input.LA(1);
 
-				if ((LA1_0==17))
+				if ((LA1_0==18))
 				{
 					switch (input.LA(2))
 					{
@@ -184,20 +185,20 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:23:17: ( note )
+					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:26:17: ( note )
 					{
-					DebugLocation(23, 17);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:23:17: ( note )
+					DebugLocation(26, 17);
+					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:26:17: ( note )
 					DebugEnterAlt(1);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:23:18: note
+					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:26:18: note
 					{
-					DebugLocation(23, 18);
-					PushFollow(Follow._note_in_annotatedSet79);
+					DebugLocation(26, 18);
+					PushFollow(Follow._note_in_annotatedSet82);
 					note2=note();
 					PopFollow();
 
 					adaptor.AddChild(root_0, note2.Tree);
-					DebugLocation(23, 23);
+					DebugLocation(26, 23);
 					temp.Comment=(note2!=null?note2.message:default(string));
 
 					}
@@ -207,20 +208,20 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 					break;
 				case 2:
 					DebugEnterAlt(2);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:24:7: ( forced )
+					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:27:7: ( forced )
 					{
-					DebugLocation(24, 7);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:24:7: ( forced )
+					DebugLocation(27, 7);
+					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:27:7: ( forced )
 					DebugEnterAlt(1);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:24:8: forced
+					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:27:8: forced
 					{
-					DebugLocation(24, 8);
-					PushFollow(Follow._forced_in_annotatedSet91);
+					DebugLocation(27, 8);
+					PushFollow(Follow._forced_in_annotatedSet94);
 					forced3=forced();
 					PopFollow();
 
 					adaptor.AddChild(root_0, forced3.Tree);
-					DebugLocation(24, 15);
+					DebugLocation(27, 15);
 					temp.ForcedReps=(forced3!=null?forced3.Reps:default(int));
 
 					}
@@ -230,20 +231,20 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 					break;
 				case 3:
 					DebugEnterAlt(3);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:25:7: ( flag )
+					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:28:7: ( flag )
 					{
-					DebugLocation(25, 7);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:25:7: ( flag )
+					DebugLocation(28, 7);
+					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:28:7: ( flag )
 					DebugEnterAlt(1);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:25:8: flag
+					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:28:8: flag
 					{
-					DebugLocation(25, 8);
-					PushFollow(Follow._flag_in_annotatedSet103);
+					DebugLocation(28, 8);
+					PushFollow(Follow._flag_in_annotatedSet106);
 					flag4=flag();
 					PopFollow();
 
 					adaptor.AddChild(root_0, flag4.Tree);
-					DebugLocation(25, 13);
+					DebugLocation(28, 13);
 					temp.AddFlag((flag4!=null?flag4.text:default(string)));
 
 					}
@@ -262,7 +263,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 
 			} finally { DebugExitSubRule(1); }
 
-			DebugLocation(26, 4);
+			DebugLocation(29, 4);
 
 						foreach (var s in (set1!=null?set1.result:default(ICollection<Set>)))
 						{
@@ -293,7 +294,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 			LeaveRule("annotatedSet", 1);
 			LeaveRule_annotatedSet();
 		}
-		DebugLocation(34, 6);
+		DebugLocation(37, 6);
 		} finally { DebugExitRule(GrammarFileName, "annotatedSet"); }
 		return retval;
 
@@ -311,7 +312,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 	partial void LeaveRule_set();
 
 	// $ANTLR start "set"
-	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:36:1: set returns [ICollection<Set> result] : ( sets X reps X weight | reps X weight | weight );
+	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:39:1: set returns [ICollection<Set> result] : ( sets X reps X weight | reps X weight | weight );
 	[GrammarRule("set")]
 	private PowerLogGrammarParser.set_return set()
 	{
@@ -340,10 +341,10 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 					retval.result = new List<Set>();
 			  
 		try { DebugEnterRule(GrammarFileName, "set");
-		DebugLocation(36, 6);
+		DebugLocation(39, 6);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:41:7: ( sets X reps X weight | reps X weight | weight )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:44:7: ( sets X reps X weight | reps X weight | weight )
 			int alt2=3;
 			try { DebugEnterDecision(2, false);
 			int LA2_0 = input.LA(1);
@@ -364,7 +365,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 						{
 							alt2 = 1;
 						}
-						else if ((LA2_4==EOF||LA2_4==WS||LA2_4==17))
+						else if ((LA2_4==EOF||LA2_4==WS||LA2_4==18))
 						{
 							alt2 = 2;
 						}
@@ -386,7 +387,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 						throw nvae;
 					}
 				}
-				else if ((LA2_1==EOF||LA2_1==WS||LA2_1==17))
+				else if ((LA2_1==EOF||LA2_1==WS||LA2_1==18))
 				{
 					alt2 = 3;
 				}
@@ -412,81 +413,81 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:41:11: sets X reps X weight
+				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:44:11: sets X reps X weight
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(41, 11);
-				PushFollow(Follow._sets_in_set157);
+				DebugLocation(44, 11);
+				PushFollow(Follow._sets_in_set160);
 				sets5=sets();
 				PopFollow();
 
 				adaptor.AddChild(root_0, sets5.Tree);
-				DebugLocation(41, 16);
-				X6=(IToken)Match(input,X,Follow._X_in_set159); 
+				DebugLocation(44, 16);
+				X6=(IToken)Match(input,X,Follow._X_in_set162); 
 				X6_tree = (object)adaptor.Create(X6);
 				adaptor.AddChild(root_0, X6_tree);
-				DebugLocation(41, 18);
-				PushFollow(Follow._reps_in_set161);
+				DebugLocation(44, 18);
+				PushFollow(Follow._reps_in_set164);
 				reps7=reps();
 				PopFollow();
 
 				adaptor.AddChild(root_0, reps7.Tree);
-				DebugLocation(41, 23);
-				X8=(IToken)Match(input,X,Follow._X_in_set163); 
+				DebugLocation(44, 23);
+				X8=(IToken)Match(input,X,Follow._X_in_set166); 
 				X8_tree = (object)adaptor.Create(X8);
 				adaptor.AddChild(root_0, X8_tree);
-				DebugLocation(41, 25);
-				PushFollow(Follow._weight_in_set165);
+				DebugLocation(44, 25);
+				PushFollow(Follow._weight_in_set168);
 				weight9=weight();
 				PopFollow();
 
 				adaptor.AddChild(root_0, weight9.Tree);
-				DebugLocation(41, 35);
+				DebugLocation(44, 35);
 				retval.result.AddRange((sets5!=null?sets5.num:default(int)), new Set{ Reps= (reps7!=null?reps7.num:default(int)),  Weight=(weight9!=null?weight9.num:default(double)) }.Return());
 
 				}
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:42:11: reps X weight
+				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:45:11: reps X weight
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(42, 11);
-				PushFollow(Follow._reps_in_set186);
+				DebugLocation(45, 11);
+				PushFollow(Follow._reps_in_set189);
 				reps10=reps();
 				PopFollow();
 
 				adaptor.AddChild(root_0, reps10.Tree);
-				DebugLocation(42, 16);
-				X11=(IToken)Match(input,X,Follow._X_in_set188); 
+				DebugLocation(45, 16);
+				X11=(IToken)Match(input,X,Follow._X_in_set191); 
 				X11_tree = (object)adaptor.Create(X11);
 				adaptor.AddChild(root_0, X11_tree);
-				DebugLocation(42, 18);
-				PushFollow(Follow._weight_in_set190);
+				DebugLocation(45, 18);
+				PushFollow(Follow._weight_in_set193);
 				weight12=weight();
 				PopFollow();
 
 				adaptor.AddChild(root_0, weight12.Tree);
-				DebugLocation(42, 30);
+				DebugLocation(45, 30);
 				retval.result.Add(new Set{ Reps= (reps10!=null?reps10.num:default(int)),  Weight=(weight12!=null?weight12.num:default(double)) }.Return());
 
 				}
 				break;
 			case 3:
 				DebugEnterAlt(3);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:43:11: weight
+				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:46:11: weight
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(43, 11);
-				PushFollow(Follow._weight_in_set213);
+				DebugLocation(46, 11);
+				PushFollow(Follow._weight_in_set216);
 				weight13=weight();
 				PopFollow();
 
 				adaptor.AddChild(root_0, weight13.Tree);
-				DebugLocation(43, 24);
+				DebugLocation(46, 24);
 				retval.result.Add(new Set{ Reps= 1,			Weight=(weight13!=null?weight13.num:default(double)) }.Return());
 
 				}
@@ -512,7 +513,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 			LeaveRule("set", 2);
 			LeaveRule_set();
 		}
-		DebugLocation(44, 6);
+		DebugLocation(47, 6);
 		} finally { DebugExitRule(GrammarFileName, "set"); }
 		return retval;
 
@@ -530,7 +531,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 	partial void LeaveRule_exercise();
 
 	// $ANTLR start "exercise"
-	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:46:8: public exercise returns [Log result] : text ( ( WS )+ annotatedSet )+ ;
+	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:49:8: public exercise returns [Log result] : text ( ( WS )+ annotatedSet )+ ;
 	[GrammarRule("exercise")]
 	public PowerLogGrammarParser.exercise_return exercise()
 	{
@@ -551,25 +552,25 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 		    		retval.result = new Log();
 		      
 		try { DebugEnterRule(GrammarFileName, "exercise");
-		DebugLocation(46, 6);
+		DebugLocation(49, 6);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:51:7: ( text ( ( WS )+ annotatedSet )+ )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:54:7: ( text ( ( WS )+ annotatedSet )+ )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:51:9: text ( ( WS )+ annotatedSet )+
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:54:9: text ( ( WS )+ annotatedSet )+
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(51, 9);
-			PushFollow(Follow._text_in_exercise272);
+			DebugLocation(54, 9);
+			PushFollow(Follow._text_in_exercise275);
 			text14=text();
 			PopFollow();
 
 			adaptor.AddChild(root_0, text14.Tree);
-			DebugLocation(51, 14);
+			DebugLocation(54, 14);
 			 retval.result.Name= (text14!=null?text14.text:default(string));
-			DebugLocation(51, 43);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:51:43: ( ( WS )+ annotatedSet )+
+			DebugLocation(54, 43);
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:54:43: ( ( WS )+ annotatedSet )+
 			int cnt4=0;
 			try { DebugEnterSubRule(4);
 			while (true)
@@ -589,10 +590,10 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:51:44: ( WS )+ annotatedSet
+					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:54:44: ( WS )+ annotatedSet
 					{
-					DebugLocation(51, 44);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:51:44: ( WS )+
+					DebugLocation(54, 44);
+					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:54:44: ( WS )+
 					int cnt3=0;
 					try { DebugEnterSubRule(3);
 					while (true)
@@ -612,10 +613,10 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 						{
 						case 1:
 							DebugEnterAlt(1);
-							// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:51:44: WS
+							// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:54:44: WS
 							{
-							DebugLocation(51, 44);
-							WS15=(IToken)Match(input,WS,Follow._WS_in_exercise277); 
+							DebugLocation(54, 44);
+							WS15=(IToken)Match(input,WS,Follow._WS_in_exercise280); 
 							WS15_tree = (object)adaptor.Create(WS15);
 							adaptor.AddChild(root_0, WS15_tree);
 
@@ -637,13 +638,13 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 
 					} finally { DebugExitSubRule(3); }
 
-					DebugLocation(51, 48);
-					PushFollow(Follow._annotatedSet_in_exercise280);
+					DebugLocation(54, 48);
+					PushFollow(Follow._annotatedSet_in_exercise283);
 					annotatedSet16=annotatedSet();
 					PopFollow();
 
 					adaptor.AddChild(root_0, annotatedSet16.Tree);
-					DebugLocation(51, 61);
+					DebugLocation(54, 61);
 					retval.result.Sets.AddRange((annotatedSet16!=null?annotatedSet16.result:default(ICollection<Set>)));
 
 					}
@@ -686,7 +687,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 			LeaveRule("exercise", 3);
 			LeaveRule_exercise();
 		}
-		DebugLocation(52, 6);
+		DebugLocation(55, 6);
 		} finally { DebugExitRule(GrammarFileName, "exercise"); }
 		return retval;
 
@@ -704,7 +705,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 	partial void LeaveRule_flag();
 
 	// $ANTLR start "flag"
-	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:54:1: flag returns [string text] : '-' !f= ( MAX | FTL | TF ) ;
+	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:57:1: flag returns [string text] : '-' !f= ( MAX | FTL | TF ) ;
 	[GrammarRule("flag")]
 	private PowerLogGrammarParser.flag_return flag()
 	{
@@ -722,18 +723,18 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 		object f_tree = default(object);
 		object char_literal17_tree = default(object);
 		try { DebugEnterRule(GrammarFileName, "flag");
-		DebugLocation(54, 6);
+		DebugLocation(57, 6);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:55:7: ( '-' !f= ( MAX | FTL | TF ) )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:58:7: ( '-' !f= ( MAX | FTL | TF ) )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:55:9: '-' !f= ( MAX | FTL | TF )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:58:9: '-' !f= ( MAX | FTL | TF )
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(55, 12);
-			char_literal17=(IToken)Match(input,17,Follow._17_in_flag318); 
-			DebugLocation(55, 15);
+			DebugLocation(58, 12);
+			char_literal17=(IToken)Match(input,18,Follow._18_in_flag321); 
+			DebugLocation(58, 15);
 
 			f=(IToken)input.LT(1);
 			if (input.LA(1)==FTL||input.LA(1)==MAX||input.LA(1)==TF)
@@ -749,7 +750,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 				throw mse;
 			}
 
-			DebugLocation(55, 29);
+			DebugLocation(58, 29);
 			retval.text =f.Text;
 
 			}
@@ -773,7 +774,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 			LeaveRule("flag", 4);
 			LeaveRule_flag();
 		}
-		DebugLocation(56, 6);
+		DebugLocation(59, 6);
 		} finally { DebugExitRule(GrammarFileName, "flag"); }
 		return retval;
 
@@ -791,7 +792,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 	partial void LeaveRule_note();
 
 	// $ANTLR start "note"
-	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:58:1: note returns [string message] : '-' NOTE '(' text ')' ;
+	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:61:1: note returns [string message] : '-' NOTE '(' text ')' ;
 	[GrammarRule("note")]
 	private PowerLogGrammarParser.note_return note()
 	{
@@ -814,38 +815,38 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 		object char_literal20_tree = default(object);
 		object char_literal22_tree = default(object);
 		try { DebugEnterRule(GrammarFileName, "note");
-		DebugLocation(58, 6);
+		DebugLocation(61, 6);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:59:7: ( '-' NOTE '(' text ')' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:62:7: ( '-' NOTE '(' text ')' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:59:9: '-' NOTE '(' text ')'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:62:9: '-' NOTE '(' text ')'
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(59, 9);
-			char_literal18=(IToken)Match(input,17,Follow._17_in_note365); 
+			DebugLocation(62, 9);
+			char_literal18=(IToken)Match(input,18,Follow._18_in_note368); 
 			char_literal18_tree = (object)adaptor.Create(char_literal18);
 			adaptor.AddChild(root_0, char_literal18_tree);
-			DebugLocation(59, 13);
-			NOTE19=(IToken)Match(input,NOTE,Follow._NOTE_in_note367); 
+			DebugLocation(62, 13);
+			NOTE19=(IToken)Match(input,NOTE,Follow._NOTE_in_note370); 
 			NOTE19_tree = (object)adaptor.Create(NOTE19);
 			adaptor.AddChild(root_0, NOTE19_tree);
-			DebugLocation(59, 18);
-			char_literal20=(IToken)Match(input,15,Follow._15_in_note369); 
+			DebugLocation(62, 18);
+			char_literal20=(IToken)Match(input,16,Follow._16_in_note372); 
 			char_literal20_tree = (object)adaptor.Create(char_literal20);
 			adaptor.AddChild(root_0, char_literal20_tree);
-			DebugLocation(59, 22);
-			PushFollow(Follow._text_in_note371);
+			DebugLocation(62, 22);
+			PushFollow(Follow._text_in_note374);
 			text21=text();
 			PopFollow();
 
 			adaptor.AddChild(root_0, text21.Tree);
-			DebugLocation(59, 27);
-			char_literal22=(IToken)Match(input,16,Follow._16_in_note373); 
+			DebugLocation(62, 27);
+			char_literal22=(IToken)Match(input,17,Follow._17_in_note376); 
 			char_literal22_tree = (object)adaptor.Create(char_literal22);
 			adaptor.AddChild(root_0, char_literal22_tree);
-			DebugLocation(59, 31);
+			DebugLocation(62, 31);
 			retval.message =(text21!=null?text21.text:default(string));
 
 			}
@@ -869,7 +870,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 			LeaveRule("note", 5);
 			LeaveRule_note();
 		}
-		DebugLocation(60, 6);
+		DebugLocation(63, 6);
 		} finally { DebugExitRule(GrammarFileName, "note"); }
 		return retval;
 
@@ -887,7 +888,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 	partial void LeaveRule_forced();
 
 	// $ANTLR start "forced"
-	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:62:1: forced returns [int Reps] : '-' FR '(' reps ')' ;
+	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:65:1: forced returns [int Reps] : '-' FR '(' reps ')' ;
 	[GrammarRule("forced")]
 	private PowerLogGrammarParser.forced_return forced()
 	{
@@ -910,38 +911,38 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 		object char_literal25_tree = default(object);
 		object char_literal27_tree = default(object);
 		try { DebugEnterRule(GrammarFileName, "forced");
-		DebugLocation(62, 6);
+		DebugLocation(65, 6);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:63:7: ( '-' FR '(' reps ')' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:66:7: ( '-' FR '(' reps ')' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:63:9: '-' FR '(' reps ')'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:66:9: '-' FR '(' reps ')'
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(63, 9);
-			char_literal23=(IToken)Match(input,17,Follow._17_in_forced406); 
+			DebugLocation(66, 9);
+			char_literal23=(IToken)Match(input,18,Follow._18_in_forced409); 
 			char_literal23_tree = (object)adaptor.Create(char_literal23);
 			adaptor.AddChild(root_0, char_literal23_tree);
-			DebugLocation(63, 13);
-			FR24=(IToken)Match(input,FR,Follow._FR_in_forced408); 
+			DebugLocation(66, 13);
+			FR24=(IToken)Match(input,FR,Follow._FR_in_forced411); 
 			FR24_tree = (object)adaptor.Create(FR24);
 			adaptor.AddChild(root_0, FR24_tree);
-			DebugLocation(63, 16);
-			char_literal25=(IToken)Match(input,15,Follow._15_in_forced410); 
+			DebugLocation(66, 16);
+			char_literal25=(IToken)Match(input,16,Follow._16_in_forced413); 
 			char_literal25_tree = (object)adaptor.Create(char_literal25);
 			adaptor.AddChild(root_0, char_literal25_tree);
-			DebugLocation(63, 20);
-			PushFollow(Follow._reps_in_forced412);
+			DebugLocation(66, 20);
+			PushFollow(Follow._reps_in_forced415);
 			reps26=reps();
 			PopFollow();
 
 			adaptor.AddChild(root_0, reps26.Tree);
-			DebugLocation(63, 25);
-			char_literal27=(IToken)Match(input,16,Follow._16_in_forced414); 
+			DebugLocation(66, 25);
+			char_literal27=(IToken)Match(input,17,Follow._17_in_forced417); 
 			char_literal27_tree = (object)adaptor.Create(char_literal27);
 			adaptor.AddChild(root_0, char_literal27_tree);
-			DebugLocation(63, 30);
+			DebugLocation(66, 30);
 			retval.Reps =(reps26!=null?reps26.num:default(int));
 
 			}
@@ -965,7 +966,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 			LeaveRule("forced", 6);
 			LeaveRule_forced();
 		}
-		DebugLocation(64, 6);
+		DebugLocation(67, 6);
 		} finally { DebugExitRule(GrammarFileName, "forced"); }
 		return retval;
 
@@ -983,7 +984,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 	partial void LeaveRule_text();
 
 	// $ANTLR start "text"
-	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:66:1: text returns [string text] : a= WORD ( ( WS !)+ b= WORD )* ;
+	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:69:1: text returns [string text] : a= WORD ( ( WS !)+ b= WORD )* ;
 	[GrammarRule("text")]
 	private PowerLogGrammarParser.text_return text()
 	{
@@ -1003,23 +1004,23 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 		object b_tree = default(object);
 		object WS28_tree = default(object);
 		try { DebugEnterRule(GrammarFileName, "text");
-		DebugLocation(66, 6);
+		DebugLocation(69, 6);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:67:7: (a= WORD ( ( WS !)+ b= WORD )* )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:70:7: (a= WORD ( ( WS !)+ b= WORD )* )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:67:9: a= WORD ( ( WS !)+ b= WORD )*
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:70:9: a= WORD ( ( WS !)+ b= WORD )*
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(67, 10);
-			a=(IToken)Match(input,WORD,Follow._WORD_in_text451); 
+			DebugLocation(70, 10);
+			a=(IToken)Match(input,WORD,Follow._WORD_in_text454); 
 			a_tree = (object)adaptor.Create(a);
 			adaptor.AddChild(root_0, a_tree);
-			DebugLocation(67, 15);
+			DebugLocation(70, 15);
 			retval.text = a.Text;
-			DebugLocation(67, 34);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:67:34: ( ( WS !)+ b= WORD )*
+			DebugLocation(70, 34);
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:70:34: ( ( WS !)+ b= WORD )*
 			try { DebugEnterSubRule(6);
 			while (true)
 			{
@@ -1039,10 +1040,10 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:67:35: ( WS !)+ b= WORD
+					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:70:35: ( WS !)+ b= WORD
 					{
-					DebugLocation(67, 37);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:67:37: ( WS !)+
+					DebugLocation(70, 37);
+					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:70:37: ( WS !)+
 					int cnt5=0;
 					try { DebugEnterSubRule(5);
 					while (true)
@@ -1062,10 +1063,10 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 						{
 						case 1:
 							DebugEnterAlt(1);
-							// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:67:37: WS !
+							// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:70:37: WS !
 							{
-							DebugLocation(67, 37);
-							WS28=(IToken)Match(input,WS,Follow._WS_in_text455); 
+							DebugLocation(70, 37);
+							WS28=(IToken)Match(input,WS,Follow._WS_in_text458); 
 
 							}
 							break;
@@ -1085,11 +1086,11 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 
 					} finally { DebugExitSubRule(5); }
 
-					DebugLocation(67, 41);
-					b=(IToken)Match(input,WORD,Follow._WORD_in_text461); 
+					DebugLocation(70, 41);
+					b=(IToken)Match(input,WORD,Follow._WORD_in_text464); 
 					b_tree = (object)adaptor.Create(b);
 					adaptor.AddChild(root_0, b_tree);
-					DebugLocation(67, 47);
+					DebugLocation(70, 47);
 					retval.text +=" " + b.Text;
 
 					}
@@ -1127,7 +1128,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 			LeaveRule("text", 7);
 			LeaveRule_text();
 		}
-		DebugLocation(68, 6);
+		DebugLocation(71, 6);
 		} finally { DebugExitRule(GrammarFileName, "text"); }
 		return retval;
 
@@ -1145,7 +1146,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 	partial void LeaveRule_weight();
 
 	// $ANTLR start "weight"
-	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:70:1: weight returns [double num] : n= ( FLOAT | NUMBER ) ;
+	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:73:1: weight returns [double num] : n= ( FLOAT | NUMBER ) ;
 	[GrammarRule("weight")]
 	private PowerLogGrammarParser.weight_return weight()
 	{
@@ -1161,16 +1162,16 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 
 		object n_tree = default(object);
 		try { DebugEnterRule(GrammarFileName, "weight");
-		DebugLocation(70, 105);
+		DebugLocation(73, 105);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:71:7: (n= ( FLOAT | NUMBER ) )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:74:7: (n= ( FLOAT | NUMBER ) )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:71:9: n= ( FLOAT | NUMBER )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:74:9: n= ( FLOAT | NUMBER )
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(71, 10);
+			DebugLocation(74, 10);
 
 			n=(IToken)input.LT(1);
 			if (input.LA(1)==FLOAT||input.LA(1)==NUMBER)
@@ -1186,7 +1187,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 				throw mse;
 			}
 
-			DebugLocation(71, 26);
+			DebugLocation(74, 26);
 			retval.num = double.Parse(n.Text,NumberStyles.Float, CultureInfo.InvariantCulture);
 
 			}
@@ -1210,7 +1211,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 			LeaveRule("weight", 8);
 			LeaveRule_weight();
 		}
-		DebugLocation(71, 105);
+		DebugLocation(74, 105);
 		} finally { DebugExitRule(GrammarFileName, "weight"); }
 		return retval;
 
@@ -1228,7 +1229,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 	partial void LeaveRule_reps();
 
 	// $ANTLR start "reps"
-	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:73:1: reps returns [int num] : NUMBER ;
+	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:76:1: reps returns [int num] : NUMBER ;
 	[GrammarRule("reps")]
 	private PowerLogGrammarParser.reps_return reps()
 	{
@@ -1244,20 +1245,20 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 
 		object NUMBER29_tree = default(object);
 		try { DebugEnterRule(GrammarFileName, "reps");
-		DebugLocation(73, 48);
+		DebugLocation(76, 48);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:74:7: ( NUMBER )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:77:7: ( NUMBER )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:74:9: NUMBER
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:77:9: NUMBER
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(74, 9);
-			NUMBER29=(IToken)Match(input,NUMBER,Follow._NUMBER_in_reps530); 
+			DebugLocation(77, 9);
+			NUMBER29=(IToken)Match(input,NUMBER,Follow._NUMBER_in_reps533); 
 			NUMBER29_tree = (object)adaptor.Create(NUMBER29);
 			adaptor.AddChild(root_0, NUMBER29_tree);
-			DebugLocation(74, 16);
+			DebugLocation(77, 16);
 			retval.num = int.Parse(NUMBER29.Text);
 
 			}
@@ -1281,7 +1282,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 			LeaveRule("reps", 9);
 			LeaveRule_reps();
 		}
-		DebugLocation(74, 48);
+		DebugLocation(77, 48);
 		} finally { DebugExitRule(GrammarFileName, "reps"); }
 		return retval;
 
@@ -1299,7 +1300,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 	partial void LeaveRule_sets();
 
 	// $ANTLR start "sets"
-	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:76:1: sets returns [int num] : NUMBER ;
+	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:79:1: sets returns [int num] : NUMBER ;
 	[GrammarRule("sets")]
 	private PowerLogGrammarParser.sets_return sets()
 	{
@@ -1315,20 +1316,20 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 
 		object NUMBER30_tree = default(object);
 		try { DebugEnterRule(GrammarFileName, "sets");
-		DebugLocation(76, 48);
+		DebugLocation(79, 48);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:77:7: ( NUMBER )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:80:7: ( NUMBER )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:77:9: NUMBER
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:80:9: NUMBER
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(77, 9);
-			NUMBER30=(IToken)Match(input,NUMBER,Follow._NUMBER_in_sets557); 
+			DebugLocation(80, 9);
+			NUMBER30=(IToken)Match(input,NUMBER,Follow._NUMBER_in_sets560); 
 			NUMBER30_tree = (object)adaptor.Create(NUMBER30);
 			adaptor.AddChild(root_0, NUMBER30_tree);
-			DebugLocation(77, 16);
+			DebugLocation(80, 16);
 			retval.num = int.Parse(NUMBER30.Text);
 
 			}
@@ -1352,7 +1353,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 			LeaveRule("sets", 10);
 			LeaveRule_sets();
 		}
-		DebugLocation(77, 48);
+		DebugLocation(80, 48);
 		} finally { DebugExitRule(GrammarFileName, "sets"); }
 		return retval;
 
@@ -1377,9 +1378,9 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 		private const string DFA6_eofS =
 			"\x4\xFFFF";
 		private const string DFA6_minS =
-			"\x1\xD\x1\x4\x2\xFFFF";
+			"\x1\xE\x1\x5\x2\xFFFF";
 		private const string DFA6_maxS =
-			"\x1\x10\x1\xD\x2\xFFFF";
+			"\x1\x11\x1\xE\x2\xFFFF";
 		private const string DFA6_acceptS =
 			"\x2\xFFFF\x1\x2\x1\x1";
 		private const string DFA6_specialS =
@@ -1423,7 +1424,7 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 			this.transition = DFA6_transition;
 		}
 
-		public override string Description { get { return "()* loopback of 67:34: ( ( WS !)+ b= WORD )*"; } }
+		public override string Description { get { return "()* loopback of 70:34: ( ( WS !)+ b= WORD )*"; } }
 
 		public override void Error(NoViableAltException nvae)
 		{
@@ -1437,40 +1438,40 @@ public partial class PowerLogGrammarParser : Antlr.Runtime.Parser
 	#region Follow sets
 	private static class Follow
 	{
-		public static readonly BitSet _set_in_annotatedSet74 = new BitSet(new ulong[]{0x20002UL});
-		public static readonly BitSet _note_in_annotatedSet79 = new BitSet(new ulong[]{0x20002UL});
-		public static readonly BitSet _forced_in_annotatedSet91 = new BitSet(new ulong[]{0x20002UL});
-		public static readonly BitSet _flag_in_annotatedSet103 = new BitSet(new ulong[]{0x20002UL});
-		public static readonly BitSet _sets_in_set157 = new BitSet(new ulong[]{0x4000UL});
-		public static readonly BitSet _X_in_set159 = new BitSet(new ulong[]{0x400UL});
-		public static readonly BitSet _reps_in_set161 = new BitSet(new ulong[]{0x4000UL});
-		public static readonly BitSet _X_in_set163 = new BitSet(new ulong[]{0x410UL});
-		public static readonly BitSet _weight_in_set165 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _reps_in_set186 = new BitSet(new ulong[]{0x4000UL});
-		public static readonly BitSet _X_in_set188 = new BitSet(new ulong[]{0x410UL});
-		public static readonly BitSet _weight_in_set190 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _weight_in_set213 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _text_in_exercise272 = new BitSet(new ulong[]{0x2000UL});
-		public static readonly BitSet _WS_in_exercise277 = new BitSet(new ulong[]{0x2410UL});
-		public static readonly BitSet _annotatedSet_in_exercise280 = new BitSet(new ulong[]{0x2002UL});
-		public static readonly BitSet _17_in_flag318 = new BitSet(new ulong[]{0x940UL});
-		public static readonly BitSet _set_in_flag323 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _17_in_note365 = new BitSet(new ulong[]{0x200UL});
-		public static readonly BitSet _NOTE_in_note367 = new BitSet(new ulong[]{0x8000UL});
-		public static readonly BitSet _15_in_note369 = new BitSet(new ulong[]{0x1000UL});
-		public static readonly BitSet _text_in_note371 = new BitSet(new ulong[]{0x10000UL});
-		public static readonly BitSet _16_in_note373 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _17_in_forced406 = new BitSet(new ulong[]{0x20UL});
-		public static readonly BitSet _FR_in_forced408 = new BitSet(new ulong[]{0x8000UL});
-		public static readonly BitSet _15_in_forced410 = new BitSet(new ulong[]{0x400UL});
-		public static readonly BitSet _reps_in_forced412 = new BitSet(new ulong[]{0x10000UL});
-		public static readonly BitSet _16_in_forced414 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _WORD_in_text451 = new BitSet(new ulong[]{0x2002UL});
-		public static readonly BitSet _WS_in_text455 = new BitSet(new ulong[]{0x3000UL});
-		public static readonly BitSet _WORD_in_text461 = new BitSet(new ulong[]{0x2002UL});
-		public static readonly BitSet _set_in_weight499 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _NUMBER_in_reps530 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _NUMBER_in_sets557 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _set_in_annotatedSet77 = new BitSet(new ulong[]{0x40002UL});
+		public static readonly BitSet _note_in_annotatedSet82 = new BitSet(new ulong[]{0x40002UL});
+		public static readonly BitSet _forced_in_annotatedSet94 = new BitSet(new ulong[]{0x40002UL});
+		public static readonly BitSet _flag_in_annotatedSet106 = new BitSet(new ulong[]{0x40002UL});
+		public static readonly BitSet _sets_in_set160 = new BitSet(new ulong[]{0x8000UL});
+		public static readonly BitSet _X_in_set162 = new BitSet(new ulong[]{0x800UL});
+		public static readonly BitSet _reps_in_set164 = new BitSet(new ulong[]{0x8000UL});
+		public static readonly BitSet _X_in_set166 = new BitSet(new ulong[]{0x820UL});
+		public static readonly BitSet _weight_in_set168 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _reps_in_set189 = new BitSet(new ulong[]{0x8000UL});
+		public static readonly BitSet _X_in_set191 = new BitSet(new ulong[]{0x820UL});
+		public static readonly BitSet _weight_in_set193 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _weight_in_set216 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _text_in_exercise275 = new BitSet(new ulong[]{0x4000UL});
+		public static readonly BitSet _WS_in_exercise280 = new BitSet(new ulong[]{0x4820UL});
+		public static readonly BitSet _annotatedSet_in_exercise283 = new BitSet(new ulong[]{0x4002UL});
+		public static readonly BitSet _18_in_flag321 = new BitSet(new ulong[]{0x1280UL});
+		public static readonly BitSet _set_in_flag326 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _18_in_note368 = new BitSet(new ulong[]{0x400UL});
+		public static readonly BitSet _NOTE_in_note370 = new BitSet(new ulong[]{0x10000UL});
+		public static readonly BitSet _16_in_note372 = new BitSet(new ulong[]{0x2000UL});
+		public static readonly BitSet _text_in_note374 = new BitSet(new ulong[]{0x20000UL});
+		public static readonly BitSet _17_in_note376 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _18_in_forced409 = new BitSet(new ulong[]{0x40UL});
+		public static readonly BitSet _FR_in_forced411 = new BitSet(new ulong[]{0x10000UL});
+		public static readonly BitSet _16_in_forced413 = new BitSet(new ulong[]{0x800UL});
+		public static readonly BitSet _reps_in_forced415 = new BitSet(new ulong[]{0x20000UL});
+		public static readonly BitSet _17_in_forced417 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _WORD_in_text454 = new BitSet(new ulong[]{0x4002UL});
+		public static readonly BitSet _WS_in_text458 = new BitSet(new ulong[]{0x6000UL});
+		public static readonly BitSet _WORD_in_text464 = new BitSet(new ulong[]{0x4002UL});
+		public static readonly BitSet _set_in_weight502 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _NUMBER_in_reps533 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _NUMBER_in_sets560 = new BitSet(new ulong[]{0x2UL});
 	}
 	#endregion Follow sets
 }

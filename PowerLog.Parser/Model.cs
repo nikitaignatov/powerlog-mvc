@@ -71,6 +71,12 @@ namespace PowerLog.Parser
 
     public class Set
     {
+        public Set()
+        {
+            Sets = 1;
+        }
+
+        public int Sets { get; set; }
         public double Weight { get; set; }
         public int Reps { get; set; }
         public bool FailedToLift { get; set; }
@@ -100,6 +106,11 @@ namespace PowerLog.Parser
                     this.Reps == 12 ? 0.70 :
                     .65), 1, MidpointRounding.AwayFromZero);
             }
+        }
+
+        public bool IsMultiSet
+        {
+            get { return Sets > 1; }
         }
 
         public IEnumerable<Flag> Flags { get; set; }

@@ -7,28 +7,22 @@ using Antlr.Runtime.Tree;
 
 namespace PowerLog.Parser
 {
-   public class PowerLogParser
-   {
-       public static Log ParseInput(string input)
-       {
-           input = input.ToLowerInvariant();
+    public class PowerLogParser
+    {
+        public static IEnumerable<Log> ParseInput(string input)
+        {
 
-           var cStream = new ANTLRStringStream(input);
-           var lexer = new PowerLogGrammarLexer(cStream);
-           var tStream = new CommonTokenStream(lexer);
-           var parser = new PowerLogGrammarParser(tStream);
-           var res = parser.exercise();
-           var log = res.result;
-           log.OriginalInput = input;
-           return log.Return();
-       }
+            //  return  KillStonesWithBirds.Kill("bacon 2x2 5x5x5;deadlift 5x10;this is sparta 2 2x");
+
+            return KillStonesWithBirds.Kill(input);
+        }
 
 
-       public static CommonTree Convert(string input)
-       {
-           var lexer = new PowerLogASTLexer(new ANTLRStringStream(input));
-           var parser = new PowerLogASTParser(new CommonTokenStream(lexer));
-           return parser.evaluate().Tree;
-       }
+        public static CommonTree Convert(string input)
+        {
+            var lexer = new PowerLogASTLexer(new ANTLRStringStream(input));
+            var parser = new PowerLogASTParser(new CommonTokenStream(lexer));
+            return parser.evaluate().Tree;
+        }
     }
 }

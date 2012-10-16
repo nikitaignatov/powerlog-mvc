@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.4 C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g 2012-10-13 11:56:57
+// $ANTLR 3.4 C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3 2012-10-16 17:19:15
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -18,6 +18,8 @@
 #pragma warning disable 1591
 // CLS compliance checking will not be performed on 'type' because it is not visible from outside this assembly.
 #pragma warning disable 3019
+
+
 
 
 using System.Collections.Generic;
@@ -31,35 +33,36 @@ namespace PowerLog.Parser
 public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 {
 	public const int EOF=-1;
-	public const int T__29=29;
 	public const int T__30=30;
 	public const int T__31=31;
 	public const int T__32=32;
+	public const int T__33=33;
 	public const int DATA=4;
-	public const int EXERCISE=5;
-	public const int EXERCISE_NAME=6;
-	public const int FLAGGED_SET=7;
-	public const int FLAGS=8;
-	public const int FLOAT=9;
-	public const int FORCED=10;
-	public const int FR=11;
-	public const int FTL=12;
-	public const int LETTER=13;
-	public const int MAX=14;
-	public const int MESSAGE=15;
-	public const int MULTI_SET=16;
-	public const int NOTE=17;
-	public const int NUMBER=18;
-	public const int REP=19;
-	public const int RESULT=20;
-	public const int SET=21;
-	public const int SETS=22;
-	public const int SINGLE=23;
-	public const int TF=24;
-	public const int WEIGHT=25;
-	public const int WORD=26;
-	public const int WS=27;
-	public const int X=28;
+	public const int DIGIT=5;
+	public const int EXERCISE=6;
+	public const int EXERCISE_NAME=7;
+	public const int FLAGGED_SET=8;
+	public const int FLAGS=9;
+	public const int FLOAT=10;
+	public const int FORCED=11;
+	public const int FR=12;
+	public const int FTL=13;
+	public const int LETTER=14;
+	public const int MAX=15;
+	public const int MESSAGE=16;
+	public const int MULTI_SET=17;
+	public const int NOTE=18;
+	public const int NUMBER=19;
+	public const int REP=20;
+	public const int RESULT=21;
+	public const int SET=22;
+	public const int SETS=23;
+	public const int SINGLE=24;
+	public const int TF=25;
+	public const int WEIGHT=26;
+	public const int WORD=27;
+	public const int WS=28;
+	public const int X=29;
 
     // delegates
     // delegators
@@ -80,7 +83,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 
 		OnCreated();
 	}
-	public override string GrammarFileName { get { return "C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g"; } }
+	public override string GrammarFileName { get { return "C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3"; } }
 
 
 	partial void OnCreated();
@@ -101,11 +104,11 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		{
 			int _type = DATA;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:10:6: ( 'data' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:12:6: ( 'data' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:10:8: 'data'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:12:8: 'data'
 			{
-			DebugLocation(10, 8);
+			DebugLocation(12, 8);
 			Match("data"); 
 
 
@@ -137,11 +140,11 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		{
 			int _type = EXERCISE;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:11:10: ( 'exercise' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:13:10: ( 'exercise' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:11:12: 'exercise'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:13:12: 'exercise'
 			{
-			DebugLocation(11, 12);
+			DebugLocation(13, 12);
 			Match("exercise"); 
 
 
@@ -173,11 +176,11 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		{
 			int _type = EXERCISE_NAME;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:12:15: ( 'exercise_name' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:14:15: ( 'exercise_name' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:12:17: 'exercise_name'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:14:17: 'exercise_name'
 			{
-			DebugLocation(12, 17);
+			DebugLocation(14, 17);
 			Match("exercise_name"); 
 
 
@@ -209,11 +212,11 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		{
 			int _type = FLAGGED_SET;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:13:13: ( 'flagged_set' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:15:13: ( 'flagged_set' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:13:15: 'flagged_set'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:15:15: 'flagged_set'
 			{
-			DebugLocation(13, 15);
+			DebugLocation(15, 15);
 			Match("flagged_set"); 
 
 
@@ -245,11 +248,11 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		{
 			int _type = FLAGS;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:14:7: ( 'flags' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:16:7: ( 'flags' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:14:9: 'flags'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:16:9: 'flags'
 			{
-			DebugLocation(14, 9);
+			DebugLocation(16, 9);
 			Match("flags"); 
 
 
@@ -281,11 +284,11 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		{
 			int _type = FORCED;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:15:8: ( 'forced' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:17:8: ( 'forced' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:15:10: 'forced'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:17:10: 'forced'
 			{
-			DebugLocation(15, 10);
+			DebugLocation(17, 10);
 			Match("forced"); 
 
 
@@ -317,11 +320,11 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		{
 			int _type = MESSAGE;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:16:9: ( 'message' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:18:9: ( 'message' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:16:11: 'message'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:18:11: 'message'
 			{
-			DebugLocation(16, 11);
+			DebugLocation(18, 11);
 			Match("message"); 
 
 
@@ -353,11 +356,11 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		{
 			int _type = MULTI_SET;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:17:11: ( 'multi_set' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:19:11: ( 'multi_set' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:17:13: 'multi_set'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:19:13: 'multi_set'
 			{
-			DebugLocation(17, 13);
+			DebugLocation(19, 13);
 			Match("multi_set"); 
 
 
@@ -389,11 +392,11 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		{
 			int _type = REP;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:18:5: ( 'rep' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:20:5: ( 'rep' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:18:7: 'rep'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:20:7: 'rep'
 			{
-			DebugLocation(18, 7);
+			DebugLocation(20, 7);
 			Match("rep"); 
 
 
@@ -425,11 +428,11 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		{
 			int _type = RESULT;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:19:8: ( 'result' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:21:8: ( 'result' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:19:10: 'result'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:21:10: 'result'
 			{
-			DebugLocation(19, 10);
+			DebugLocation(21, 10);
 			Match("result"); 
 
 
@@ -461,11 +464,11 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		{
 			int _type = SET;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:20:5: ( 'set' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:22:5: ( 'set' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:20:7: 'set'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:22:7: 'set'
 			{
-			DebugLocation(20, 7);
+			DebugLocation(22, 7);
 			Match("set"); 
 
 
@@ -497,11 +500,11 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		{
 			int _type = SETS;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:21:6: ( 'sets' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:23:6: ( 'sets' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:21:8: 'sets'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:23:8: 'sets'
 			{
-			DebugLocation(21, 8);
+			DebugLocation(23, 8);
 			Match("sets"); 
 
 
@@ -533,11 +536,11 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		{
 			int _type = SINGLE;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:22:8: ( 'single' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:24:8: ( 'single' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:22:10: 'single'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:24:10: 'single'
 			{
-			DebugLocation(22, 10);
+			DebugLocation(24, 10);
 			Match("single"); 
 
 
@@ -569,11 +572,11 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		{
 			int _type = WEIGHT;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:23:8: ( 'weight' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:25:8: ( 'weight' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:23:10: 'weight'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:25:10: 'weight'
 			{
-			DebugLocation(23, 10);
+			DebugLocation(25, 10);
 			Match("weight"); 
 
 
@@ -591,25 +594,25 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 	}
 	// $ANTLR end "WEIGHT"
 
-	partial void EnterRule_T__29();
-	partial void LeaveRule_T__29();
+	partial void EnterRule_T__30();
+	partial void LeaveRule_T__30();
 
-	// $ANTLR start "T__29"
-	[GrammarRule("T__29")]
-	private void mT__29()
+	// $ANTLR start "T__30"
+	[GrammarRule("T__30")]
+	private void mT__30()
 	{
-		EnterRule_T__29();
-		EnterRule("T__29", 15);
-		TraceIn("T__29", 15);
+		EnterRule_T__30();
+		EnterRule("T__30", 15);
+		TraceIn("T__30", 15);
 		try
 		{
-			int _type = T__29;
+			int _type = T__30;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:24:7: ( '(' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:26:7: ( '(' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:24:9: '('
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:26:9: '('
 			{
-			DebugLocation(24, 9);
+			DebugLocation(26, 9);
 			Match('('); 
 
 			}
@@ -619,43 +622,8 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__29", 15);
-			LeaveRule("T__29", 15);
-			LeaveRule_T__29();
-		}
-	}
-	// $ANTLR end "T__29"
-
-	partial void EnterRule_T__30();
-	partial void LeaveRule_T__30();
-
-	// $ANTLR start "T__30"
-	[GrammarRule("T__30")]
-	private void mT__30()
-	{
-		EnterRule_T__30();
-		EnterRule("T__30", 16);
-		TraceIn("T__30", 16);
-		try
-		{
-			int _type = T__30;
-			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:25:7: ( ')' )
-			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:25:9: ')'
-			{
-			DebugLocation(25, 9);
-			Match(')'); 
-
-			}
-
-			state.type = _type;
-			state.channel = _channel;
-		}
-		finally
-		{
-			TraceOut("T__30", 16);
-			LeaveRule("T__30", 16);
+			TraceOut("T__30", 15);
+			LeaveRule("T__30", 15);
 			LeaveRule_T__30();
 		}
 	}
@@ -669,18 +637,18 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 	private void mT__31()
 	{
 		EnterRule_T__31();
-		EnterRule("T__31", 17);
-		TraceIn("T__31", 17);
+		EnterRule("T__31", 16);
+		TraceIn("T__31", 16);
 		try
 		{
 			int _type = T__31;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:26:7: ( '-' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:27:7: ( ')' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:26:9: '-'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:27:9: ')'
 			{
-			DebugLocation(26, 9);
-			Match('-'); 
+			DebugLocation(27, 9);
+			Match(')'); 
 
 			}
 
@@ -689,8 +657,8 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__31", 17);
-			LeaveRule("T__31", 17);
+			TraceOut("T__31", 16);
+			LeaveRule("T__31", 16);
 			LeaveRule_T__31();
 		}
 	}
@@ -704,17 +672,52 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 	private void mT__32()
 	{
 		EnterRule_T__32();
-		EnterRule("T__32", 18);
-		TraceIn("T__32", 18);
+		EnterRule("T__32", 17);
+		TraceIn("T__32", 17);
 		try
 		{
 			int _type = T__32;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:27:7: ( ';' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:28:7: ( '-' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:27:9: ';'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:28:9: '-'
 			{
-			DebugLocation(27, 9);
+			DebugLocation(28, 9);
+			Match('-'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__32", 17);
+			LeaveRule("T__32", 17);
+			LeaveRule_T__32();
+		}
+	}
+	// $ANTLR end "T__32"
+
+	partial void EnterRule_T__33();
+	partial void LeaveRule_T__33();
+
+	// $ANTLR start "T__33"
+	[GrammarRule("T__33")]
+	private void mT__33()
+	{
+		EnterRule_T__33();
+		EnterRule("T__33", 18);
+		TraceIn("T__33", 18);
+		try
+		{
+			int _type = T__33;
+			int _channel = DefaultTokenChannel;
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:29:7: ( ';' )
+			DebugEnterAlt(1);
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:29:9: ';'
+			{
+			DebugLocation(29, 9);
 			Match(';'); 
 
 			}
@@ -724,12 +727,12 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__32", 18);
-			LeaveRule("T__32", 18);
-			LeaveRule_T__32();
+			TraceOut("T__33", 18);
+			LeaveRule("T__33", 18);
+			LeaveRule_T__33();
 		}
 	}
-	// $ANTLR end "T__32"
+	// $ANTLR end "T__33"
 
 	partial void EnterRule_NUMBER();
 	partial void LeaveRule_NUMBER();
@@ -745,12 +748,12 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		{
 			int _type = NUMBER;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:78:7: ( ( '0' .. '9' )+ )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:86:7: ( ( '0' .. '9' )+ )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:78:9: ( '0' .. '9' )+
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:86:9: ( '0' .. '9' )+
 			{
-			DebugLocation(78, 9);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:78:9: ( '0' .. '9' )+
+			DebugLocation(86, 9);
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:86:9: ( '0' .. '9' )+
 			int cnt1=0;
 			try { DebugEnterSubRule(1);
 			while (true)
@@ -770,9 +773,9 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:
+					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:
 					{
-					DebugLocation(78, 9);
+					DebugLocation(86, 9);
 					input.Consume();
 
 
@@ -823,7 +826,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		{
 			int _type = FLOAT;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:80:7: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* | '.' ( '0' .. '9' )+ )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:88:7: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* | '.' ( '0' .. '9' )+ )
 			int alt5=2;
 			try { DebugEnterDecision(5, false);
 			int LA5_0 = input.LA(1);
@@ -847,10 +850,10 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:80:11: ( '0' .. '9' )+ '.' ( '0' .. '9' )*
+				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:88:11: ( '0' .. '9' )+ '.' ( '0' .. '9' )*
 				{
-				DebugLocation(80, 11);
-				// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:80:11: ( '0' .. '9' )+
+				DebugLocation(88, 11);
+				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:88:11: ( '0' .. '9' )+
 				int cnt2=0;
 				try { DebugEnterSubRule(2);
 				while (true)
@@ -870,9 +873,9 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 					{
 					case 1:
 						DebugEnterAlt(1);
-						// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:
+						// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:
 						{
-						DebugLocation(80, 11);
+						DebugLocation(88, 11);
 						input.Consume();
 
 
@@ -894,10 +897,10 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 
 				} finally { DebugExitSubRule(2); }
 
-				DebugLocation(80, 23);
+				DebugLocation(88, 23);
 				Match('.'); 
-				DebugLocation(80, 27);
-				// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:80:27: ( '0' .. '9' )*
+				DebugLocation(88, 27);
+				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:88:27: ( '0' .. '9' )*
 				try { DebugEnterSubRule(3);
 				while (true)
 				{
@@ -916,9 +919,9 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 					{
 					case 1:
 						DebugEnterAlt(1);
-						// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:
+						// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:
 						{
-						DebugLocation(80, 27);
+						DebugLocation(88, 27);
 						input.Consume();
 
 
@@ -940,12 +943,12 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:81:11: '.' ( '0' .. '9' )+
+				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:89:11: '.' ( '0' .. '9' )+
 				{
-				DebugLocation(81, 11);
+				DebugLocation(89, 11);
 				Match('.'); 
-				DebugLocation(81, 15);
-				// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:81:15: ( '0' .. '9' )+
+				DebugLocation(89, 15);
+				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:89:15: ( '0' .. '9' )+
 				int cnt4=0;
 				try { DebugEnterSubRule(4);
 				while (true)
@@ -965,9 +968,9 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 					{
 					case 1:
 						DebugEnterAlt(1);
-						// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:
+						// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:
 						{
-						DebugLocation(81, 15);
+						DebugLocation(89, 15);
 						input.Consume();
 
 
@@ -1020,11 +1023,11 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		{
 			int _type = X;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:84:7: ( 'x' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:92:7: ( 'x' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:84:9: 'x'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:92:10: 'x'
 			{
-			DebugLocation(84, 9);
+			DebugLocation(92, 10);
 			Match('x'); 
 
 			}
@@ -1055,11 +1058,11 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		{
 			int _type = MAX;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:86:7: ( 'max' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:94:7: ( 'max' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:86:9: 'max'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:94:9: 'max'
 			{
-			DebugLocation(86, 9);
+			DebugLocation(94, 9);
 			Match("max"); 
 
 
@@ -1091,11 +1094,11 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		{
 			int _type = FTL;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:87:7: ( 'ftl' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:95:7: ( 'ftl' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:87:9: 'ftl'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:95:9: 'ftl'
 			{
-			DebugLocation(87, 9);
+			DebugLocation(95, 9);
 			Match("ftl"); 
 
 
@@ -1127,11 +1130,11 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		{
 			int _type = FR;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:88:7: ( 'fr' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:96:7: ( 'fr' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:88:9: 'fr'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:96:9: 'fr'
 			{
-			DebugLocation(88, 9);
+			DebugLocation(96, 9);
 			Match("fr"); 
 
 
@@ -1163,11 +1166,11 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		{
 			int _type = TF;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:89:7: ( 'tf' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:97:7: ( 'tf' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:89:9: 'tf'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:97:9: 'tf'
 			{
-			DebugLocation(89, 9);
+			DebugLocation(97, 9);
 			Match("tf"); 
 
 
@@ -1199,11 +1202,11 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		{
 			int _type = NOTE;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:90:7: ( 'note' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:98:7: ( 'note' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:90:9: 'note'
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:98:9: 'note'
 			{
-			DebugLocation(90, 9);
+			DebugLocation(98, 9);
 			Match("note"); 
 
 
@@ -1221,24 +1224,24 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 	}
 	// $ANTLR end "NOTE"
 
-	partial void EnterRule_LETTER();
-	partial void LeaveRule_LETTER();
+	partial void EnterRule_DIGIT();
+	partial void LeaveRule_DIGIT();
 
-	// $ANTLR start "LETTER"
-	[GrammarRule("LETTER")]
-	private void mLETTER()
+	// $ANTLR start "DIGIT"
+	[GrammarRule("DIGIT")]
+	private void mDIGIT()
 	{
-		EnterRule_LETTER();
-		EnterRule("LETTER", 27);
-		TraceIn("LETTER", 27);
+		EnterRule_DIGIT();
+		EnterRule("DIGIT", 27);
+		TraceIn("DIGIT", 27);
 		try
 		{
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:93:7: ( 'a' .. 'z' )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:103:5: ( '\\u0030' .. '\\u0039' | '\\u0660' .. '\\u0669' | '\\u06f0' .. '\\u06f9' | '\\u0966' .. '\\u096f' | '\\u09e6' .. '\\u09ef' | '\\u0a66' .. '\\u0a6f' | '\\u0ae6' .. '\\u0aef' | '\\u0b66' .. '\\u0b6f' | '\\u0be7' .. '\\u0bef' | '\\u0c66' .. '\\u0c6f' | '\\u0ce6' .. '\\u0cef' | '\\u0d66' .. '\\u0d6f' | '\\u0e50' .. '\\u0e59' | '\\u0ed0' .. '\\u0ed9' | '\\u1040' .. '\\u1049' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:
 			{
-			DebugLocation(93, 7);
-			if ((input.LA(1)>='a' && input.LA(1)<='z'))
+			DebugLocation(103, 5);
+			if ((input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='\u0660' && input.LA(1)<='\u0669')||(input.LA(1)>='\u06F0' && input.LA(1)<='\u06F9')||(input.LA(1)>='\u0966' && input.LA(1)<='\u096F')||(input.LA(1)>='\u09E6' && input.LA(1)<='\u09EF')||(input.LA(1)>='\u0A66' && input.LA(1)<='\u0A6F')||(input.LA(1)>='\u0AE6' && input.LA(1)<='\u0AEF')||(input.LA(1)>='\u0B66' && input.LA(1)<='\u0B6F')||(input.LA(1)>='\u0BE7' && input.LA(1)<='\u0BEF')||(input.LA(1)>='\u0C66' && input.LA(1)<='\u0C6F')||(input.LA(1)>='\u0CE6' && input.LA(1)<='\u0CEF')||(input.LA(1)>='\u0D66' && input.LA(1)<='\u0D6F')||(input.LA(1)>='\u0E50' && input.LA(1)<='\u0E59')||(input.LA(1)>='\u0ED0' && input.LA(1)<='\u0ED9')||(input.LA(1)>='\u1040' && input.LA(1)<='\u1049'))
 			{
 				input.Consume();
 			}
@@ -1256,8 +1259,50 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("LETTER", 27);
-			LeaveRule("LETTER", 27);
+			TraceOut("DIGIT", 27);
+			LeaveRule("DIGIT", 27);
+			LeaveRule_DIGIT();
+		}
+	}
+	// $ANTLR end "DIGIT"
+
+	partial void EnterRule_LETTER();
+	partial void LeaveRule_LETTER();
+
+	// $ANTLR start "LETTER"
+	[GrammarRule("LETTER")]
+	private void mLETTER()
+	{
+		EnterRule_LETTER();
+		EnterRule("LETTER", 28);
+		TraceIn("LETTER", 28);
+		try
+		{
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:122:5: ( '\\u0024' | '\\u0041' .. '\\u005a' | '\\u005f' | '\\u0061' .. '\\u007a' | '\\u00c0' .. '\\u00d6' | '\\u00d8' .. '\\u00f6' | '\\u00f8' .. '\\u00ff' | '\\u0100' .. '\\u1fff' | '\\u3040' .. '\\u318f' | '\\u3300' .. '\\u337f' | '\\u3400' .. '\\u3d2d' | '\\u4e00' .. '\\u9fff' | '\\uf900' .. '\\ufaff' )
+			DebugEnterAlt(1);
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:
+			{
+			DebugLocation(122, 5);
+			if (input.LA(1)=='$'||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z')||(input.LA(1)>='\u00C0' && input.LA(1)<='\u00D6')||(input.LA(1)>='\u00D8' && input.LA(1)<='\u00F6')||(input.LA(1)>='\u00F8' && input.LA(1)<='\u1FFF')||(input.LA(1)>='\u3040' && input.LA(1)<='\u318F')||(input.LA(1)>='\u3300' && input.LA(1)<='\u337F')||(input.LA(1)>='\u3400' && input.LA(1)<='\u3D2D')||(input.LA(1)>='\u4E00' && input.LA(1)<='\u9FFF')||(input.LA(1)>='\uF900' && input.LA(1)<='\uFAFF'))
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("LETTER", 28);
+			LeaveRule("LETTER", 28);
 			LeaveRule_LETTER();
 		}
 	}
@@ -1271,20 +1316,20 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 	private void mWORD()
 	{
 		EnterRule_WORD();
-		EnterRule("WORD", 28);
-		TraceIn("WORD", 28);
+		EnterRule("WORD", 29);
+		TraceIn("WORD", 29);
 		try
 		{
 			int _type = WORD;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:95:7: ( LETTER ( LETTER )* )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:136:7: ( LETTER ( LETTER )* )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:95:9: LETTER ( LETTER )*
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:136:9: LETTER ( LETTER )*
 			{
-			DebugLocation(95, 9);
+			DebugLocation(136, 9);
 			mLETTER(); 
-			DebugLocation(95, 15);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:95:15: ( LETTER )*
+			DebugLocation(136, 15);
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:136:15: ( LETTER )*
 			try { DebugEnterSubRule(6);
 			while (true)
 			{
@@ -1292,7 +1337,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 				try { DebugEnterDecision(6, false);
 				int LA6_0 = input.LA(1);
 
-				if (((LA6_0>='a' && LA6_0<='z')))
+				if ((LA6_0=='$'||(LA6_0>='A' && LA6_0<='Z')||LA6_0=='_'||(LA6_0>='a' && LA6_0<='z')||(LA6_0>='\u00C0' && LA6_0<='\u00D6')||(LA6_0>='\u00D8' && LA6_0<='\u00F6')||(LA6_0>='\u00F8' && LA6_0<='\u1FFF')||(LA6_0>='\u3040' && LA6_0<='\u318F')||(LA6_0>='\u3300' && LA6_0<='\u337F')||(LA6_0>='\u3400' && LA6_0<='\u3D2D')||(LA6_0>='\u4E00' && LA6_0<='\u9FFF')||(LA6_0>='\uF900' && LA6_0<='\uFAFF')))
 				{
 					alt6 = 1;
 				}
@@ -1303,9 +1348,9 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:
+					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:
 					{
-					DebugLocation(95, 15);
+					DebugLocation(136, 15);
 					input.Consume();
 
 
@@ -1330,8 +1375,8 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("WORD", 28);
-			LeaveRule("WORD", 28);
+			TraceOut("WORD", 29);
+			LeaveRule("WORD", 29);
 			LeaveRule_WORD();
 		}
 	}
@@ -1345,18 +1390,18 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 	private void mWS()
 	{
 		EnterRule_WS();
-		EnterRule("WS", 29);
-		TraceIn("WS", 29);
+		EnterRule("WS", 30);
+		TraceIn("WS", 30);
 		try
 		{
 			int _type = WS;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:98:7: ( ( ' ' | '\\t' | '\\n' | '\\r' | '\\f' )+ )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:139:7: ( ( ' ' | '\\t' | '\\n' | '\\r' | '\\f' )+ )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:98:9: ( ' ' | '\\t' | '\\n' | '\\r' | '\\f' )+
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:139:9: ( ' ' | '\\t' | '\\n' | '\\r' | '\\f' )+
 			{
-			DebugLocation(98, 9);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:98:9: ( ' ' | '\\t' | '\\n' | '\\r' | '\\f' )+
+			DebugLocation(139, 9);
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:139:9: ( ' ' | '\\t' | '\\n' | '\\r' | '\\f' )+
 			int cnt7=0;
 			try { DebugEnterSubRule(7);
 			while (true)
@@ -1376,9 +1421,9 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:
+					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:
 					{
-					DebugLocation(98, 9);
+					DebugLocation(139, 9);
 					input.Consume();
 
 
@@ -1408,8 +1453,8 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("WS", 29);
-			LeaveRule("WS", 29);
+			TraceOut("WS", 30);
+			LeaveRule("WS", 30);
 			LeaveRule_WS();
 		}
 	}
@@ -1417,7 +1462,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 
 	public override void mTokens()
 	{
-		// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:8: ( DATA | EXERCISE | EXERCISE_NAME | FLAGGED_SET | FLAGS | FORCED | MESSAGE | MULTI_SET | REP | RESULT | SET | SETS | SINGLE | WEIGHT | T__29 | T__30 | T__31 | T__32 | NUMBER | FLOAT | X | MAX | FTL | FR | TF | NOTE | WORD | WS )
+		// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:8: ( DATA | EXERCISE | EXERCISE_NAME | FLAGGED_SET | FLAGS | FORCED | MESSAGE | MULTI_SET | REP | RESULT | SET | SETS | SINGLE | WEIGHT | T__30 | T__31 | T__32 | T__33 | NUMBER | FLOAT | X | MAX | FTL | FR | TF | NOTE | WORD | WS )
 		int alt8=28;
 		try { DebugEnterDecision(8, false);
 		try
@@ -1434,7 +1479,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 		{
 		case 1:
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:10: DATA
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:10: DATA
 			{
 			DebugLocation(1, 10);
 			mDATA(); 
@@ -1443,7 +1488,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			break;
 		case 2:
 			DebugEnterAlt(2);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:15: EXERCISE
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:15: EXERCISE
 			{
 			DebugLocation(1, 15);
 			mEXERCISE(); 
@@ -1452,7 +1497,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			break;
 		case 3:
 			DebugEnterAlt(3);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:24: EXERCISE_NAME
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:24: EXERCISE_NAME
 			{
 			DebugLocation(1, 24);
 			mEXERCISE_NAME(); 
@@ -1461,7 +1506,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			break;
 		case 4:
 			DebugEnterAlt(4);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:38: FLAGGED_SET
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:38: FLAGGED_SET
 			{
 			DebugLocation(1, 38);
 			mFLAGGED_SET(); 
@@ -1470,7 +1515,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			break;
 		case 5:
 			DebugEnterAlt(5);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:50: FLAGS
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:50: FLAGS
 			{
 			DebugLocation(1, 50);
 			mFLAGS(); 
@@ -1479,7 +1524,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			break;
 		case 6:
 			DebugEnterAlt(6);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:56: FORCED
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:56: FORCED
 			{
 			DebugLocation(1, 56);
 			mFORCED(); 
@@ -1488,7 +1533,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			break;
 		case 7:
 			DebugEnterAlt(7);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:63: MESSAGE
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:63: MESSAGE
 			{
 			DebugLocation(1, 63);
 			mMESSAGE(); 
@@ -1497,7 +1542,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			break;
 		case 8:
 			DebugEnterAlt(8);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:71: MULTI_SET
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:71: MULTI_SET
 			{
 			DebugLocation(1, 71);
 			mMULTI_SET(); 
@@ -1506,7 +1551,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			break;
 		case 9:
 			DebugEnterAlt(9);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:81: REP
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:81: REP
 			{
 			DebugLocation(1, 81);
 			mREP(); 
@@ -1515,7 +1560,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			break;
 		case 10:
 			DebugEnterAlt(10);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:85: RESULT
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:85: RESULT
 			{
 			DebugLocation(1, 85);
 			mRESULT(); 
@@ -1524,7 +1569,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			break;
 		case 11:
 			DebugEnterAlt(11);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:92: SET
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:92: SET
 			{
 			DebugLocation(1, 92);
 			mSET(); 
@@ -1533,7 +1578,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			break;
 		case 12:
 			DebugEnterAlt(12);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:96: SETS
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:96: SETS
 			{
 			DebugLocation(1, 96);
 			mSETS(); 
@@ -1542,7 +1587,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			break;
 		case 13:
 			DebugEnterAlt(13);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:101: SINGLE
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:101: SINGLE
 			{
 			DebugLocation(1, 101);
 			mSINGLE(); 
@@ -1551,7 +1596,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			break;
 		case 14:
 			DebugEnterAlt(14);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:108: WEIGHT
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:108: WEIGHT
 			{
 			DebugLocation(1, 108);
 			mWEIGHT(); 
@@ -1560,43 +1605,43 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			break;
 		case 15:
 			DebugEnterAlt(15);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:115: T__29
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:115: T__30
 			{
 			DebugLocation(1, 115);
-			mT__29(); 
+			mT__30(); 
 
 			}
 			break;
 		case 16:
 			DebugEnterAlt(16);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:121: T__30
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:121: T__31
 			{
 			DebugLocation(1, 121);
-			mT__30(); 
+			mT__31(); 
 
 			}
 			break;
 		case 17:
 			DebugEnterAlt(17);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:127: T__31
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:127: T__32
 			{
 			DebugLocation(1, 127);
-			mT__31(); 
+			mT__32(); 
 
 			}
 			break;
 		case 18:
 			DebugEnterAlt(18);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:133: T__32
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:133: T__33
 			{
 			DebugLocation(1, 133);
-			mT__32(); 
+			mT__33(); 
 
 			}
 			break;
 		case 19:
 			DebugEnterAlt(19);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:139: NUMBER
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:139: NUMBER
 			{
 			DebugLocation(1, 139);
 			mNUMBER(); 
@@ -1605,7 +1650,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			break;
 		case 20:
 			DebugEnterAlt(20);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:146: FLOAT
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:146: FLOAT
 			{
 			DebugLocation(1, 146);
 			mFLOAT(); 
@@ -1614,7 +1659,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			break;
 		case 21:
 			DebugEnterAlt(21);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:152: X
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:152: X
 			{
 			DebugLocation(1, 152);
 			mX(); 
@@ -1623,7 +1668,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			break;
 		case 22:
 			DebugEnterAlt(22);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:154: MAX
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:154: MAX
 			{
 			DebugLocation(1, 154);
 			mMAX(); 
@@ -1632,7 +1677,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			break;
 		case 23:
 			DebugEnterAlt(23);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:158: FTL
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:158: FTL
 			{
 			DebugLocation(1, 158);
 			mFTL(); 
@@ -1641,7 +1686,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			break;
 		case 24:
 			DebugEnterAlt(24);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:162: FR
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:162: FR
 			{
 			DebugLocation(1, 162);
 			mFR(); 
@@ -1650,7 +1695,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			break;
 		case 25:
 			DebugEnterAlt(25);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:165: TF
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:165: TF
 			{
 			DebugLocation(1, 165);
 			mTF(); 
@@ -1659,7 +1704,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			break;
 		case 26:
 			DebugEnterAlt(26);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:168: NOTE
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:168: NOTE
 			{
 			DebugLocation(1, 168);
 			mNOTE(); 
@@ -1668,7 +1713,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			break;
 		case 27:
 			DebugEnterAlt(27);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:173: WORD
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:173: WORD
 			{
 			DebugLocation(1, 173);
 			mWORD(); 
@@ -1677,7 +1722,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			break;
 		case 28:
 			DebugEnterAlt(28);
-			// C:\\Users\\Bacon\\workspaceANTLR\\Text\\src\\kebab\\bacon\\PowerLogAST.g:1:178: WS
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:1:178: WS
 			{
 			DebugLocation(1, 178);
 			mWS(); 
@@ -1706,45 +1751,55 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			"\x1\x29\x7\x11\x2\xFFFF\x1\x32\x5\x11\x1\x38\x1\xFFFF\x2\x11\x1\x3B\x1"+
 			"\x3C\x1\x11\x1\x3F\x2\x11\x1\xFFFF\x1\x11\x1\x43\x3\x11\x1\xFFFF\x2\x11"+
 			"\x2\xFFFF\x1\x11\x1\x4B\x1\xFFFF\x2\x11\x1\x4E\x1\xFFFF\x2\x11\x1\x51"+
-			"\x4\x11\x1\xFFFF\x2\x11\x1\xFFFF\x2\x11\x1\xFFFF\x1\x5A\x1\x11\x1\xFFFF"+
-			"\x1\x5C\x1\x5D\x1\x5E\x2\x11\x1\xFFFF\x1\x61\x3\xFFFF\x1\x63\x4\xFFFF";
+			"\x4\x11\x1\xFFFF\x2\x11\x1\xFFFF\x2\x11\x1\xFFFF\x1\x5A\x2\x11\x1\x5D"+
+			"\x1\x5E\x1\x5F\x2\x11\x1\xFFFF\x1\x62\x1\x11\x3\xFFFF\x1\x65\x1\x11\x1"+
+			"\xFFFF\x2\x11\x1\xFFFF\x1\x11\x1\x6A\x2\x11\x1\xFFFF\x1\x11\x1\x6E\x1"+
+			"\x11\x1\xFFFF\x1\x70\x1\xFFFF";
 		private const string DFA8_eofS =
-			"\x64\xFFFF";
+			"\x71\xFFFF";
 		private const string DFA8_minS =
 			"\x1\x9\x1\x61\x1\x78\x1\x6C\x1\x61\x3\x65\x4\xFFFF\x1\x2E\x1\xFFFF\x1"+
-			"\x61\x1\x66\x1\x6F\x2\xFFFF\x1\x74\x1\x65\x1\x61\x1\x72\x1\x6C\x1\x61"+
-			"\x1\x73\x1\x6C\x1\x78\x1\x70\x1\x74\x1\x6E\x1\x69\x2\xFFFF\x1\x61\x1"+
-			"\x74\x1\x61\x1\x72\x1\x67\x1\x63\x1\x61\x1\xFFFF\x1\x73\x1\x74\x2\x61"+
-			"\x1\x75\x1\x61\x2\x67\x1\xFFFF\x1\x65\x1\x61\x1\x63\x1\x67\x1\x65\x1"+
-			"\xFFFF\x1\x61\x1\x69\x2\xFFFF\x1\x6C\x1\x61\x1\xFFFF\x1\x6C\x1\x68\x1"+
-			"\x61\x1\xFFFF\x1\x69\x1\x65\x1\x61\x1\x64\x1\x67\x1\x5F\x1\x74\x1\xFFFF"+
-			"\x1\x65\x1\x74\x1\xFFFF\x1\x73\x1\x64\x1\xFFFF\x1\x61\x1\x65\x1\xFFFF"+
-			"\x3\x61\x1\x65\x1\x5F\x1\xFFFF\x1\x61\x3\xFFFF\x1\x5F\x4\xFFFF";
+			"\x24\x1\x66\x1\x6F\x2\xFFFF\x1\x74\x1\x65\x1\x61\x1\x72\x1\x6C\x1\x24"+
+			"\x1\x73\x1\x6C\x1\x78\x1\x70\x1\x74\x1\x6E\x1\x69\x2\xFFFF\x1\x24\x1"+
+			"\x74\x1\x61\x1\x72\x1\x67\x1\x63\x1\x24\x1\xFFFF\x1\x73\x1\x74\x2\x24"+
+			"\x1\x75\x1\x24\x2\x67\x1\xFFFF\x1\x65\x1\x24\x1\x63\x1\x67\x1\x65\x1"+
+			"\xFFFF\x1\x61\x1\x69\x2\xFFFF\x1\x6C\x1\x24\x1\xFFFF\x1\x6C\x1\x68\x1"+
+			"\x24\x1\xFFFF\x1\x69\x1\x65\x1\x24\x1\x64\x1\x67\x1\x5F\x1\x74\x1\xFFFF"+
+			"\x1\x65\x1\x74\x1\xFFFF\x1\x73\x1\x64\x1\xFFFF\x1\x24\x1\x65\x1\x73\x3"+
+			"\x24\x1\x65\x1\x5F\x1\xFFFF\x1\x24\x1\x65\x3\xFFFF\x1\x24\x1\x73\x1\xFFFF"+
+			"\x1\x74\x1\x6E\x1\xFFFF\x1\x65\x1\x24\x1\x61\x1\x74\x1\xFFFF\x1\x6D\x1"+
+			"\x24\x1\x65\x1\xFFFF\x1\x24\x1\xFFFF";
 		private const string DFA8_maxS =
-			"\x1\x7A\x1\x61\x1\x78\x1\x74\x1\x75\x1\x65\x1\x69\x1\x65\x4\xFFFF\x1"+
-			"\x39\x1\xFFFF\x1\x7A\x1\x66\x1\x6F\x2\xFFFF\x1\x74\x1\x65\x1\x61\x1\x72"+
-			"\x1\x6C\x1\x7A\x1\x73\x1\x6C\x1\x78\x1\x73\x1\x74\x1\x6E\x1\x69\x2\xFFFF"+
-			"\x1\x7A\x1\x74\x1\x61\x1\x72\x1\x67\x1\x63\x1\x7A\x1\xFFFF\x1\x73\x1"+
-			"\x74\x2\x7A\x1\x75\x1\x7A\x2\x67\x1\xFFFF\x1\x65\x1\x7A\x1\x63\x1\x73"+
-			"\x1\x65\x1\xFFFF\x1\x61\x1\x69\x2\xFFFF\x1\x6C\x1\x7A\x1\xFFFF\x1\x6C"+
-			"\x1\x68\x1\x7A\x1\xFFFF\x1\x69\x1\x65\x1\x7A\x1\x64\x1\x67\x1\x5F\x1"+
-			"\x74\x1\xFFFF\x1\x65\x1\x74\x1\xFFFF\x1\x73\x1\x64\x1\xFFFF\x1\x7A\x1"+
-			"\x65\x1\xFFFF\x3\x7A\x1\x65\x1\x5F\x1\xFFFF\x1\x7A\x3\xFFFF\x1\x7A\x4"+
-			"\xFFFF";
+			"\x1\xFAFF\x1\x61\x1\x78\x1\x74\x1\x75\x1\x65\x1\x69\x1\x65\x4\xFFFF\x1"+
+			"\x39\x1\xFFFF\x1\xFAFF\x1\x66\x1\x6F\x2\xFFFF\x1\x74\x1\x65\x1\x61\x1"+
+			"\x72\x1\x6C\x1\xFAFF\x1\x73\x1\x6C\x1\x78\x1\x73\x1\x74\x1\x6E\x1\x69"+
+			"\x2\xFFFF\x1\xFAFF\x1\x74\x1\x61\x1\x72\x1\x67\x1\x63\x1\xFAFF\x1\xFFFF"+
+			"\x1\x73\x1\x74\x2\xFAFF\x1\x75\x1\xFAFF\x2\x67\x1\xFFFF\x1\x65\x1\xFAFF"+
+			"\x1\x63\x1\x73\x1\x65\x1\xFFFF\x1\x61\x1\x69\x2\xFFFF\x1\x6C\x1\xFAFF"+
+			"\x1\xFFFF\x1\x6C\x1\x68\x1\xFAFF\x1\xFFFF\x1\x69\x1\x65\x1\xFAFF\x1\x64"+
+			"\x1\x67\x1\x5F\x1\x74\x1\xFFFF\x1\x65\x1\x74\x1\xFFFF\x1\x73\x1\x64\x1"+
+			"\xFFFF\x1\xFAFF\x1\x65\x1\x73\x3\xFAFF\x1\x65\x1\x5F\x1\xFFFF\x1\xFAFF"+
+			"\x1\x65\x3\xFFFF\x1\xFAFF\x1\x73\x1\xFFFF\x1\x74\x1\x6E\x1\xFFFF\x1\x65"+
+			"\x1\xFAFF\x1\x61\x1\x74\x1\xFFFF\x1\x6D\x1\xFAFF\x1\x65\x1\xFFFF\x1\xFAFF"+
+			"\x1\xFFFF";
 		private const string DFA8_acceptS =
 			"\x8\xFFFF\x1\xF\x1\x10\x1\x11\x1\x12\x1\xFFFF\x1\x14\x3\xFFFF\x1\x1B"+
 			"\x1\x1C\xD\xFFFF\x1\x13\x1\x15\x7\xFFFF\x1\x18\x8\xFFFF\x1\x19\x5\xFFFF"+
 			"\x1\x17\x2\xFFFF\x1\x16\x1\x9\x2\xFFFF\x1\xB\x3\xFFFF\x1\x1\x7\xFFFF"+
-			"\x1\xC\x2\xFFFF\x1\x1A\x2\xFFFF\x1\x5\x2\xFFFF\x1\x8\x5\xFFFF\x1\x6\x1"+
-			"\xFFFF\x1\xA\x1\xD\x1\xE\x1\xFFFF\x1\x4\x1\x7\x1\x3\x1\x2";
+			"\x1\xC\x2\xFFFF\x1\x1A\x2\xFFFF\x1\x5\x8\xFFFF\x1\x6\x2\xFFFF\x1\xA\x1"+
+			"\xD\x1\xE\x2\xFFFF\x1\x7\x2\xFFFF\x1\x2\x4\xFFFF\x1\x8\x3\xFFFF\x1\x4"+
+			"\x1\xFFFF\x1\x3";
 		private const string DFA8_specialS =
-			"\x64\xFFFF}>";
+			"\x71\xFFFF}>";
 		private static readonly string[] DFA8_transitionS =
 			{
-				"\x2\x12\x1\xFFFF\x2\x12\x12\xFFFF\x1\x12\x7\xFFFF\x1\x8\x1\x9\x3\xFFFF"+
-				"\x1\xA\x1\xD\x1\xFFFF\xA\xC\x1\xFFFF\x1\xB\x25\xFFFF\x3\x11\x1\x1\x1"+
-				"\x2\x1\x3\x6\x11\x1\x4\x1\x10\x3\x11\x1\x5\x1\x6\x1\xF\x2\x11\x1\x7"+
-				"\x1\xE\x2\x11",
+				"\x2\x12\x1\xFFFF\x2\x12\x12\xFFFF\x1\x12\x3\xFFFF\x1\x11\x3\xFFFF\x1"+
+				"\x8\x1\x9\x3\xFFFF\x1\xA\x1\xD\x1\xFFFF\xA\xC\x1\xFFFF\x1\xB\x5\xFFFF"+
+				"\x1A\x11\x4\xFFFF\x1\x11\x1\xFFFF\x3\x11\x1\x1\x1\x2\x1\x3\x6\x11\x1"+
+				"\x4\x1\x10\x3\x11\x1\x5\x1\x6\x1\xF\x2\x11\x1\x7\x1\xE\x2\x11\x45\xFFFF"+
+				"\x17\x11\x1\xFFFF\x1F\x11\x1\xFFFF\x1F08\x11\x1040\xFFFF\x150\x11\x170"+
+				"\xFFFF\x80\x11\x80\xFFFF\x92E\x11\x10D2\xFFFF\x5200\x11\x5900\xFFFF"+
+				"\x200\x11",
 				"\x1\x13",
 				"\x1\x14",
 				"\x1\x15\x2\xFFFF\x1\x16\x2\xFFFF\x1\x18\x1\xFFFF\x1\x17",
@@ -1758,7 +1813,10 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 				"",
 				"\x1\xD\x1\xFFFF\xA\xC",
 				"",
-				"\x1A\x11",
+				"\x1\x11\x1C\xFFFF\x1A\x11\x4\xFFFF\x1\x11\x1\xFFFF\x1A\x11\x45\xFFFF"+
+				"\x17\x11\x1\xFFFF\x1F\x11\x1\xFFFF\x1F08\x11\x1040\xFFFF\x150\x11\x170"+
+				"\xFFFF\x80\x11\x80\xFFFF\x92E\x11\x10D2\xFFFF\x5200\x11\x5900\xFFFF"+
+				"\x200\x11",
 				"\x1\x22",
 				"\x1\x23",
 				"",
@@ -1768,7 +1826,10 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 				"\x1\x26",
 				"\x1\x27",
 				"\x1\x28",
-				"\x1A\x11",
+				"\x1\x11\x1C\xFFFF\x1A\x11\x4\xFFFF\x1\x11\x1\xFFFF\x1A\x11\x45\xFFFF"+
+				"\x17\x11\x1\xFFFF\x1F\x11\x1\xFFFF\x1F08\x11\x1040\xFFFF\x150\x11\x170"+
+				"\xFFFF\x80\x11\x80\xFFFF\x92E\x11\x10D2\xFFFF\x5200\x11\x5900\xFFFF"+
+				"\x200\x11",
 				"\x1\x2A",
 				"\x1\x2B",
 				"\x1\x2C",
@@ -1778,25 +1839,43 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 				"\x1\x31",
 				"",
 				"",
-				"\x1A\x11",
+				"\x1\x11\x1C\xFFFF\x1A\x11\x4\xFFFF\x1\x11\x1\xFFFF\x1A\x11\x45\xFFFF"+
+				"\x17\x11\x1\xFFFF\x1F\x11\x1\xFFFF\x1F08\x11\x1040\xFFFF\x150\x11\x170"+
+				"\xFFFF\x80\x11\x80\xFFFF\x92E\x11\x10D2\xFFFF\x5200\x11\x5900\xFFFF"+
+				"\x200\x11",
 				"\x1\x33",
 				"\x1\x34",
 				"\x1\x35",
 				"\x1\x36",
 				"\x1\x37",
-				"\x1A\x11",
+				"\x1\x11\x1C\xFFFF\x1A\x11\x4\xFFFF\x1\x11\x1\xFFFF\x1A\x11\x45\xFFFF"+
+				"\x17\x11\x1\xFFFF\x1F\x11\x1\xFFFF\x1F08\x11\x1040\xFFFF\x150\x11\x170"+
+				"\xFFFF\x80\x11\x80\xFFFF\x92E\x11\x10D2\xFFFF\x5200\x11\x5900\xFFFF"+
+				"\x200\x11",
 				"",
 				"\x1\x39",
 				"\x1\x3A",
-				"\x1A\x11",
-				"\x1A\x11",
+				"\x1\x11\x1C\xFFFF\x1A\x11\x4\xFFFF\x1\x11\x1\xFFFF\x1A\x11\x45\xFFFF"+
+				"\x17\x11\x1\xFFFF\x1F\x11\x1\xFFFF\x1F08\x11\x1040\xFFFF\x150\x11\x170"+
+				"\xFFFF\x80\x11\x80\xFFFF\x92E\x11\x10D2\xFFFF\x5200\x11\x5900\xFFFF"+
+				"\x200\x11",
+				"\x1\x11\x1C\xFFFF\x1A\x11\x4\xFFFF\x1\x11\x1\xFFFF\x1A\x11\x45\xFFFF"+
+				"\x17\x11\x1\xFFFF\x1F\x11\x1\xFFFF\x1F08\x11\x1040\xFFFF\x150\x11\x170"+
+				"\xFFFF\x80\x11\x80\xFFFF\x92E\x11\x10D2\xFFFF\x5200\x11\x5900\xFFFF"+
+				"\x200\x11",
 				"\x1\x3D",
-				"\x12\x11\x1\x3E\x7\x11",
+				"\x1\x11\x1C\xFFFF\x1A\x11\x4\xFFFF\x1\x11\x1\xFFFF\x12\x11\x1\x3E\x7"+
+				"\x11\x45\xFFFF\x17\x11\x1\xFFFF\x1F\x11\x1\xFFFF\x1F08\x11\x1040\xFFFF"+
+				"\x150\x11\x170\xFFFF\x80\x11\x80\xFFFF\x92E\x11\x10D2\xFFFF\x5200\x11"+
+				"\x5900\xFFFF\x200\x11",
 				"\x1\x40",
 				"\x1\x41",
 				"",
 				"\x1\x42",
-				"\x1A\x11",
+				"\x1\x11\x1C\xFFFF\x1A\x11\x4\xFFFF\x1\x11\x1\xFFFF\x1A\x11\x45\xFFFF"+
+				"\x17\x11\x1\xFFFF\x1F\x11\x1\xFFFF\x1F08\x11\x1040\xFFFF\x150\x11\x170"+
+				"\xFFFF\x80\x11\x80\xFFFF\x92E\x11\x10D2\xFFFF\x5200\x11\x5900\xFFFF"+
+				"\x200\x11",
 				"\x1\x44",
 				"\x1\x45\xB\xFFFF\x1\x46",
 				"\x1\x47",
@@ -1806,15 +1885,24 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 				"",
 				"",
 				"\x1\x4A",
-				"\x1A\x11",
+				"\x1\x11\x1C\xFFFF\x1A\x11\x4\xFFFF\x1\x11\x1\xFFFF\x1A\x11\x45\xFFFF"+
+				"\x17\x11\x1\xFFFF\x1F\x11\x1\xFFFF\x1F08\x11\x1040\xFFFF\x150\x11\x170"+
+				"\xFFFF\x80\x11\x80\xFFFF\x92E\x11\x10D2\xFFFF\x5200\x11\x5900\xFFFF"+
+				"\x200\x11",
 				"",
 				"\x1\x4C",
 				"\x1\x4D",
-				"\x1A\x11",
+				"\x1\x11\x1C\xFFFF\x1A\x11\x4\xFFFF\x1\x11\x1\xFFFF\x1A\x11\x45\xFFFF"+
+				"\x17\x11\x1\xFFFF\x1F\x11\x1\xFFFF\x1F08\x11\x1040\xFFFF\x150\x11\x170"+
+				"\xFFFF\x80\x11\x80\xFFFF\x92E\x11\x10D2\xFFFF\x5200\x11\x5900\xFFFF"+
+				"\x200\x11",
 				"",
 				"\x1\x4F",
 				"\x1\x50",
-				"\x1A\x11",
+				"\x1\x11\x1C\xFFFF\x1A\x11\x4\xFFFF\x1\x11\x1\xFFFF\x1A\x11\x45\xFFFF"+
+				"\x17\x11\x1\xFFFF\x1F\x11\x1\xFFFF\x1F08\x11\x1040\xFFFF\x150\x11\x170"+
+				"\xFFFF\x80\x11\x80\xFFFF\x92E\x11\x10D2\xFFFF\x5200\x11\x5900\xFFFF"+
+				"\x200\x11",
 				"\x1\x52",
 				"\x1\x53",
 				"\x1\x54",
@@ -1826,23 +1914,63 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 				"\x1\x58",
 				"\x1\x59",
 				"",
-				"\x1A\x11",
+				"\x1\x11\x1C\xFFFF\x1A\x11\x4\xFFFF\x1\x11\x1\xFFFF\x1A\x11\x45\xFFFF"+
+				"\x17\x11\x1\xFFFF\x1F\x11\x1\xFFFF\x1F08\x11\x1040\xFFFF\x150\x11\x170"+
+				"\xFFFF\x80\x11\x80\xFFFF\x92E\x11\x10D2\xFFFF\x5200\x11\x5900\xFFFF"+
+				"\x200\x11",
 				"\x1\x5B",
-				"",
-				"\x1A\x11",
-				"\x1A\x11",
-				"\x1A\x11",
-				"\x1\x5F",
+				"\x1\x5C",
+				"\x1\x11\x1C\xFFFF\x1A\x11\x4\xFFFF\x1\x11\x1\xFFFF\x1A\x11\x45\xFFFF"+
+				"\x17\x11\x1\xFFFF\x1F\x11\x1\xFFFF\x1F08\x11\x1040\xFFFF\x150\x11\x170"+
+				"\xFFFF\x80\x11\x80\xFFFF\x92E\x11\x10D2\xFFFF\x5200\x11\x5900\xFFFF"+
+				"\x200\x11",
+				"\x1\x11\x1C\xFFFF\x1A\x11\x4\xFFFF\x1\x11\x1\xFFFF\x1A\x11\x45\xFFFF"+
+				"\x17\x11\x1\xFFFF\x1F\x11\x1\xFFFF\x1F08\x11\x1040\xFFFF\x150\x11\x170"+
+				"\xFFFF\x80\x11\x80\xFFFF\x92E\x11\x10D2\xFFFF\x5200\x11\x5900\xFFFF"+
+				"\x200\x11",
+				"\x1\x11\x1C\xFFFF\x1A\x11\x4\xFFFF\x1\x11\x1\xFFFF\x1A\x11\x45\xFFFF"+
+				"\x17\x11\x1\xFFFF\x1F\x11\x1\xFFFF\x1F08\x11\x1040\xFFFF\x150\x11\x170"+
+				"\xFFFF\x80\x11\x80\xFFFF\x92E\x11\x10D2\xFFFF\x5200\x11\x5900\xFFFF"+
+				"\x200\x11",
 				"\x1\x60",
+				"\x1\x61",
 				"",
-				"\x1A\x11",
+				"\x1\x11\x1C\xFFFF\x1A\x11\x4\xFFFF\x1\x11\x1\xFFFF\x1A\x11\x45\xFFFF"+
+				"\x17\x11\x1\xFFFF\x1F\x11\x1\xFFFF\x1F08\x11\x1040\xFFFF\x150\x11\x170"+
+				"\xFFFF\x80\x11\x80\xFFFF\x92E\x11\x10D2\xFFFF\x5200\x11\x5900\xFFFF"+
+				"\x200\x11",
+				"\x1\x63",
 				"",
 				"",
 				"",
-				"\x1\x62\x1\xFFFF\x1A\x11",
+				"\x1\x11\x1C\xFFFF\x1A\x11\x4\xFFFF\x1\x64\x1\xFFFF\x1A\x11\x45\xFFFF"+
+				"\x17\x11\x1\xFFFF\x1F\x11\x1\xFFFF\x1F08\x11\x1040\xFFFF\x150\x11\x170"+
+				"\xFFFF\x80\x11\x80\xFFFF\x92E\x11\x10D2\xFFFF\x5200\x11\x5900\xFFFF"+
+				"\x200\x11",
+				"\x1\x66",
 				"",
+				"\x1\x67",
+				"\x1\x68",
 				"",
+				"\x1\x69",
+				"\x1\x11\x1C\xFFFF\x1A\x11\x4\xFFFF\x1\x11\x1\xFFFF\x1A\x11\x45\xFFFF"+
+				"\x17\x11\x1\xFFFF\x1F\x11\x1\xFFFF\x1F08\x11\x1040\xFFFF\x150\x11\x170"+
+				"\xFFFF\x80\x11\x80\xFFFF\x92E\x11\x10D2\xFFFF\x5200\x11\x5900\xFFFF"+
+				"\x200\x11",
+				"\x1\x6B",
+				"\x1\x6C",
 				"",
+				"\x1\x6D",
+				"\x1\x11\x1C\xFFFF\x1A\x11\x4\xFFFF\x1\x11\x1\xFFFF\x1A\x11\x45\xFFFF"+
+				"\x17\x11\x1\xFFFF\x1F\x11\x1\xFFFF\x1F08\x11\x1040\xFFFF\x150\x11\x170"+
+				"\xFFFF\x80\x11\x80\xFFFF\x92E\x11\x10D2\xFFFF\x5200\x11\x5900\xFFFF"+
+				"\x200\x11",
+				"\x1\x6F",
+				"",
+				"\x1\x11\x1C\xFFFF\x1A\x11\x4\xFFFF\x1\x11\x1\xFFFF\x1A\x11\x45\xFFFF"+
+				"\x17\x11\x1\xFFFF\x1F\x11\x1\xFFFF\x1F08\x11\x1040\xFFFF\x150\x11\x170"+
+				"\xFFFF\x80\x11\x80\xFFFF\x92E\x11\x10D2\xFFFF\x5200\x11\x5900\xFFFF"+
+				"\x200\x11",
 				""
 			};
 
@@ -1877,7 +2005,7 @@ public partial class PowerLogASTLexer : Antlr.Runtime.Lexer
 			this.transition = DFA8_transition;
 		}
 
-		public override string Description { get { return "1:1: Tokens : ( DATA | EXERCISE | EXERCISE_NAME | FLAGGED_SET | FLAGS | FORCED | MESSAGE | MULTI_SET | REP | RESULT | SET | SETS | SINGLE | WEIGHT | T__29 | T__30 | T__31 | T__32 | NUMBER | FLOAT | X | MAX | FTL | FR | TF | NOTE | WORD | WS );"; } }
+		public override string Description { get { return "1:1: Tokens : ( DATA | EXERCISE | EXERCISE_NAME | FLAGGED_SET | FLAGS | FORCED | MESSAGE | MULTI_SET | REP | RESULT | SET | SETS | SINGLE | WEIGHT | T__30 | T__31 | T__32 | T__33 | NUMBER | FLOAT | X | MAX | FTL | FR | TF | NOTE | WORD | WS );"; } }
 
 		public override void Error(NoViableAltException nvae)
 		{

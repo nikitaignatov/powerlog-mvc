@@ -11,29 +11,12 @@ namespace PowerLog.Tests.Parsers
     [TestFixture]
     public class PowerParserTest
     {
-        private static Log ParseInput(string input)
+        private static IEnumerable<Log> ParseInput(string input)
         {
             return PowerLogParser.ParseInput(input);
         }
-        
-        [Test]
-        public void shold_parse_row_LP_stirrups_RP_12x17()
-        {
-            // arrange
-            const string input = "row (stirrups) 12x17";
 
-            // act
-            var result = ParseInput(input);
-            var set = result.Sets.SingleOrDefault();
 
-            // assert
-            Assert.AreEqual("row (stirrups)", result.Name);
-            Assert.NotNull(set);
-            Assert.AreEqual(12, set.Reps);
-            Assert.AreEqual(17, set.Weight);
-        }
-
-        
         [Test]
         public void shold_parse_front_squat_2x20()
         {
@@ -41,7 +24,7 @@ namespace PowerLog.Tests.Parsers
             const string input = "front squat 2x20";
 
             // act
-            var result = ParseInput(input);
+            var result = ParseInput(input).First();
             var set = result.Sets.SingleOrDefault();
 
             // assert
@@ -52,13 +35,32 @@ namespace PowerLog.Tests.Parsers
         }
 
         [Test]
+        public void shold_parse_front_squat_2x4x20()
+        {
+            // arrange
+            const string input = "front squat 2x4x20";
+
+            // act
+            var result = ParseInput(input).First();
+            var set = result.Sets.FirstOrDefault();
+            var count = result.Sets.Count;
+
+            // assert
+            Assert.AreEqual("front squat", result.Name);
+            Assert.NotNull(set);
+            Assert.AreEqual(2, set.Sets);
+            Assert.AreEqual(4, set.Reps);
+            Assert.AreEqual(20, set.Weight);
+        }
+
+        [Test]
         public void shold_parse_front_squat_2x20_DOT_5()
         {
             // arrange
             const string input = "front squat 2x20.5";
 
             // act
-            var result = ParseInput(input);
+            var result = ParseInput(input).First();
             var set = result.Sets.SingleOrDefault();
 
             // assert
@@ -71,11 +73,12 @@ namespace PowerLog.Tests.Parsers
         [Test]
         public void shold_parse_front_squat_30_max_ftl()
         {
+            // graph:http://rise4fun.com/Agl/T9ke
             // arrange
             const string input = "front squat 30-max-ftl";
 
             // act
-            var result = ParseInput(input);
+            var result = ParseInput(input).First();
             var set = result.Sets.SingleOrDefault();
 
             // assert
@@ -94,7 +97,7 @@ namespace PowerLog.Tests.Parsers
             const string input = "front squat 30-note(hello world)-max";
 
             // act
-            var result = ParseInput(input);
+            var result = ParseInput(input).First();
             var set = result.Sets.SingleOrDefault();
 
             // assert
@@ -109,11 +112,12 @@ namespace PowerLog.Tests.Parsers
         [Test]
         public void shold_parse_front_squat_30_note_hello_world_max_fr_1()
         {
+            // graph:http://rise4fun.com/Agl/nQxN
             // arrange
             const string input = "front squat 30-note(hello world)-max-fr(1)";
 
             // act
-            var result = ParseInput(input);
+            var result = ParseInput(input).First();
             var set = result.Sets.SingleOrDefault();
 
             // assert
@@ -133,7 +137,7 @@ namespace PowerLog.Tests.Parsers
             const string input = "front squat 30-note(hello world)";
 
             // act
-            var result = ParseInput(input);
+            var result = ParseInput(input).First();
             var set = result.Sets.SingleOrDefault();
 
             // assert
@@ -151,7 +155,7 @@ namespace PowerLog.Tests.Parsers
             const string input = "front squat 2x20 30";
 
             // act
-            var result = ParseInput(input);
+            var result = ParseInput(input).First();
             var first = result.Sets.FirstOrDefault();
             var second = result.Sets.Skip(1).SingleOrDefault();
 
@@ -169,13 +173,13 @@ namespace PowerLog.Tests.Parsers
         }
 
         [Test]
-        public void shold_parse_front_squat_4x20_fr_2()
+        public void shold_parse_front_squat_4x20_fr_1()
         {
             // arrange
             const string input = "front squat 4x20-fr(1)";
 
             // act
-            var result = ParseInput(input);
+            var result = ParseInput(input).First();
             var set = result.Sets.SingleOrDefault();
 
             // assert
@@ -193,14 +197,14 @@ namespace PowerLog.Tests.Parsers
             const string input = "front squat 6x4x20-fr(2)";
 
             // act
-            var result = ParseInput(input);
+            var result = ParseInput(input).First();
             var set = result.Sets.FirstOrDefault();
             var count = result.Sets.Count;
 
             // assert
             Assert.AreEqual("front squat", result.Name);
             Assert.NotNull(set);
-            Assert.AreEqual(6, count);
+            Assert.AreEqual(6, set.Sets);
             Assert.AreEqual(4, set.Reps);
             Assert.AreEqual(20, set.Weight);
             Assert.AreEqual(2, set.ForcedReps);

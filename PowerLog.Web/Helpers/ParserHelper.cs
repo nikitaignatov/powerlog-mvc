@@ -12,19 +12,29 @@ namespace PowerLog.Web
     {
         public static IEnumerable<LoggedExercise> ParseLog(DB db, DateTime date, string expression)
         {
-            var result = PowerLogParser.ParseInput(expression);
-            var list = result.Sets.Select(x => new LoggedExercise
+            var result = PowerLogParser.ParseInput(expression).ToList();
+            var list = new List<LoggedExercise>();
+            foreach (var log in result)
             {
-                Reps = x.Reps,
-                Weight = x.Weight,
-                Date = date,
-                FailedToLift = x.FailedToLift,
-                ForcedReps = x.ForcedReps,
-                MaxEffort = x.MaxEffort,
-                ToFailure = x.ToFailure,
-                Comment = x.Comment,
-                Exercise = new Exercise { Name = result.Name }
-            });
+                foreach (var set in log.Sets)
+                {
+                    for (int i = 0; i < set.Sets; i++)
+                    {
+                        list.Add(new LoggedExercise
+                        {
+                            Reps = set.Reps,
+                            Weight = set.Weight,
+                            Date = date,
+                            FailedToLift = set.FailedToLift,
+                            ForcedReps = set.ForcedReps,
+                            MaxEffort = set.MaxEffort,
+                            ToFailure = set.ToFailure,
+                            Comment = set.Comment,
+                            Exercise = new Exercise { Name = log.Name }
+                        });
+                    }
+                }
+            }
 
             foreach (var log in list)
             {
