@@ -103,6 +103,21 @@
         });
 
     </script>
+    @{
+        var id = 397;
+        var list = Model.Where(x => x.ExerciseID == id).GroupBy(x => x.Date.Date).OrderBy(x => x.Key);
+        var denug = list.SelectMany(x => x).ToList();
+        var dates = list.Select(x => x.Key).ToList();
+        var _avg = list.Select(x => x.Average(a => a.Weight)).ToList();
+        var _max = list.Select(x => x.Max(a => a.OneRepMax)).ToList();
+        var _load = list.Select(x => x.Sum(a => a.Load)).ToList();
+        var max = string.Join(",", _max.Zip(dates.Select(x => x.AddMonths(-1).ToString("yyyy, MM, dd")), (a, b) => string.Format("[Date.UTC({1}),{0}]", a, b)));
+        var avg = string.Join(",", _avg.Zip(dates.Select(x => x.AddMonths(-1).ToString("yyyy, MM, dd")), (a, b) => string.Format("[Date.UTC({1}),{0}]", a, b)));
+        var load = string.Join(",", _load.Zip(dates.Select(x => x.AddMonths(-1).ToString("yyyy, MM, dd")), (a, b) => string.Format("[Date.UTC({1}),{0}]", a, b)));
+
+        var name = list.SelectMany(x => x).FirstOrDefault(x => x.ExerciseID == id).Exercise.Name;
+    }
+    @Html.Raw(string.Join("\n", denug))
     <script type="text/javascript">
         $(function () {
             var chart;
@@ -110,34 +125,34 @@
                 chart = new Highcharts.Chart({
                     chart: {
                         renderTo: 'container',
-                        zoomType: 'xy',
-                        type: 'area'
+                        zoomType: 'xy'
                     },
                     title: {
-                        text: 'Average Monthly Weather Data for Tokyo'
+                        text: '@name'
                     },
                     subtitle: {
                         text: 'Source: WorldClimate.com'
-                    },
-                    xAxis: [{
-                        title: {
-                            text: 'Sets',
-                            style: {
-                                color: '#89A54E'
-                            }
+                    }, xAxis: {
+                        gridLineWidth: 0,
+                        type: 'datetime',
+                        dateTimeLabelFormats: { // don't display the dummy year
+                            month: '%e. %b',
+                            year: '%b'
                         }
-                    }],
+                    },
                     yAxis: [{ // Primary yAxis
+                        gridLineWidth: 1,
+                        gridLineColor:'#ddd',
                         labels: {
                             formatter: function () {
-                                return this.value + 'reps';
+                                return this.value + 'kg';
                             },
                             style: {
                                 color: '#89A54E'
                             }
                         },
                         title: {
-                            text: 'Reps',
+                            text: 'Load',
                             style: {
                                 color: '#89A54E'
                             }
@@ -147,7 +162,7 @@
                     }, { // Secondary yAxis
                         gridLineWidth: 0,
                         title: {
-                            text: 'Weight',
+                            text: 'Avg. Weight',
                             style: {
                                 color: '#4572A7'
                             }
@@ -164,7 +179,7 @@
                     }, { // Tertiary yAxis
                         gridLineWidth: 0,
                         title: {
-                            text: 'Volume',
+                            text: '1 Rep Max',
                             style: {
                                 color: '#AA4643'
                             }
@@ -182,13 +197,13 @@
                     tooltip: {
                         formatter: function () {
                             var unit = {
-                                'Weight': 'kg',
-                                'Reps': 'reps',
-                                'Volume': 'kg'
+                                'Avg. Weight': 'kg',
+                                'Load': 'kg',
+                                '1 Rep Max': 'kg'
                             }[this.series.name];
 
                             return '' +
-                                this.x + ': ' + this.y + ' ' + unit;
+                                Highcharts.dateFormat('%e. %b', this.x) + ': ' + this.y + ' ' + unit;
                         }
                     },
                     legend: {
@@ -201,28 +216,28 @@
                         backgroundColor: '#FFFFFF'
                     },
                     series: [{
-                        name: 'Weight',
+                        name: 'Avg. Weight',
                         color: '#4572A7',
                         type: 'spline',
                         yAxis: 1,
-                        data: [18, 24, 24, 38, 38, 38, 34, 34]
+                        data: [@Html.Raw(avg)]
 
                     }, {
-                        name: 'Volume',
+                        name: '1 Rep Max',
                         type: 'spline',
                         color: '#AA4643',
                         yAxis: 2,
-                        data: [5 * 18, 5 * 24, 5 * 24, 8 * 38, 9 * 38, 7 * 38, 9 * 34, 7 * 34],
+                        data: [@Html.Raw(max)],
                         marker: {
                             enabled: false
                         },
                         dashStyle: 'shortdot'
 
                     }, {
-                        name: 'Reps',
+                        name: 'Load',
                         color: '#89A54E',
                         type: 'spline',
-                        data: [5, 5, 5, 8, 9, 7, 9, 7]
+                        data: [@Html.Raw(load)]
                     }]
                 });
             });
@@ -293,6 +308,7 @@
         </div>
     </fieldset>
 }
+<div id="container"></div>
 <table class="table table-bordered table-condensed table-hover">
 
 

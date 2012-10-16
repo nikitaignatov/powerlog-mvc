@@ -41,63 +41,8 @@
             </td>
         </tr>
     </script>
+    <script src="/Scripts/parserClient.js"></script>
     <script type="text/javascript">
-        function GetDate(jsonDate) {
-            var value = new Date(parseInt(jsonDate.substr(6)));
-            return value.getMonth() + 1 + "/" + value.getDate() + "/" + value.getFullYear();
-        }
-
-        function getPreview(date, exrp) {
-            $.ajax({
-                dataType: "json",
-                type: 'POST',
-                data: { date: date, expression: exrp },
-                url: "/LoggedExercise/PreviewLog",
-                success: function (data) {
-                    $("#expressionError").hide();
-                    $("#expressionError").html('');
-                    $("#preview tbody").html('');
-                    $("#previewTemplate").tmpl(data)
-                        .appendTo("#preview tbody");
-                },
-                error: function (data) {
-                    console.log(data);
-                    $("#expressionError").html(data.statusText);
-                    $("#expressionError").show();
-                    console.log('failure:' + data.status + ':' + data.statusText);
-                }
-            });
-        }
-
-        $("#preview tbody").html('');
-        var expr = $("#expression");
-        expr.keyup(function (e) {
-            var date = $("#Date").val();
-            var expr = $(this).val();
-            getPreview(date, expr);
-        });
-
-        expr.typeahead({
-            items: 15,
-            matcher: function (item) {
-                return true;
-            },
-            source: function (query, process) {
-
-                function test(q) {
-                    return !/\d/.test(q) && ($.trim(q) === q.toString());
-                }
-
-                if (test(query)) {
-                    return $.get('/exercise/get', { q: query }, function (data) {
-                        return process(data);
-                    });
-                } 
-                return;
-            }
-        });
-
-        expr.focus();
         $('.comment').live('click', function () {
             $(this).popover();
         });
@@ -132,9 +77,13 @@
         table td:nth-child(4) {
             color: #aaa;
         }
-        
-        blockquote{
+
+        blockquote {
             cursor: pointer;
+        }
+
+        #expressionError {
+            display: none;
         }
     </style>
     <div class="">
@@ -153,22 +102,30 @@
                     type="date"
                     value="@DateTime.Now.ToString("yyyy-MM-dd")"
                     autocomplete="Off" />
-                <textarea
+                <input
+                    type="text"
                     data-title="Tags"
                     data-html="true"
                     data-placement="bottom"
                     name="expression"
                     id="expression"
                     placeholder="barbell bench press 12x200 10x210 8x220-tf"
-                    autocomplete="Off" rows="6" class="span12"></textarea>
+                    autocomplete="Off" rows="6" class="span12" />
+                <input id="expressionCache" type="hidden" value="" />
                 <div id="expressionError" class="alert alert-info">
                 </div>
+                <ul>
+                    <li>barbell curl 6x12x50 <i class="icon-remove"></i></li>
+                </ul>
+                <h3>Preview</h3>
                 <table id="preview" class="table table-bordered table-hover table-condensed">
                     <thead>
-                        <th>Exercise</th>
-                        <th>Sets</th>
-                        <th>1RM</th>
-                        <th>Volume</th>
+                        <tr>
+                            <th>Exercise</th>
+                            <th>Sets</th>
+                            <th>1RM</th>
+                            <th>Volume</th>
+                        </tr>
                     </thead>
                     <tbody>
                     </tbody>
@@ -179,6 +136,7 @@
 
                 </div>
             </div>
+            <!-- Help -->
             <div class="span6 mini-layout">
                 <h3>How to use</h3>
                 <p>To log your workout routine start typing exercise name followed by sets like in the example below:</p>
@@ -217,119 +175,3 @@
         </div>
     </div>
 }
-@*<div class="tabbable">
-    <ul class="nav nav-tabs">
-        <li class="active"><a href="#view" data-toggle="tab">View</a></li>
-        <li><a href="#json" data-toggle="tab">Json</a></li>
-        <li><a href="#xml" data-toggle="tab">Xml</a></li>
-        <li><a href="#csv" data-toggle="tab">Csv</a></li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane" id="json">
-            <pre>
-<code class="json">
-@ViewBag.json
-</code>
-            </pre>
-        </div>
-        <div class="tab-pane" id="xml">
-            <pre>
-<code class="xml">
-@ViewBag.xml
-</code>
-            </pre>
-        </div>
-        <div class="tab-pane" id="csv">
-            <pre>
-<code class="csv">
-@ViewBag.csv
-</code>
-            </pre>
-        </div>
-        <div class="tab-pane active" id="view">
-            <table class="table">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Date)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.ExerciseID)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Weight)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Reps)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Comment)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.FailedToLift)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.ToFailure)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.MaxEffort)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.LongNegative)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.ForcedReps)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.OneRepMax)
-                    </th>
-                    <th></th>
-                </tr>
-
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Date)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ExerciseID)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Weight)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Reps)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Comment)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FailedToLift)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ToFailure)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.MaxEffort)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.LongNegative)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ForcedReps)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.OneRepMax)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                        </td>
-                    </tr>
-                }
-
-            </table>
-        </div>
-    </div>
-</div>*@

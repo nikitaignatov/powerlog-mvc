@@ -35,6 +35,15 @@ namespace PowerLog.Model
         [Range(1, 1000)]
         public int Reps { get; set; }
 
+        public double Load
+        {
+            get { return Weight * Reps; }
+        }
+        public double RepWeight
+        {
+            get { return Load * (Weight * Reps); }
+        }
+
         public string Comment { get; set; }
 
         public bool FailedToLift { get; set; }

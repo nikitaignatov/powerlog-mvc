@@ -1,4 +1,5 @@
-﻿using PowerLog.Model;
+﻿using System.Text.RegularExpressions;
+using PowerLog.Model;
 using PowerLog.Parser;
 using Sprache;
 using System;
@@ -28,21 +29,26 @@ namespace PowerLog.Data
 
     public class Initializer : DropCreateDatabaseAlways<DB>
     {
-    
+
 
         // ReSharper disable InconsistentNaming
         private static readonly Parser<string> Data = from x in Parse.AnyChar.Except(Parse.Char(',')).Many().Text() select x;
         private static readonly Parser<char> Separator = from x in Parse.Char(',') select x;
         public static Parser<Exercise> Exrx =
-            from bodyPart       in Data from _ in Separator
-            from name           in Data from __ in Separator
-            from utility        in Data from ___ in Separator
-            from mechanics      in Data from ____ in Separator 
-            from force          in Data from _____ in Separator
+            from bodyPart in Data
+            from _ in Separator
+            from name in Data
+            from __ in Separator
+            from utility in Data
+            from ___ in Separator
+            from mechanics in Data
+            from ____ in Separator
+            from force in Data
+            from _____ in Separator
             from url in Parse.AnyChar.Many().Text()
             select new Exercise
             {
-                Name = name.Replace("(", string.Empty).Replace(")", string.Empty),
+                Name = Regex.Replace( Regex.Replace(name, @"\(|\)| 45°", string.Empty),"-" ," "),
                 BodyPart = bodyPart,
                 Force = force,
                 Mechanics = mechanics,
@@ -57,36 +63,54 @@ namespace PowerLog.Data
             foreach (var line in File.ReadLines("\\REPO\\random.txt")
                 //  .Where(x => x.Contains("Dumbbell") || x.Contains("Barbell") || x.Contains("Cable"))
                 .OrderBy(x => x.Split(',')[1]))
-                db.Exercises.Add(Exrx.Parse(line.Replace(" 45°", "")));
-            db.SaveChanges();
-            ;
-            var workout = File.ReadLines(Path.Combine( HttpContext.Current.Server.MapPath("~/App_Data"), "workout.txt"));
+            {
+                try
+                {
+                    db.Exercises.Add(Exrx.Parse(line));
+                    db.SaveChanges();
+                }
+                catch (Exception)
+                {
+                }
+            }
+
+            var workout = File.ReadLines(Path.Combine(HttpContext.Current.Server.MapPath("~/App_Data"), "workout.txt"));
             foreach (var line in workout.Where(x => !x.Contains("#")))
             {
                 var x = line.Split(',');
                 var da = DateTime.Parse(x[0]);
                 var expression = x[1];
                 AddLogsForExpression(db, expression, da);
+            db.SaveChanges();
             }
 
-            db.SaveChanges();
         }
 
         private void AddLogsForExpression(DB db, string expression, DateTime date)
         {
-            var result = PowerLogParser.ParseInput(expression);
-            var list = result.Sets.Select(x => new LoggedExercise
+            var result = PowerLogParser.ParseInput(expression).ToList();
+            var list = new List<LoggedExercise>();
+            foreach (var log in result)
             {
-                Reps = x.Reps,
-                Weight = x.Weight,
-                Date = date,
-                FailedToLift = x.FailedToLift,
-                ForcedReps = x.ForcedReps,
-                MaxEffort = x.MaxEffort,
-                ToFailure = x.ToFailure,
-                Comment = x.Comment,
-                Exercise = new Exercise { Name = result.Name }
-            });
+                foreach (var set in log.Sets)
+                {
+                    for (int i = 0; i < set.Sets; i++)
+                    {
+                        list.Add(new LoggedExercise
+                        {
+                            Reps = set.Reps,
+                            Weight = set.Weight,
+                            Date = date,
+                            FailedToLift = set.FailedToLift,
+                            ForcedReps = set.ForcedReps,
+                            MaxEffort = set.MaxEffort,
+                            ToFailure = set.ToFailure,
+                            Comment = set.Comment,
+                            Exercise = new Exercise { Name = log.Name }
+                        });
+                    }
+                }
+            }
 
             foreach (var log in list)
             {
