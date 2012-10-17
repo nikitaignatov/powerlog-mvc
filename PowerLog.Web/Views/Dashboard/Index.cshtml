@@ -3,8 +3,8 @@
 @{
     ViewBag.Title = "Dashboard";
 
-    var total = Model.Where(x => x.Date.Date == DateTime.Now.Date).Sum(x => x.Reps);
-    var data = string.Join(",", Model.Where(x => x.Date.Date == DateTime.Now.Date).GroupBy(x => x.Exercise.Name).Select(x => string.Format(@"[""{0}"",{1}]", x.Key, x.Sum(y => y.Reps * 1.0) / total * 100)));
+    var total = Model.Where(x => x.Date.Date == DateTime.Now.Date.AddDays(-1)).Sum(x => x.Reps);
+    var data = string.Join(",", Model.Where(x => x.Date.Date == DateTime.Now.Date.AddDays(-1)).GroupBy(x => x.Exercise.BodyPart).Select(x => string.Format(@"[""{0}"",{1}]", x.Key, x.Sum(y => y.Reps * 1.0) / total * 100)));
 }
 @total
 
@@ -26,29 +26,42 @@
                     title: {
                         text: 'Browser market shares at a specific website, 2010'
                     },
-                    tooltip: {
-                        pointFormat: '{series.name}: <b>{point.percentage}%</b>',
-                        percentageDecimals: 1
-                    },
+                    tooltip: { enabled: false },
+                    // tooltip: {
+                    //    pointFormat: ':<b>{point.percentage}</b> %',
+                    //    percentageDecimals: 1,
+                    //    borderWidth: 1,
+                    //    borderRadius: 1,
+                    //    borderColor: '#999',
+                    //    backgroundColor: {
+                    //        linearGradient: [0, 0, 0, 400],
+                    //        stops: [
+                    //          [0, '#fff'],
+                    //          [1, '#999']
+                    //        ]
+                    //    }
+                    //},
                     plotOptions: {
                         pie: {
                             allowPointSelect: true,
                             cursor: 'pointer',
+                            borderWidth: 2,
+                            shadow:false,
                             dataLabels: {
-                                enabled: false,
+                                enabled: true,
                                 color: '#000000',
                                 connectorColor: '#000000',
                                 formatter: function () {
-                                    return '<b>' + this.point.name + '</b>: ' + this.percentage + ' %';
+                                    return '<b>' + this.point.name + '</b>: ' + this.percentage.toFixed(1) + ' %';
                                 }
                             },
-                            showInLegend: true
+                            showInLegend: false
 
                         }
                     },
                     series: [{
                         type: 'pie',
-                        name: 'Browser share',
+                        name: 'Percentage',
                         data: [
                            @Html.Raw(data)
                         ]

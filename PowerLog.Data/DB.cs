@@ -9,11 +9,21 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Globalization;
+using System.Data.Entity.Migrations;
+using System.Linq;
+using System.Web.Security;
+using WebMatrix.WebData;
 
 namespace PowerLog.Data
 {
     public class DB : DbContext
     {
+        public DB(string connectionString = "DefaultConnection")
+            : base(connectionString)
+        {
+        }
+
+        public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<LoggedExercise> LoggedExercises { get; set; }
         public DbSet<SharedExercise> SharedExercises { get; set; }
 
@@ -27,10 +37,8 @@ namespace PowerLog.Data
     }
 
 
-    public class Initializer : DropCreateDatabaseAlways<DB>
+    public class Initializer : DropCreateDatabaseIfModelChanges<DB>
     {
-
-
         // ReSharper disable InconsistentNaming
         private static readonly Parser<string> Data = from x in Parse.AnyChar.Except(Parse.Char(',')).Many().Text() select x;
         private static readonly Parser<char> Separator = from x in Parse.Char(',') select x;
@@ -48,7 +56,7 @@ namespace PowerLog.Data
             from url in Parse.AnyChar.Many().Text()
             select new Exercise
             {
-                Name = Regex.Replace( Regex.Replace(name, @"\(|\)| 45°", string.Empty),"-" ," "),
+                Name = Regex.Replace(Regex.Replace(name, @"\(|\)| 45°", string.Empty), "-", " "),
                 BodyPart = bodyPart,
                 Force = force,
                 Mechanics = mechanics,
@@ -60,6 +68,24 @@ namespace PowerLog.Data
 
         protected override void Seed(DB db)
         {
+            const string username = "MakeitKebaBacon";
+            if (!WebSecurity.Initialized)
+                WebSecurity.InitializeDatabaseConnection(
+                      "DefaultConnection",
+                      "UserProfiles",
+                      "UserId",
+                      "UserName", autoCreateTables: true);
+
+            if (!Roles.RoleExists("Administrator"))
+                Roles.CreateRole("Administrator");
+
+            if (!WebSecurity.UserExists(username))
+                WebSecurity.CreateUserAndAccount(username, "ajHjEw5m6zGd3ZzW0Nte");
+
+            if (!Roles.GetRolesForUser(username).Contains("Administrator"))
+                Roles.AddUsersToRoles(new[] { username }, new[] { "Administrator" });
+
+            db.SaveChanges();
             foreach (var line in File.ReadLines("\\REPO\\random.txt")
                 //  .Where(x => x.Contains("Dumbbell") || x.Contains("Barbell") || x.Contains("Cable"))
                 .OrderBy(x => x.Split(',')[1]))
@@ -81,7 +107,7 @@ namespace PowerLog.Data
                 var da = DateTime.Parse(x[0]);
                 var expression = x[1];
                 AddLogsForExpression(db, expression, da);
-            db.SaveChanges();
+                db.SaveChanges();
             }
 
         }
@@ -98,6 +124,7 @@ namespace PowerLog.Data
                     {
                         list.Add(new LoggedExercise
                         {
+                            UserId = 1,
                             Reps = set.Reps,
                             Weight = set.Weight,
                             Date = date,

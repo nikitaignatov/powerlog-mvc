@@ -1,177 +1,39 @@
-﻿@model IEnumerable<PowerLog.Model.LoggedExercise>
+﻿@using PowerLog.Model
+@model IEnumerable<PowerLog.Model.SharedExercise>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var title = new Func<string, IEnumerable<LoggedExercise>, string>(
+        (string a, IEnumerable<PowerLog.Model.LoggedExercise> e) =>
+            string.Format("{0}{1} workout", string.IsNullOrWhiteSpace(a) ? "" : a + " - ",
+            string.Join(", ", e.GroupBy(x => x.Exercise.BodyPart).OrderByDescending(x => x.Sum(y => y.Load)).Select(x => x.Key).Take(3))
+            ));
 }
-@section scripts
-{
-    @Scripts.Render("~/bundles/jqueryui")
-    <script src="/Scripts/js/highcharts.js" type="text/javascript"></script>
-    <script id="previewTemplate" type="text/x-jquery-tmpl">
-        <tr class="title">
-            <td>${Exercise} 
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Share your workout", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @title(item.Title, item.LoggedExercises) by <strong>@item.UserProfile.UserName</strong>
             </td>
-            <td>{{each Sets}}
-                <strong>${Reps}</strong><small>x</small><strong>${Weight}</strong><small>kg</small>
-                {{if Comment}}                                            
-                <button class="comment btn btn-mini" type="button" data-content="${Comment}" data-title="Note:" data-original-title=""><i class="icon-comment"></i></button>
-                {{/if}} 
-                {{if FailedToLift}}  
-                <span class="label label-important">failed</span>
-                {{/if}} 
-                {{if MaxEffort}}  
-                <span class="label label-success">max</span>
-                {{/if}} 
-                {{if ToFailure}}  
-                <span class="label label-important">to failure</span>
-                {{/if}} 
-                <br />
-                {{/each}}                
-            </td>
-            <td>{{each Sets}}
-                <strong>${OneRepMax}</strong><small>kg</small>
-                <br />
-                {{/each}}                
-            </td>
-            <td>{{each Sets}}
-                <strong>${Reps*Weight}</strong><small>kg</small>
-                <br />
-                {{/each}}                
+            <td>
+                @Html.ActionLink(title(item.Title, item.LoggedExercises), "Shared", new { id = item.ID })
             </td>
         </tr>
-    </script>
-    <script src="/Scripts/parserClient.js"></script>
-    <script type="text/javascript">
-        $('.comment').live('click', function () {
-            $(this).popover();
-        });
-        $('blockquote').click(function () {
-            var text = $(this).text().toString();
-            $("#expression").text(text);
-            $("#expression").trigger("keyup");
-        });
-    </script>
-}
+    }
 
-<h2>Share Workout</h2>
-@using (Html.BeginForm("Share", "Share", FormMethod.Post))
-{
-    <style>
-        #expression {
-            text-transform: lowercase;
-        }
-
-        #preview {
-            background: #fff;
-        }
-
-            #preview td:nth-child(1) {
-                width: 30%;
-            }
-
-        table td:nth-child(3) {
-            color: #aaa;
-        }
-
-        table td:nth-child(4) {
-            color: #aaa;
-        }
-
-        blockquote {
-            cursor: pointer;
-        }
-
-        #expressionError {
-            display: none;
-        }
-    </style>
-    <div class="">
-        <div class="row-fluid">
-            <div class="span6 well">
-                <input
-                    name="Title"
-                    id="Title"
-                    type="text"
-                    value=""
-                    placeholder="workout title"
-                    autocomplete="Off" />
-                <input
-                    name="Date"
-                    id="Date"
-                    type="date"
-                    value="@DateTime.Now.ToString("yyyy-MM-dd")"
-                    autocomplete="Off" />
-                <input
-                    type="text"
-                    data-title="Tags"
-                    data-html="true"
-                    data-placement="bottom"
-                    name="expression"
-                    id="expression"
-                    placeholder="barbell bench press 12x200 10x210 8x220-tf"
-                    autocomplete="Off" rows="6" class="span12" />
-                <input id="expressionCache" type="hidden" value="" />
-                <div id="expressionError" class="alert alert-info">
-                </div>
-                <ul>
-                    <li>barbell curl 6x12x50 <i class="icon-remove"></i></li>
-                </ul>
-                <h3>Preview</h3>
-                <table id="preview" class="table table-bordered table-hover table-condensed">
-                    <thead>
-                        <tr>
-                            <th>Exercise</th>
-                            <th>Sets</th>
-                            <th>1RM</th>
-                            <th>Volume</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-
-                <div class="form-actions">
-                    <input type="submit" value="Log" class="btn btn-primary" />
-
-                </div>
-            </div>
-            <!-- Help -->
-            <div class="span6 mini-layout">
-                <h3>How to use</h3>
-                <p>To log your workout routine start typing exercise name followed by sets like in the example below:</p>
-                <blockquote>barbell bench press 12x200 10x210 8x220-tf;<br />
-                    barbell curl 6x12x50;
-                        <br />
-                    squat 300 320 330 340-ftl
-                </blockquote>
-                <blockquote>barbell bench press
-                    <br />
-                    12x100
-                    <br />
-                    2x10x210-ftl-note(hi mom)-max-tf-fr(2)<br />
-                    8x220-max
-                </blockquote>
-                <blockquote>barbell curl
-                    <br />
-                    3x10x10<br />
-                </blockquote>
-                <h3>Annotations</h3>
-                <p>You can annotate your sets with following flags</p>
-                <dl>
-                    <dt>-Note(some text)</dt>
-                    <dd>
-                        <button class="comment btn btn-mini" type="button" data-content="some text" data-title="Note:" data-original-title=""><i class="icon-comment"></i></button>
-                        will be added as a note to this set</dd>
-                    <dt>-MAX</dt>
-                    <dd><span class="label label-success">max</span> indicates that this was a max effort lift</dd>
-                    <dt>-<abbr title="Failed to lift">FTL</abbr></dt>
-                    <dd><span class="label label-important">failed</span> indicates that you failed to lift the weight</dd>
-                    <dt>-<abbr title="To failure">TF</abbr></dt>
-                    <dd><span class="label label-important">to failure</span> indicates that this set was performed to failure</dd>
-                </dl>
-
-            </div>
-        </div>
-    </div>
-}
+</table>

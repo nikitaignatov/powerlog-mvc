@@ -69,15 +69,14 @@
     </li>
     <li id="nav-help">
         <a href="/help/" rel="facebox"><i class="picons-16-white-basic2-004"></i>Help
-        </a></li>@*
+        </a></li>
     <text>
-    Hello, !
-        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" ,style="display:inline"}))
         {
             @Html.AntiForgeryToken()
             <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
         }
-    </text> *@
+    </text> 
 }
 else
 {

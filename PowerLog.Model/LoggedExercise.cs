@@ -12,6 +12,9 @@ namespace PowerLog.Model
         [StringLength(10, MinimumLength = 10)]
         public string ID { get; set; }
 
+        public int UserId { get; set; }
+        public UserProfile UserProfile { get; set; }
+
         public string Title { get; set; }
         public virtual ICollection<LoggedExercise> LoggedExercises { get; set; }
     }
@@ -20,6 +23,9 @@ namespace PowerLog.Model
     {
         [Key]
         public int ID { get; set; }
+
+        public int UserId { get; set; }
+        public UserProfile UserProfile { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }

@@ -1,6 +1,8 @@
 ﻿var expr = $("#expression");
 var _expressionCache = $("#expressionCache");
+var _clearLocalStorage = $("#clearLocalStorage");
 var _resultCache = {};
+var _expressionsKey = "expressions";
 
 $("#preview tbody").html('');
 expr.focus();
@@ -11,7 +13,7 @@ function GetDate(jsonDate) {
 }
 
 function showPreview(data) {
-    $("#expressionError").hide();
+    $("#expressionError").removeClass("alert-error").addClass("alert-info");
     $("#expressionError").html('');
     $("#preview tbody").html('');
     $("#previewTemplate").tmpl(data).appendTo("#preview tbody");
@@ -30,6 +32,7 @@ function getPreview(date, exrp) {
         },
         error: function (data) {
             console.log(data);
+            $("#expressionError").removeClass("alert-info").addClass("alert-error");
             $("#expressionError").html(data.statusText);
             $("#expressionError").show();
             console.log('failure:' + data.status + ':' + data.statusText);
@@ -37,6 +40,70 @@ function getPreview(date, exrp) {
     });
 }
 
+function showStoredExpressions() {
+    var element = $("#expressionList");
+    element.html('');
+    var items = getExpressions();
+
+    for (var i = 0; i < items.length; i++) {
+        element.append("<li>" + items[i] + "<i class='icon-remove pull-right'></i></li>");
+    }
+    var date = $("#Date").val();
+    getPreview(date, items.join(";"));
+}
+
+function getIndex(node) {
+    var childs = node.parents("#expressionList").find("li");
+    for (var i = 0; i < childs.length; i++) {
+        if (node.parents("li")[0] == childs[i]) return i;
+    }
+    return -1;
+}
+
+function removeExpression(element) {
+    var index = getIndex(element);
+    var items = getExpressions();
+    console.log(index);
+    console.log(items);
+    items.splice(index, 1);
+    console.log(items);
+    localStorage.setItem(_expressionsKey, JSON.stringify(items));
+    showStoredExpressions();
+}
+
+function storeExpression(value) {
+    var key = _expressionsKey;
+    var store = [];
+    if (localStorage[key])
+        store = JSON.parse(localStorage[key]);
+    store.push(value);
+    localStorage.setItem(key, JSON.stringify(store));
+    showStoredExpressions();
+}
+
+function getExpressions() {
+    var key = _expressionsKey;
+    var items = [];
+    if (localStorage[key])
+        items = JSON.parse(localStorage[key]);
+    return items;
+}
+function test(q) {
+    return !/\d/.test(q) && ($.trim(q) === q.toString());
+}
+
+expr.keydown(function (e) {
+    var keypressed = e.keyCode || e.which;
+    if (keypressed == 13) {
+        e.preventDefault();
+        if (expr.val() && !test(expr.val())) {
+            storeExpression(expr.val());
+            expr.val('');
+            var date = $("#Date").val();
+            getPreview(date, getExpressions().join());
+        }
+    }
+});
 
 expr.keyup(function (e) {
     var date = $("#Date").val();
@@ -56,10 +123,6 @@ expr.typeahead({
         return true;
     },
     source: function (query, process) {
-        function test(q) {
-            return !/\d/.test(q) && ($.trim(q) === q.toString());
-        }
-
         if (test(query)) {
             return $.get('/exercise/get', { q: query }, function (data) {
                 return process(data);
@@ -68,3 +131,16 @@ expr.typeahead({
         return;
     }
 });
+
+function init() {
+    $(".icon-remove").live("click", function () {
+        removeExpression($(this));
+        $("#expressionError").html('removed item');
+        $("#expressionError").show();
+    });
+    $("#saveButton").live("click", function () {
+        expr.val(getExpressions().join(";"));
+    });
+    showStoredExpressions();
+}
+init();

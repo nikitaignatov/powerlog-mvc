@@ -3,10 +3,19 @@
 @{
     ViewBag.Title = Model.Title;
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var clearLocalStorage = false;
+    if (ViewBag.ClearLocalStorage != null)
+    {
+        clearLocalStorage = (bool)ViewBag.ClearLocalStorage;
+    }
 }
 @section scripts{
     <script type="text/javascript">
         $('.comment').popover();
+        @if (clearLocalStorage)
+        { 
+            @:localStorage.removeItem("expressions");
+                                }
     </script>
 }
 <style>
@@ -55,7 +64,7 @@
                             <tr>
                                 <th>@date.Key.ToShortDateString()</th>
                                 <td colspan="7">[<strong>@date.Sum(x => x.Reps)</strong> lifts] 
-                                [<strong>@date.Sum(x => x.Weight * x.Reps)kg</strong> total load]
+                                    [<strong>@date.Sum(x => x.Weight * x.Reps)kg</strong> total load]
                                 </td>
                             </tr>
                             foreach (var exercises in date.GroupBy(x => x.Exercise))
@@ -71,8 +80,8 @@
                                 <th>weight</th>
                                 <th>1 Rep Max</th>
                                 <th>load</th>
-                                <th>remarks</th>
-                                <th>notes</th>
+                                <th class="hidden-phone">remarks</th>
+                                <th class="hidden-phone">notes</th>
                             </tr>
                                 foreach (var item in exercises)
                                 {
@@ -90,23 +99,23 @@
                                 <td>
                                     <strong>@(item.Load)</strong>kg
                                 </td>
-                                <td>
+                                <td class="hidden-phone">
                                     @if (item.FailedToLift)
                                     {
-                                        <span class="label label-important">Failed to lift</span>
+                                        <span class="label label-important">ftl</span>
                                     }
                                     @if (item.MaxEffort)
                                     {
                     
-                                        <span class="label label-success">Max effort</span>
+                                        <span class="label label-success">max</span>
                                     }
                                     @if (item.ToFailure)
                                     {
                     
-                                        <span class="label label-important">To Failure</span>
+                                        <span class="label label-important">tf</span>
                                     }
                                 </td>
-                                <td>
+                                <td class="hidden-phone">
                                     @if (!string.IsNullOrWhiteSpace(item.Comment))
                                     {@item.Comment
                                         <button class="comment btn btn-mini" data-content="@item.Comment" data-placement="left" data-title="Note:"><i class="icon-comment"></i></button>
