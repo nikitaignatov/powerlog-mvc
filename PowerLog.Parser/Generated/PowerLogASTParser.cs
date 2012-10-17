@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.4 C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3 2012-10-16 17:19:15
+// $ANTLR 3.4 C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3 2012-10-17 23:13:25
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -403,7 +403,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: note, set, forced, FLAGS, flag, FLAGGED_SET
+			// elements: forced, note, FLAGGED_SET, flag, set, FLAGS
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -636,7 +636,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 				{
 				// AST REWRITE
-				// elements: weight, WEIGHT, reps, sets, REP, SETS, MULTI_SET
+				// elements: WEIGHT, reps, REP, SETS, weight, sets, MULTI_SET
 				// token labels: 
 				// rule labels: retval
 				// token list labels: 
@@ -726,7 +726,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 				{
 				// AST REWRITE
-				// elements: SET, weight, REP, WEIGHT, reps
+				// elements: WEIGHT, SET, weight, reps, REP
 				// token labels: 
 				// rule labels: retval
 				// token list labels: 
@@ -794,7 +794,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 				{
 				// AST REWRITE
-				// elements: weight, REP, WEIGHT, SET, SINGLE
+				// elements: WEIGHT, SET, SINGLE, weight, REP
 				// token labels: 
 				// rule labels: retval
 				// token list labels: 
@@ -1006,7 +1006,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: EXERCISE_NAME, EXERCISE, annotatedSet, DATA, exercise_name
+			// elements: EXERCISE, DATA, exercise_name, annotatedSet, EXERCISE_NAME
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1236,7 +1236,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: MESSAGE, NOTE, text
+			// elements: NOTE, text, MESSAGE
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1369,7 +1369,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: FORCED, REP, reps
+			// elements: reps, FORCED, REP
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 

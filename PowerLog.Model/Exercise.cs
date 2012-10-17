@@ -26,7 +26,11 @@ namespace PowerLog.Model
         public string Url { get; set; }
     }
 
-    public class MyClass : Exercise
+    public class Equipment
+    {
+    }
+
+    public class BodyPart
     {
 
     }

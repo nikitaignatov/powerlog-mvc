@@ -9,9 +9,11 @@ using PowerLog.Data;
 using PowerLog.Model;
 using PowerLog.Web.Models;
 using PowerLog.Parser;
+using WebMatrix.WebData;
 
 namespace PowerLog.Web.Controllers
 {
+    [Authorize]
     public class DashboardController : Controller
     {
         private DB db = new DB();
@@ -21,8 +23,11 @@ namespace PowerLog.Web.Controllers
 
         public ActionResult Index()
         {
+            var userId = WebSecurity.GetUserId(User.Identity.Name);
 
-            var loggedexercises = db.LoggedExercises.Include(l => l.Exercise).ToList();
+            var loggedexercises = db.LoggedExercises.Include(l => l.Exercise).Where(x => x.UserId == userId).ToList();
+            var loggedexercises2 = db.LoggedExercises.Where(x => x.UserId == userId).Include(l => l.Exercise).Select(x => x.Reps).ToList();
+            var loggedexercises3 = db.LoggedExercises.Include(l => l.Exercise).Where(x => x.UserId == userId).Select(x => x.Weight).ToList();
             return View(loggedexercises);
         }
 
@@ -56,7 +61,7 @@ namespace PowerLog.Web.Controllers
         {
             if (!string.IsNullOrWhiteSpace(expression))
             {
-                foreach (var log in ParserHelper.ParseLog(db,loggedexercise.Date, expression))
+                foreach (var log in ParserHelper.ParseLog(db, loggedexercise.Date, expression))
                     db.LoggedExercises.Add(log);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -74,10 +79,10 @@ namespace PowerLog.Web.Controllers
         // [HttpPost]
         public ActionResult PreviewLog(DateTime date, string expression)
         {
-            return Json(ParserHelper.ParseLog(db,date, expression), JsonRequestBehavior.AllowGet);
+            return Json(ParserHelper.ParseLog(db, date, expression), JsonRequestBehavior.AllowGet);
         }
 
-        
+
 
         //
         // GET: /LoggedExercise/Edit/5

@@ -14,7 +14,7 @@ using PowerLog.Web.Models;
 namespace PowerLog.Web.Controllers
 {
     [Authorize]
-    [InitializeSimpleMembership]
+    //  [InitializeSimpleMembership]
     public class AccountController : Controller
     {
         //
