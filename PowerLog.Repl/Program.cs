@@ -61,7 +61,10 @@ namespace PowerLog.Repl
                 {
                     if (!string.IsNullOrEmpty(line))
                     {
-                        Console.WriteLine(PowerLogParser.ParseInput(line));
+                        foreach (var log in PowerLogParser.ParseInput(line))
+                        {
+                            Console.WriteLine(log);
+                        }
                     }
                 }
                 catch (Exception e)
