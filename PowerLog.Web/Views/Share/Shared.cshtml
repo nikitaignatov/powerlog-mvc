@@ -1,4 +1,5 @@
-﻿@model PowerLog.Model.SharedExercise
+﻿@using System.Globalization
+@model PowerLog.Model.SharedExercise
 
 @{
     ViewBag.Title = Model.Title;
@@ -8,14 +9,216 @@
     {
         clearLocalStorage = (bool)ViewBag.ClearLocalStorage;
     }
+    var list = Model.LoggedExercises.GroupBy(x => x.ExerciseID);
+    var calls = new List<string>();
+    foreach (var logs in list)
+    {
+        var reps = new List<int>();
+        var weight = new List<string>();
+        var max = new List<string>();
+        var load = new List<string>();
+        foreach (var log in logs)
+        {
+            reps.Add(log.Reps);
+            weight.Add(log.Weight.ToString(CultureInfo.InvariantCulture));
+            max.Add(log.OneRepMax.ToString(CultureInfo.InvariantCulture));
+            load.Add(log.Load.ToString(CultureInfo.InvariantCulture));
+        }
+        var call = string.Format("renderChart({0},[{1}],[{2}],[{3}], [{4}]);",
+            logs.Key,
+            string.Join(",", reps),
+            string.Join(",", weight),
+            string.Join(",", max),
+            string.Join(",", load));
+        calls.Add(call);
+    }
+
 }
 @section scripts{
+    <script src="/Scripts/js/highcharts.js"></script>
     <script type="text/javascript">
         $('.comment').popover();
         @if (clearLocalStorage)
         { 
-            @:localStorage.removeItem("expressions");
-                                }
+<text>
+        localStorage.removeItem("expressions");
+</text>   
+        }
+        function renderChart(id, reps, weight, max, load) {
+            var chart;
+            $(document).ready(function () {
+                chart = new Highcharts.Chart({
+                    chart: {
+                        renderTo: 'chart-container-' + id,
+                        zoomType: 'xy'
+                    },
+                    title: {
+                        text: null
+                    },
+                    subtitle: {
+                        text: null
+                    }, credits: {
+                        enabled: false
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    xAxis: [{
+                        minTickInterval: 1,
+                        tickInterval: 1
+                    }],
+                    yAxis: [{ // Primary yAxis
+                        maxPadding: 0.1,
+                        labels: {
+                            formatter: function () {
+                                return this.value.toFixed(1) + ' kg';
+                            },
+                            style: {
+                                color: '#89A54E'
+                            }
+                        },
+                        title: {
+                            text: 'Weight',
+                            style: {
+                                color: '#89A54E'
+                            }
+                        },
+                        opposite: true
+
+                    }, { // Secondary yAxis
+                        title: {
+                            text: 'Repetitions',
+                            style: {
+                                color: '#4572A7'
+                            }
+                        },
+                        labels: {
+                            formatter: function () {
+                                return this.value + ' reps';
+                            },
+                            style: {
+                                color: '#4572A7'
+                            }
+                        }
+
+                    }, { // Tertiary yAxis
+                        gridLineWidth: 1,
+                        gridLineColor: '#eee',
+                        title: {
+                            text: '1 Rep Max',
+                            style: {
+                                color: '#AA4643'
+                            }
+                        },
+                        labels: {
+                            formatter: function () {
+                                return this.value.toFixed(1) + ' kg';
+                            },
+                            style: {
+                                color: '#AA4643'
+                            }
+                        },
+                        opposite: true
+                    }, { // Tertiary yAxis
+                        gridLineWidth: 0,
+                        title: {
+                            text: 'Load',
+                            style: {
+                                color: '#6575DB'
+                            }
+                        },
+                        labels: {
+                            formatter: function () {
+                                return this.value.toFixed(1) + ' kg';
+                            },
+                            style: {
+                                color: '#6575DB'
+                            }
+                        },
+                        opposite: true
+                    }], plotOptions: {
+                        areaspline: {
+                            lineWidth: 2.5,
+                            fillOpacity: .2,
+                            marker: {
+                                lineColor: '#fff',
+                                lineWidth: 1,
+                                radius: 3.5,
+                                symbol: 'circle'
+                            },
+                            shadow: false
+                        },
+                        column: {
+                            fillOpacity: .3,
+                            lineWidth: 16,
+                            shadow: false,
+                            borderWidth: 0,
+                            groupPadding: .3,
+                        },
+                        series: {
+                            pointInterval: 1
+                        }
+                    },
+                    tooltip: {
+                        formatter: function () {
+                            var unit = {
+                                'Repetitions': 'reps',
+                                'Weight': 'kg',
+                                '1 Rep Max': 'kg',
+                                'Load': 'kg'
+                            }[this.series.name];
+
+                            return '' + this.series.name + ': ' + this.y + ' ' + unit;
+                        }
+                    },
+                    series: [{
+                        index: 0,
+                        name: 'Repetitions',
+                        color: '#DEDEDE',
+                        type: 'column',
+                        yAxis: 1,
+                        data: reps,
+                        pointStart: 1
+
+                    }, {
+                        index: 2,
+                        name: '1 Rep Max',
+                        type: 'spline',
+                        color: '#AA4643',
+                        yAxis: 2,
+                        data: max,
+                        marker: {
+                            enabled: false
+                        },
+                        dashStyle: 'shortdot',
+                        pointStart: 1
+
+                    }, {
+                        index: 3,
+                        yAxis: 2,
+                        name: 'Weight',
+                        color: '#89A54E',
+                        type: 'spline',
+                        data: weight,
+                        pointStart: 1
+                    }, {
+                        index: 1,
+                        name: 'Load',
+                        color: '#6575DB',
+                        type: 'areaspline',
+                        yAxis: 3,
+                        data: load,
+                        dashStyle: 'shortdot',
+                        pointStart: 1
+                    }]
+                });
+            });
+        }
+
+        @foreach (var c in calls)
+        {
+    @c
+        }
     </script>
 }
 <style>
@@ -24,117 +227,112 @@
     }
 </style>
 <div class="container-fluid">
-    <div class="tabbable">
-        <ul class="nav nav-tabs">
-            <li class="active"><a href="#workout-report" data-toggle="tab">Report</a></li>
-            <li class="dropdown">
-                <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">Download
-                    <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                    <li><a href="#json" data-toggle="tab">Json</a></li>
-                    <li><a href="#csv" data-toggle="tab">Csv</a></li>
-                </ul>
-            </li>
-        </ul>
-        <div class="tab-content">
-            <div class="tab-pane" id="json">
-                <pre>
-<code class="json">
-@ViewBag.json
-</code>
-            </pre>
-            </div>
-            <div class="tab-pane" id="csv">
-                <pre>
-<code class="csv">
-@ViewBag.csv
-</code>
-            </pre>
-            </div>
-            <div class="row-fluid">
-
-                <div class="tab-pane active span6" id="workout-report">
-                    @{ Html.RenderPartial("~/Views/Dashboard/DashboardTables.cshtml", Model.LoggedExercises, ViewData);}
-                </div>
-                <div class="span6">
-                    <table class="table table-bordered table-condensed table-hover">
-                        @foreach (var date in Model.LoggedExercises.GroupBy(x => x.Date).OrderByDescending(x => x.Key))
-                        {
-                            <tr>
-                                <th>@date.Key.ToShortDateString()</th>
-                                <td colspan="7">[<strong>@date.Sum(x => x.Reps)</strong> lifts] 
-                                    [<strong>@date.Sum(x => x.Weight * x.Reps)kg</strong> total load]
-                                </td>
-                            </tr>
-                            foreach (var exercises in date.GroupBy(x => x.Exercise))
-                            {
-                            <tr>
-                                <th colspan="7">
-                                    @exercises.Key.Name
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>reps
-                                </th>
-                                <th>weight</th>
-                                <th>1 Rep Max</th>
-                                <th>load</th>
-                                <th class="hidden-phone">remarks</th>
-                                <th class="hidden-phone">notes</th>
-                            </tr>
-                                foreach (var item in exercises)
+    <div class="row-fluid">
+        @foreach (var date in Model.LoggedExercises.GroupBy(x => x.Date).OrderByDescending(x => x.Key))
+        {
+            foreach (var exercises in date.GroupBy(x => x.Exercise))
+            {
+            <div class="site">
+                <h2>@exercises.Key.Name</h2>
+                <div class="container-fluid">
+                    <div class="row-fluid">
+                        <div id="chart-container-@exercises.Key.ID" style=" height:200px; margin: 0 auto">
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <table class="table table-condensed table-striped">
+                            <thead>
+                                <tr>
+                                    <th>reps
+                                    </th>
+                                    <th>weight</th>
+                                    <th>1 Rep Max</th>
+                                    <th>load</th>
+                                    <th>remarks</th>
+                                    <th>notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in exercises)
                                 {
-                            <tr>
-                                <td align="right">
-                                    @Html.DisplayFor(modelItem => item.Reps)
-                                </td>
-                                <td>
-                                    <strong>@Html.DisplayFor(modelItem => item.Weight)</strong>kg
-                                </td>
-                                <td>
+                                    <tr>
+                                        <td align="right">
+                                            @Html.DisplayFor(modelItem => item.Reps)
+                                        </td>
+                                        <td>
+                                            <strong>@Html.DisplayFor(modelItem => item.Weight)</strong>kg
+                                        </td>
+                                        <td>
 
-                                    <strong>@(item.OneRepMax)</strong>kg
-                                </td>
-                                <td>
-                                    <strong>@(item.Load)</strong>kg
-                                </td>
-                                <td class="hidden-phone">
-                                    @if (item.FailedToLift)
-                                    {
-                                        <span class="label label-important">ftl</span>
-                                    }
-                                    @if (item.MaxEffort)
-                                    {
+                                            <strong>@(item.OneRepMax)</strong>kg
+                                        </td>
+                                        <td>
+                                            <strong>@(item.Weight * item.Reps)</strong>kg
+                                        </td>
+                                        <td>
+                                            @if (item.FailedToLift)
+                                            {
+                                                <span class="label label-important">Failed to lift</span>
+                                            }
+                                            @if (item.MaxEffort)
+                                            {
                     
-                                        <span class="label label-success">max</span>
-                                    }
-                                    @if (item.ToFailure)
-                                    {
+                                                <span class="label label-success">Max effort</span>
+                                            }
+                                            @if (item.ToFailure)
+                                            {
                     
-                                        <span class="label label-important">tf</span>
-                                    }
-                                </td>
-                                <td class="hidden-phone">
-                                    @if (!string.IsNullOrWhiteSpace(item.Comment))
-                                    {@item.Comment
-                                        <button class="comment btn btn-mini" data-content="@item.Comment" data-placement="left" data-title="Note:"><i class="icon-comment"></i></button>
-                                    }
-                                </td>
-                            </tr>
+                                                <span class="label label-important">To Failure</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (!string.IsNullOrWhiteSpace(item.Comment))
+                                            {
+                                                <button class="comment btn btn-mini" data-content="@item.Comment" data-title="Note:"><i class="icon-comment"></i></button>
+                                            }
+                                        </td>
+
+                                    </tr>
                                 }
-                            <tr style="color: #aaa;">
-                                <td colspan="3">[<strong>@exercises.Sum(x => x.Reps)</strong> lifts] 
-                                </td>
-                                <td colspan="4">[<strong>@exercises.Sum(x => x.Weight * x.Reps)kg</strong> total load]
-                                </td>
-                            </tr>
-                            }
-                        }
-
-                    </table>
+                            </tbody>
+                            <tfoot>
+                                <tr style="color: #aaa;">
+                                    <td colspan="3">[<strong>@exercises.Sum(x => x.Reps)</strong> lifts] 
+                                    </td>
+                                    <td colspan="4">[<strong>@exercises.Sum(x => x.Weight * x.Reps)kg</strong> total load]
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
+            }
+        }
     </div>
 </div>
+
+
+
+
+<style>
+    .site {
+        margin-bottom: 25px;
+    }
+
+        .site h2 {
+            margin: 0 20px;
+            font-size: 16px;
+        }
+
+        .site .container-fluid {
+            border-top: 3px solid #585858;
+            -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            -webkit-background-clip: padding-box;
+            -moz-background-clip: padding-box;
+            background-clip: padding-box;
+            padding: 10px 0;
+        }
+</style>
