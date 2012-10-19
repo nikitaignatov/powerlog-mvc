@@ -74,29 +74,32 @@
                         minTickInterval: 1,
                         tickInterval: 1
                     }],
-                    yAxis: [{ // Primary yAxis
+                    yAxis: [{ // Weight
+                        minTickInterval: 1,
                         maxPadding: 0.1,
                         labels: {
                             formatter: function () {
-                                return this.value.toFixed(1) + ' kg';
+                                return this.value.toFixed(0) + ' kg';
                             },
                             style: {
                                 color: '#89A54E'
                             }
                         },
                         title: {
-                            text: 'Weight',
+                            text: '',
                             style: {
                                 color: '#89A54E'
                             }
                         },
                         opposite: true
 
-                    }, { // Secondary yAxis
+                    }, {// Reps
+                        maxPadding: 0,
+                        minTickInterval: 1,
                         title: {
-                            text: 'Repetitions',
+                            text: '',
                             style: {
-                                color: '#4572A7'
+                                color: '#aaa'
                             }
                         },
                         labels: {
@@ -104,39 +107,41 @@
                                 return this.value + ' reps';
                             },
                             style: {
-                                color: '#4572A7'
+                                color: '#aaa'
                             }
                         }
 
-                    }, { // Tertiary yAxis
+                    }, { // Max
+                        minTickInterval: 1,
                         gridLineWidth: 1,
                         gridLineColor: '#eee',
                         title: {
-                            text: '1 Rep Max',
+                            text: '',
                             style: {
                                 color: '#AA4643'
                             }
                         },
                         labels: {
                             formatter: function () {
-                                return this.value.toFixed(1) + ' kg';
+                                return this.value.toFixed(0) + ' kg';
                             },
                             style: {
                                 color: '#AA4643'
                             }
                         },
                         opposite: true
-                    }, { // Tertiary yAxis
+                    }, { // Load
+                        minTickInterval: 1,
                         gridLineWidth: 0,
                         title: {
-                            text: 'Load',
+                            text: '',
                             style: {
                                 color: '#6575DB'
                             }
                         },
                         labels: {
                             formatter: function () {
-                                return this.value.toFixed(1) + ' kg';
+                                return this.value.toFixed(0) + ' kg';
                             },
                             style: {
                                 color: '#6575DB'
