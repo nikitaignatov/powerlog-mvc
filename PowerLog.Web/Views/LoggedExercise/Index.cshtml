@@ -1,109 +1,55 @@
-﻿@model IEnumerable<PowerLog.Model.LoggedExercise>
+﻿@using System.Globalization
+@using System.Text.RegularExpressions
+@using PowerLog.Model
+@model IEnumerable<PowerLog.Model.LoggedExercise>
 
 @{
     ViewBag.Title = "Index";
+    var title = new Func<string, IEnumerable<LoggedExercise>, string>(
+        (string a, IEnumerable<LoggedExercise> e) =>
+        string.Format("{0}{1} workout", string.IsNullOrWhiteSpace(a) ? "" : a + " - ",
+        string.Join(", ", e.GroupBy(x => x.Exercise.BodyPart).OrderByDescending(x => x.Sum(y => y.Load)).Select(x => x.Key).Take(3))
+        ));
+
+
+
+    var list = Model.GroupBy(x => x.ExerciseID);
+    var calls = new List<string>();
+    foreach (var logs in list)
+    {
+        var reps = new List<int>();
+        var weight = new List<string>();
+        var max = new List<string>();
+        var load = new List<string>();
+        foreach (var log in logs)
+        {
+            reps.Add(log.Reps);
+            if (log.FailedToLift)
+            {
+                weight.Add(string.Format(@"{{y:{0},marker: {{symbol: 'url(http://www.bloodsystemseducation.org/resources/images/icons/icon_fail.gif)'}} }}", log.Weight.ToString(CultureInfo.InvariantCulture)));
+            }
+            else
+            {
+                weight.Add(log.Weight.ToString(CultureInfo.InvariantCulture));
+            }
+            max.Add(log.OneRepMax.ToString(CultureInfo.InvariantCulture));
+            load.Add(log.Load.ToString(CultureInfo.InvariantCulture));
+        }
+        var call = string.Format("renderChart({0},[{1}],[{2}],[{3}], [{4}]);",
+            logs.Key,
+            string.Join(",", reps),
+            string.Join(",", weight),
+            string.Join(",", max),
+            string.Join(",", load));
+        calls.Add(call);
+    }
 }
 
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryui")
     <script src="/Scripts/js/highcharts.js" type="text/javascript"></script>
-    <script id="previewTemplate" type="text/x-jquery-tmpl">
-        <tr class="title">
-            <td>${Exercise} 
-            </td>
-            <td>[
-                    {{each Sets}}
-                    <strong>${Reps}</strong><small>x</small><strong>${Weight}</strong>kg
-                                            
-                ${Comment}
-                {{if FailedToLift}}  
-                <span class="label label-important">failed</span>
-                {{/if}} 
-                {{if MaxEffort}}  
-                      <span class="label label-success">max</span>
-                {{/if}} 
-                {{if ToFailure}}  
-                      <span class="label label-important">to failure</span>
-                {{/if}} 
-                   
-                    {{/each}}
-                ]
-            </td>
-        </tr>
-    </script>
-    <script type="text/javascript">
-        function GetDate(jsonDate) {
-            var value = new Date(parseInt(jsonDate.substr(6)));
-            return value.getMonth() + 1 + "/" + value.getDate() + "/" + value.getFullYear();
-        }
-        function getPreview(date, exrp) {
-            $.ajax({
-                dataType: "json",
-                url: "/LoggedExercise/PreviewLog?date=" + date + "&expression=" + exrp,
-                success: function (data) {
-                    $("#preview").html('');
-                    $("#previewTemplate").tmpl(data)
-                        .appendTo("#preview");
-                }
-            });
-        }
-
-        $("#preview").html('');
-        var expr = $("#expression");
-        expr.keyup(function (e) {
-            var date = $("#Date").val();
-            var expr = $(this).val();
-            console.log();
-            if ((e.keyCode || e.which) == 189) {
-                $('#expression').popover('show');
-            } else {
-                $('#expression').popover('hide');
-                getPreview(date, expr);
-            }
-        });
-
-        expr.typeahead({
-            items: 15,
-            matcher: function (item) {
-                return true;
-            },
-            source: function (query, process) {
-                function test(query) {
-                    return !/\d/.test(query) && ($.trim(query) === query.toString());
-                }
-
-                if (test(query)) {
-                    return $.get('/exercise/get', { q: query }, function (data) {
-                        return process(data);
-                    });
-                } else if (query.indexOf(";\n") != -1) {
-                    var e = query.split(";");
-                    var last = e[e.length - 1];
-                    if ($.trim(last).length > 0 && test(last)) {
-                        return $.get('/exercise/get', { q: last }, function (data) {
-                            return process(data);
-                        });
-                    }
-                }
-                return;
-            }
-        });
-
-        expr.focus();
-        $(".example").click(function () {
-            var id = $(this).attr("id");
-            window.expression.value =
-                id === "example1" ? "barbell bench press 5x70 5x85 2x95-max 6x80 5x80" :
-                    id === "example2" ? "barbell bench press 5x70 5x85 2x95-max 6x80 5x80;\nbarbell front squat  2x200-max;\ndumbbell fly 5x16 5x22 5x22 5x22 5x24-max 5x24-max 5x24-max 5x22 12x14 12x14" :
-                        id === "example3" ? "barbell bench press \n2x100-note(easy) \n105-note(føltes forholdsvis tungt) \n107.5-note(spotter holdte fast i stangen, føltes meget tungere end 105)" :
-                            id === "example4" ? "barbell front squat  2x200-max-note(to heavy to lift)" :
-                                "";
-            expr.trigger("keyup");
-        });
-
-    </script>
-    @{
+    @* @{
         var id = 397;
         var list = Model.Where(x => x.ExerciseID == id).GroupBy(x => x.Date.Date).OrderBy(x => x.Key);
         var denug = list.SelectMany(x => x).ToList();
@@ -116,210 +62,28 @@
         var load = string.Join(",", _load.Zip(dates.Select(x => x.AddMonths(-1).ToString("yyyy, MM, dd")), (a, b) => string.Format("[Date.UTC({1}),{0}]", a, b)));
 
         var name = list.SelectMany(x => x).FirstOrDefault(x => x.ExerciseID == id).Exercise.Name;
-    }
-    @Html.Raw(string.Join("\n", denug))
-    <script type="text/javascript">
-        $(function () {
-            var chart;
-            $(document).ready(function () {
-                chart = new Highcharts.Chart({
-                    chart: {
-                        renderTo: 'container',
-                        zoomType: 'xy'
-                    },
-                    title: {
-                        text: '@name'
-                    },
-                    subtitle: {
-                        text: 'Source: WorldClimate.com'
-                    }, xAxis: {
-                        gridLineWidth: 0,
-                        type: 'datetime',
-                        dateTimeLabelFormats: { // don't display the dummy year
-                            month: '%e. %b',
-                            year: '%b'
-                        }
-                    },
-                    yAxis: [{ // Primary yAxis
-                        gridLineWidth: 1,
-                        gridLineColor:'#ddd',
-                        labels: {
-                            formatter: function () {
-                                return this.value + 'kg';
-                            },
-                            style: {
-                                color: '#89A54E'
-                            }
-                        },
-                        title: {
-                            text: 'Load',
-                            style: {
-                                color: '#89A54E'
-                            }
-                        },
-                        opposite: true
-
-                    }, { // Secondary yAxis
-                        gridLineWidth: 0,
-                        title: {
-                            text: 'Avg. Weight',
-                            style: {
-                                color: '#4572A7'
-                            }
-                        },
-                        labels: {
-                            formatter: function () {
-                                return this.value + ' kg';
-                            },
-                            style: {
-                                color: '#4572A7'
-                            }
-                        }
-
-                    }, { // Tertiary yAxis
-                        gridLineWidth: 0,
-                        title: {
-                            text: '1 Rep Max',
-                            style: {
-                                color: '#AA4643'
-                            }
-                        },
-                        labels: {
-                            formatter: function () {
-                                return this.value + ' kg';
-                            },
-                            style: {
-                                color: '#AA4643'
-                            }
-                        },
-                        opposite: true
-                    }],
-                    tooltip: {
-                        formatter: function () {
-                            var unit = {
-                                'Avg. Weight': 'kg',
-                                'Load': 'kg',
-                                '1 Rep Max': 'kg'
-                            }[this.series.name];
-
-                            return '' +
-                                Highcharts.dateFormat('%e. %b', this.x) + ': ' + this.y + ' ' + unit;
-                        }
-                    },
-                    legend: {
-                        layout: 'vertical',
-                        align: 'left',
-                        x: 120,
-                        verticalAlign: 'top',
-                        y: 80,
-                        floating: true,
-                        backgroundColor: '#FFFFFF'
-                    },
-                    series: [{
-                        name: 'Avg. Weight',
-                        color: '#4572A7',
-                        type: 'spline',
-                        yAxis: 1,
-                        data: [@Html.Raw(avg)]
-
-                    }, {
-                        name: '1 Rep Max',
-                        type: 'spline',
-                        color: '#AA4643',
-                        yAxis: 2,
-                        data: [@Html.Raw(max)],
-                        marker: {
-                            enabled: false
-                        },
-                        dashStyle: 'shortdot'
-
-                    }, {
-                        name: 'Load',
-                        color: '#89A54E',
-                        type: 'spline',
-                        data: [@Html.Raw(load)]
-                    }]
-                });
-            });
-
-        });
-    </script>
+    }*@
 }
-
-@using (Html.BeginForm("Create", "LoggedExercise"))
-{
-    <fieldset>
-        <legend>Log</legend>
-        <style>
-            #expression {
-                text-transform: lowercase;
-            }
-
-            table td:nth-child(3) {
-                color: #aaa;
-            }
-
-            table td:nth-child(4) {
-                color: #aaa;
-            }
-
-            .example {
-                cursor: pointer;
-            }
-        </style>
-        <div class="alert alert-block">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <h4>Examples!</h4>
-            <p>
-                <span class="example" id="example1">barbell bench press 5x70 5x85 2x95-max 6x80 5x80</span>
-            </p>
-            <p>
-                <span class="example" id="example2">barbell bench press 5x70 5x85 2x95-max 6x80 5x80; barbell front squat  2x200-max; dumbbell fly 5x16 5x22 5x22 5x22 5x24-max 5x24-max 5x24-max 5x22 12x14 12x14</span>
-            </p>
-            <p>
-                <span class="example" id="example3">barbell bench press 2x100-note(easy) 105-note(føltes forholdsvis tungt) 107.5-note(spotter holdte fast i stangen, føltes meget tungere end 105)</span>
-            </p>
-            <p><span class="example" id="example4">barbell front squat  2x200-max-note(to heavy to lift)</span>  </p>
-        </div>
-        <div>
-            <input
-                name="Date"
-                id="Date"
-                type="datetime-local"
-                value="@DateTime.Now.ToString("yyyy-MM-dd")"
-                autocomplete="Off" />
-
-        </div>
-        <div>
-
-
-            <textarea
-                data-title="Tags"
-                data-html="true"
-                data-placement="bottom"
-                name="expression"
-                id="expression"
-                autocomplete="Off" rows="6" class="span12"></textarea>
-        </div>
-        <table id="preview" class="table table-bordered table-hover table-condensed">
-        </table>
-        <div>
-            <input type="submit" value="Log" class="btn btn-primary" />
-        </div>
-    </fieldset>
-}
-<div id="container"></div>
-<table class="table table-bordered table-condensed table-hover">
-
-
+<table class="table  table-hover">
     @foreach (var date in Model.GroupBy(x => x.Date).OrderByDescending(x => x.Key))
     {
+        var summary = date.AsEnumerable().Summarize();
         <tr>
-            <th>@date.Key.ToShortDateString()</th>
-            <td colspan="7">[<strong>@date.Sum(x => x.Reps)</strong> lifts] 
-                [<strong>@date.Sum(x => x.Weight * x.Reps)kg</strong> total load]
+            <td>
+                <h3>@Html.RouteLink(title("", date), "LogDetails", new { year = date.Key.Year, month = date.Key.Month, day = date.Key.Day,title=Regex.Replace(title("",date).ToLower(),@"\s+|,|\.","-").Replace("--","-") },null) </h3>@date.Key.ToShortDateString()</td>
+            <td>
+                <h2>@summary.TotalReps</h2>
+                <span>lifts</span>
             </td>
-        </tr>
+            <td>
+                <h2>@summary.TotalVolume.ToString("#,0")</h2>
+                <span>load</span>
+            </td>
+            <td>
+                <h2>@summary.AverageReps.ToString("#.0")</h2>
+                <span>avg. reps</span>
+            </td>
+        </tr>@*
         foreach (var exercises in date.GroupBy(x => x.Exercise))
         {
         <tr>
@@ -388,7 +152,7 @@
             <td colspan="4">[<strong>@exercises.Sum(x => x.Weight * x.Reps)kg</strong> total load]
             </td>
         </tr>
-        }
+        }*@
     }
 
 </table>

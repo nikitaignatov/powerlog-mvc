@@ -14,6 +14,18 @@ namespace PowerLog.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "LogDetails",
+                url: "dashboard/{year}-{month}-{day}/{title}",
+                defaults: new { controller = "Dashboard", action = "Details" },
+                constraints: new { year = @"\d{4}", month = @"\d{2}", day = @"\d{2}" }
+            );
+            routes.MapRoute(
+                name: "LogProgress",
+                url: "progress/{id}/{year}-{month}-{day}",
+                defaults: new { controller = "Dashboard", action = "Progress" },
+                constraints: new { id = @"\d+", year = @"\d+", month = @"\d+", day = @"\d+" }
+            );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
