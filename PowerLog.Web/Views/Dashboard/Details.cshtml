@@ -1,15 +1,14 @@
 ﻿@using System.Globalization
-@model PowerLog.Model.SharedExercise
+@model IEnumerable<PowerLog.Model.LoggedExercise>
 
 @{
-    ViewBag.Title = Model.Title;
     Layout = "~/Views/Shared/_Layout.cshtml";
     var clearLocalStorage = false;
     if (ViewBag.ClearLocalStorage != null)
     {
         clearLocalStorage = (bool)ViewBag.ClearLocalStorage;
     }
-    var list = Model.LoggedExercises.GroupBy(x => x.ExerciseID);
+    var list = Model.GroupBy(x => x.ExerciseID);
     var calls = new List<string>();
     foreach (var logs in list)
     {
@@ -69,15 +68,17 @@
     <div class="row-fluid">
 
 
-        @foreach (var date in Model.LoggedExercises.GroupBy(x => x.Date).OrderByDescending(x => x.Key))
+        @foreach (var date in Model.GroupBy(x => x.Date).OrderByDescending(x => x.Key))
         {
             foreach (var exercises in date.GroupBy(x => x.Exercise))
             {
             <div class="site">
+
                 <div class="btn-group pull-right">
                     <a class="btn prev" href="#prev"><i class="icon-chevron-up"></i></a>
                     <a class="btn next" href="#next"><i class="icon-chevron-down"></i></a>
                 </div>
+                @Html.RouteLink("view progress", "LogProgress", new { id = exercises.Key.ID, year = 1, month = 1, day = 1 },new{@class="pull-right"})
                 <h2>@exercises.Key.Name</h2>
                 <div class="container-fluid">
                     <div class="row-fluid">

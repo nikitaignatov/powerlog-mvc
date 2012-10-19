@@ -23,7 +23,7 @@ namespace PowerLog.Web.Controllers
 
         public ActionResult Index()
         {
-            var userId = WebSecurity.GetUserId(User.Identity.Name);
+            var userId = GetUserId();
 
             var loggedexercises = db.LoggedExercises.Include(l => l.Exercise).Where(x => x.UserId == userId).ToList();
             var loggedexercises2 = db.LoggedExercises.Where(x => x.UserId == userId).Include(l => l.Exercise).Select(x => x.Reps).ToList();
@@ -31,21 +31,38 @@ namespace PowerLog.Web.Controllers
             return View(loggedexercises);
         }
 
-        //
-        // GET: /LoggedExercise/Details/5
-
-        public ActionResult Details(int id = 0)
+        private int GetUserId()
         {
-            LoggedExercise loggedexercise = db.LoggedExercises.Find(id);
-            if (loggedexercise == null)
-            {
-                return HttpNotFound();
-            }
-            return View(loggedexercise);
+            var userId = WebSecurity.GetUserId(User.Identity.Name);
+            return userId;
         }
 
-        //
-        // GET: /LoggedExercise/Create
+        public ActionResult Details(int year, int month, int day, string title)
+        {
+            var userId = GetUserId();
+            var date = new DateTime(year, month, day);
+            var loggedexercises = db.LoggedExercises.Where(x => x.UserId == userId && x.Date == date).ToList();
+            if (!loggedexercises.Any())
+            {
+                throw new Exception("lol");
+                return HttpNotFound();
+            }
+            return View(loggedexercises);
+        }
+
+        public ActionResult Progress(int id, int year, int month, int day)
+        {
+            var userId = GetUserId();
+            var date = new DateTime(year, month, day);
+            var loggedexercises = db.LoggedExercises.Where(x => x.UserId == userId && x.ExerciseID == id).ToList();
+            if (!loggedexercises.Any())
+            {
+                throw new Exception("lol");
+                return HttpNotFound();
+            }
+            return View(loggedexercises);
+        }
+
 
         public ActionResult Create()
         {
