@@ -20,7 +20,14 @@
         foreach (var log in logs)
         {
             reps.Add(log.Reps);
-            weight.Add(log.Weight.ToString(CultureInfo.InvariantCulture));
+            if (log.FailedToLift)
+            {
+                weight.Add(string.Format(@"{{y:{0},marker: {{symbol: 'url(http://www.bloodsystemseducation.org/resources/images/icons/icon_fail.gif)'}} }}", log.Weight.ToString(CultureInfo.InvariantCulture)));
+            }
+            else
+            {
+                weight.Add(log.Weight.ToString(CultureInfo.InvariantCulture));
+            }
             max.Add(log.OneRepMax.ToString(CultureInfo.InvariantCulture));
             load.Add(log.Load.ToString(CultureInfo.InvariantCulture));
         }
@@ -217,7 +224,7 @@
 
         @foreach (var c in calls)
         {
-    @c
+    @Html.Raw(c)
         }
     </script>
 }
@@ -228,11 +235,17 @@
 </style>
 <div class="container-fluid">
     <div class="row-fluid">
+
+
         @foreach (var date in Model.LoggedExercises.GroupBy(x => x.Date).OrderByDescending(x => x.Key))
         {
             foreach (var exercises in date.GroupBy(x => x.Exercise))
             {
             <div class="site">
+                <div class="btn-group pull-right">
+                    <a class="btn prev" href="#prev"><i class="icon-chevron-up"></i></a>
+                    <a class="btn next" href="#next"><i class="icon-chevron-down"></i></a>
+                </div>
                 <h2>@exercises.Key.Name</h2>
                 <div class="container-fluid">
                     <div class="row-fluid">
@@ -288,7 +301,7 @@
                                         <td>
                                             @if (!string.IsNullOrWhiteSpace(item.Comment))
                                             {
-                                                <button class="comment btn btn-mini" data-content="@item.Comment" data-title="Note:"><i class="icon-comment"></i></button>
+                                                <button class="comment btn btn-mini" data-content="@item.Comment" data-title="Note!" data-trigger="hover" data-placement="left"><i class="icon-comment"></i></button>
                                             }
                                         </td>
 
