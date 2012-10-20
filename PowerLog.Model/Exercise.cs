@@ -21,6 +21,7 @@ namespace PowerLog.Model
         public string Mechanics { get; set; }
 
         public string Force { get; set; }
+        public string Sport { get; set; }
 
         [Required]
         public string Url { get; set; }

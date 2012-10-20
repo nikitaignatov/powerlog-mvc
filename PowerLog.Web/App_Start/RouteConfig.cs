@@ -17,7 +17,7 @@ namespace PowerLog.Web
                 name: "LogDetails",
                 url: "dashboard/{year}-{month}-{day}/{title}",
                 defaults: new { controller = "Dashboard", action = "Details" },
-                constraints: new { year = @"\d{4}", month = @"\d{2}", day = @"\d{2}" }
+                constraints: new { year = @"\d{4}", month = @"\d{1,2}", day = @"\d{1,2}" }
             );
             routes.MapRoute(
                 name: "LogProgress",

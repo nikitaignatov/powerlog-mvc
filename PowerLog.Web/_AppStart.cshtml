@@ -1,6 +1,11 @@
 ﻿@{
     if (!WebSecurity.Initialized)
     {
-      WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfiles", "UserId", "UserName", autoCreateTables: true);
+        WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfiles", "UserId", "UserName", autoCreateTables: true);
+
+        if (!Roles.RoleExists("Administrator"))
+        {
+            Roles.CreateRole("Administrator");
+        }
     }
 }

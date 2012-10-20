@@ -63,6 +63,18 @@ namespace PowerLog.Web.Controllers
             return View(loggedexercises);
         }
 
+        public ActionResult Compare(int id, DateTime[] dates)
+        {
+            var userId = GetUserId();
+            var loggedexercises = db.LoggedExercises.Where(x => x.UserId == userId && dates.Contains(x.Date)).ToList();
+            if (!loggedexercises.Any())
+            {
+                throw new Exception("lol");
+                return HttpNotFound();
+            }
+            return View(loggedexercises);
+        }
+
 
         public ActionResult Create()
         {

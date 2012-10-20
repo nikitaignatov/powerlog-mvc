@@ -49,9 +49,10 @@
         { 
 <text>
         localStorage.removeItem("expressions");
-</text>   
+        </text>   
         }
        
+    
 
         @foreach (var c in calls)
         {
@@ -67,7 +68,6 @@
 <div class="container-fluid">
     <div class="row-fluid">
 
-
         @foreach (var date in Model.GroupBy(x => x.Date).OrderByDescending(x => x.Key))
         {
             foreach (var exercises in date.GroupBy(x => x.Exercise))
@@ -78,7 +78,7 @@
                     <a class="btn prev" href="#prev"><i class="icon-chevron-up"></i></a>
                     <a class="btn next" href="#next"><i class="icon-chevron-down"></i></a>
                 </div>
-                @Html.RouteLink("view progress", "LogProgress", new { id = exercises.Key.ID, year = 1, month = 1, day = 1 },new{@class="pull-right"})
+                @Html.RouteLink("view progress", "LogProgress", new { id = exercises.Key.ID, year = 1, month = 1, day = 1 }, new { @class = "pull-right" })
                 <h2>@exercises.Key.Name</h2>
                 <div class="container-fluid">
                     <div class="row-fluid">
@@ -163,7 +163,8 @@
 
 <style>
     .site {
-        margin-bottom: 25px;
+        margin-bottom: 25px ;
+        width: 400px
     }
 
         .site h2 {

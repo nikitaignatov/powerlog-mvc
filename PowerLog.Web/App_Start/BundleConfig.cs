@@ -11,8 +11,9 @@ namespace PowerLog.Web
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/bootstrap.js",
-             //           "~/Scripts/Highlight/highlight.pack.js",
-                        "~/Scripts/jQuery.tmpl.js"
+                //          "~/Scripts/Highlight/highlight.pack.js",
+                        "~/Scripts/jQuery.tmpl.js",
+                        "~/Scripts/jquery.nanoscroller.min.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
@@ -33,6 +34,7 @@ namespace PowerLog.Web
                 "~/Content/bootstrap.css",
                 "~/Content/bootstrap-responsive-hack.css",
                 "~/Content/bootstrap-responsive.css",
+                "~/Content/nanoscroller.css",
             //    "~/Content/Highlight/default.css",
                 "~/Content/site.css"
                 ));
