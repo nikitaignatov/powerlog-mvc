@@ -10,13 +10,18 @@
     }
     var list = Model.GroupBy(x => x.Date);
     var calls = new List<string>();
+    var progress = new List<string>();
+    var title = Model.FirstOrDefault().Exercise.Name;
+    var category = "1 Rep Max";
+    var unit = "kg";
     foreach (var date in list)
     {
         var reps = new List<int>();
         var weight = new List<string>();
         var max = new List<string>();
         var load = new List<string>();
-        
+        progress.Add(string.Format("[Date.UTC({0}),{1} ]", date.Key.AddMonths(-1).ToString("yyyy,M,d"), date.Max(x => x.OneRepMax).ToString(CultureInfo.InvariantCulture)));
+
         foreach (var log in date)
         {
             reps.Add(log.Reps);
@@ -39,6 +44,7 @@
             string.Join(",", load));
         calls.Add(call);
     }
+    
 
 }
 @section scripts{
@@ -52,7 +58,53 @@
         localStorage.removeItem("expressions");
 </text>   
         }
-        
+        function renderProgress(title,category,unit,data) {
+            var chart;
+            $(document).ready(function () {
+                chart = new Highcharts.Chart({
+                    chart: {
+                        renderTo: 'progress',
+                        type: 'spline',
+                        backgroundColor: 'whiteSmoke'
+                    },
+                    title: {
+                        text: title
+                    },
+                    subtitle: {
+                        text: category
+                    },
+                    xAxis: {
+                        type: 'datetime',
+                        dateTimeLabelFormats: { // don't display the dummy year
+                            month: '%e. %b',
+                            year: '%b'
+                        }
+                    },
+                    yAxis: {
+                        title: {
+                            text: category
+                        },
+                        min: 0
+                    },
+                    tooltip: {
+                        formatter: function () {
+                            return '<b>' + this.series.name + '</b><br/>' +
+                            Highcharts.dateFormat('%e. %b', this.x) + ': ' + this.y + ' '+unit;
+                        }
+                    },
+
+                    series: [{
+                        name: category,
+                        // Define the data points. All series have a dummy year
+                        // of 1970/71 in order to be compared on the same x axis. Note
+                        // that in JavaScript, months start at 0 for January, 1 for February etc.
+                        data: data
+                    }]
+                });
+            });
+        }
+
+        renderProgress('@title','@category','@unit', @(string.Format("[{0}]", string.Join(",", progress))));
 
         @foreach (var c in calls)
         {
@@ -65,8 +117,11 @@
         color: #aaa;
     }
 </style>
+<div class="well">
+    <div id="progress" style="height: 200px"></div>
+</div>
 <div class="container-fluid">
-    <div class="row-fluid">
+    <div class="row-fluid span6">
         @foreach (var exercises in Model.GroupBy(x => x.Date))
         {
             <div class="site">

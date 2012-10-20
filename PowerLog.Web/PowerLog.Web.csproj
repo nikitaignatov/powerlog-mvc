@@ -230,6 +230,7 @@
     <Content Include="Content\chosen.css" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\nanoscroller.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -296,6 +297,7 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\jquery.nanoscroller.min.js" />
     <Content Include="Scripts\jQuery.tmpl.js" />
     <Content Include="Scripts\jQuery.tmpl.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
@@ -317,6 +319,7 @@
     <Content Include="Scripts\js\modules\data.src.js" />
     <Content Include="Scripts\js\modules\exporting.js" />
     <Content Include="Scripts\js\modules\exporting.src.js" />
+    <Content Include="Scripts\highchartsCustom\renderChart.js" />
     <Content Include="Scripts\js\themes\dark-blue.js" />
     <Content Include="Scripts\js\themes\dark-green.js" />
     <Content Include="Scripts\js\themes\gray.js" />
@@ -385,6 +388,7 @@
     <Content Include="_AppStart.cshtml" />
     <Content Include="Views\Dashboard\Details.cshtml" />
     <Content Include="Views\Dashboard\Progress.cshtml" />
+    <Content Include="Views\Dashboard\Compare.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -62,6 +62,8 @@ namespace PowerLog.Model
         {
             get
             {
+                if (FailedToLift)
+                    return 0;
                 return Math.Round(
                     this.Weight / (
                     this.Reps < 1 ? 1 :

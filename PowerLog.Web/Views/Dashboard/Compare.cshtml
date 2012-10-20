@@ -1,0 +1,188 @@
+﻿@using System.Globalization
+@model IEnumerable<PowerLog.Model.LoggedExercise>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var clearLocalStorage = false;
+    if (ViewBag.ClearLocalStorage != null)
+    {
+        clearLocalStorage = (bool)ViewBag.ClearLocalStorage;
+    }
+    var exerciseIds = new List<int>();
+    foreach (var date in Model.GroupBy(x => x.Date))
+    {
+        var d = date.Key;
+        exerciseIds.AddRange(Model.Where(x => x.Date != d).Select(x => x.Exercise).Distinct().Intersect(date.Select(x => x.Exercise).Distinct()).Select(x => x.ID));
+    }
+    exerciseIds = exerciseIds.Distinct().ToList();
+    var list = Model.Where(x => exerciseIds.Contains(x.ExerciseID)).GroupBy(x => x.Date);
+    var calls = new List<string>();
+    foreach (var logs in list)
+    {
+        foreach (var log in logs.GroupBy(x => x.Exercise))
+        {
+        var reps = new List<int>();
+        var weight = new List<string>();
+        var max = new List<string>();
+        var load = new List<string>();
+            foreach (var loggedExercise in log)
+            {
+                reps.Add(loggedExercise.Reps);
+                weight.Add(loggedExercise.Weight.ToString(CultureInfo.InvariantCulture));
+                max.Add(loggedExercise.OneRepMax.ToString(CultureInfo.InvariantCulture));
+                load.Add(loggedExercise.Load.ToString(CultureInfo.InvariantCulture));
+            }
+        var call = string.Format("renderChart('{0}',[{1}],[{2}],[{3}], [{4}]);",
+            log.Key.ID.ToString(CultureInfo.InvariantCulture) + "-" + logs.Key.Date.ToString("yyyy-M-d"),
+            string.Join(",", reps),
+            string.Join(",", weight),
+            string.Join(",", max),
+            string.Join(",", load));
+        calls.Add(call);
+        }
+    }
+
+}
+@section scripts{
+    <script src="/Scripts/js/highcharts.js"></script>
+    <script src="/Scripts/highchartsCustom/renderChart.js"></script>
+    <script type="text/javascript">
+        $('.comment').popover();
+        @if (clearLocalStorage)
+        { 
+<text>
+        localStorage.removeItem("expressions");
+        </text>   
+        }
+       
+    
+
+        @foreach (var c in calls)
+        {
+    @Html.Raw(c)
+        }
+    </script>
+}
+<style>
+    table td:nth-child(3), table td:nth-child(4) {
+        color: #aaa;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row-fluid span12">
+        @foreach (var date in Model.Where(x => exerciseIds.Contains(x.ExerciseID)).GroupBy(x => x.Date).OrderBy(x => x.Key))
+        {
+            <div class="span6">
+                <h2>@date.Key.ToShortDateString()</h2>
+                @foreach (var exercises in date.GroupBy(x => x.Exercise))
+                {
+                    <div class="site">
+                        <div class="btn-group pull-right">
+                            <a class="btn prev" href="#prev"><i class="icon-chevron-up"></i></a>
+                            <a class="btn next" href="#next"><i class="icon-chevron-down"></i></a>
+                        </div>
+                        @Html.RouteLink("view progress", "LogProgress", new { id = exercises.Key.ID, year = 1, month = 1, day = 1 }, new { @class = "pull-right" })
+                        <h2>@exercises.Key.Name</h2>
+                        <div class="container-fluid">
+                            <div class="row-fluid">
+                                <div id="chart-container-@exercises.Key.ID-@date.Key.ToString("yyyy-M-d")" style=" height:200px; margin: 0 auto">
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                                <table class="table table-condensed table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>reps
+                                            </th>
+                                            <th>weight</th>
+                                            <th>1 Rep Max</th>
+                                            <th>load</th>
+                                            <th>remarks</th>
+                                            <th>notes</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in exercises)
+                                        {
+                                            <tr>
+                                                <td align="right">
+                                                    @Html.DisplayFor(modelItem => item.Reps)
+                                                </td>
+                                                <td>
+                                                    <strong>@Html.DisplayFor(modelItem => item.Weight)</strong>kg
+                                                </td>
+                                                <td>
+
+                                                    <strong>@(item.OneRepMax)</strong>kg
+                                                </td>
+                                                <td>
+                                                    <strong>@(item.Weight * item.Reps)</strong>kg
+                                                </td>
+                                                <td>
+                                                    @if (item.FailedToLift)
+                                                    {
+                                                        <span class="label label-important">Failed to lift</span>
+                                                    }
+                                                    @if (item.MaxEffort)
+                                                    {
+                    
+                                                        <span class="label label-success">Max effort</span>
+                                                    }
+                                                    @if (item.ToFailure)
+                                                    {
+                    
+                                                        <span class="label label-important">To Failure</span>
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @if (!string.IsNullOrWhiteSpace(item.Comment))
+                                                    {
+                                                        <button class="comment btn btn-mini" data-content="@item.Comment" data-title="Note!" data-trigger="hover" data-placement="left"><i class="icon-comment"></i></button>
+                                                    }
+                                                </td>
+
+                                            </tr>
+                                        }
+                                    </tbody>
+                                    <tfoot>
+                                        <tr style="color: #aaa;">
+                                            <td colspan="3">[<strong>@exercises.Sum(x => x.Reps)</strong> lifts] 
+                                            </td>
+                                            <td colspan="4">[<strong>@exercises.Sum(x => x.Weight * x.Reps)kg</strong> total load]
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+
+
+
+<style>
+    .site {
+        margin-bottom: 25px;
+    }
+
+        .site h2 {
+            margin: 0 20px;
+            font-size: 16px;
+        }
+
+        .site .container-fluid {
+            border-top: 3px solid #585858;
+            -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            -webkit-background-clip: padding-box;
+            -moz-background-clip: padding-box;
+            background-clip: padding-box;
+            padding: 10px 0;
+        }
+</style>
