@@ -7,20 +7,24 @@ using System.Web;
 using System.Web.Mvc;
 using PowerLog.Data;
 using PowerLog.Model;
-using PowerLog.Web.Models;
-using PowerLog.Parser;
+using WebMatrix.WebData;
 
 namespace PowerLog.Web.Controllers
 {
     public class LoggedExerciseController : Controller
     {
-        private DB db = new DB();
+        private UsersContext db = new UsersContext();
 
         //
         // GET: /LoggedExercise/
 
         public ActionResult Index()
         {
+            if (Session["clearLocalStorage"] != null && (bool)Session["clearLocalStorage"])
+            {
+                ViewBag.ClearLocalStorage = true;
+                Session["clearLocalStorage"] = null;
+            }
             var loggedexercises = db.LoggedExercises.Include(l => l.Exercise);
             return View(loggedexercises.ToList());
         }
@@ -50,14 +54,24 @@ namespace PowerLog.Web.Controllers
         //
         // POST: /LoggedExercise/Create
 
+        private int GetUserId()
+        {
+            var userId = WebSecurity.GetUserId(User.Identity.Name);
+            return userId;
+        }
         [HttpPost]
         public ActionResult Create(LoggedExercise loggedexercise, string expression)
         {
             if (!string.IsNullOrWhiteSpace(expression))
             {
+                var userId = GetUserId();
                 foreach (var log in ParserHelper.ParseLog(db, loggedexercise.Date, expression))
+                {
+                    log.UserId = userId;
                     db.LoggedExercises.Add(log);
+                }
                 db.SaveChanges();
+                Session["clearLocalStorage"] = true;
                 return RedirectToAction("Index");
             }
             else if (ModelState.IsValid)
@@ -83,9 +97,9 @@ namespace PowerLog.Web.Controllers
             {
                 try
                 {
-                var le = ParserHelper.ParseLog(db,date, e);
-                var exercise = le.FirstOrDefault().Exercise.Name;
-                res.Add(exercise, le);
+                    var le = ParserHelper.ParseLog(db, date, e);
+                    var exercise = le.FirstOrDefault().Exercise.Name;
+                    res.Add(exercise, le);
                 }
                 catch (Exception ex)
                 {
@@ -96,7 +110,7 @@ namespace PowerLog.Web.Controllers
             return Json(res.Select(x => new { Exercise = x.Key, Sets = x.Value }), JsonRequestBehavior.AllowGet);
         }
 
-       
+
 
         //
         // GET: /LoggedExercise/Edit/5

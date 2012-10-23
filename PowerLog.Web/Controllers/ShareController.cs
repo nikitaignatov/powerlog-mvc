@@ -8,7 +8,6 @@ using System.Web.Mvc;
 using System.Web.Security;
 using PowerLog.Data;
 using PowerLog.Model;
-using PowerLog.Web.Models;
 using PowerLog.Parser;
 using Newtonsoft.Json;
 using System.Text;
@@ -20,7 +19,7 @@ namespace PowerLog.Web.Controllers
 {
     public class ShareController : Controller
     {
-        private DB db = new DB();
+        private UsersContext db = new UsersContext();
 
         public ActionResult Index()
         {

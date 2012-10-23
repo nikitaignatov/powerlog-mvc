@@ -7,6 +7,8 @@ using System.Web.Mvc;
 using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
+using PowerLog.Data;
+using PowerLog.Model;
 using WebMatrix.WebData;
 using PowerLog.Web.Filters;
 using PowerLog.Web.Models;
@@ -14,7 +16,7 @@ using PowerLog.Web.Models;
 namespace PowerLog.Web.Controllers
 {
     [Authorize]
-    //  [InitializeSimpleMembership]
+    [InitializeSimpleMembership]
     public class AccountController : Controller
     {
         //

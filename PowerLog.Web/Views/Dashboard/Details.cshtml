@@ -95,7 +95,6 @@
                                     <th>1 Rep Max</th>
                                     <th>load</th>
                                     <th>remarks</th>
-                                    <th>notes</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -130,14 +129,11 @@
                     
                                                 <span class="label label-important">To Failure</span>
                                             }
-                                        </td>
-                                        <td>
                                             @if (!string.IsNullOrWhiteSpace(item.Comment))
                                             {
                                                 <button class="comment btn btn-mini" data-content="@item.Comment" data-title="Note!" data-trigger="hover" data-placement="left"><i class="icon-comment"></i></button>
                                             }
                                         </td>
-
                                     </tr>
                                 }
                             </tbody>
@@ -164,7 +160,6 @@
 <style>
     .site {
         margin-bottom: 25px ;
-        width: 400px
     }
 
         .site h2 {

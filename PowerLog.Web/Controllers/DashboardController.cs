@@ -7,7 +7,6 @@ using System.Web;
 using System.Web.Mvc;
 using PowerLog.Data;
 using PowerLog.Model;
-using PowerLog.Web.Models;
 using PowerLog.Parser;
 using WebMatrix.WebData;
 
@@ -16,7 +15,7 @@ namespace PowerLog.Web.Controllers
     [Authorize]
     public class DashboardController : Controller
     {
-        private DB db = new DB();
+        private UsersContext db = new UsersContext();
 
         //
         // GET: /LoggedExercise/
