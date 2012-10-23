@@ -43,7 +43,7 @@
     </script>
     <script src="/Scripts/parserClient.js"></script>
     <script type="text/javascript">
-        $('.comment').bind('click', function () {
+        $('.comment').live('hover', function () {
             $(this).popover();
         });
         $('blockquote').click(function () {

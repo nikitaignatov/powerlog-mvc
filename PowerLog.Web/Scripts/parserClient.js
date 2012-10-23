@@ -96,7 +96,8 @@ expr.keydown(function (e) {
     var keypressed = e.keyCode || e.which;
     if (keypressed == 13) {
         e.preventDefault();
-        if (expr.val() && !test(expr.val())) {
+        var value = expr.val();
+        if (value && $.trim(value) === value.toString() && /\d/.test(value)) {
             storeExpression(expr.val());
             expr.val('');
             var date = $("#Date").val();

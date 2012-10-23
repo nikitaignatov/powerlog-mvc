@@ -21,6 +21,8 @@ namespace PowerLog.Model
 
     public class LoggedExercise
     {
+        private int _forcedReps;
+
         [Key]
         public int ID { get; set; }
 
@@ -56,7 +58,16 @@ namespace PowerLog.Model
         public bool ToFailure { get; set; }
         public bool MaxEffort { get; set; }
         public bool LongNegative { get; set; }
-        public int ForcedReps { get; set; }
+        public int ForcedReps
+        {
+            get { return _forcedReps; }
+            set
+            {
+                if (value > this.Reps)
+                    throw new Exception("Number of forced reps cannot exceed the number of actual reps");
+                _forcedReps = value;
+            }
+        }
 
         public double OneRepMax
         {
@@ -64,21 +75,22 @@ namespace PowerLog.Model
             {
                 if (FailedToLift)
                     return 0;
+                var r = this.Reps - this.ForcedReps;
                 return Math.Round(
                     this.Weight / (
-                    this.Reps < 1 ? 1 :
-                    this.Reps == 1 ? 1 :
-                    this.Reps == 2 ? 0.95 :
-                    this.Reps == 3 ? 0.90 :
-                    this.Reps == 4 ? 0.88 :
-                    this.Reps == 5 ? 0.86 :
-                    this.Reps == 6 ? 0.83 :
-                    this.Reps == 7 ? 0.80 :
-                    this.Reps == 8 ? 0.78 :
-                    this.Reps == 9 ? 0.76 :
-                    this.Reps == 10 ? 0.75 :
-                    this.Reps == 11 ? 0.72 :
-                    this.Reps == 12 ? 0.70 :
+                    r < 1 ? 1 :
+                    r == 1 ? 1 :
+                    r == 2 ? 0.95 :
+                    r == 3 ? 0.90 :
+                    r == 4 ? 0.88 :
+                    r == 5 ? 0.86 :
+                    r == 6 ? 0.83 :
+                    r == 7 ? 0.80 :
+                    r == 8 ? 0.78 :
+                    r == 9 ? 0.76 :
+                    r == 10 ? 0.75 :
+                    r == 11 ? 0.72 :
+                    r == 12 ? 0.70 :
                     .65), 1, MidpointRounding.AwayFromZero);
             }
         }

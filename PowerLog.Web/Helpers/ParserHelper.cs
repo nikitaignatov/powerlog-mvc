@@ -10,7 +10,7 @@ namespace PowerLog.Web
 {
     public static class ParserHelper
     {
-        public static IEnumerable<LoggedExercise> ParseLog(DB db, DateTime date, string expression)
+        public static IEnumerable<LoggedExercise> ParseLog(UsersContext db, DateTime date, string expression)
         {
             var result = PowerLogParser.ParseInput(expression).ToList();
             var list = new List<LoggedExercise>();

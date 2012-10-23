@@ -3,8 +3,10 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Threading;
 using System.Web.Mvc;
+using System.Web.Security;
 using WebMatrix.WebData;
-using PowerLog.Web.Models;
+using PowerLog.Data;
+using System.Linq;
 
 namespace PowerLog.Web.Filters
 {
@@ -37,7 +39,24 @@ namespace PowerLog.Web.Filters
                             ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
                         }
                     }
-                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfiles", "UserId", "UserName", autoCreateTables: true);
+                    if (!WebSecurity.Initialized)
+                        WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfiles", "UserId", "UserName", autoCreateTables: true);
+                    if (!Roles.RoleExists("Administrator"))
+                    {
+                        Roles.CreateRole("Administrator");
+                    }
+
+                    const string username = "MakeitKebaBacon";
+                    if (!WebSecurity.UserExists(username))
+                    {
+                        WebSecurity.CreateUserAndAccount(username, "ajHjEw5m6zGd3ZzW0Nte");
+                    }
+
+                    if (!Roles.GetRolesForUser(username).Contains("Administrator"))
+                    {
+                        Roles.AddUsersToRoles(new[] { username }, new[] { "Administrator" });
+                    }
+
                 }
                 catch (Exception ex)
                 {

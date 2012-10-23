@@ -48,7 +48,7 @@ set
       ;
 
 exercise 
-      : exercise_name (WS+ annotatedSet)*        ->  ^('exercise' ^('exercise_name' exercise_name) ^('data' annotatedSet*))
+      : exercise_name (WS+ annotatedSet)+        ->  ^('exercise' ^('exercise_name' exercise_name) ^('data' annotatedSet+))
       ;
       
 flag 

@@ -7,13 +7,12 @@ using System.Web;
 using System.Web.Mvc;
 using PowerLog.Data;
 using PowerLog.Model;
-using PowerLog.Web.Models;
 
 namespace PowerLog.Web.Controllers
 {
     public class ExerciseController : Controller
     {
-        private DB db = new DB();
+        private UsersContext db = new UsersContext();
 
         //
         // GET: /Exercise/

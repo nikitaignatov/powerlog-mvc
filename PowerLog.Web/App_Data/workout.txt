@@ -75,3 +75,16 @@
 2012-10-16,barbell deadlift 12x60 12x80 12x100 
 2012-10-16,barbell shrug 3x10x100
 2012-10-16,cable pushdown 3x10x30
+#
+2012-10-18,barbell bench press 3x60 3x80 3x100 3x105
+2012-10-18,dumbbell fly 6x14 8x18 5x5x18 5x24 2x5x18
+2012-10-18,lever narrow grip seated row plate loaded 10x30 10x35 10x40 8x45 12x50
+2012-10-18,barbell curl 12x20 8x25 6x30
+2012-10-18,barbell front squat 6x60 4x70 3x75
+#
+2012-10-22,barbell bench press 3x60 3x80 3x100 3x105 3x107.5 2x10x80 4x80
+2012-10-22,barbell front squat 3x60 3x70 80 90-ftl
+2012-10-22,barbell upright row 10x30 12x30 10x35 12x35 2x10x40
+2012-10-22,dumbbell lateral raise 2x10x7
+2012-10-22,dumbbell rear delt row 2x10x12 5x8x12 3x8x12
+2012-10-22,cable rear delt row stirrups 5x12x25

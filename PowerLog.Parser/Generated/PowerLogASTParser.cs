@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.4 C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3 2012-10-20 05:19:32
+// $ANTLR 3.4 C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3 2012-10-23 20:51:18
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -403,7 +403,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: forced, note, FLAGGED_SET, flag, set, FLAGS
+			// elements: note, set, forced, FLAGS, flag, FLAGGED_SET
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -636,7 +636,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 				{
 				// AST REWRITE
-				// elements: WEIGHT, reps, REP, SETS, weight, sets, MULTI_SET
+				// elements: weight, WEIGHT, reps, sets, REP, SETS, MULTI_SET
 				// token labels: 
 				// rule labels: retval
 				// token list labels: 
@@ -726,7 +726,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 				{
 				// AST REWRITE
-				// elements: WEIGHT, SET, weight, reps, REP
+				// elements: SET, weight, REP, WEIGHT, reps
 				// token labels: 
 				// rule labels: retval
 				// token list labels: 
@@ -794,7 +794,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 				{
 				// AST REWRITE
-				// elements: WEIGHT, SET, SINGLE, weight, REP
+				// elements: weight, REP, WEIGHT, SET, SINGLE
 				// token labels: 
 				// rule labels: retval
 				// token list labels: 
@@ -880,7 +880,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 	partial void LeaveRule_exercise();
 
 	// $ANTLR start "exercise"
-	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:50:1: exercise : exercise_name ( ( WS )+ annotatedSet )* -> ^( 'exercise' ^( 'exercise_name' exercise_name ) ^( 'data' ( annotatedSet )* ) ) ;
+	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:50:1: exercise : exercise_name ( ( WS )+ annotatedSet )+ -> ^( 'exercise' ^( 'exercise_name' exercise_name ) ^( 'data' ( annotatedSet )+ ) ) ;
 	[GrammarRule("exercise")]
 	private AstParserRuleReturnScope<CommonTree, CommonToken> exercise()
 	{
@@ -904,9 +904,9 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 		DebugLocation(50, 6);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:7: ( exercise_name ( ( WS )+ annotatedSet )* -> ^( 'exercise' ^( 'exercise_name' exercise_name ) ^( 'data' ( annotatedSet )* ) ) )
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:7: ( exercise_name ( ( WS )+ annotatedSet )+ -> ^( 'exercise' ^( 'exercise_name' exercise_name ) ^( 'data' ( annotatedSet )+ ) ) )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:9: exercise_name ( ( WS )+ annotatedSet )*
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:9: exercise_name ( ( WS )+ annotatedSet )+
 			{
 			DebugLocation(51, 9);
 			PushFollow(Follow._exercise_name_in_exercise483);
@@ -915,7 +915,8 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 			stream_exercise_name.Add(exercise_name18.Tree);
 			DebugLocation(51, 23);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:23: ( ( WS )+ annotatedSet )*
+			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:23: ( ( WS )+ annotatedSet )+
+			int cnt5=0;
 			try { DebugEnterSubRule(5);
 			while (true)
 			{
@@ -930,7 +931,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 
 				} finally { DebugExitDecision(5); }
-				switch ( alt5 )
+				switch (alt5)
 				{
 				case 1:
 					DebugEnterAlt(1);
@@ -993,10 +994,15 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 					break;
 
 				default:
-					goto loop5;
-				}
-			}
+					if (cnt5 >= 1)
+						goto loop5;
 
+					EarlyExitException eee5 = new EarlyExitException( 5, input );
+					DebugRecognitionException(eee5);
+					throw eee5;
+				}
+				cnt5++;
+			}
 			loop5:
 				;
 
@@ -1006,7 +1012,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: EXERCISE, DATA, exercise_name, annotatedSet, EXERCISE_NAME
+			// elements: EXERCISE_NAME, EXERCISE, annotatedSet, DATA, exercise_name
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1016,10 +1022,10 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 			root_0 = (CommonTree)adaptor.Nil();
-			// 51:50: -> ^( 'exercise' ^( 'exercise_name' exercise_name ) ^( 'data' ( annotatedSet )* ) )
+			// 51:50: -> ^( 'exercise' ^( 'exercise_name' exercise_name ) ^( 'data' ( annotatedSet )+ ) )
 			{
 				DebugLocation(51, 54);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:54: ^( 'exercise' ^( 'exercise_name' exercise_name ) ^( 'data' ( annotatedSet )* ) )
+				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:54: ^( 'exercise' ^( 'exercise_name' exercise_name ) ^( 'data' ( annotatedSet )+ ) )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.Nil();
 				DebugLocation(51, 56);
@@ -1038,14 +1044,17 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 				adaptor.AddChild(root_1, root_2);
 				}
 				DebugLocation(51, 100);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:100: ^( 'data' ( annotatedSet )* )
+				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:100: ^( 'data' ( annotatedSet )+ )
 				{
 				CommonTree root_2 = (CommonTree)adaptor.Nil();
 				DebugLocation(51, 102);
 				root_2 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(DATA, "DATA"), root_2);
 
 				DebugLocation(51, 109);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:109: ( annotatedSet )*
+				if (!(stream_annotatedSet.HasNext))
+				{
+					throw new RewriteEarlyExitException();
+				}
 				while ( stream_annotatedSet.HasNext )
 				{
 					DebugLocation(51, 109);
@@ -1236,7 +1245,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: NOTE, text, MESSAGE
+			// elements: MESSAGE, NOTE, text
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1369,7 +1378,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: reps, FORCED, REP
+			// elements: FORCED, REP, reps
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1964,18 +1973,18 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 		private const string DFA9_eotS =
 			"\x4\xFFFF";
 		private const string DFA9_eofS =
-			"\x1\x2\x3\xFFFF";
+			"\x4\xFFFF";
 		private const string DFA9_minS =
 			"\x1\x1C\x1\xA\x2\xFFFF";
 		private const string DFA9_maxS =
-			"\x1\x21\x1\x1C\x2\xFFFF";
+			"\x2\x1C\x2\xFFFF";
 		private const string DFA9_acceptS =
 			"\x2\xFFFF\x1\x2\x1\x1";
 		private const string DFA9_specialS =
 			"\x4\xFFFF}>";
 		private static readonly string[] DFA9_transitionS =
 			{
-				"\x1\x1\x4\xFFFF\x1\x2",
+				"\x1\x1",
 				"\x1\x2\x8\xFFFF\x1\x2\x7\xFFFF\x1\x3\x1\x1",
 				"",
 				""
@@ -2043,7 +2052,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 		public static readonly BitSet _X_in_set369 = new BitSet(new ulong[]{0x80400UL});
 		public static readonly BitSet _weight_in_set371 = new BitSet(new ulong[]{0x2UL});
 		public static readonly BitSet _weight_in_set418 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _exercise_name_in_exercise483 = new BitSet(new ulong[]{0x10000002UL});
+		public static readonly BitSet _exercise_name_in_exercise483 = new BitSet(new ulong[]{0x10000000UL});
 		public static readonly BitSet _WS_in_exercise486 = new BitSet(new ulong[]{0x10080400UL});
 		public static readonly BitSet _annotatedSet_in_exercise489 = new BitSet(new ulong[]{0x10000002UL});
 		public static readonly BitSet _32_in_flag546 = new BitSet(new ulong[]{0x200A000UL});
