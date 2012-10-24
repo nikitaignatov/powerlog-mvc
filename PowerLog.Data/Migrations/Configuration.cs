@@ -52,7 +52,7 @@ namespace PowerLog.Data.Migrations
         }
         private void Run(UsersContext db)
         {
-            foreach (var line in File.ReadLines("\\REPO\\random.txt")
+            foreach (var line in File.ReadLines("\\REPO\\PowerLog\\seed.data\\random.txt")
                 //  .Where(x => x.Contains("Dumbbell") || x.Contains("Barbell") || x.Contains("Cable"))
                 .OrderBy(x => x.Split(',')[1]))
             {
@@ -66,7 +66,7 @@ namespace PowerLog.Data.Migrations
                 }
             }
 
-            var workout = File.ReadLines("\\REPO\\workout.txt");
+            var workout = File.ReadLines("\\REPO\\PowerLog\\seed.data\\workout.txt");
             var data = new Dictionary<DateTime, List<string>>();
             foreach (var line in workout.Where(x => !x.Contains("#") && !string.IsNullOrWhiteSpace(x)))
             {
