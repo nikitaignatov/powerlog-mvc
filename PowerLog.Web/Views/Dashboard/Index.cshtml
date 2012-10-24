@@ -1,0 +1,138 @@
+﻿@model IEnumerable<PowerLog.Model.LoggedExercise>
+
+@{
+    ViewBag.Title = "Dashboard";
+
+    var total = Model.Where(x => x.Date.Date == DateTime.Now.Date.AddDays(-1)).Sum(x => x.Reps);
+    var data = string.Join(",", Model.Where(x => x.Date.Date == DateTime.Now.Date.AddDays(-1)).GroupBy(x => x.Exercise.BodyPart).Select(x => string.Format(@"[""{0}"",{1}]", x.Key, x.Sum(y => y.Reps * 1.0) / total * 100)));
+}
+@total
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryui")
+
+    <script src="/Scripts/js/highcharts.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            var chart;
+            $(document).ready(function () {
+                chart = new Highcharts.Chart({
+                    chart: {
+                        renderTo: 'container',
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false
+                    },
+                    title: {
+                        text: 'Browser market shares at a specific website, 2010'
+                    },
+                    tooltip: { enabled: false },
+                    // tooltip: {
+                    //    pointFormat: ':<b>{point.percentage}</b> %',
+                    //    percentageDecimals: 1,
+                    //    borderWidth: 1,
+                    //    borderRadius: 1,
+                    //    borderColor: '#999',
+                    //    backgroundColor: {
+                    //        linearGradient: [0, 0, 0, 400],
+                    //        stops: [
+                    //          [0, '#fff'],
+                    //          [1, '#999']
+                    //        ]
+                    //    }
+                    //},
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            borderWidth: 2,
+                            shadow:false,
+                            dataLabels: {
+                                enabled: true,
+                                color: '#000000',
+                                connectorColor: '#000000',
+                                formatter: function () {
+                                    return '<b>' + this.point.name + '</b>: ' + this.percentage.toFixed(1) + ' %';
+                                }
+                            },
+                            showInLegend: false
+
+                        }
+                    },
+                    series: [{
+                        type: 'pie',
+                        name: 'Percentage',
+                        data: [
+                           @Html.Raw(data)
+                        ]
+                    }]
+                });
+            });
+
+        });
+    </script>
+}
+
+<div id="container"></div>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span2">
+            <ul class="nav nav-tabs nav-stacked">
+                <li class="active"><a href="#today" data-toggle="tab">Max<i class="pull-right icon-chevron-right"></i></a></i></li>
+                <li><a href="#week" data-toggle="tab">Volume<i class="pull-right icon-chevron-right"></i></a></li>
+                <li><a href="#month" data-toggle="tab">Weight<i class="pull-right icon-chevron-right"></i></a></li>
+                <li><a href="#month" data-toggle="tab">Rep Range<i class="pull-right icon-chevron-right"></i></a></li>
+            </ul>
+        </div>
+        <div class="span10">
+            <div class="breadcrumb">
+                <a>Home</a> /
+                <a>Dashboard</a> /
+                <a>Max</a> / 
+                Today
+            </div>
+            <div class="tabbable">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#today" data-toggle="tab">Today</a></li>
+                    <li><a href="#yesterday" data-toggle="tab">Yesterday</a></li>
+                    <li><a href="#week" data-toggle="tab">This Week</a></li>
+                    <li><a href="#last-week" data-toggle="tab">Last Week</a></li>
+                    <li><a href="#month" data-toggle="tab">This Month</a></li>
+                    <li><a href="#last-month" data-toggle="tab">Last Month</a></li>
+                    <li><a href="#tab2" data-toggle="tab">All time</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="today">
+                        @{ Html.RenderPartial("~/Views/Dashboard/DashboardTables.cshtml", Model.Where(x => x.Date.Date.Equals(DateTime.Now.Date)));}
+                    </div>
+                    <div class="tab-pane" id="yesterday">
+                        @{ Html.RenderPartial("~/Views/Dashboard/DashboardTables.cshtml", Model.Where(x => x.Date.Date.Equals(DateTime.Now.Date.AddDays(-1))));}
+                    </div>
+                    <div class="tab-pane" id="week">
+                        @{ Html.RenderPartial("~/Views/Dashboard/DashboardTables.cshtml", Model.Where(x => x.Date.Date >= DateTime.Now.StartOfWeek(DayOfWeek.Monday)));}
+                    </div>
+                    <div class="tab-pane" id="last-week">
+                        @{ Html.RenderPartial("~/Views/Dashboard/DashboardTables.cshtml", Model.Where(x => x.Date.Date < DateTime.Now.StartOfWeek(DayOfWeek.Monday) && x.Date.Date >= DateTime.Now.StartOfWeek(DayOfWeek.Monday).AddDays(-7)));}
+                    </div>
+                    <div class="tab-pane" id="month">
+                        @{ Html.RenderPartial("~/Views/Dashboard/DashboardTables.cshtml", Model.Where(x => x.Date.Date.Year == DateTime.Now.Year && x.Date.Month == DateTime.Now.Month));}
+                    </div>
+                    <div class="tab-pane" id="last-month">
+                        @{ Html.RenderPartial("~/Views/Dashboard/DashboardTables.cshtml", Model.Where(x =>
+                                                                                                      x.Date.Date.Year == DateTime.Now.Year && x.Date.Month == DateTime.Now.AddMonths(-1).Month
+                                                                                              ));}
+                    </div>
+                    <div class="tab-pane" id="tab2">
+                        @{ Html.RenderPartial("~/Views/Dashboard/DashboardTables.cshtml", Model);}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="chart1"></div>
+<div id="chart3"></div>
+<div id="holder"></div>

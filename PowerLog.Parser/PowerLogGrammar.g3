@@ -1,0 +1,142 @@
+﻿grammar PowerLogGrammar;
+
+
+options {
+  language = CSharp3;
+}
+
+
+@lexer::namespace{PowerLog.Parser}
+@parser::namespace{PowerLog.Parser}
+@parser::header {
+using System.Globalization;
+using System.Linq;
+}
+
+//***********************************************/
+//	Ze Rules
+//***********************************************/
+
+annotatedSet  returns [ICollection<Set> result]
+	  @init
+	  {
+			var temp= new Set{};
+			$result = new List<Set>();
+	  }
+      :   set ( (note {temp.Comment=$note.message;})
+				| (forced {temp.ForcedReps=$forced.Reps;})
+				| (flag {temp.AddFlag($flag.text);}))*
+	  {
+			foreach (var s in $set.result)
+			{
+				temp.Reps=s.Reps;
+				temp.Weight=s.Weight;
+				$result.Add(temp.Return());
+			}
+	  }   
+      ; 
+
+set   returns [ICollection<Set> result]
+	  @init
+	  {
+			$result = new List<Set>();
+	  }
+      :   sets X reps X weight				{$result.AddRange($sets.num, new Set{ Reps= $reps.num,  Weight=$weight.num }.Return());}    
+      |   reps X weight						{$result.Add(new Set{ Reps= $reps.num,  Weight=$weight.num }.Return());}    
+      |   weight							{$result.Add(new Set{ Reps= 1,			Weight=$weight.num }.Return());}      
+      ;
+
+public exercise  returns [Log result]
+      @init
+      {
+    		$result = new Log();
+      }
+      : text { $result.Name= $text.text;} (WS+ annotatedSet {$result.Sets.AddRange($annotatedSet.result);})+ 
+      ;
+      
+flag   returns [string text]
+      : '-'! f=(MAX|FTL|TF) {$text=$f.Text;}
+      ; 
+      
+note   returns [string message]
+      : '-' NOTE '(' text ')' {$message=$text.text;}
+      ;
+      
+forced returns [int Reps]
+      : '-' FR '(' reps ')'  {$Reps=$reps.num;}
+      ;
+      
+text  returns [string text]
+      : a=WORD{$text = $a.Text;} (WS!+ b=WORD {$text +=" " + $b.Text;})*
+      ;
+      
+weight  returns [double num]
+      : n=(FLOAT|NUMBER) {$num = double.Parse($n.Text,NumberStyles.Float, CultureInfo.InvariantCulture);};
+      
+reps  returns [int num]
+      : NUMBER {$num = int.Parse($NUMBER.Text);};
+      
+sets  returns [int num]
+      : NUMBER {$num = int.Parse($NUMBER.Text);};
+	  
+
+//***********************************************/
+//	Ze Terminals
+//***********************************************/
+
+fragment
+DIGIT
+    :  '\u0030'..'\u0039' |
+       '\u0660'..'\u0669' |
+       '\u06f0'..'\u06f9' |
+       '\u0966'..'\u096f' |
+       '\u09e6'..'\u09ef' |
+       '\u0a66'..'\u0a6f' |
+       '\u0ae6'..'\u0aef' |
+       '\u0b66'..'\u0b6f' |
+       '\u0be7'..'\u0bef' |
+       '\u0c66'..'\u0c6f' |
+       '\u0ce6'..'\u0cef' |
+       '\u0d66'..'\u0d6f' |
+       '\u0e50'..'\u0e59' |
+       '\u0ed0'..'\u0ed9' |
+       '\u1040'..'\u1049'
+   ;
+
+NUMBER: '0'..'9'+;
+FLOAT
+      :   ('0'..'9')+ '.' ('0'..'9')*     
+      |   '.' ('0'..'9')+ 
+      ; 
+      
+X     : 'x';
+
+MAX   : 'max';  //  max effort
+FTL   : 'ftl';  //  failed to lift
+FR    : 'fr';   //  forced reps
+TF    : 'tf';   //  to failure
+NOTE  : 'note'; //  note
+      
+fragment
+LETTER
+    :  '\u0024' |
+       '\u0041'..'\u005a' |
+       '\u005f' |
+       '\u0061'..'\u007a' |
+       '\u00c0'..'\u00d6' |
+       '\u00d8'..'\u00f6' |
+       '\u00f8'..'\u00ff' |
+       '\u0100'..'\u1fff' |
+       '\u3040'..'\u318f' |
+       '\u3300'..'\u337f' |
+       '\u3400'..'\u3d2d' |
+       '\u4e00'..'\u9fff' |
+       '\uf900'..'\ufaff' |
+       '.'|','|':'|';'
+    ;
+      
+WORD  : LETTER(LETTER|DIGIT)*
+      ;
+
+WS    : (' ' | '\t' | '\n' | '\r' | '\f')+ 
+      ;

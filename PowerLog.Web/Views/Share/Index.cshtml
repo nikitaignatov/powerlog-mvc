@@ -1,0 +1,39 @@
+﻿@using PowerLog.Model
+@model IEnumerable<PowerLog.Model.TrainingSession>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var title = new Func<string, IEnumerable<LoggedExercise>, string>(
+        (string a, IEnumerable<PowerLog.Model.LoggedExercise> e) =>
+            string.Format("{0}{1} workout", string.IsNullOrWhiteSpace(a) ? "" : a + " - ",
+            string.Join(", ", e.GroupBy(x => x.Exercise.BodyPart).OrderByDescending(x => x.Sum(y => y.Load)).Select(x => x.Key).Take(3))
+            ));
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Share your workout", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @title(item.Title, item.LoggedExercises) by <strong>@item.UserProfile.UserName</strong>
+            </td>
+            <td>
+                @Html.ActionLink(title(item.Title, item.LoggedExercises), "Shared", new { key = item.Key,title = title(item.Title, item.LoggedExercises).ToSeoUrl() })
+            </td>
+        </tr>
+    }
+
+</table>

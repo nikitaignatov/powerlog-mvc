@@ -1,0 +1,18 @@
+﻿.stat-block h1, .stat-block h2, .stat-block h3, .stat-block h4, .stat-block h5, .stat-block h6 {
+    margin: 0;
+}
+.stat-heading {
+color: #999;
+text-transform: uppercase;
+}.stat-block {
+color: #454545;
+margin-bottom: 18px;
+}
+
+h3 {
+font-size: 18px;
+line-height: 20px;
+}h6 {
+font-size: 12px;
+line-height: 20px;
+}

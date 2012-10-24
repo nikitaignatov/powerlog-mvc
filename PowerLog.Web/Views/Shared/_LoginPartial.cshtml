@@ -1,0 +1,80 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <ul class="nav pull-right">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="/account/subscription"><i class="picons-16-basic2-014"></i>
+                        Subscription & Billing Info
+                    </a>
+                </li>
+                <li>
+                    <a href="/account/members"><i class="picons-16-basic2-106"></i>
+                        Users
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="/account/locations"><i class="picons-16-basic2-056"></i>
+                        Locations
+                    </a>
+                </li>
+                <li>
+                    <a href="/vendors"><i class="picons-16-basic2-258"></i>
+                        Vendors
+                    </a>
+                </li>
+                <li>
+                    <a href="/vehicles/service_types"><i class="picons-16-basic2-291"></i>
+                        Service Types
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="dropdown" id="nav-user">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                @User.Identity.Name
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="@Url.Action("Manage", "Account")"><i class="picons-16-basic2-253"></i>
+                        Edit Profile
+                    </a>
+                </li>
+                <li class="divider"></li>
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", style = "display:inline;" }))
+                {
+                    <li>
+                        @Html.AntiForgeryToken()
+                        <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                    </li>
+                }
+            </ul>
+        </li>
+    </ul>
+}
+else
+{
+@*<ul class="nav">
+                    <li class="menu open">
+                        <a class="menu login button" href="http://vi.sualize.us/register/">Join now</a>
+                        <div class="menu-dropdown login-account">
+                            <a rel="popup" class="button facebook" href="http://vi.sualize.us/login/facebook/?popup">
+                                Using Facebook                                <span class="icons facebook"></span>
+                            </a>
+                            <a rel="popup" class="button twitter" href="http://vi.sualize.us/login/twitter/?popup">
+                                Using Twitter                                <span class="icons twitter"></span>
+                            </a>
+                            <a class="normal" href="http://vi.sualize.us/register/">or using a password</a>
+                        </div>
+                    </li>
+                </ul>*@
+    <ul class="nav pull-right">
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

@@ -1,0 +1,138 @@
+﻿@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("Create", "LoggedExercise"))
+{
+    <fieldset>
+        <style>
+            #expression {
+                text-transform: lowercase;
+            }
+            .typeahead{z-index: 1051 }
+            table td:nth-child(3) {
+                color: #aaa;
+            }
+
+            table td:nth-child(4) {
+                color: #aaa;
+            }
+           body .modal {
+  width: 90%; /* desired relative width */
+  left: 5%; /* (100%-width)/2 */
+  margin: auto auto auto auto; /* place center */
+}
+body .modal.fade.in {
+  top: auto; /* fade in to correct spot */
+}
+        </style>
+        <div>
+            <input
+                name="Date"
+                id="Date"
+                type="date"
+                value="@DateTime.Now.ToString("yyyy-MM-dd")"
+                autocomplete="Off" />
+            <span class="example">example1</span>
+            <span class="example">example2</span>
+            <span class="example">example3</span>
+            <span class="example">example4</span>
+        </div>
+        <div>
+            <textarea
+                name="expression"
+                id="expression"
+                autocomplete="Off" rows="6"></textarea>
+        </div>
+        <table id="preview" class="table table-bordered table-hover table-condensed">
+        </table>
+        <div>
+            <input type="submit" value="Log" class="btn btn-primary" />
+        </div>
+    </fieldset>
+      <script id="previewTemplate" type="text/x-jquery-tmpl">
+        <tr class="title">
+            <td>${Exercise} 
+            </td>
+            <td>[
+                    {{each Sets}}
+                    <strong>${Reps}</strong><small>x</small><strong>${Weight}</strong>kg
+                                            
+                ${Comment}
+                {{if FailedToLift}}  
+                <span class="label label-important">failed</span>
+                {{/if}} 
+                {{if MaxEffort}}  
+                      <span class="label label-success">Max</span>
+                {{/if}} 
+                   
+                    {{/each}}
+                ]
+            </td>
+        </tr>
+    </script>
+    <script type="text/javascript">
+        function GetDate(jsonDate) {
+            var value = new Date(parseInt(jsonDate.substr(6)));
+            return value.getMonth() + 1 + "/" + value.getDate() + "/" + value.getFullYear();
+        }
+        function getPreview(date, exrp) {
+            $.ajax({
+                dataType: "json",
+                url: "/LoggedExercise/PreviewLog?date=" + date + "&expression=" + exrp,
+                success: function (data) {
+                    $("#preview").html('');
+                    $("#previewTemplate").tmpl(data)
+                        .appendTo("#preview");
+                }
+            });
+        }
+
+        $("#preview").html('');
+        var expr = $("#expression");
+        expr.keyup(function () {
+            var date = $("#Date").val();
+            var expr = $(this).val();
+            getPreview(date, expr);
+        });
+
+        expr.typeahead({
+            items: 15,
+            matcher: function (item) {
+                return true;
+            },
+            source: function (query, process) {
+                function test(query) {
+                    return !/\d/.test(query) && ($.trim(query) === query.toString());
+                }
+
+                if (test(query)) {
+                    return $.get('/exercise/get', { q: query }, function (data) {
+                        return process(data);
+                    });
+                } else if (query.indexOf(";") != -1) {
+                    var e = query.split(";");
+                    var last = e[e.length - 1];
+                    if ($.trim(last).length > 0 && test(last)) {
+                        return $.get('/exercise/get', { q: last }, function (data) {
+                            return process(data);
+                        });
+                    }
+                }
+                return;
+            }
+        });
+        expr.focus();
+        $(".example").bind("click",function () {
+            var id = $(this).text();
+            window.expression.value =
+                id === "example1" ? "barbell bench press 5x70 5x85 2x95-max 6x80 5x80" :
+                id === "example2" ? "barbell bench press 5x70 5x85 2x95-max 6x80 5x80;\nbarbell front squat  2x200-max;\ndumbbell fly 5x16 5x22 5x22 5x22 5x24-max 5x24-max " :
+                id === "example3" ? "barbell bench press \n2x100-note(easy) \n105-note(heavy set) \n107.5-note(spotter helped to much)" :
+                id === "example4" ? "barbell front squat  2x200-max-note(to heavy to lift)" :
+            "";
+            expr.trigger("keyup");
+        });
+        $('.comment').popover();
+    </script>
+}
