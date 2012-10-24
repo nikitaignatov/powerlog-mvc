@@ -13,17 +13,19 @@ using Newtonsoft.Json;
 using System.Text;
 using System.IO;
 using System.Xml.Serialization;
+using PowerLog.Web.Filters;
 using WebMatrix.WebData;
 
 namespace PowerLog.Web.Controllers
 {
+    [InitializeSimpleMembership]
     public class ShareController : Controller
     {
         private UsersContext db = new UsersContext();
 
         public ActionResult Index()
         {
-            var shared = db.SharedExercises.Include(x => x.UserProfile).ToList();
+            var shared = db.TrainingSessions.Where(x => x.IsPublic && x.IsShared).Include(x => x.UserProfile).ToList();
             return View(shared);
         }
 
@@ -40,24 +42,29 @@ namespace PowerLog.Web.Controllers
             if (!string.IsNullOrWhiteSpace(expression))
             {
                 var userId = WebSecurity.GetUserId(User.Identity.Name);
-                var shared = new SharedExercise
+                var session = new TrainingSession
                 {
-                    ID = string.Empty.RandomString(10),
+                    Date = loggedexercise.Date,
+                    Key = string.Empty.RandomString(10),
                     UserId = userId,
                     Title = title,
+                    IsPublic = true,
+                    IsShared = true,
                     LoggedExercises = new List<LoggedExercise>()
                 };
+                db.TrainingSessions.Add(session);
+                db.SaveChanges();
                 foreach (var log in ParserHelper.ParseLog(db, loggedexercise.Date, expression))
                 {
                     log.UserId = userId;
+                    log.TrainingSession = session;
+                    log.TrainingSessionId = session.ID;
                     db.LoggedExercises.Add(log);
-                    shared.LoggedExercises.Add(log);
+                    session.LoggedExercises.Add(log);
                 }
                 db.SaveChanges();
-                db.SharedExercises.Add(shared);
-                db.SaveChanges();
                 Session["clearLocalStorage"] = true;
-                return RedirectToAction("Shared", new { id = shared.ID });
+                return RedirectToAction("Shared", new { key = session.Key });
             }
             else if (ModelState.IsValid)
             {
@@ -69,9 +76,9 @@ namespace PowerLog.Web.Controllers
             return View();
         }
 
-        public ActionResult Shared(string id = null)
+        public ActionResult Shared(string key = null)
         {
-            var loggedexercise = db.SharedExercises.SingleOrDefault(x => x.ID == id);
+            var loggedexercise = db.TrainingSessions.Where(x => x.IsShared).SingleOrDefault(x => x.Key == key);
             if (loggedexercise == null)
             {
                 return HttpNotFound();
@@ -130,7 +137,7 @@ namespace PowerLog.Web.Controllers
     public static class GenStringExt
     {
         private static readonly Random _rng = new Random();
-        private const string _chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789";
+        private const string _chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
         public static string RandomString(this string val, int size)
         {

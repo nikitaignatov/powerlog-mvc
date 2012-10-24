@@ -23,7 +23,7 @@ namespace PowerLog.Web.Filters
             LazyInitializer.EnsureInitialized(ref _initializer, ref _isInitialized, ref _initializerLock);
         }
 
-        private class SimpleMembershipInitializer
+        public class SimpleMembershipInitializer
         {
             public SimpleMembershipInitializer()
             {
@@ -41,21 +41,21 @@ namespace PowerLog.Web.Filters
                     }
                     if (!WebSecurity.Initialized)
                         WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfiles", "UserId", "UserName", autoCreateTables: true);
-                    if (!Roles.RoleExists("Administrator"))
-                    {
-                        Roles.CreateRole("Administrator");
-                    }
+                    //if (!Roles.RoleExists("Administrator"))
+                    //{
+                    //    Roles.CreateRole("Administrator");
+                    //}
 
-                    const string username = "MakeitKebaBacon";
-                    if (!WebSecurity.UserExists(username))
-                    {
-                        WebSecurity.CreateUserAndAccount(username, "ajHjEw5m6zGd3ZzW0Nte");
-                    }
+                    //const string username = "MakeitKebaBacon";
+                    //if (!WebSecurity.UserExists(username))
+                    //{
+                    //    WebSecurity.CreateUserAndAccount(username, "ajHjEw5m6zGd3ZzW0Nte");
+                    //}
 
-                    if (!Roles.GetRolesForUser(username).Contains("Administrator"))
-                    {
-                        Roles.AddUsersToRoles(new[] { username }, new[] { "Administrator" });
-                    }
+                    //if (!Roles.GetRolesForUser(username).Contains("Administrator"))
+                    //{
+                    //    Roles.AddUsersToRoles(new[] { username }, new[] { "Administrator" });
+                    //}
 
                 }
                 catch (Exception ex)

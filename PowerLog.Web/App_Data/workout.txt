@@ -1,4 +1,35 @@
-﻿#
+﻿
+#
+2012-05-02,barbell deadlift 5x40
+#
+2012-05-07,barbell deadlift 5x90
+#
+2012-05-12,barbell bench press 5x55
+#
+2012-05-14,barbell deadlift 8x60
+#
+2012-05-19,barbell bench press 5x45
+#
+2012-05-21,barbell deadlift 3x100
+#
+2012-05-26,barbell bench press 5x65
+#
+2012-05-21,barbell deadlift 2x110
+#
+2012-06-02,barbell bench press 2x70
+#
+2012-06-08,barbell bench press 3x75
+#
+2012-06-12,barbell bench press 12x60
+#
+2012-06-14,barbell bench press 2x80
+#
+2012-06-17,barbell bench press 7x70
+#
+2012-06-23,barbell bench press 3x85
+#
+2012-06-29,barbell bench press 3x90
+#
 2012-07-06, barbell bench press 5x70 5x85 2x95-max 6x80 5x80
 2012-07-06, dumbbell incline bench press 5x30
 2012-07-06, barbell bench press 8x3x60-note(speed work)
@@ -86,5 +117,5 @@
 2012-10-22,barbell front squat 3x60 3x70 80 90-ftl
 2012-10-22,barbell upright row 10x30 12x30 10x35 12x35 2x10x40
 2012-10-22,dumbbell lateral raise 2x10x7
-2012-10-22,dumbbell rear delt row 2x10x12 5x8x12 3x8x12
+2012-10-22,dumbbell rear delt row 2x10x12 5x8x12 3x12x12
 2012-10-22,cable rear delt row stirrups 5x12x25

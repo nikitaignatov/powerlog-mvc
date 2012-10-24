@@ -1,3 +1,8 @@
-﻿@{
-  
+﻿@using PowerLog.Data
+@using Database = System.Data.Entity.Database
+@{   
+    if (!WebSecurity.Initialized)
+    {
+        WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfiles", "UserId", "UserName", autoCreateTables: true);
+    }
 }

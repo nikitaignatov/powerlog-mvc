@@ -1,85 +1,65 @@
 ﻿@if (Request.IsAuthenticated)
 {
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account
+    <ul class="nav pull-right">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account
                 <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-            <li>
-                <a href="@Url.Action("Manage", "Account")"><i class="picons-16-basic2-253"></i>
-                    Edit Profile
-                </a>
-            </li>
-            <li>
-                <a href="/account/subscription"><i class="picons-16-basic2-014"></i>
-                    Subscription & Billing Info
-                </a>
-
-            </li>
-            <li>
-                <a href="/account/members"><i class="picons-16-basic2-106"></i>
-                    Users
-                </a>
-
-            </li>
-            <li class="divider"></li>
-            <li>
-                <a href="/account/locations"><i class="picons-16-basic2-056"></i>
-                    Locations
-                </a>
-
-            </li>
-            <li>
-                <a href="/vendors"><i class="picons-16-basic2-258"></i>
-                    Vendors
-                </a>
-
-            </li>
-            <li>
-                <a href="/vehicles/service_types"><i class="picons-16-basic2-291"></i>
-                    Service Types
-                </a>
-
-            </li>
-        </ul>
-    </li>
-    <li class="dropdown" id="nav-user">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            @User.Identity.Name
-            <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-            <li class="">
-                <a href="/4ef1a28fbc/welcome"><i class="picons-16-basic2-031"></i>
-                    Welcome
-                </a>
-
-            </li>
-            <li class="divider"></li>
-            @*  <li>@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
-                    {
-                    @Html.AntiForgeryToken()
-                    <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
-                    }
-                    <a href="https://secure.fleetio.com/logout"><i class="picons-16-basic2-171"></i>
-                        Log out
-                    </a></li>*@
-        </ul>
-    </li>
-    <li id="nav-help">
-        <a href="/help/" rel="facebox"><i class="picons-16-white-basic2-004"></i>Help
-        </a></li>
-    <text>
-        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" ,style="display:inline"}))
-        {
-            @Html.AntiForgeryToken()
-            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
-        }
-    </text> 
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="/account/subscription"><i class="picons-16-basic2-014"></i>
+                        Subscription & Billing Info
+                    </a>
+                </li>
+                <li>
+                    <a href="/account/members"><i class="picons-16-basic2-106"></i>
+                        Users
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="/account/locations"><i class="picons-16-basic2-056"></i>
+                        Locations
+                    </a>
+                </li>
+                <li>
+                    <a href="/vendors"><i class="picons-16-basic2-258"></i>
+                        Vendors
+                    </a>
+                </li>
+                <li>
+                    <a href="/vehicles/service_types"><i class="picons-16-basic2-291"></i>
+                        Service Types
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="dropdown" id="nav-user">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                @User.Identity.Name
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="@Url.Action("Manage", "Account")"><i class="picons-16-basic2-253"></i>
+                        Edit Profile
+                    </a>
+                </li>
+                <li class="divider"></li>
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", style = "display:inline;" }))
+                {
+                    <li>
+                        @Html.AntiForgeryToken()
+                        <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                    </li>
+                }
+            </ul>
+        </li>
+    </ul>
 }
 else
 {
-    @*<ul class="nav">
+@*<ul class="nav">
                     <li class="menu open">
                         <a class="menu login button" href="http://vi.sualize.us/register/">Join now</a>
                         <div class="menu-dropdown login-account">
@@ -93,7 +73,7 @@ else
                         </div>
                     </li>
                 </ul>*@
-    <ul class="nav">
+    <ul class="nav pull-right">
         <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PowerLog.Web.Filters;
 
 namespace PowerLog.Web.Controllers
 {
+    [InitializeSimpleMembership]
     public class HomeController : Controller
     {
         public ActionResult Index()

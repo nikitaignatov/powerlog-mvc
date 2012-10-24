@@ -15,7 +15,7 @@
         exerciseIds.AddRange(Model.Where(x => x.Date != d).Select(x => x.Exercise).Distinct().Intersect(date.Select(x => x.Exercise).Distinct()).Select(x => x.ID));
     }
     exerciseIds = exerciseIds.Distinct().ToList();
-    var list = Model.Where(x => exerciseIds.Contains(x.ExerciseID)).GroupBy(x => x.Date);
+    var list = Model.Where(x => exerciseIds.Contains(x.ExerciseId)).GroupBy(x => x.Date);
     var calls = new List<string>();
     foreach (var logs in list)
     {
@@ -70,7 +70,7 @@
 </style>
 <div class="container-fluid">
     <div class="row-fluid span12">
-        @foreach (var date in Model.Where(x => exerciseIds.Contains(x.ExerciseID)).GroupBy(x => x.Date).OrderBy(x => x.Key))
+        @foreach (var date in Model.Where(x => exerciseIds.Contains(x.ExerciseId)).GroupBy(x => x.Date).OrderBy(x => x.Key))
         {
             <div class="span6">
                 <h2>@date.Key.ToShortDateString()</h2>
