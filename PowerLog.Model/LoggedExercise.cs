@@ -6,17 +6,28 @@ using System.Text;
 
 namespace PowerLog.Model
 {
-    public class SharedExercise
+    public class TrainingSession
     {
+        public TrainingSession()
+        {
+            LoggedExercises = new List<LoggedExercise>();
+        }
+
         [Key]
+        public int ID { get; set; }
         [StringLength(10, MinimumLength = 10)]
-        public string ID { get; set; }
+        public string Key { get; set; }
 
         public int UserId { get; set; }
         public UserProfile UserProfile { get; set; }
 
+        [DataType(DataType.Date)]
+        public DateTime Date { get; set; }
+
         public string Title { get; set; }
         public virtual ICollection<LoggedExercise> LoggedExercises { get; set; }
+        public bool IsPublic { get; set; }
+        public bool IsShared { get; set; }
     }
 
     public class LoggedExercise
@@ -29,11 +40,15 @@ namespace PowerLog.Model
         public int UserId { get; set; }
         public UserProfile UserProfile { get; set; }
 
+        public int TrainingSessionId { get; set; }
+        public TrainingSession TrainingSession { get; set; }
+
+        public int ExerciseId { get; set; }
+        public virtual Exercise Exercise { get; set; }
+
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
-        public int ExerciseID { get; set; }
-        public virtual Exercise Exercise { get; set; }
 
         [Required]
         [Range(1, 1000)]

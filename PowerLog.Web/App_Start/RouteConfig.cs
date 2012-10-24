@@ -26,6 +26,12 @@ namespace PowerLog.Web
                 constraints: new { id = @"\d+", year = @"\d+", month = @"\d+", day = @"\d+" }
             );
             routes.MapRoute(
+                name: "SharedSession",
+                url: "{title}-s.{key}",
+                defaults: new { controller = "Share", action = "Shared" },
+                constraints: new { key = @"\w{10}" }
+            );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

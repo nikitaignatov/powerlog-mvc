@@ -214,6 +214,7 @@
     </Compile>
     <Compile Include="Helpers\DateTimeExtensions.cs" />
     <Compile Include="Helpers\ParserHelper.cs" />
+    <Compile Include="Helpers\UrlSeoHelper.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -392,6 +393,7 @@
     <Content Include="Views\Dashboard\Details.cshtml" />
     <Content Include="Views\Dashboard\Progress.cshtml" />
     <Content Include="Views\Dashboard\Compare.cshtml" />
+    <Content Include="Views\Dashboard\ChartTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

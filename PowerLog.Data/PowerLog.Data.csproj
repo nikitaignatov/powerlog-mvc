@@ -52,9 +52,13 @@
   <ItemGroup>
     <Compile Include="DB.cs" />
     <Compile Include="ExrxParser.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\workout.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="random.txt" />
   </ItemGroup>
   <ItemGroup>

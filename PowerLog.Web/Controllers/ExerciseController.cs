@@ -7,9 +7,11 @@ using System.Web;
 using System.Web.Mvc;
 using PowerLog.Data;
 using PowerLog.Model;
+using PowerLog.Web.Filters;
 
 namespace PowerLog.Web.Controllers
 {
+    [InitializeSimpleMembership]
     public class ExerciseController : Controller
     {
         private UsersContext db = new UsersContext();

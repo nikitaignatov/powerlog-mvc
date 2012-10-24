@@ -7,10 +7,12 @@ using System.Web;
 using System.Web.Mvc;
 using PowerLog.Data;
 using PowerLog.Model;
+using PowerLog.Web.Filters;
 using WebMatrix.WebData;
 
 namespace PowerLog.Web.Controllers
 {
+    [InitializeSimpleMembership]
     public class LoggedExerciseController : Controller
     {
         private UsersContext db = new UsersContext();
@@ -122,7 +124,7 @@ namespace PowerLog.Web.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ExerciseID = new SelectList(db.Exercises, "ID", "Name", loggedexercise.ExerciseID);
+            ViewBag.ExerciseID = new SelectList(db.Exercises, "ID", "Name", loggedexercise.ExerciseId);
             return View(loggedexercise);
         }
 
@@ -138,7 +140,7 @@ namespace PowerLog.Web.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ExerciseID = new SelectList(db.Exercises, "ID", "Name", loggedexercise.ExerciseID);
+            ViewBag.ExerciseID = new SelectList(db.Exercises, "ID", "Name", loggedexercise.ExerciseId);
             return View(loggedexercise);
         }
 

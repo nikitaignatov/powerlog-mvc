@@ -1,5 +1,5 @@
 ﻿@using System.Globalization
-@model PowerLog.Model.SharedExercise
+@model PowerLog.Model.TrainingSession
 
 @{
     ViewBag.Title = Model.Title;
@@ -9,7 +9,7 @@
     {
         clearLocalStorage = (bool)ViewBag.ClearLocalStorage;
     }
-    var list = Model.LoggedExercises.GroupBy(x => x.ExerciseID);
+    var list = Model.LoggedExercises.GroupBy(x => x.ExerciseId);
     var calls = new List<string>();
     foreach (var logs in list)
     {
@@ -50,7 +50,7 @@
         { 
 <text>
         localStorage.removeItem("expressions");
-</text>   
+        </text>   
         }
        
 
@@ -67,93 +67,7 @@
 </style>
 <div class="container-fluid">
     <div class="row-fluid">
-
-
-        @foreach (var date in Model.LoggedExercises.GroupBy(x => x.Date).OrderByDescending(x => x.Key))
-        {
-            foreach (var exercises in date.GroupBy(x => x.Exercise))
-            {
-            <div class="site">
-                <div class="btn-group pull-right">
-                    <a class="btn prev" href="#prev"><i class="icon-chevron-up"></i></a>
-                    <a class="btn next" href="#next"><i class="icon-chevron-down"></i></a>
-                </div>
-                <h2>@exercises.Key.Name</h2>
-                <div class="container-fluid">
-                    <div class="row-fluid">
-                        <div id="chart-container-@exercises.Key.ID" style=" height:200px; margin: 0 auto">
-                        </div>
-                    </div>
-                    <div class="row-fluid">
-                        <table class="table table-condensed table-striped">
-                            <thead>
-                                <tr>
-                                    <th>reps
-                                    </th>
-                                    <th>weight</th>
-                                    <th>1 Rep Max</th>
-                                    <th>load</th>
-                                    <th>remarks</th>
-                                    <th>notes</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in exercises)
-                                {
-                                    <tr>
-                                        <td align="right">
-                                            @Html.DisplayFor(modelItem => item.Reps)
-                                        </td>
-                                        <td>
-                                            <strong>@Html.DisplayFor(modelItem => item.Weight)</strong>kg
-                                        </td>
-                                        <td>
-
-                                            <strong>@(item.OneRepMax)</strong>kg
-                                        </td>
-                                        <td>
-                                            <strong>@(item.Weight * item.Reps)</strong>kg
-                                        </td>
-                                        <td>
-                                            @if (item.FailedToLift)
-                                            {
-                                                <span class="label label-important">Failed to lift</span>
-                                            }
-                                            @if (item.MaxEffort)
-                                            {
-                    
-                                                <span class="label label-success">Max effort</span>
-                                            }
-                                            @if (item.ToFailure)
-                                            {
-                    
-                                                <span class="label label-important">To Failure</span>
-                                            }
-                                        </td>
-                                        <td>
-                                            @if (!string.IsNullOrWhiteSpace(item.Comment))
-                                            {
-                                                <button class="comment btn btn-mini" data-content="@item.Comment" data-title="Note!" data-trigger="hover" data-placement="left"><i class="icon-comment"></i></button>
-                                            }
-                                        </td>
-
-                                    </tr>
-                                }
-                            </tbody>
-                            <tfoot>
-                                <tr style="color: #aaa;">
-                                    <td colspan="3">[<strong>@exercises.Sum(x => x.Reps)</strong> lifts] 
-                                    </td>
-                                    <td colspan="4">[<strong>@exercises.Sum(x => x.Weight * x.Reps)kg</strong> total load]
-                                    </td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            }
-        }
+        @{Html.RenderPartial("~/Views/Dashboard/ChartTable.cshtml", Model.LoggedExercises);}
     </div>
 </div>
 

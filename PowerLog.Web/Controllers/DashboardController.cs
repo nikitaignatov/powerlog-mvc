@@ -8,11 +8,13 @@ using System.Web.Mvc;
 using PowerLog.Data;
 using PowerLog.Model;
 using PowerLog.Parser;
+using PowerLog.Web.Filters;
 using WebMatrix.WebData;
 
 namespace PowerLog.Web.Controllers
 {
     [Authorize]
+    [InitializeSimpleMembership]
     public class DashboardController : Controller
     {
         private UsersContext db = new UsersContext();
@@ -53,7 +55,7 @@ namespace PowerLog.Web.Controllers
         {
             var userId = GetUserId();
             var date = new DateTime(year, month, day);
-            var loggedexercises = db.LoggedExercises.Where(x => x.UserId == userId && x.ExerciseID == id).ToList();
+            var loggedexercises = db.LoggedExercises.Where(x => x.UserId == userId && x.ExerciseId == id).ToList();
             if (!loggedexercises.Any())
             {
                 throw new Exception("lol");
@@ -122,7 +124,7 @@ namespace PowerLog.Web.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ExerciseID = new SelectList(db.Exercises, "ID", "Name", loggedexercise.ExerciseID);
+            ViewBag.ExerciseID = new SelectList(db.Exercises, "ID", "Name", loggedexercise.ExerciseId);
             return View(loggedexercise);
         }
 
@@ -138,7 +140,7 @@ namespace PowerLog.Web.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ExerciseID = new SelectList(db.Exercises, "ID", "Name", loggedexercise.ExerciseID);
+            ViewBag.ExerciseID = new SelectList(db.Exercises, "ID", "Name", loggedexercise.ExerciseId);
             return View(loggedexercise);
         }
 

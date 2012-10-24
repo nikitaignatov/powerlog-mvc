@@ -1,5 +1,5 @@
 ﻿@using PowerLog.Model
-@model IEnumerable<PowerLog.Model.SharedExercise>
+@model IEnumerable<PowerLog.Model.TrainingSession>
 
 @{
     ViewBag.Title = "Index";
@@ -31,7 +31,7 @@
                 @title(item.Title, item.LoggedExercises) by <strong>@item.UserProfile.UserName</strong>
             </td>
             <td>
-                @Html.ActionLink(title(item.Title, item.LoggedExercises), "Shared", new { id = item.ID })
+                @Html.ActionLink(title(item.Title, item.LoggedExercises), "Shared", new { key = item.Key,title = title(item.Title, item.LoggedExercises).ToSeoUrl() })
             </td>
         </tr>
     }
