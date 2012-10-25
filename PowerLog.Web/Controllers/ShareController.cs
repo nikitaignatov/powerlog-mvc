@@ -18,7 +18,6 @@ using WebMatrix.WebData;
 
 namespace PowerLog.Web.Controllers
 {
-    [InitializeSimpleMembership]
     public class ShareController : Controller
     {
         private UsersContext db = new UsersContext();
@@ -52,17 +51,7 @@ namespace PowerLog.Web.Controllers
                     IsShared = true,
                     LoggedExercises = new List<LoggedExercise>()
                 };
-                db.TrainingSessions.Add(session);
-                db.SaveChanges();
-                foreach (var log in ParserHelper.ParseLog(db, loggedexercise.Date, expression))
-                {
-                    log.UserId = userId;
-                    log.TrainingSession = session;
-                    log.TrainingSessionId = session.ID;
-                    db.LoggedExercises.Add(log);
-                    session.LoggedExercises.Add(log);
-                }
-                db.SaveChanges();
+                SaveSession(session, expression);
                 Session["clearLocalStorage"] = true;
                 return RedirectToAction("Shared", new { key = session.Key });
             }
@@ -107,9 +96,15 @@ namespace PowerLog.Web.Controllers
         }
 
         // [HttpPost]
-        public ActionResult PreviewLog(DateTime date, string expression)
+        public ActionResult PreviewLog(DateTime date, string expression, string comment)
         {
-            return Json(ParserHelper.ParseLog(db, date, expression), JsonRequestBehavior.AllowGet);
+            var data = new Dictionary<DateTime, List<string>> { { date, new List<string>() } };
+            foreach (var e in expression.Split(';'))
+            {
+                if (data.ContainsKey(date))
+                    data[date].Add(e);
+            }
+            return Json(ParserHelper.ParseLog(db, GetUserId(), comment, data).ToList(), JsonRequestBehavior.AllowGet);
         }
 
         protected override void Dispose(bool disposing)
@@ -131,6 +126,33 @@ namespace PowerLog.Web.Controllers
         private void SetCsv<T>(List<T> list)
         {
             ViewBag.csv = ServiceStack.Text.CsvSerializer.SerializeToCsv(list);
+        }
+
+
+        private int GetUserId()
+        {
+            var userId = WebSecurity.GetUserId(User.Identity.Name);
+            return userId;
+        }
+
+        private void SaveSession(TrainingSession session, string expression)
+        {
+            var userId = GetUserId();
+            session.UserId = userId;
+            db.TrainingSessions.Add(session);
+            db.SaveChanges();
+            var date = session.Date;
+            var data = new Dictionary<DateTime, List<string>> { { date, new List<string>() } };
+            foreach (var e in expression.Split(';'))
+            {
+                if (data.ContainsKey(date))
+                    data[date].Add(e);
+            }
+            foreach (var log in data)
+            {
+                ParserHelper.ParseLog(db, GetUserId(), session.Comment, data);
+            }
+            db.SaveChanges();
         }
     }
 

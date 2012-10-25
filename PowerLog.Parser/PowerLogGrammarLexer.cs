@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.4 C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3 2012-10-23 21:52:51
+// $ANTLR 3.4 C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3 2012-10-25 03:15:35
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -66,7 +66,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 
 		OnCreated();
 	}
-	public override string GrammarFileName { get { return "C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3"; } }
+	public override string GrammarFileName { get { return "C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3"; } }
 
 
 	partial void OnCreated();
@@ -87,9 +87,9 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		{
 			int _type = T__16;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:9:7: ( '(' )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:9:7: ( '(' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:9:9: '('
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:9:9: '('
 			{
 			DebugLocation(9, 9);
 			Match('('); 
@@ -122,9 +122,9 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		{
 			int _type = T__17;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:10:7: ( ')' )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:10:7: ( ')' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:10:9: ')'
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:10:9: ')'
 			{
 			DebugLocation(10, 9);
 			Match(')'); 
@@ -157,9 +157,9 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		{
 			int _type = T__18;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:11:7: ( '-' )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:11:7: ( '-' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:11:9: '-'
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:11:9: '-'
 			{
 			DebugLocation(11, 9);
 			Match('-'); 
@@ -190,9 +190,9 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		TraceIn("DIGIT", 4);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:90:5: ( '\\u0030' .. '\\u0039' | '\\u0660' .. '\\u0669' | '\\u06f0' .. '\\u06f9' | '\\u0966' .. '\\u096f' | '\\u09e6' .. '\\u09ef' | '\\u0a66' .. '\\u0a6f' | '\\u0ae6' .. '\\u0aef' | '\\u0b66' .. '\\u0b6f' | '\\u0be7' .. '\\u0bef' | '\\u0c66' .. '\\u0c6f' | '\\u0ce6' .. '\\u0cef' | '\\u0d66' .. '\\u0d6f' | '\\u0e50' .. '\\u0e59' | '\\u0ed0' .. '\\u0ed9' | '\\u1040' .. '\\u1049' )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:90:5: ( '\\u0030' .. '\\u0039' | '\\u0660' .. '\\u0669' | '\\u06f0' .. '\\u06f9' | '\\u0966' .. '\\u096f' | '\\u09e6' .. '\\u09ef' | '\\u0a66' .. '\\u0a6f' | '\\u0ae6' .. '\\u0aef' | '\\u0b66' .. '\\u0b6f' | '\\u0be7' .. '\\u0bef' | '\\u0c66' .. '\\u0c6f' | '\\u0ce6' .. '\\u0cef' | '\\u0d66' .. '\\u0d6f' | '\\u0e50' .. '\\u0e59' | '\\u0ed0' .. '\\u0ed9' | '\\u1040' .. '\\u1049' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
 			{
 			DebugLocation(90, 5);
 			if ((input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='\u0660' && input.LA(1)<='\u0669')||(input.LA(1)>='\u06F0' && input.LA(1)<='\u06F9')||(input.LA(1)>='\u0966' && input.LA(1)<='\u096F')||(input.LA(1)>='\u09E6' && input.LA(1)<='\u09EF')||(input.LA(1)>='\u0A66' && input.LA(1)<='\u0A6F')||(input.LA(1)>='\u0AE6' && input.LA(1)<='\u0AEF')||(input.LA(1)>='\u0B66' && input.LA(1)<='\u0B6F')||(input.LA(1)>='\u0BE7' && input.LA(1)<='\u0BEF')||(input.LA(1)>='\u0C66' && input.LA(1)<='\u0C6F')||(input.LA(1)>='\u0CE6' && input.LA(1)<='\u0CEF')||(input.LA(1)>='\u0D66' && input.LA(1)<='\u0D6F')||(input.LA(1)>='\u0E50' && input.LA(1)<='\u0E59')||(input.LA(1)>='\u0ED0' && input.LA(1)<='\u0ED9')||(input.LA(1)>='\u1040' && input.LA(1)<='\u1049'))
@@ -234,12 +234,12 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		{
 			int _type = NUMBER;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:106:7: ( ( '0' .. '9' )+ )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:106:7: ( ( '0' .. '9' )+ )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:106:9: ( '0' .. '9' )+
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:106:9: ( '0' .. '9' )+
 			{
 			DebugLocation(106, 9);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:106:9: ( '0' .. '9' )+
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:106:9: ( '0' .. '9' )+
 			int cnt1=0;
 			try { DebugEnterSubRule(1);
 			while (true)
@@ -259,7 +259,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
+					// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
 					{
 					DebugLocation(106, 9);
 					input.Consume();
@@ -312,7 +312,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		{
 			int _type = FLOAT;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:108:7: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* | '.' ( '0' .. '9' )+ )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:108:7: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* | '.' ( '0' .. '9' )+ )
 			int alt5=2;
 			try { DebugEnterDecision(5, false);
 			int LA5_0 = input.LA(1);
@@ -336,10 +336,10 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:108:11: ( '0' .. '9' )+ '.' ( '0' .. '9' )*
+				// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:108:11: ( '0' .. '9' )+ '.' ( '0' .. '9' )*
 				{
 				DebugLocation(108, 11);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:108:11: ( '0' .. '9' )+
+				// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:108:11: ( '0' .. '9' )+
 				int cnt2=0;
 				try { DebugEnterSubRule(2);
 				while (true)
@@ -359,7 +359,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 					{
 					case 1:
 						DebugEnterAlt(1);
-						// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
+						// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
 						{
 						DebugLocation(108, 11);
 						input.Consume();
@@ -386,7 +386,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 				DebugLocation(108, 23);
 				Match('.'); 
 				DebugLocation(108, 27);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:108:27: ( '0' .. '9' )*
+				// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:108:27: ( '0' .. '9' )*
 				try { DebugEnterSubRule(3);
 				while (true)
 				{
@@ -405,7 +405,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 					{
 					case 1:
 						DebugEnterAlt(1);
-						// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
+						// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
 						{
 						DebugLocation(108, 27);
 						input.Consume();
@@ -429,12 +429,12 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:109:11: '.' ( '0' .. '9' )+
+				// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:109:11: '.' ( '0' .. '9' )+
 				{
 				DebugLocation(109, 11);
 				Match('.'); 
 				DebugLocation(109, 15);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:109:15: ( '0' .. '9' )+
+				// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:109:15: ( '0' .. '9' )+
 				int cnt4=0;
 				try { DebugEnterSubRule(4);
 				while (true)
@@ -454,7 +454,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 					{
 					case 1:
 						DebugEnterAlt(1);
-						// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
+						// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
 						{
 						DebugLocation(109, 15);
 						input.Consume();
@@ -509,9 +509,9 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		{
 			int _type = X;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:112:7: ( 'x' )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:112:7: ( 'x' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:112:9: 'x'
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:112:9: 'x'
 			{
 			DebugLocation(112, 9);
 			Match('x'); 
@@ -544,9 +544,9 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		{
 			int _type = MAX;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:114:7: ( 'max' )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:114:7: ( 'max' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:114:9: 'max'
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:114:9: 'max'
 			{
 			DebugLocation(114, 9);
 			Match("max"); 
@@ -580,9 +580,9 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		{
 			int _type = FTL;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:115:7: ( 'ftl' )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:115:7: ( 'ftl' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:115:9: 'ftl'
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:115:9: 'ftl'
 			{
 			DebugLocation(115, 9);
 			Match("ftl"); 
@@ -616,9 +616,9 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		{
 			int _type = FR;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:116:7: ( 'fr' )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:116:7: ( 'fr' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:116:9: 'fr'
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:116:9: 'fr'
 			{
 			DebugLocation(116, 9);
 			Match("fr"); 
@@ -652,9 +652,9 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		{
 			int _type = TF;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:117:7: ( 'tf' )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:117:7: ( 'tf' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:117:9: 'tf'
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:117:9: 'tf'
 			{
 			DebugLocation(117, 9);
 			Match("tf"); 
@@ -688,9 +688,9 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		{
 			int _type = NOTE;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:118:7: ( 'note' )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:118:7: ( 'note' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:118:9: 'note'
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:118:9: 'note'
 			{
 			DebugLocation(118, 9);
 			Match("note"); 
@@ -722,9 +722,9 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		TraceIn("LETTER", 13);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:123:5: ( '\\u0024' | '\\u0041' .. '\\u005a' | '\\u005f' | '\\u0061' .. '\\u007a' | '\\u00c0' .. '\\u00d6' | '\\u00d8' .. '\\u00f6' | '\\u00f8' .. '\\u00ff' | '\\u0100' .. '\\u1fff' | '\\u3040' .. '\\u318f' | '\\u3300' .. '\\u337f' | '\\u3400' .. '\\u3d2d' | '\\u4e00' .. '\\u9fff' | '\\uf900' .. '\\ufaff' | '.' | ',' | ':' | ';' )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:123:5: ( '\\u0024' | '\\u0041' .. '\\u005a' | '\\u005f' | '\\u0061' .. '\\u007a' | '\\u00c0' .. '\\u00d6' | '\\u00d8' .. '\\u00f6' | '\\u00f8' .. '\\u00ff' | '\\u0100' .. '\\u1fff' | '\\u3040' .. '\\u318f' | '\\u3300' .. '\\u337f' | '\\u3400' .. '\\u3d2d' | '\\u4e00' .. '\\u9fff' | '\\uf900' .. '\\ufaff' | '.' | ',' | ':' | ';' )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
 			{
 			DebugLocation(123, 5);
 			if (input.LA(1)=='$'||input.LA(1)==','||input.LA(1)=='.'||(input.LA(1)>=':' && input.LA(1)<=';')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z')||(input.LA(1)>='\u00C0' && input.LA(1)<='\u00D6')||(input.LA(1)>='\u00D8' && input.LA(1)<='\u00F6')||(input.LA(1)>='\u00F8' && input.LA(1)<='\u1FFF')||(input.LA(1)>='\u3040' && input.LA(1)<='\u318F')||(input.LA(1)>='\u3300' && input.LA(1)<='\u337F')||(input.LA(1)>='\u3400' && input.LA(1)<='\u3D2D')||(input.LA(1)>='\u4E00' && input.LA(1)<='\u9FFF')||(input.LA(1)>='\uF900' && input.LA(1)<='\uFAFF'))
@@ -766,14 +766,14 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		{
 			int _type = WORD;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:138:7: ( LETTER ( LETTER | DIGIT )* )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:138:7: ( LETTER ( LETTER | DIGIT )* )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:138:9: LETTER ( LETTER | DIGIT )*
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:138:9: LETTER ( LETTER | DIGIT )*
 			{
 			DebugLocation(138, 9);
 			mLETTER(); 
 			DebugLocation(138, 15);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:138:15: ( LETTER | DIGIT )*
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:138:15: ( LETTER | DIGIT )*
 			try { DebugEnterSubRule(6);
 			while (true)
 			{
@@ -792,7 +792,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
+					// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
 					{
 					DebugLocation(138, 15);
 					input.Consume();
@@ -840,12 +840,12 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		{
 			int _type = WS;
 			int _channel = DefaultTokenChannel;
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:141:7: ( ( ' ' | '\\t' | '\\n' | '\\r' | '\\f' )+ )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:141:7: ( ( ' ' | '\\t' | '\\n' | '\\r' | '\\f' )+ )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:141:9: ( ' ' | '\\t' | '\\n' | '\\r' | '\\f' )+
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:141:9: ( ' ' | '\\t' | '\\n' | '\\r' | '\\f' )+
 			{
 			DebugLocation(141, 9);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:141:9: ( ' ' | '\\t' | '\\n' | '\\r' | '\\f' )+
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:141:9: ( ' ' | '\\t' | '\\n' | '\\r' | '\\f' )+
 			int cnt7=0;
 			try { DebugEnterSubRule(7);
 			while (true)
@@ -865,7 +865,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
+					// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:
 					{
 					DebugLocation(141, 9);
 					input.Consume();
@@ -906,7 +906,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 
 	public override void mTokens()
 	{
-		// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:8: ( T__16 | T__17 | T__18 | NUMBER | FLOAT | X | MAX | FTL | FR | TF | NOTE | WORD | WS )
+		// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:8: ( T__16 | T__17 | T__18 | NUMBER | FLOAT | X | MAX | FTL | FR | TF | NOTE | WORD | WS )
 		int alt8=13;
 		try { DebugEnterDecision(8, false);
 		try
@@ -923,7 +923,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 		{
 		case 1:
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:10: T__16
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:10: T__16
 			{
 			DebugLocation(1, 10);
 			mT__16(); 
@@ -932,7 +932,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 			break;
 		case 2:
 			DebugEnterAlt(2);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:16: T__17
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:16: T__17
 			{
 			DebugLocation(1, 16);
 			mT__17(); 
@@ -941,7 +941,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 			break;
 		case 3:
 			DebugEnterAlt(3);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:22: T__18
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:22: T__18
 			{
 			DebugLocation(1, 22);
 			mT__18(); 
@@ -950,7 +950,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 			break;
 		case 4:
 			DebugEnterAlt(4);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:28: NUMBER
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:28: NUMBER
 			{
 			DebugLocation(1, 28);
 			mNUMBER(); 
@@ -959,7 +959,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 			break;
 		case 5:
 			DebugEnterAlt(5);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:35: FLOAT
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:35: FLOAT
 			{
 			DebugLocation(1, 35);
 			mFLOAT(); 
@@ -968,7 +968,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 			break;
 		case 6:
 			DebugEnterAlt(6);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:41: X
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:41: X
 			{
 			DebugLocation(1, 41);
 			mX(); 
@@ -977,7 +977,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 			break;
 		case 7:
 			DebugEnterAlt(7);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:43: MAX
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:43: MAX
 			{
 			DebugLocation(1, 43);
 			mMAX(); 
@@ -986,7 +986,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 			break;
 		case 8:
 			DebugEnterAlt(8);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:47: FTL
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:47: FTL
 			{
 			DebugLocation(1, 47);
 			mFTL(); 
@@ -995,7 +995,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 			break;
 		case 9:
 			DebugEnterAlt(9);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:51: FR
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:51: FR
 			{
 			DebugLocation(1, 51);
 			mFR(); 
@@ -1004,7 +1004,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 			break;
 		case 10:
 			DebugEnterAlt(10);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:54: TF
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:54: TF
 			{
 			DebugLocation(1, 54);
 			mTF(); 
@@ -1013,7 +1013,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 			break;
 		case 11:
 			DebugEnterAlt(11);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:57: NOTE
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:57: NOTE
 			{
 			DebugLocation(1, 57);
 			mNOTE(); 
@@ -1022,7 +1022,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 			break;
 		case 12:
 			DebugEnterAlt(12);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:62: WORD
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:62: WORD
 			{
 			DebugLocation(1, 62);
 			mWORD(); 
@@ -1031,7 +1031,7 @@ public partial class PowerLogGrammarLexer : Antlr.Runtime.Lexer
 			break;
 		case 13:
 			DebugEnterAlt(13);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:67: WS
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\PowerLogGrammar.g3:1:67: WS
 			{
 			DebugLocation(1, 67);
 			mWS(); 
