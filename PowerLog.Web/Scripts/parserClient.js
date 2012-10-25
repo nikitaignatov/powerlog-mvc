@@ -13,31 +13,35 @@ function GetDate(jsonDate) {
 }
 
 function showPreview(data) {
-    $("#expressionError").removeClass("alert-error").addClass("alert-info");
-    $("#expressionError").html('');
+   // $("#expressionError").removeClass("alert-error").addClass("alert-info");
+    $("#expressionError").html('You are awesome');
     $("#preview tbody").html('');
     $("#previewTemplate").tmpl(data).appendTo("#preview tbody");
 }
 
 function getPreview(date, exrp) {
-    $.ajax({
-        dataType: "json",
-        type: 'POST',
-        data: { date: date, expression: exrp },
-        url: "/LoggedExercise/PreviewLog",
-        success: function (data) {
-            var key = exrp.replace(/(\n|\r|\s|\t)/g, '');
-            _resultCache[key] = data;
-            showPreview(data);
-        },
-        error: function (data) {
-            console.log(data);
-            $("#expressionError").removeClass("alert-info").addClass("alert-error");
-            $("#expressionError").html(data.statusText);
-            $("#expressionError").show();
-            console.log('failure:' + data.status + ':' + data.statusText);
-        }
-    });
+    console.log(exrp.length);
+    if (expr.length > 0) {
+        console.log('lol');
+        $.ajax({
+            dataType: "json",
+            type: 'POST',
+            data: { date: date, expression: exrp },
+            url: "/LoggedExercise/PreviewLog",
+            success: function (data) {
+                var key = exrp.replace(/(\n|\r|\s|\t)/g, '');
+                _resultCache[key] = data;
+                showPreview(data);
+            },
+            error: function (data) {
+                console.log(data);
+               // $("#expressionError").removeClass("alert-info").addClass("alert-error");
+                $("#expressionError").html(data.statusText);
+                $("#expressionError").show();
+                console.log('failure:' + data.status + ':' + data.statusText);
+            }
+        });
+    }
 }
 
 function showStoredExpressions() {
@@ -92,6 +96,17 @@ function test(q) {
     return !/\d/.test(q) && ($.trim(q) === q.toString());
 }
 
+$("#add-exercise").click( function (e) {
+    e.preventDefault();
+    var value = expr.val();
+    if (value && $.trim(value) === value.toString() && /\d/.test(value)) {
+        storeExpression(expr.val());
+        expr.val('');
+        var date = $("#Date").val();
+        getPreview(date, getExpressions().join());
+    }
+    return false;
+});
 expr.keydown(function (e) {
     var keypressed = e.keyCode || e.which;
     if (keypressed == 13) {

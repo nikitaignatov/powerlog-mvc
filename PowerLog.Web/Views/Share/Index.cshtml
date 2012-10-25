@@ -11,29 +11,39 @@
             ));
 }
 
-<h2>Index</h2>
+<h2>Shared workouts</h2>
 
-<p>
-    @Html.ActionLink("Share your workout", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th></th>
-    </tr>
+<div class="row-fluid">
+    <div class="span3 well">
+        <p>
+            @Html.ActionLink("Share your workout", "Create", null, new { @class = "btn btn-primary btn-large btn-block" })
+        </p>
+        <hr />
+        <h4 class="nav-header">Filter workouts</h4>
+        <div class="input-block-level">
+  <input class="input-block-level" id="appendedInputButton" type="text"><button class="btn" type="button">Search</button>
+</div>
+    </div>
+    <div class="span9">
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @title(item.Title, item.LoggedExercises) by <strong>@item.UserProfile.UserName</strong>
-            </td>
-            <td>
-                @Html.ActionLink(title(item.Title, item.LoggedExercises), "Shared", new { key = item.Key,title = title(item.Title, item.LoggedExercises).ToSeoUrl() })
-            </td>
-        </tr>
-    }
 
-</table>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                           @Html.ActionLink(title(item.Title, item.LoggedExercises), "Shared", new { key = item.Key, title = title(item.Title, item.LoggedExercises).ToSeoUrl() }) by <strong>@item.UserProfile.UserName</strong>
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</div>

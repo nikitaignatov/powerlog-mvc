@@ -38,15 +38,17 @@ namespace PowerLog.Web.Controllers
         [HttpPost]
         public ActionResult Create(LoggedExercise loggedexercise, string expression, string title)
         {
-            if (!string.IsNullOrWhiteSpace(expression))
+            if (string.IsNullOrWhiteSpace(expression))
             {
-                var userId = WebSecurity.GetUserId(User.Identity.Name);
+                ModelState.AddModelError("expression", "Please type in the exercises.");
+            }
+            else
+            {
                 var session = new TrainingSession
                 {
                     Date = loggedexercise.Date,
                     Key = string.Empty.RandomString(10),
-                    UserId = userId,
-                    Title = title,
+                    Title = title.Trim(),
                     IsPublic = true,
                     IsShared = true,
                     LoggedExercises = new List<LoggedExercise>()
@@ -55,13 +57,9 @@ namespace PowerLog.Web.Controllers
                 Session["clearLocalStorage"] = true;
                 return RedirectToAction("Shared", new { key = session.Key });
             }
-            else if (ModelState.IsValid)
-            {
-                db.LoggedExercises.Add(loggedexercise);
-                db.SaveChanges();
-                return RedirectToAction("Shared");
-            }
 
+            ViewBag.SessionTitle = title;
+            ViewBag.Date = loggedexercise.Date;
             return View();
         }
 
@@ -98,13 +96,12 @@ namespace PowerLog.Web.Controllers
         // [HttpPost]
         public ActionResult PreviewLog(DateTime date, string expression, string comment)
         {
-            var data = new Dictionary<DateTime, List<string>> { { date, new List<string>() } };
-            foreach (var e in expression.Split(';'))
+            var data = new List<string>();
+            foreach (var e in expression.Trim().Trim(';').Split(';'))
             {
-                if (data.ContainsKey(date))
-                    data[date].Add(e);
+                data.Add(e);
             }
-            return Json(ParserHelper.ParseLog(db, GetUserId(), comment, data).ToList(), JsonRequestBehavior.AllowGet);
+            return Json(ParserHelper.ParseLog(db, GetUserId(), comment, date, data, perssist: false).ToList(), JsonRequestBehavior.AllowGet);
         }
 
         protected override void Dispose(bool disposing)
@@ -139,20 +136,13 @@ namespace PowerLog.Web.Controllers
         {
             var userId = GetUserId();
             session.UserId = userId;
-            db.TrainingSessions.Add(session);
-            db.SaveChanges();
             var date = session.Date;
-            var data = new Dictionary<DateTime, List<string>> { { date, new List<string>() } };
-            foreach (var e in expression.Split(';'))
+            var data = new List<string>();
+            foreach (var e in expression.Trim().Trim(';').Split(';'))
             {
-                if (data.ContainsKey(date))
-                    data[date].Add(e);
+                data.Add(e);
             }
-            foreach (var log in data)
-            {
-                ParserHelper.ParseLog(db, GetUserId(), session.Comment, data);
-            }
-            db.SaveChanges();
+            ParserHelper.ParseLog(db, GetUserId(), session.Comment, date, data, perssist: true, session: session).ToList();
         }
     }
 
