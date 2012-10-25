@@ -44,7 +44,6 @@
             string.Join(",", load));
         calls.Add(call);
     }
-    
 
 }
 @section scripts{
@@ -58,14 +57,13 @@
         localStorage.removeItem("expressions");
 </text>   
         }
-        function renderProgress(title,category,unit,data) {
+        function renderProgress(title,category,unit,series) {
             var chart;
             $(document).ready(function () {
                 chart = new Highcharts.Chart({
                     chart: {
                         renderTo: 'progress',
-                        type: 'spline',
-                        backgroundColor: 'whiteSmoke'
+                        type: 'spline'
                     },
                     title: {
                         text: title
@@ -93,18 +91,12 @@
                         }
                     },
 
-                    series: [{
-                        name: category,
-                        // Define the data points. All series have a dummy year
-                        // of 1970/71 in order to be compared on the same x axis. Note
-                        // that in JavaScript, months start at 0 for January, 1 for February etc.
-                        data: data
-                    }]
+                    series:series
                 });
             });
         }
 
-        renderProgress('@title','@category','@unit', @(string.Format("[{0}]", string.Join(",", progress))));
+        renderProgress('@title','@category','@unit', @Html.Raw(string.Format("[{{name:'{0}',data:[{1}]}}]","1 Rep Max", string.Join(",", progress))));
 
         @foreach (var c in calls)
         {
@@ -117,7 +109,7 @@
         color: #aaa;
     }
 </style>
-<div class="well">
+<div>
     <div id="progress" style="height: 500px"></div>
 </div>
 <div class="container-fluid">

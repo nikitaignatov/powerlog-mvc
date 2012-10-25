@@ -10,11 +10,12 @@ namespace PowerLog.Web
     {
         public static string ToSeoUrl(this string value)
         {
-            value = value.ToLower().Replace("-"," ").Trim();
+            value = value.ToLower().Replace("-", " ").Trim();
+            value = Regex.Replace(value, @"\W", " ");
             value = Regex.Replace(value, @"\s+", " ");
             value = Regex.Replace(value, @"\s", "-");
             value = value.Trim('-');
-            value = HttpUtility.UrlEncode(value);
+     //       value = HttpUtility.UrlEncode(value);
             return value;
         }
     }

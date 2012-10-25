@@ -69,15 +69,14 @@ namespace PowerLog.Web.Controllers
         public ActionResult PreviewLog(DateTime date, string expression, string comment = null)
         {
             var res = new Dictionary<string, IEnumerable<LoggedExercise>>();
-            var data = new Dictionary<DateTime, List<string>> { { date, new List<string>() } };
-            foreach (var e in expression.Split(';'))
+            var data = new List<string>();
+            foreach (var e in expression.Trim().Trim(';').Split(';'))
             {
-                if (data.ContainsKey(date))
-                    data[date].Add(e);
+                data.Add(e);
             }
             try
             {
-                var le = ParserHelper.ParseLog(db, GetUserId(), comment, data, perssist: false).ToList();
+                var le = ParserHelper.ParseLog(db, GetUserId(), comment, date, data, perssist: false).ToList();
                 var exercise = le.FirstOrDefault().Exercise.Name;
                 res.Add(exercise, le);
             }
@@ -142,20 +141,13 @@ namespace PowerLog.Web.Controllers
         {
             var userId = GetUserId();
             session.UserId = userId;
-            db.TrainingSessions.Add(session);
-            db.SaveChanges();
             var date = session.Date;
-            var data = new Dictionary<DateTime, List<string>> { { date, new List<string>() } };
-            foreach (var e in expression.Split(';'))
+            var data = new List<string>();
+            foreach (var e in expression.Trim().Trim(';').Split(';'))
             {
-                if (data.ContainsKey(date))
-                    data[date].Add(e);
+                data.Add(e);
             }
-            foreach (var log in data)
-            {
-                ParserHelper.ParseLog(db, GetUserId(), session.Comment, data);
-            }
-            db.SaveChanges();
+            ParserHelper.ParseLog(db, GetUserId(), session.Comment, date, data, perssist: true, session: session).ToList();
         }
 
         protected override void Dispose(bool disposing)

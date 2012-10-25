@@ -40,13 +40,14 @@
             </div>
         </div>
     </div>
-    <div>
+    <div class="container-fluid">
         @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; Company 2012</p>
+        </footer>
     </div>
-    <hr>
-    <footer>
-        <p>&copy; Company 2012</p>
-    </footer>
+
     @Scripts.Render("~/bundles/jquery")
     <script type="text/javascript">$('.dropdown-toggle').dropdown()</script>
     @RenderSection("scripts", required: false)

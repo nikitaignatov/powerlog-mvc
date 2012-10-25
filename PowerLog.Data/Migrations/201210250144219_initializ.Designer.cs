@@ -5,18 +5,18 @@ namespace PowerLog.Data.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class add_comment_to_trainingsession : IMigrationMetadata
+    public sealed partial class initializ : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(add_comment_to_trainingsession));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initializ));
         
         string IMigrationMetadata.Id
         {
-            get { return "201210241540247_add_comment_to_trainingsession"; }
+            get { return "201210250144219_initializ"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return Resources.GetString("Source"); }
+            get { return null; }
         }
         
         string IMigrationMetadata.Target

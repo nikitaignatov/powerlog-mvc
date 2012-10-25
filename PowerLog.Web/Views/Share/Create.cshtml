@@ -109,19 +109,21 @@
     <div class="">
         <div class="row-fluid">
             <div class="span6 well">
+                @Html.ValidationSummary(false)
                 <input
                     name="Title"
                     id="Title"
                     type="text"
-                    value=""
+                    value="@ViewBag.SessionTitle"
                     placeholder="workout title"
                     autocomplete="Off" />
                 <input
                     name="Date"
                     id="Date"
                     type="date"
-                    value="@DateTime.Now.ToString("yyyy-MM-dd")"
+                    value="@((ViewBag.Date ?? DateTime.Now).ToString("yyyy-MM-dd"))"
                     autocomplete="Off" />
+                <div class="input-append">
                 <input
                     type="text"
                     data-title="Tags"
@@ -130,7 +132,10 @@
                     name="expression"
                     id="expression"
                     placeholder="barbell bench press 12x200 10x210 8x220-tf"
-                    autocomplete="Off" rows="6" class="span12" />
+                    autocomplete="Off" 
+                    class="span10" />
+                    <button class="btn" id="add-exercise"><i class="icon-plus"></i> Add</button>
+                    </div>
                 <input id="expressionCache" type="hidden" value="" />
                 <div id="expressionError" class="alert alert-info">
                 </div>
