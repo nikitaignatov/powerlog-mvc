@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.4 C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3 2012-10-23 21:52:53
+// $ANTLR 3.4 C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3 2012-10-25 03:15:37
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -102,7 +102,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 	}
 
 	public override string[] TokenNames { get { return PowerLogASTParser.tokenNames; } }
-	public override string GrammarFileName { get { return "C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3"; } }
+	public override string GrammarFileName { get { return "C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3"; } }
 
 
 	partial void OnCreated();
@@ -114,7 +114,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 	partial void LeaveRule_evaluate();
 
 	// $ANTLR start "evaluate"
-	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:36:8: public evaluate : exercise ( ';' exercise )* EOF -> ^( 'result' ( exercise )+ ) ;
+	// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:36:8: public evaluate : exercise ( ';' exercise )* EOF -> ^( 'result' ( exercise )+ ) ;
 	[GrammarRule("evaluate")]
 	public AstParserRuleReturnScope<CommonTree, CommonToken> evaluate()
 	{
@@ -140,9 +140,9 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 		DebugLocation(36, 6);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:37:7: ( exercise ( ';' exercise )* EOF -> ^( 'result' ( exercise )+ ) )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:37:7: ( exercise ( ';' exercise )* EOF -> ^( 'result' ( exercise )+ ) )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:37:11: exercise ( ';' exercise )* EOF
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:37:11: exercise ( ';' exercise )* EOF
 			{
 			DebugLocation(37, 11);
 			PushFollow(Follow._exercise_in_evaluate202);
@@ -151,7 +151,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 			stream_exercise.Add(exercise1.Tree);
 			DebugLocation(37, 20);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:37:20: ( ';' exercise )*
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:37:20: ( ';' exercise )*
 			try { DebugEnterSubRule(1);
 			while (true)
 			{
@@ -170,7 +170,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:37:21: ';' exercise
+					// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:37:21: ';' exercise
 					{
 					DebugLocation(37, 21);
 					char_literal2=(CommonToken)Match(input,33,Follow._33_in_evaluate205);  
@@ -217,7 +217,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 			// 37:41: -> ^( 'result' ( exercise )+ )
 			{
 				DebugLocation(37, 45);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:37:45: ^( 'result' ( exercise )+ )
+				// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:37:45: ^( 'result' ( exercise )+ )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.Nil();
 				DebugLocation(37, 47);
@@ -276,7 +276,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 	partial void LeaveRule_annotatedSet();
 
 	// $ANTLR start "annotatedSet"
-	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:40:1: annotatedSet : set ( forced | note | flag )* -> ^( 'flagged_set' set ^( 'flags' ( flag )* ( forced )? ( note )? ) ) ;
+	// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:40:1: annotatedSet : set ( forced | note | flag )* -> ^( 'flagged_set' set ^( 'flags' ( flag )* ( forced )? ( note )? ) ) ;
 	[GrammarRule("annotatedSet")]
 	private AstParserRuleReturnScope<CommonTree, CommonToken> annotatedSet()
 	{
@@ -301,9 +301,9 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 		DebugLocation(40, 6);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:41:7: ( set ( forced | note | flag )* -> ^( 'flagged_set' set ^( 'flags' ( flag )* ( forced )? ( note )? ) ) )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:41:7: ( set ( forced | note | flag )* -> ^( 'flagged_set' set ^( 'flags' ( flag )* ( forced )? ( note )? ) ) )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:41:11: set ( forced | note | flag )*
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:41:11: set ( forced | note | flag )*
 			{
 			DebugLocation(41, 11);
 			PushFollow(Follow._set_in_annotatedSet245);
@@ -312,7 +312,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 			stream_set.Add(set5.Tree);
 			DebugLocation(41, 15);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:41:15: ( forced | note | flag )*
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:41:15: ( forced | note | flag )*
 			try { DebugEnterSubRule(2);
 			while (true)
 			{
@@ -351,7 +351,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:41:16: forced
+					// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:41:16: forced
 					{
 					DebugLocation(41, 16);
 					PushFollow(Follow._forced_in_annotatedSet248);
@@ -364,7 +364,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 					break;
 				case 2:
 					DebugEnterAlt(2);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:41:23: note
+					// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:41:23: note
 					{
 					DebugLocation(41, 23);
 					PushFollow(Follow._note_in_annotatedSet250);
@@ -377,7 +377,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 					break;
 				case 3:
 					DebugEnterAlt(3);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:41:28: flag
+					// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:41:28: flag
 					{
 					DebugLocation(41, 28);
 					PushFollow(Follow._flag_in_annotatedSet252);
@@ -403,7 +403,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: flag, forced, FLAGS, note, FLAGGED_SET, set
+			// elements: FLAGGED_SET, FLAGS, note, flag, forced, set
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -416,7 +416,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 			// 41:41: -> ^( 'flagged_set' set ^( 'flags' ( flag )* ( forced )? ( note )? ) )
 			{
 				DebugLocation(41, 45);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:41:45: ^( 'flagged_set' set ^( 'flags' ( flag )* ( forced )? ( note )? ) )
+				// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:41:45: ^( 'flagged_set' set ^( 'flags' ( flag )* ( forced )? ( note )? ) )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.Nil();
 				DebugLocation(41, 47);
@@ -425,14 +425,14 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 				DebugLocation(41, 61);
 				adaptor.AddChild(root_1, stream_set.NextTree());
 				DebugLocation(41, 65);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:41:65: ^( 'flags' ( flag )* ( forced )? ( note )? )
+				// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:41:65: ^( 'flags' ( flag )* ( forced )? ( note )? )
 				{
 				CommonTree root_2 = (CommonTree)adaptor.Nil();
 				DebugLocation(41, 67);
 				root_2 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(FLAGS, "FLAGS"), root_2);
 
 				DebugLocation(41, 75);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:41:75: ( flag )*
+				// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:41:75: ( flag )*
 				while ( stream_flag.HasNext )
 				{
 					DebugLocation(41, 75);
@@ -441,7 +441,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 				}
 				stream_flag.Reset();
 				DebugLocation(41, 81);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:41:81: ( forced )?
+				// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:41:81: ( forced )?
 				if (stream_forced.HasNext)
 				{
 					DebugLocation(41, 81);
@@ -450,7 +450,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 				}
 				stream_forced.Reset();
 				DebugLocation(41, 89);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:41:89: ( note )?
+				// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:41:89: ( note )?
 				if (stream_note.HasNext)
 				{
 					DebugLocation(41, 89);
@@ -502,7 +502,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 	partial void LeaveRule_set();
 
 	// $ANTLR start "set"
-	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:44:1: set : ( sets X reps X weight -> ^( 'multi_set' ^( 'sets' sets ) ^( 'rep' reps ) ^( 'weight' weight ) ) | reps X weight -> ^( 'set' ^( 'rep' reps ) ^( 'weight' weight ) ) | weight -> ^( 'set' ^( 'rep' 'single' ) ^( 'weight' weight ) ) );
+	// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:44:1: set : ( sets X reps X weight -> ^( 'multi_set' ^( 'sets' sets ) ^( 'rep' reps ) ^( 'weight' weight ) ) | reps X weight -> ^( 'set' ^( 'rep' reps ) ^( 'weight' weight ) ) | weight -> ^( 'set' ^( 'rep' 'single' ) ^( 'weight' weight ) ) );
 	[GrammarRule("set")]
 	private AstParserRuleReturnScope<CommonTree, CommonToken> set()
 	{
@@ -535,7 +535,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 		DebugLocation(44, 6);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:45:7: ( sets X reps X weight -> ^( 'multi_set' ^( 'sets' sets ) ^( 'rep' reps ) ^( 'weight' weight ) ) | reps X weight -> ^( 'set' ^( 'rep' reps ) ^( 'weight' weight ) ) | weight -> ^( 'set' ^( 'rep' 'single' ) ^( 'weight' weight ) ) )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:45:7: ( sets X reps X weight -> ^( 'multi_set' ^( 'sets' sets ) ^( 'rep' reps ) ^( 'weight' weight ) ) | reps X weight -> ^( 'set' ^( 'rep' reps ) ^( 'weight' weight ) ) | weight -> ^( 'set' ^( 'rep' 'single' ) ^( 'weight' weight ) ) )
 			int alt3=3;
 			try { DebugEnterDecision(3, false);
 			int LA3_0 = input.LA(1);
@@ -604,7 +604,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:45:11: sets X reps X weight
+				// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:45:11: sets X reps X weight
 				{
 				DebugLocation(45, 11);
 				PushFollow(Follow._sets_in_set313);
@@ -636,7 +636,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 				{
 				// AST REWRITE
-				// elements: weight, reps, REP, sets, MULTI_SET, WEIGHT, SETS
+				// elements: weight, WEIGHT, REP, MULTI_SET, reps, sets, SETS
 				// token labels: 
 				// rule labels: retval
 				// token list labels: 
@@ -649,14 +649,14 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 				// 45:41: -> ^( 'multi_set' ^( 'sets' sets ) ^( 'rep' reps ) ^( 'weight' weight ) )
 				{
 					DebugLocation(45, 45);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:45:45: ^( 'multi_set' ^( 'sets' sets ) ^( 'rep' reps ) ^( 'weight' weight ) )
+					// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:45:45: ^( 'multi_set' ^( 'sets' sets ) ^( 'rep' reps ) ^( 'weight' weight ) )
 					{
 					CommonTree root_1 = (CommonTree)adaptor.Nil();
 					DebugLocation(45, 47);
 					root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(MULTI_SET, "MULTI_SET"), root_1);
 
 					DebugLocation(45, 59);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:45:59: ^( 'sets' sets )
+					// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:45:59: ^( 'sets' sets )
 					{
 					CommonTree root_2 = (CommonTree)adaptor.Nil();
 					DebugLocation(45, 61);
@@ -668,7 +668,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 					adaptor.AddChild(root_1, root_2);
 					}
 					DebugLocation(45, 74);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:45:74: ^( 'rep' reps )
+					// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:45:74: ^( 'rep' reps )
 					{
 					CommonTree root_2 = (CommonTree)adaptor.Nil();
 					DebugLocation(45, 76);
@@ -680,7 +680,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 					adaptor.AddChild(root_1, root_2);
 					}
 					DebugLocation(45, 88);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:45:88: ^( 'weight' weight )
+					// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:45:88: ^( 'weight' weight )
 					{
 					CommonTree root_2 = (CommonTree)adaptor.Nil();
 					DebugLocation(45, 90);
@@ -704,7 +704,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:46:11: reps X weight
+				// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:46:11: reps X weight
 				{
 				DebugLocation(46, 11);
 				PushFollow(Follow._reps_in_set367);
@@ -726,7 +726,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 				{
 				// AST REWRITE
-				// elements: weight, reps, WEIGHT, REP, SET
+				// elements: REP, SET, reps, weight, WEIGHT
 				// token labels: 
 				// rule labels: retval
 				// token list labels: 
@@ -739,14 +739,14 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 				// 46:41: -> ^( 'set' ^( 'rep' reps ) ^( 'weight' weight ) )
 				{
 					DebugLocation(46, 45);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:46:45: ^( 'set' ^( 'rep' reps ) ^( 'weight' weight ) )
+					// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:46:45: ^( 'set' ^( 'rep' reps ) ^( 'weight' weight ) )
 					{
 					CommonTree root_1 = (CommonTree)adaptor.Nil();
 					DebugLocation(46, 47);
 					root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(SET, "SET"), root_1);
 
 					DebugLocation(46, 53);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:46:53: ^( 'rep' reps )
+					// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:46:53: ^( 'rep' reps )
 					{
 					CommonTree root_2 = (CommonTree)adaptor.Nil();
 					DebugLocation(46, 55);
@@ -758,7 +758,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 					adaptor.AddChild(root_1, root_2);
 					}
 					DebugLocation(46, 67);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:46:67: ^( 'weight' weight )
+					// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:46:67: ^( 'weight' weight )
 					{
 					CommonTree root_2 = (CommonTree)adaptor.Nil();
 					DebugLocation(46, 69);
@@ -782,7 +782,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 				break;
 			case 3:
 				DebugEnterAlt(3);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:47:11: weight
+				// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:47:11: weight
 				{
 				DebugLocation(47, 11);
 				PushFollow(Follow._weight_in_set418);
@@ -794,7 +794,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 				{
 				// AST REWRITE
-				// elements: SINGLE, REP, WEIGHT, weight, SET
+				// elements: SINGLE, weight, REP, SET, WEIGHT
 				// token labels: 
 				// rule labels: retval
 				// token list labels: 
@@ -807,14 +807,14 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 				// 47:41: -> ^( 'set' ^( 'rep' 'single' ) ^( 'weight' weight ) )
 				{
 					DebugLocation(47, 45);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:47:45: ^( 'set' ^( 'rep' 'single' ) ^( 'weight' weight ) )
+					// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:47:45: ^( 'set' ^( 'rep' 'single' ) ^( 'weight' weight ) )
 					{
 					CommonTree root_1 = (CommonTree)adaptor.Nil();
 					DebugLocation(47, 47);
 					root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(SET, "SET"), root_1);
 
 					DebugLocation(47, 53);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:47:53: ^( 'rep' 'single' )
+					// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:47:53: ^( 'rep' 'single' )
 					{
 					CommonTree root_2 = (CommonTree)adaptor.Nil();
 					DebugLocation(47, 55);
@@ -826,7 +826,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 					adaptor.AddChild(root_1, root_2);
 					}
 					DebugLocation(47, 72);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:47:72: ^( 'weight' weight )
+					// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:47:72: ^( 'weight' weight )
 					{
 					CommonTree root_2 = (CommonTree)adaptor.Nil();
 					DebugLocation(47, 74);
@@ -880,7 +880,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 	partial void LeaveRule_exercise();
 
 	// $ANTLR start "exercise"
-	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:50:1: exercise : exercise_name ( ( WS )+ annotatedSet )+ -> ^( 'exercise' ^( 'exercise_name' exercise_name ) ^( 'data' ( annotatedSet )+ ) ) ;
+	// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:50:1: exercise : exercise_name ( ( WS )+ annotatedSet )+ -> ^( 'exercise' ^( 'exercise_name' exercise_name ) ^( 'data' ( annotatedSet )+ ) ) ;
 	[GrammarRule("exercise")]
 	private AstParserRuleReturnScope<CommonTree, CommonToken> exercise()
 	{
@@ -904,9 +904,9 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 		DebugLocation(50, 6);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:7: ( exercise_name ( ( WS )+ annotatedSet )+ -> ^( 'exercise' ^( 'exercise_name' exercise_name ) ^( 'data' ( annotatedSet )+ ) ) )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:7: ( exercise_name ( ( WS )+ annotatedSet )+ -> ^( 'exercise' ^( 'exercise_name' exercise_name ) ^( 'data' ( annotatedSet )+ ) ) )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:9: exercise_name ( ( WS )+ annotatedSet )+
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:9: exercise_name ( ( WS )+ annotatedSet )+
 			{
 			DebugLocation(51, 9);
 			PushFollow(Follow._exercise_name_in_exercise483);
@@ -915,7 +915,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 			stream_exercise_name.Add(exercise_name18.Tree);
 			DebugLocation(51, 23);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:23: ( ( WS )+ annotatedSet )+
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:23: ( ( WS )+ annotatedSet )+
 			int cnt5=0;
 			try { DebugEnterSubRule(5);
 			while (true)
@@ -935,10 +935,10 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:24: ( WS )+ annotatedSet
+					// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:24: ( WS )+ annotatedSet
 					{
 					DebugLocation(51, 24);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:24: ( WS )+
+					// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:24: ( WS )+
 					int cnt4=0;
 					try { DebugEnterSubRule(4);
 					while (true)
@@ -958,7 +958,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 						{
 						case 1:
 							DebugEnterAlt(1);
-							// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:24: WS
+							// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:24: WS
 							{
 							DebugLocation(51, 24);
 							WS19=(CommonToken)Match(input,WS,Follow._WS_in_exercise486);  
@@ -1012,7 +1012,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: exercise_name, annotatedSet, EXERCISE_NAME, DATA, EXERCISE
+			// elements: exercise_name, EXERCISE_NAME, annotatedSet, EXERCISE, DATA
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1025,14 +1025,14 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 			// 51:50: -> ^( 'exercise' ^( 'exercise_name' exercise_name ) ^( 'data' ( annotatedSet )+ ) )
 			{
 				DebugLocation(51, 54);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:54: ^( 'exercise' ^( 'exercise_name' exercise_name ) ^( 'data' ( annotatedSet )+ ) )
+				// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:54: ^( 'exercise' ^( 'exercise_name' exercise_name ) ^( 'data' ( annotatedSet )+ ) )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.Nil();
 				DebugLocation(51, 56);
 				root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(EXERCISE, "EXERCISE"), root_1);
 
 				DebugLocation(51, 67);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:67: ^( 'exercise_name' exercise_name )
+				// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:67: ^( 'exercise_name' exercise_name )
 				{
 				CommonTree root_2 = (CommonTree)adaptor.Nil();
 				DebugLocation(51, 69);
@@ -1044,7 +1044,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 				adaptor.AddChild(root_1, root_2);
 				}
 				DebugLocation(51, 100);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:100: ^( 'data' ( annotatedSet )+ )
+				// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:51:100: ^( 'data' ( annotatedSet )+ )
 				{
 				CommonTree root_2 = (CommonTree)adaptor.Nil();
 				DebugLocation(51, 102);
@@ -1106,7 +1106,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 	partial void LeaveRule_flag();
 
 	// $ANTLR start "flag"
-	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:54:1: flag : '-' ! ( MAX | FTL | TF ) ;
+	// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:54:1: flag : '-' ! ( MAX | FTL | TF ) ;
 	[GrammarRule("flag")]
 	private AstParserRuleReturnScope<CommonTree, CommonToken> flag()
 	{
@@ -1127,9 +1127,9 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 		DebugLocation(54, 6);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:55:7: ( '-' ! ( MAX | FTL | TF ) )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:55:7: ( '-' ! ( MAX | FTL | TF ) )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:55:9: '-' ! ( MAX | FTL | TF )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:55:9: '-' ! ( MAX | FTL | TF )
 			{
 			root_0 = (CommonTree)adaptor.Nil();
 
@@ -1184,7 +1184,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 	partial void LeaveRule_note();
 
 	// $ANTLR start "note"
-	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:58:1: note : '-' NOTE '(' text ')' -> ^( 'note' ^( 'message' text ) ) ;
+	// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:58:1: note : '-' NOTE '(' text ')' -> ^( 'note' ^( 'message' text ) ) ;
 	[GrammarRule("note")]
 	private AstParserRuleReturnScope<CommonTree, CommonToken> note()
 	{
@@ -1215,9 +1215,9 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 		DebugLocation(58, 6);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:59:7: ( '-' NOTE '(' text ')' -> ^( 'note' ^( 'message' text ) ) )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:59:7: ( '-' NOTE '(' text ')' -> ^( 'note' ^( 'message' text ) ) )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:59:9: '-' NOTE '(' text ')'
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:59:9: '-' NOTE '(' text ')'
 			{
 			DebugLocation(59, 9);
 			char_literal23=(CommonToken)Match(input,32,Follow._32_in_note584);  
@@ -1245,7 +1245,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: MESSAGE, text, NOTE
+			// elements: text, NOTE, MESSAGE
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1258,14 +1258,14 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 			// 59:41: -> ^( 'note' ^( 'message' text ) )
 			{
 				DebugLocation(59, 45);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:59:45: ^( 'note' ^( 'message' text ) )
+				// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:59:45: ^( 'note' ^( 'message' text ) )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.Nil();
 				DebugLocation(59, 47);
 				root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(NOTE, "NOTE"), root_1);
 
 				DebugLocation(59, 54);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:59:54: ^( 'message' text )
+				// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:59:54: ^( 'message' text )
 				{
 				CommonTree root_2 = (CommonTree)adaptor.Nil();
 				DebugLocation(59, 56);
@@ -1317,7 +1317,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 	partial void LeaveRule_forced();
 
 	// $ANTLR start "forced"
-	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:62:1: forced : '-' FR '(' reps ')' -> ^( 'forced' ^( 'rep' reps ) ) ;
+	// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:62:1: forced : '-' FR '(' reps ')' -> ^( 'forced' ^( 'rep' reps ) ) ;
 	[GrammarRule("forced")]
 	private AstParserRuleReturnScope<CommonTree, CommonToken> forced()
 	{
@@ -1348,9 +1348,9 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 		DebugLocation(62, 6);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:63:7: ( '-' FR '(' reps ')' -> ^( 'forced' ^( 'rep' reps ) ) )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:63:7: ( '-' FR '(' reps ')' -> ^( 'forced' ^( 'rep' reps ) ) )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:63:9: '-' FR '(' reps ')'
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:63:9: '-' FR '(' reps ')'
 			{
 			DebugLocation(63, 9);
 			char_literal28=(CommonToken)Match(input,32,Follow._32_in_forced645);  
@@ -1378,7 +1378,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: REP, reps, FORCED
+			// elements: REP, FORCED, reps
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1391,14 +1391,14 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 			// 63:41: -> ^( 'forced' ^( 'rep' reps ) )
 			{
 				DebugLocation(63, 45);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:63:45: ^( 'forced' ^( 'rep' reps ) )
+				// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:63:45: ^( 'forced' ^( 'rep' reps ) )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.Nil();
 				DebugLocation(63, 47);
 				root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(FORCED, "FORCED"), root_1);
 
 				DebugLocation(63, 56);
-				// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:63:56: ^( 'rep' reps )
+				// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:63:56: ^( 'rep' reps )
 				{
 				CommonTree root_2 = (CommonTree)adaptor.Nil();
 				DebugLocation(63, 58);
@@ -1450,7 +1450,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 	partial void LeaveRule_text();
 
 	// $ANTLR start "text"
-	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:66:1: text : WORD ( ( WS !)+ ( WORD | NUMBER ) )* ;
+	// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:66:1: text : WORD ( ( WS !)+ ( WORD | NUMBER ) )* ;
 	[GrammarRule("text")]
 	private AstParserRuleReturnScope<CommonTree, CommonToken> text()
 	{
@@ -1473,9 +1473,9 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 		DebugLocation(66, 6);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:67:7: ( WORD ( ( WS !)+ ( WORD | NUMBER ) )* )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:67:7: ( WORD ( ( WS !)+ ( WORD | NUMBER ) )* )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:67:9: WORD ( ( WS !)+ ( WORD | NUMBER ) )*
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:67:9: WORD ( ( WS !)+ ( WORD | NUMBER ) )*
 			{
 			root_0 = (CommonTree)adaptor.Nil();
 
@@ -1484,7 +1484,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 			WORD33_tree = (CommonTree)adaptor.Create(WORD33);
 			adaptor.AddChild(root_0, WORD33_tree);
 			DebugLocation(67, 14);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:67:14: ( ( WS !)+ ( WORD | NUMBER ) )*
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:67:14: ( ( WS !)+ ( WORD | NUMBER ) )*
 			try { DebugEnterSubRule(7);
 			while (true)
 			{
@@ -1503,10 +1503,10 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:67:15: ( WS !)+ ( WORD | NUMBER )
+					// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:67:15: ( WS !)+ ( WORD | NUMBER )
 					{
 					DebugLocation(67, 17);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:67:17: ( WS !)+
+					// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:67:17: ( WS !)+
 					int cnt6=0;
 					try { DebugEnterSubRule(6);
 					while (true)
@@ -1526,7 +1526,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 						{
 						case 1:
 							DebugEnterAlt(1);
-							// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:67:17: WS !
+							// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:67:17: WS !
 							{
 							DebugLocation(67, 17);
 							WS34=(CommonToken)Match(input,WS,Follow._WS_in_text711); 
@@ -1612,7 +1612,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 	partial void LeaveRule_exercise_name();
 
 	// $ANTLR start "exercise_name"
-	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:70:1: exercise_name : WORD ( ( WS !)+ WORD )* ;
+	// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:70:1: exercise_name : WORD ( ( WS !)+ WORD )* ;
 	[GrammarRule("exercise_name")]
 	private AstParserRuleReturnScope<CommonTree, CommonToken> exercise_name()
 	{
@@ -1635,9 +1635,9 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 		DebugLocation(70, 6);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:71:7: ( WORD ( ( WS !)+ WORD )* )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:71:7: ( WORD ( ( WS !)+ WORD )* )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:71:9: WORD ( ( WS !)+ WORD )*
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:71:9: WORD ( ( WS !)+ WORD )*
 			{
 			root_0 = (CommonTree)adaptor.Nil();
 
@@ -1646,7 +1646,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 			WORD36_tree = (CommonTree)adaptor.Create(WORD36);
 			adaptor.AddChild(root_0, WORD36_tree);
 			DebugLocation(71, 14);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:71:14: ( ( WS !)+ WORD )*
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:71:14: ( ( WS !)+ WORD )*
 			try { DebugEnterSubRule(9);
 			while (true)
 			{
@@ -1666,10 +1666,10 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:71:15: ( WS !)+ WORD
+					// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:71:15: ( WS !)+ WORD
 					{
 					DebugLocation(71, 17);
-					// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:71:17: ( WS !)+
+					// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:71:17: ( WS !)+
 					int cnt8=0;
 					try { DebugEnterSubRule(8);
 					while (true)
@@ -1689,7 +1689,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 						{
 						case 1:
 							DebugEnterAlt(1);
-							// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:71:17: WS !
+							// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:71:17: WS !
 							{
 							DebugLocation(71, 17);
 							WS37=(CommonToken)Match(input,WS,Follow._WS_in_exercise_name754); 
@@ -1763,7 +1763,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 	partial void LeaveRule_weight();
 
 	// $ANTLR start "weight"
-	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:74:1: weight : ( FLOAT | NUMBER );
+	// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:74:1: weight : ( FLOAT | NUMBER );
 	[GrammarRule("weight")]
 	private AstParserRuleReturnScope<CommonTree, CommonToken> weight()
 	{
@@ -1782,9 +1782,9 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 		DebugLocation(74, 20);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:75:7: ( FLOAT | NUMBER )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:75:7: ( FLOAT | NUMBER )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:
 			{
 			root_0 = (CommonTree)adaptor.Nil();
 
@@ -1837,7 +1837,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 	partial void LeaveRule_reps();
 
 	// $ANTLR start "reps"
-	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:77:1: reps : NUMBER ;
+	// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:77:1: reps : NUMBER ;
 	[GrammarRule("reps")]
 	private AstParserRuleReturnScope<CommonTree, CommonToken> reps()
 	{
@@ -1856,9 +1856,9 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 		DebugLocation(77, 14);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:78:7: ( NUMBER )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:78:7: ( NUMBER )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:78:9: NUMBER
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:78:9: NUMBER
 			{
 			root_0 = (CommonTree)adaptor.Nil();
 
@@ -1899,7 +1899,7 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 	partial void LeaveRule_sets();
 
 	// $ANTLR start "sets"
-	// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:80:1: sets : NUMBER ;
+	// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:80:1: sets : NUMBER ;
 	[GrammarRule("sets")]
 	private AstParserRuleReturnScope<CommonTree, CommonToken> sets()
 	{
@@ -1918,9 +1918,9 @@ public partial class PowerLogASTParser : Antlr.Runtime.Parser
 		DebugLocation(80, 14);
 		try
 		{
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:81:7: ( NUMBER )
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:81:7: ( NUMBER )
 			DebugEnterAlt(1);
-			// C:\\Users\\Bacon\\Documents\\Visual Studio 2012\\Projects\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:81:9: NUMBER
+			// C:\\REPO\\PowerLog\\PowerLog.Parser\\Generated\\PowerLogAST.g3:81:9: NUMBER
 			{
 			root_0 = (CommonTree)adaptor.Nil();
 

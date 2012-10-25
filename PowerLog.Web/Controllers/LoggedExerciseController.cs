@@ -12,13 +12,9 @@ using WebMatrix.WebData;
 
 namespace PowerLog.Web.Controllers
 {
-    [InitializeSimpleMembership]
     public class LoggedExerciseController : Controller
     {
         private UsersContext db = new UsersContext();
-
-        //
-        // GET: /LoggedExercise/
 
         public ActionResult Index()
         {
@@ -31,9 +27,6 @@ namespace PowerLog.Web.Controllers
             return View(loggedexercises.ToList());
         }
 
-        //
-        // GET: /LoggedExercise/Details/5
-
         public ActionResult Details(int id = 0)
         {
             LoggedExercise loggedexercise = db.LoggedExercises.Find(id);
@@ -44,46 +37,27 @@ namespace PowerLog.Web.Controllers
             return View(loggedexercise);
         }
 
-        //
-        // GET: /LoggedExercise/Create
-
         public ActionResult Create()
         {
             ViewBag.ExerciseID = new SelectList(db.Exercises, "ID", "Name");
             return View();
         }
 
-        //
-        // POST: /LoggedExercise/Create
-
-        private int GetUserId()
-        {
-            var userId = WebSecurity.GetUserId(User.Identity.Name);
-            return userId;
-        }
         [HttpPost]
-        public ActionResult Create(LoggedExercise loggedexercise, string expression)
+        public ActionResult Create(TrainingSession session, string expression)
         {
             if (!string.IsNullOrWhiteSpace(expression))
             {
-                var userId = GetUserId();
-                foreach (var log in ParserHelper.ParseLog(db, loggedexercise.Date, expression))
-                {
-                    log.UserId = userId;
-                    db.LoggedExercises.Add(log);
-                }
-                db.SaveChanges();
+                SaveSession(session, expression);
                 Session["clearLocalStorage"] = true;
                 return RedirectToAction("Index");
             }
             else if (ModelState.IsValid)
             {
-                db.LoggedExercises.Add(loggedexercise);
-                db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(loggedexercise);
+            return View(session);
         }
 
         public ActionResult Log()
@@ -92,30 +66,28 @@ namespace PowerLog.Web.Controllers
         }
 
         // [HttpPost]
-        public ActionResult PreviewLog(DateTime date, string expression)
+        public ActionResult PreviewLog(DateTime date, string expression, string comment = null)
         {
             var res = new Dictionary<string, IEnumerable<LoggedExercise>>();
+            var data = new Dictionary<DateTime, List<string>> { { date, new List<string>() } };
             foreach (var e in expression.Split(';'))
             {
-                try
-                {
-                    var le = ParserHelper.ParseLog(db, date, e);
-                    var exercise = le.FirstOrDefault().Exercise.Name;
-                    res.Add(exercise, le);
-                }
-                catch (Exception ex)
-                {
-                    Response.StatusCode = 404;
-                    Response.StatusDescription = ex.Message;
-                }
+                if (data.ContainsKey(date))
+                    data[date].Add(e);
+            }
+            try
+            {
+                var le = ParserHelper.ParseLog(db, GetUserId(), comment, data, perssist: false).ToList();
+                var exercise = le.FirstOrDefault().Exercise.Name;
+                res.Add(exercise, le);
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = 404;
+                Response.StatusDescription = ex.Message;
             }
             return Json(res.Select(x => new { Exercise = x.Key, Sets = x.Value }), JsonRequestBehavior.AllowGet);
         }
-
-
-
-        //
-        // GET: /LoggedExercise/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
@@ -127,9 +99,6 @@ namespace PowerLog.Web.Controllers
             ViewBag.ExerciseID = new SelectList(db.Exercises, "ID", "Name", loggedexercise.ExerciseId);
             return View(loggedexercise);
         }
-
-        //
-        // POST: /LoggedExercise/Edit/5
 
         [HttpPost]
         public ActionResult Edit(LoggedExercise loggedexercise)
@@ -144,9 +113,6 @@ namespace PowerLog.Web.Controllers
             return View(loggedexercise);
         }
 
-        //
-        // GET: /LoggedExercise/Delete/5
-
         public ActionResult Delete(int id = 0)
         {
             LoggedExercise loggedexercise = db.LoggedExercises.Find(id);
@@ -157,9 +123,6 @@ namespace PowerLog.Web.Controllers
             return View(loggedexercise);
         }
 
-        //
-        // POST: /LoggedExercise/Delete/5
-
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
@@ -167,6 +130,32 @@ namespace PowerLog.Web.Controllers
             db.LoggedExercises.Remove(loggedexercise);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        private int GetUserId()
+        {
+            var userId = WebSecurity.GetUserId(User.Identity.Name);
+            return userId;
+        }
+
+        private void SaveSession(TrainingSession session, string expression)
+        {
+            var userId = GetUserId();
+            session.UserId = userId;
+            db.TrainingSessions.Add(session);
+            db.SaveChanges();
+            var date = session.Date;
+            var data = new Dictionary<DateTime, List<string>> { { date, new List<string>() } };
+            foreach (var e in expression.Split(';'))
+            {
+                if (data.ContainsKey(date))
+                    data[date].Add(e);
+            }
+            foreach (var log in data)
+            {
+                ParserHelper.ParseLog(db, GetUserId(), session.Comment, data);
+            }
+            db.SaveChanges();
         }
 
         protected override void Dispose(bool disposing)

@@ -52,6 +52,10 @@
   <ItemGroup>
     <Compile Include="DB.cs" />
     <Compile Include="ExrxParser.cs" />
+    <Compile Include="Migrations\201210241540247_add_comment_to_trainingsession.cs" />
+    <Compile Include="Migrations\201210241540247_add_comment_to_trainingsession.Designer.cs">
+      <DependentUpon>201210241540247_add_comment_to_trainingsession.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -68,6 +72,11 @@
       <Project>{033b5d5a-6f6d-43fc-bb5b-e9325ca16c9a}</Project>
       <Name>PowerLog.Parser</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201210241540247_add_comment_to_trainingsession.resx">
+      <DependentUpon>201210241540247_add_comment_to_trainingsession.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

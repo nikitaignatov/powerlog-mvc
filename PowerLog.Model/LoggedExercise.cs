@@ -24,8 +24,10 @@ namespace PowerLog.Model
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
-        public string Title { get; set; }
         public virtual ICollection<LoggedExercise> LoggedExercises { get; set; }
+
+        public string Title { get; set; }
+        public string Comment { get; set; }
         public bool IsPublic { get; set; }
         public bool IsShared { get; set; }
     }
