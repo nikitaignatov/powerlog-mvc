@@ -1,0 +1,37 @@
+﻿@using PowerLog.Model
+@model PowerLog.Model.UserProfile
+
+@{
+    ViewBag.Title = "WeightSettings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>WeightSettings</h2>
+<p>Choose your preffered units</p>
+
+@using (Html.BeginForm("WeightSettings","Profile",FormMethod.Post,new {id="weight-settings-form"}))
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <div class="btn-group" data-toggle-name="WeightUnitsValue" data-toggle="buttons-radio">
+            <button type="button" data-toggle="button" value="@WeightUnit.Kilogram" class="btn btn-large btn-primary @(Model.WeightUnits == WeightUnit.Kilogram ? "active" : "")">@Weight.LabelIn(WeightUnit.Kilogram)</button>
+            <button type="button" data-toggle="button" value="@WeightUnit.Pound" class="btn btn-large btn-primary @(Model.WeightUnits == WeightUnit.Pound ? "active" : "")">@Weight.LabelIn(WeightUnit.Pound)</button>
+        </div>
+        <input type="hidden" name="WeightUnitsValue" id="WeightUnitsValue" value="@Model.WeightUnits" />
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(function () {
+            $("body").find(".btn").each(function () {
+                $(this).bind('click', function () {
+                    $("input[name=WeightUnitsValue]").val($(this).val());
+                    $("#weight-settings-form").submit();
+                });
+            });
+        });
+    </script>
+}

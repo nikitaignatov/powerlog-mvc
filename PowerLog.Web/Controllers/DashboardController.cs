@@ -23,8 +23,6 @@ namespace PowerLog.Web.Controllers
             var userId = GetUserId();
 
             var loggedexercises = db.LoggedExercises.Include(l => l.Exercise).Where(x => x.UserId == userId).ToList();
-            var loggedexercises2 = db.LoggedExercises.Where(x => x.UserId == userId).Include(l => l.Exercise).Select(x => x.Reps).ToList();
-            var loggedexercises3 = db.LoggedExercises.Include(l => l.Exercise).Where(x => x.UserId == userId).Select(x => x.Weight).ToList();
             return View(loggedexercises);
         }
 
@@ -32,7 +30,7 @@ namespace PowerLog.Web.Controllers
         {
             var userId = GetUserId();
             var date = new DateTime(year, month, day);
-            var loggedexercises = db.LoggedExercises.Where(x => x.UserId == userId && x.Date == date).ToList();
+            var loggedexercises = db.LoggedExercises.Where(x => x.UserId == userId && x.Date == date).Include(x => x.UserProfile).ToList();
             if (!loggedexercises.Any())
             {
                 throw new Exception("lol");

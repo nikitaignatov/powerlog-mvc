@@ -33,6 +33,9 @@ namespace PowerLog.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Entity<LoggedExercise>().Ignore(e => e.Weight);
+            modelBuilder.Entity<LoggedExercise>().Ignore(e => e.WeightUnitName);
+            modelBuilder.Entity<UserProfile>().Ignore(e => e.WeightUnits);
             base.OnModelCreating(modelBuilder);
         }
     }

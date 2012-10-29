@@ -126,3 +126,7 @@
 2012-10-24,cable pulldown 8x70 8x80 8x90 8x100
 2012-10-24,barbell shrug 20x60 14x80 14x80 8x100 12x80
 2012-10-24,barbell bent over row 3x12x60
+#
+2012-10-26,barbell close grip bench press 10x40 10x60 8x80 6x85 6x90
+2012-10-26,barbell bench press 8x90 8x90-tf 10x60 8x60
+2012-10-26,barbell deadlift 2x10x60 10x80

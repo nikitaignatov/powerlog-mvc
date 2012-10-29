@@ -38,14 +38,14 @@
                                     @Html.DisplayFor(modelItem => item.Reps)
                                 </td>
                                 <td>
-                                    <strong>@Html.DisplayFor(modelItem => item.Weight)</strong>kg
+                                    <strong>@Html.DisplayFor(modelItem => item.Weight)</strong> @item.WeightUnitName
                                 </td>
                                 <td>
 
-                                    <strong>@(item.OneRepMax)</strong>kg
+                                    <strong>@(item.OneRepMax)</strong> @item.WeightUnitName
                                 </td>
                                 <td>
-                                    <strong>@(item.Weight * item.Reps)</strong>kg
+                                    <strong>@(item.Weight * item.Reps)</strong> @item.WeightUnitName
                                 </td>
                                 <td>
                                     @if (item.FailedToLift)
@@ -74,7 +74,7 @@
                         <tr style="color: #aaa;">
                             <td colspan="3">[<strong>@exercises.Sum(x => x.Reps)</strong> lifts] 
                             </td>
-                            <td colspan="4">[<strong>@exercises.Sum(x => x.Weight * x.Reps)kg</strong> total load]
+                            <td colspan="4">[<strong>@exercises.Sum(x => x.Load) @exercises.FirstOrDefault().WeightUnitName</strong> total load]
                             </td>
                         </tr>
                     </tfoot>

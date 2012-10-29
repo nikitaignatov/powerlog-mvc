@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 using PowerLog.Data;
 using PowerLog.Model;
 using PowerLog.Web.Filters;
@@ -23,8 +26,16 @@ namespace PowerLog.Web.Controllers
                 ViewBag.ClearLocalStorage = true;
                 Session["clearLocalStorage"] = null;
             }
-            var loggedexercises = db.LoggedExercises.Include(l => l.Exercise);
-            return View(loggedexercises.ToList());
+
+            var userId = GetUserId();
+            var user = db.UserProfiles.FirstOrDefault(x => x.UserId == userId);
+
+            var loggedexercises = db.LoggedExercises.Where(x => x.UserId == userId).Include(l => l.Exercise).ToList();
+            foreach (var log in loggedexercises)
+            {
+                log.UserProfile = user;
+            }
+            return View(loggedexercises);
         }
 
         public ActionResult Details(int id = 0)
@@ -61,6 +72,80 @@ namespace PowerLog.Web.Controllers
         }
 
         public ActionResult Log()
+        {
+            return View();
+        }
+
+        public FileContentResult Data(string format)
+        {
+            var userId = GetUserId();
+            var log = db.LoggedExercises.Where(e => e.UserId == userId).ToList();
+
+            var download = log.Select(e => new
+            {
+                e.Date,
+                e.Exercise.Name,
+                e.Reps,
+                e.Weight,
+                e.OneRepMax,
+                e.Load,
+                e.Comment,
+                e.ForcedReps,
+                e.FailedToLift,
+                e.ToFailure,
+                e.MaxEffort,
+                Unit = e.WeightUnitName
+            });
+            if (format == "csv")
+            {
+                var filename = string.Format("powerlog.me.dump_{0}.csv", DateTime.Now.ToString("yyyy_MM_dd_hh_mm_ss"));
+                Response.AppendHeader("content-disposition", "attachment; filename=" + filename);
+                var r = Encoding.UTF8.GetBytes(ServiceStack.Text.CsvSerializer.SerializeToCsv(download));
+                return File(r, "text/csv");
+            }
+            else if (format == "json")
+            {
+                var filename = string.Format("powerlog.me.dump_{0}.json", DateTime.Now.ToString("yyyy_MM_dd_hh_mm_ss"));
+                Response.AppendHeader("content-disposition", "attachment; filename=" + filename);
+                var options = new JsonSerializerSettings();
+                options.Formatting = Formatting.Indented;
+                var serializer = JsonSerializer.Create(options);
+                var sb = new StringWriter();
+                serializer.Serialize(sb, download);
+                var r = Encoding.UTF8.GetBytes(sb.ToString());
+                return File(r, "text/json");
+            }
+            else if (format == "pwl")
+            {
+                var filename = string.Format("powerlog.me.dump_{0}.pwl", DateTime.Now.ToString("yyyy_MM_dd_hh_mm_ss"));
+                Response.AppendHeader("content-disposition", "attachment; filename=" + filename);
+
+                var sb = toPwl(log);
+                var r = Encoding.UTF8.GetBytes(sb.ToString());
+                return File(r, "text/pwl");
+            }
+            return File(Encoding.UTF8.GetBytes("Error"), "text/plain");
+        }
+
+        private static StringBuilder toPwl(IEnumerable<LoggedExercise> download)
+        {
+            var sb = new StringBuilder();
+            foreach (var date in download.GroupBy(x => x.Date))
+            {
+                foreach (var exercise in date.GroupBy(x => x.Exercise))
+                {
+                    sb.AppendLine(string.Format("{0},{1} {2}",
+                        date.Key.ToString("yyyy-MM-dd"),
+                        exercise.Key.Name.ToLower(),
+                        string.Join(" ",
+                        exercise.Select(x => x.ToPwl())
+                        )));
+                }
+            }
+            return sb;
+        }
+
+        public ActionResult Download()
         {
             return View();
         }

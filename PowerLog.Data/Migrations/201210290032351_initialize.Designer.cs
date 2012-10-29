@@ -5,13 +5,13 @@ namespace PowerLog.Data.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class initializ : IMigrationMetadata
+    public sealed partial class initialize : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(initializ));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initialize));
         
         string IMigrationMetadata.Id
         {
-            get { return "201210250144219_initializ"; }
+            get { return "201210290032351_initialize"; }
         }
         
         string IMigrationMetadata.Source
