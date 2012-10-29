@@ -13,8 +13,9 @@ function GetDate(jsonDate) {
 }
 
 function showPreview(data) {
-   // $("#expressionError").removeClass("alert-error").addClass("alert-info");
-    $("#expressionError").html('You are awesome');
+    $("#expressionError").removeClass('error');
+    $("#expressionError").addClass('success');
+    $("#expressionError").html('You are awesome! Hit <strong>Enter</strong> when you have typed in all the sets.');
     $("#preview tbody").html('');
     $("#previewTemplate").tmpl(data).appendTo("#preview tbody");
 }
@@ -35,7 +36,8 @@ function getPreview(date, exrp) {
             },
             error: function (data) {
                 console.log(data);
-               // $("#expressionError").removeClass("alert-info").addClass("alert-error");
+                $("#expressionError").removeClass('success');
+                $("#expressionError").addClass('error');
                 $("#expressionError").html(data.statusText);
                 $("#expressionError").show();
                 console.log('failure:' + data.status + ':' + data.statusText);
@@ -96,7 +98,7 @@ function test(q) {
     return !/\d/.test(q) && ($.trim(q) === q.toString());
 }
 
-$("#add-exercise").click( function (e) {
+$("#add-exercise").click(function (e) {
     e.preventDefault();
     var value = expr.val();
     if (value && $.trim(value) === value.toString() && /\d/.test(value)) {
