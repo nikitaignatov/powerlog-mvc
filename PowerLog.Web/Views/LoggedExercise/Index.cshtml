@@ -129,14 +129,17 @@
     }
 
     #expressionList {
-        padding: 0;
-        margin: 0;
-    }
+padding: 0;
+margin: -10px 20px 20px 20px;
+border-radius: 0 0 6px 6px;
+border: 1px solid #DDD;
+box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+background: white;
+}
 
         #expressionList li {
             padding: 10px;
             display: block;
-            background: #fff;
             border-bottom: 1px solid #ddd;
         }
 
@@ -164,6 +167,14 @@
     #details {
         display: none;
     }
+
+    .error {
+        color: #f00;
+    }
+
+    .success {
+        color: #090;
+    }
 </style>
 <div class=" row-fluid">
     <div class="span6 well">
@@ -175,6 +186,8 @@
         type="date"
         value="@DateTime.Now.ToString("yyyy-MM-dd")"
         autocomplete="Off" />
+            <div id="expressionError">
+            </div>
             <input
                 type="text"
                 data-title="Tags"
@@ -185,8 +198,6 @@
                 placeholder="barbell bench press 12x200 10x210 8x220-tf"
                 autocomplete="Off" rows="6" class="span12" />
             <input id="expressionCache" type="hidden" value="" />
-            <div id="expressionError" class="alert alert-info">
-            </div>
             <ul id="expressionList">
                 <li>barbell curl 6x12x50 <i class="icon-remove"></i></li>
             </ul>
