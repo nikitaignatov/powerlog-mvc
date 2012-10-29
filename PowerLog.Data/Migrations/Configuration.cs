@@ -22,12 +22,12 @@ namespace PowerLog.Data.Migrations
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(PowerLog.Data.UsersContext context)
+        protected override void Seed(UsersContext context)
         {
-            InitializeMembership();
+            InitializeMembership(context);
             Run(context);
         }
-        private static void InitializeMembership()
+        private static void InitializeMembership(UsersContext db)
         {
             const string username = "MakeitKebaBacon";
             if (!WebSecurity.Initialized)
@@ -42,7 +42,14 @@ namespace PowerLog.Data.Migrations
 
             if (!WebSecurity.UserExists(username))
             {
-                WebSecurity.CreateUserAndAccount(username, "ajHjEw5m6zGd3ZzW0Nte");
+                try
+                {
+                    WebSecurity.CreateUserAndAccount(username, password: "ajHjEw5m6zGd3ZzW0Nte", propertyValues: new { WeightUnitsValue = (int)WeightUnit.Kilogram });
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
             }
 
             if (!Roles.GetRolesForUser(username).Contains("Administrator"))
@@ -103,7 +110,7 @@ namespace PowerLog.Data.Migrations
                                 {
                                     UserId = id,
                                     Reps = set.Reps,
-                                    Weight = set.Weight,
+                                    WeightValue = set.Weight,
                                     Date = date.Key,
                                     FailedToLift = set.FailedToLift,
                                     ForcedReps = set.ForcedReps,

@@ -3,7 +3,7 @@ namespace PowerLog.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initializ : DbMigration
+    public partial class initialize : DbMigration
     {
         public override void Up()
         {
@@ -16,7 +16,7 @@ namespace PowerLog.Data.Migrations
                         TrainingSessionId = c.Int(nullable: false),
                         ExerciseId = c.Int(nullable: false),
                         Date = c.DateTime(nullable: false),
-                        Weight = c.Double(nullable: false),
+                        WeightValue = c.Double(nullable: false),
                         Reps = c.Int(nullable: false),
                         Comment = c.String(),
                         FailedToLift = c.Boolean(nullable: false),
@@ -39,6 +39,7 @@ namespace PowerLog.Data.Migrations
                     {
                         UserId = c.Int(nullable: false, identity: true),
                         UserName = c.String(nullable: false),
+                        WeightUnitsValue = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.UserId);
             

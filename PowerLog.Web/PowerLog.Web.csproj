@@ -207,11 +207,13 @@
     <Compile Include="Controllers\ExerciseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoggedExerciseController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ShareController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ControllerHelper.cs" />
     <Compile Include="Helpers\DateTimeExtensions.cs" />
     <Compile Include="Helpers\ParserHelper.cs" />
     <Compile Include="Helpers\UrlSeoHelper.cs" />
@@ -393,6 +395,8 @@
     <Content Include="Views\Dashboard\Progress.cshtml" />
     <Content Include="Views\Dashboard\Compare.cshtml" />
     <Content Include="Views\Dashboard\ChartTable.cshtml" />
+    <Content Include="Views\LoggedExercise\Download.cshtml" />
+    <Content Include="Views\Profile\WeightSettings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

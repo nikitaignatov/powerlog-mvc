@@ -15,8 +15,11 @@ namespace PowerLog.Web
             int id = userId;
             if (session == null)
                 session = new TrainingSession { Date = date, UserId = id, Comment = comment };
-            db.TrainingSessions.Add(session);
-            db.SaveChanges();
+            if (perssist)
+            {
+                db.TrainingSessions.Add(session);
+                db.SaveChanges();
+            }
             foreach (var expression in data)
             {
                 var list = new List<LoggedExercise>();
@@ -30,7 +33,7 @@ namespace PowerLog.Web
                                          {
                                              UserId = id,
                                              Reps = set.Reps,
-                                             Weight = set.Weight,
+                                             WeightValue = set.Weight,
                                              Date = date,
                                              FailedToLift = set.FailedToLift,
                                              ForcedReps = set.ForcedReps,

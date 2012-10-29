@@ -28,7 +28,8 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Logs<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Log", "Index", "LoggedExercise")</li>
+                                <li><a href="@Url.Action("Index", "LoggedExercise")"><i class="icon-book"></i> Log</a></li>
+                                <li><a href="@Url.Action("Download", "LoggedExercise")"><i class="icon-circle-arrow-down"></i> Download</a></li>
                                 <li class="divider"></li>
                                 <li class="nav-header">Nav header</li>
                                 <li><a href="#">Separated link</a></li>

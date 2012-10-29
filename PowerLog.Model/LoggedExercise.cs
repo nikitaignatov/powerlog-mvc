@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 
@@ -51,10 +52,15 @@ namespace PowerLog.Model
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
+        public double Weight
+        {
+            get { return new Weight { Kilograms = WeightValue }.WeightIn(CurrentUnit); }
+            set { WeightValue = new Weight { Pounds = value }.Kilograms; }
+        }
 
         [Required]
         [Range(1, 1000)]
-        public double Weight { get; set; }
+        public double WeightValue { get; set; }
 
         [Required]
         [Range(1, 1000)]
@@ -64,6 +70,7 @@ namespace PowerLog.Model
         {
             get { return Weight * Reps; }
         }
+
         public double RepWeight
         {
             get { return Load * (Weight * Reps); }
@@ -94,7 +101,7 @@ namespace PowerLog.Model
                     return 0;
                 var r = this.Reps - this.ForcedReps;
                 return Math.Round(
-                    this.Weight / (
+                    Weight / (
                     r < 1 ? 1 :
                     r == 1 ? 1 :
                     r == 2 ? 0.95 :
@@ -114,7 +121,37 @@ namespace PowerLog.Model
 
         public override string ToString()
         {
-            return string.Format("[{2:dd-MM-yyyy} {3} {1}x{0:0.##}kg]", Weight, Reps, Date, Exercise.Name);
+            return string.Format("[{2:dd-MM-yyyy} {3} {1}x{0:0.##}{4}]",
+                Weight,
+                Reps,
+                Date,
+                Exercise.Name,
+                WeightUnitName);
+        }
+
+        public string ToPwl()
+        {
+            var flags = string.Empty;
+            flags += MaxEffort ? "-max" : "";
+            flags += FailedToLift ? "-ftl" : "";
+            flags += ToFailure ? "-tf" : "";
+            flags += LongNegative ? "-ln" : "";
+            flags += ForcedReps > 0 ? "-fr(" + ForcedReps + ")" : "";
+            flags += string.IsNullOrWhiteSpace(Comment) ? "" : "-note(" + Comment + ")";
+            return string.Format("{0}{1}{2}",
+                Reps > 1 ? Reps + "x" : "",
+                Weight.ToString(CultureInfo.InvariantCulture),
+                flags);
+        }
+
+        public WeightUnit CurrentUnit
+        {
+            get { return UserProfile == null ? WeightUnit.Kilogram : UserProfile.WeightUnits; }
+        }
+
+        public string WeightUnitName
+        {
+            get { return Model.Weight.LabelIn(CurrentUnit); }
         }
     }
 }

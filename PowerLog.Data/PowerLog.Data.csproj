@@ -52,9 +52,9 @@
   <ItemGroup>
     <Compile Include="DB.cs" />
     <Compile Include="ExrxParser.cs" />
-    <Compile Include="Migrations\201210250144219_initializ.cs" />
-    <Compile Include="Migrations\201210250144219_initializ.Designer.cs">
-      <DependentUpon>201210250144219_initializ.cs</DependentUpon>
+    <Compile Include="Migrations\201210290032351_initialize.cs" />
+    <Compile Include="Migrations\201210290032351_initialize.Designer.cs">
+      <DependentUpon>201210290032351_initialize.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,8 +74,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201210250144219_initializ.resx">
-      <DependentUpon>201210250144219_initializ.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201210290032351_initialize.resx">
+      <DependentUpon>201210290032351_initialize.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
