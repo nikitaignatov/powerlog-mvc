@@ -36,7 +36,7 @@ namespace PowerLog.Web.Controllers
 
         [Authorize]
         [HttpPost]
-        public ActionResult Create(LoggedExercise loggedexercise, string expression, string title)
+        public ActionResult Create(DateTime date, string expression, string title)
         {
             if (string.IsNullOrWhiteSpace(expression))
             {
@@ -46,7 +46,7 @@ namespace PowerLog.Web.Controllers
             {
                 var session = new TrainingSession
                 {
-                    Date = loggedexercise.Date,
+                    Date = date,
                     Key = string.Empty.RandomString(10),
                     Title = title.Trim(),
                     IsPublic = true,
@@ -59,7 +59,7 @@ namespace PowerLog.Web.Controllers
             }
 
             ViewBag.SessionTitle = title;
-            ViewBag.Date = loggedexercise.Date;
+            ViewBag.Date = date;
             return View();
         }
 

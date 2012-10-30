@@ -1,20 +1,180 @@
 ﻿@model PowerLog.Model.TrainingSession
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Log your workout";
 }
 
-<h2>Create</h2>
 
-@using (Html.BeginForm()) {
-    @Html.ValidationSummary(true)
-
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div class="">
+    <div class=" row-fluid">
+        @using (Html.BeginForm("Create", "LoggedExercise", FormMethod.Post))
+        {
+            <div class="span6">
+                <h3>Fill in the hard work</h3>
+                <div class="well">
+                    <div class="control-group">
+                        <div class="controls input-append span12">
+                            <input
+                                name="Title"
+                                id="Title"
+                                type="text"
+                                value="@ViewBag.SessionTitle"
+                                placeholder="workout title"
+                                autocomplete="Off" /><span class="add-on">optional</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls input-append span12">
+                            <input 
+                                name="Date"
+                                id="Date"
+                                type="date"
+                                value="@DateTime.Now.ToString("yyyy-MM-dd")"
+                                autocomplete="Off" /><span class="add-on">required</span>
+                        </div>
+                    </div>
+                    <div id="expressionError">
+                    </div>
+                    <input
+                        type="text"
+                        data-title="Tags"
+                        data-html="true"
+                        data-placement="bottom"
+                        name="expression"
+                        id="expression"
+                        placeholder="barbell bench press 12x200 10x210 8x220-tf"
+                        autocomplete="Off" class="span12" />
+                    <input id="expressionCache" type="hidden" value="" />
+                    <ul id="expressionList">
+                        <li>barbell curl 6x12x50 <i class="icon-remove"></i></li>
+                    </ul>
+                    <input type="submit" value="Save Log" id="saveButton" class="btn btn-primary btn-large btn-block" />
+                </div>
+            </div>
+            <div class="span6">
+                <h3>Preview</h3>
+                <div class="well">
+                    <table id="preview" class="table table-bordered table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Exercise</th>
+                                <th>Sets</th>
+                                <th>1RM</th>
+                                <th>Volume</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+    </div>
 </div>
+
+@section header
+{
+    <style>
+        #expression {
+            text-transform: lowercase;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+        }
+
+        #preview {
+            background: #fff;
+        }
+
+            #preview td:nth-child(1) {
+                width: 30%;
+            }
+
+        table td:nth-child(3) {
+            color: #aaa;
+        }
+
+        table td:nth-child(4) {
+            color: #aaa;
+        }
+
+        blockquote {
+            cursor: pointer;
+        }
+
+        #expressionError {
+            padding: 5px 0;
+        }
+
+        #expressionList {
+            padding: 0;
+            margin: -10px 20px 20px 20px;
+            border-radius: 0 0 6px 6px;
+            border: 1px solid #DDD;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+            background: white;
+        }
+
+            #expressionList li {
+                padding: 10px;
+                display: block;
+                border-bottom: 1px solid #ddd;
+            }
+
+                #expressionList li:last-child {
+                    border-bottom: 0;
+                }
+
+                #expressionList li i {
+                    visibility: hidden;
+                }
+
+                #expressionList li:hover i {
+                    visibility: visible;
+                }
+
+        .error {
+            color: #f00;
+        }
+
+        .success {
+            color: #090;
+        }
+    </style>
+}
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script id="previewTemplate" type="text/x-jquery-tmpl">
+        <tr class="title">
+            <td>${Exercise} 
+            </td>
+            <td>{{each Sets}}
+                <strong>${Reps}</strong><small>x</small><strong>${Weight}</strong><small> ${WeightUnitName}</small>
+                {{if Comment}}                                            
+                <button class="comment btn btn-mini" type="button" data-content="${Comment}" data-title="Note:" data-original-title=""><i class="icon-comment"></i></button>
+                {{/if}} 
+                {{if FailedToLift}}  
+                <span class="label label-important">failed</span>
+                {{/if}} 
+                {{if MaxEffort}}  
+                <span class="label label-success">max</span>
+                {{/if}} 
+                {{if ToFailure}}  
+                <span class="label label-important">to failure</span>
+                {{/if}} 
+                <br />
+                {{/each}}                
+            </td>
+            <td>{{each Sets}}
+                <strong>${OneRepMax}</strong><small> ${WeightUnitName}</small>
+                <br />
+                {{/each}}                
+            </td>
+            <td>{{each Sets}}
+                <strong>${Reps*Weight}</strong><small> ${WeightUnitName}</small>
+                <br />
+                {{/each}}                
+            </td>
+        </tr>
+    </script>
+    <script src="/Scripts/parserClient.js"></script>
 }

@@ -17,37 +17,6 @@
     {
         clearLocalStorage = (bool)ViewBag.ClearLocalStorage;
     }
-
-    var list = Model.GroupBy(x => x.ExerciseId);
-    var calls = new List<string>();
-    foreach (var logs in list)
-    {
-        var reps = new List<int>();
-        var weight = new List<string>();
-        var max = new List<string>();
-        var load = new List<string>();
-        foreach (var log in logs)
-        {
-            reps.Add(log.Reps);
-            if (log.FailedToLift)
-            {
-                weight.Add(string.Format(@"{{y:{0},marker: {{symbol: 'url(http://www.bloodsystemseducation.org/resources/images/icons/icon_fail.gif)'}} }}", log.Weight.ToString(CultureInfo.InvariantCulture)));
-            }
-            else
-            {
-                weight.Add(log.Weight.ToString(CultureInfo.InvariantCulture));
-            }
-            max.Add(log.OneRepMax.ToString(CultureInfo.InvariantCulture));
-            load.Add(log.Load.ToString(CultureInfo.InvariantCulture));
-        }
-        var call = string.Format("renderChart({0},[{1}],[{2}],[{3}], [{4}]);",
-            logs.Key,
-            string.Join(",", reps),
-            string.Join(",", weight),
-            string.Join(",", max),
-            string.Join(",", load));
-        calls.Add(call);
-    }
 }
 
 
@@ -55,40 +24,6 @@
     @Scripts.Render("~/bundles/jqueryui")
     <script src="/Scripts/js/highcharts.js" type="text/javascript"></script>
     <script src="/Scripts/jquery.nanoscroller.min.js"></script>
-
-    <script id="previewTemplate" type="text/x-jquery-tmpl">
-        <tr class="title">
-            <td>${Exercise} 
-            </td>
-            <td>{{each Sets}}
-                <strong>${Reps}</strong><small>x</small><strong>${Weight}</strong><small>kg</small>
-                {{if Comment}}                                            
-                <button class="comment btn btn-mini" type="button" data-content="${Comment}" data-title="Note:" data-original-title=""><i class="icon-comment"></i></button>
-                {{/if}} 
-                {{if FailedToLift}}  
-                <span class="label label-important">failed</span>
-                {{/if}} 
-                {{if MaxEffort}}  
-                <span class="label label-success">max</span>
-                {{/if}} 
-                {{if ToFailure}}  
-                <span class="label label-important">to failure</span>
-                {{/if}} 
-                <br />
-                {{/each}}                
-            </td>
-            <td>{{each Sets}}
-                <strong>${OneRepMax}</strong><small>kg</small>
-                <br />
-                {{/each}}                
-            </td>
-            <td>{{each Sets}}
-                <strong>${Reps*Weight}</strong><small>kg</small>
-                <br />
-                {{/each}}                
-            </td>
-        </tr>
-    </script>
     <script type="text/javascript">
             @if (clearLocalStorage)
             { 
@@ -101,60 +36,7 @@
             $(".antiscroll-wrap").antiscroll();
         });
     </script>
-    <script src="/Scripts/parserClient.js"></script>
 }
-<style>
-    #expression {
-        text-transform: lowercase;
-    }
-
-    #preview {
-        background: #fff;
-    }
-
-        #preview td:nth-child(1) {
-            width: 30%;
-        }
-
-    table td:nth-child(3) {
-        color: #aaa;
-    }
-
-    table td:nth-child(4) {
-        color: #aaa;
-    }
-
-    blockquote {
-        cursor: pointer;
-    }
-
-    #expressionList {
-padding: 0;
-margin: -10px 20px 20px 20px;
-border-radius: 0 0 6px 6px;
-border: 1px solid #DDD;
-box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-background: white;
-}
-
-        #expressionList li {
-            padding: 10px;
-            display: block;
-            border-bottom: 1px solid #ddd;
-        }
-
-            #expressionList li:last-child {
-                border-bottom: 0;
-            }
-
-            #expressionList li i {
-                visibility: hidden;
-            }
-
-            #expressionList li:hover i {
-                visibility: visible;
-            }
-</style>
 <style>
     .antiscroll-wrap, .antiscroll-inner {
         height: 450px;
@@ -167,57 +49,8 @@ background: white;
     #details {
         display: none;
     }
-
-    .error {
-        color: #f00;
-    }
-
-    .success {
-        color: #090;
-    }
 </style>
 <div class=" row-fluid">
-    <div class="span6 well">
-        @using (Html.BeginForm("Create", "LoggedExercise", FormMethod.Post))
-        {
-            <input
-        name="Date"
-        id="Date"
-        type="date"
-        value="@DateTime.Now.ToString("yyyy-MM-dd")"
-        autocomplete="Off" />
-            <div id="expressionError">
-            </div>
-            <input
-                type="text"
-                data-title="Tags"
-                data-html="true"
-                data-placement="bottom"
-                name="expression"
-                id="expression"
-                placeholder="barbell bench press 12x200 10x210 8x220-tf"
-                autocomplete="Off" rows="6" class="span12" />
-            <input id="expressionCache" type="hidden" value="" />
-            <ul id="expressionList">
-                <li>barbell curl 6x12x50 <i class="icon-remove"></i></li>
-            </ul>
-            <h3>Preview</h3>
-            <table id="preview" class="table table-bordered table-hover table-condensed">
-                <thead>
-                    <tr>
-                        <th>Exercise</th>
-                        <th>Sets</th>
-                        <th>1RM</th>
-                        <th>Volume</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-
-            <input type="submit" value="Save Log" id="saveButton" class="btn btn-primary btn-large" />
-        }
-    </div>
     <div class="antiscroll-wrap span6">
         <div class="antiscroll-inner row-fluid">
             <table class="table  table-hover table-condensed">

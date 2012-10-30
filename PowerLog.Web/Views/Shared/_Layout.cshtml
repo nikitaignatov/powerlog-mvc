@@ -10,7 +10,7 @@
     @RenderSection("header", required: false)
 </head>
 <body>
-  @*  @StackExchange.Profiling.MiniProfiler.RenderIncludes()*@
+    @*  @StackExchange.Profiling.MiniProfiler.RenderIncludes()*@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
@@ -22,14 +22,17 @@
                 <a class="brand" href="#">powerlog.me</a>
                 <div class="nav-collapse collapse">
                     <ul class="nav">
+                        <li>
+                            <div><a href="@Url.Action("Create", "LoggedExercise")" class="btn btn-primary"><i class="icon-plus icon-white"></i>Log</a></div>
+                        </li>
                         <li>@Html.ActionLink("Dashboard", "Index", "Dashboard")</li>
                         <li>@Html.ActionLink("Exercise", "Index", "Exercise")</li>
                         <li>@Html.ActionLink("Share", "Index", "Share")</li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Logs<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="@Url.Action("Index", "LoggedExercise")"><i class="icon-book"></i> Log</a></li>
-                                <li><a href="@Url.Action("Download", "LoggedExercise")"><i class="icon-circle-arrow-down"></i> Download</a></li>
+                                <li><a href="@Url.Action("Index", "LoggedExercise")"><i class="icon-book"></i>View Logs</a></li>
+                                <li><a href="@Url.Action("Download", "LoggedExercise")"><i class="icon-circle-arrow-down"></i>Download</a></li>
                                 <li class="divider"></li>
                                 <li class="nav-header">Nav header</li>
                                 <li><a href="#">Separated link</a></li>

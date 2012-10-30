@@ -55,7 +55,7 @@ namespace PowerLog.Model
         public double Weight
         {
             get { return new Weight { Kilograms = WeightValue }.WeightIn(CurrentUnit); }
-            set { WeightValue = new Weight { Pounds = value }.Kilograms; }
+            set { WeightValue = CurrentUnit == WeightUnit.Kilogram ? value : new Weight { Pounds = value }.Kilograms; }
         }
 
         [Required]

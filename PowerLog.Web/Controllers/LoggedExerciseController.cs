@@ -38,16 +38,6 @@ namespace PowerLog.Web.Controllers
             return View(loggedexercises);
         }
 
-        public ActionResult Details(int id = 0)
-        {
-            LoggedExercise loggedexercise = db.LoggedExercises.Find(id);
-            if (loggedexercise == null)
-            {
-                return HttpNotFound();
-            }
-            return View(loggedexercise);
-        }
-
         public ActionResult Create()
         {
             ViewBag.ExerciseID = new SelectList(db.Exercises, "ID", "Name");
@@ -162,8 +152,11 @@ namespace PowerLog.Web.Controllers
             try
             {
                 var le = ParserHelper.ParseLog(db, GetUserId(), comment, date, data, perssist: false).ToList();
-                var exercise = le.FirstOrDefault().Exercise.Name;
-                res.Add(exercise, le);
+                foreach (var loggedExercise in le.GroupBy(x => x.Exercise))
+                {
+                    res.Add(loggedExercise.Key.Name, loggedExercise);
+                }
+
             }
             catch (Exception ex)
             {
@@ -171,30 +164,6 @@ namespace PowerLog.Web.Controllers
                 Response.StatusDescription = ex.Message;
             }
             return Json(res.Select(x => new { Exercise = x.Key, Sets = x.Value }), JsonRequestBehavior.AllowGet);
-        }
-
-        public ActionResult Edit(int id = 0)
-        {
-            LoggedExercise loggedexercise = db.LoggedExercises.Find(id);
-            if (loggedexercise == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.ExerciseID = new SelectList(db.Exercises, "ID", "Name", loggedexercise.ExerciseId);
-            return View(loggedexercise);
-        }
-
-        [HttpPost]
-        public ActionResult Edit(LoggedExercise loggedexercise)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(loggedexercise).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.ExerciseID = new SelectList(db.Exercises, "ID", "Name", loggedexercise.ExerciseId);
-            return View(loggedexercise);
         }
 
         public ActionResult Delete(int id = 0)
