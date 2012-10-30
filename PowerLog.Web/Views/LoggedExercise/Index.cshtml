@@ -29,6 +29,9 @@
         localStorage.removeItem("expressions");
         </text>   
             }
+        $(function () {
+            $("select").chosen();
+        });
     </script>
 }
 @using (Html.BeginForm("Filter", "LoggedExercise", FormMethod.Post))
@@ -42,7 +45,7 @@
                 @Html.DropDownList("Force", null, "-- Push / Pull --")
             </div>
             <div class="span3">
-                @Html.DropDownList("BodyPart",null, null, new { multiple = "multiple" })
+                @Html.DropDownList("BodyPart", null, null, new { multiple = "multiple" })
             </div>
             <div class="span3">
                 @Html.DropDownList("Mechanics", null, "-- Compound / Isolated --")
@@ -54,34 +57,30 @@
     </div>
 }
 <div class=" row-fluid">
-    <div class="antiscroll-wrap span6">
-        <div class="antiscroll-inner row-fluid">
-            <table class="table  table-hover table-condensed">
-                <thead>
-                    <tr>
-                        <th>date</th>
-                        <th>Exercise</th>
-                        <th>lifts</th>
-                        <th>load</th>
-                        <th>avg. reps</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var date in Model.GroupBy(x => x.Date).OrderByDescending(x => x.Key))
-                    {
-                        var summary = date.AsEnumerable().Summarize();
-                        <tr>
-                            <td>@date.Key.ToString("dd. MMM")</td>
-                            <td>
-                                @Html.RouteLink(title("", date), "LogDetails", new { year = date.Key.Year, month = date.Key.Month, day = date.Key.Day, title = Regex.Replace(title("", date).ToLower(), @"\s+|,|\.", "-").Replace("--", "-") }, null)
-                            </td>
-                            <td>@summary.TotalReps</td>
-                            <td>@summary.TotalVolume.ToString("#,0")</td>
-                            <td>@summary.AverageReps.ToString("#.0")</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
+    <table class="table  table-hover table-condensed">
+        <thead>
+            <tr>
+                <th>date</th>
+                <th>Exercise</th>
+                <th>lifts</th>
+                <th>load</th>
+                <th>avg. reps</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var date in Model.GroupBy(x => x.Date).OrderByDescending(x => x.Key))
+            {
+                var summary = date.AsEnumerable().Summarize();
+                <tr>
+                    <td>@date.Key.ToString("dd. MMM")</td>
+                    <td>
+                        @Html.RouteLink(title("", date), "LogDetails", new { year = date.Key.Year, month = date.Key.Month, day = date.Key.Day, title = Regex.Replace(title("", date).ToLower(), @"\s+|,|\.", "-").Replace("--", "-") }, null)
+                    </td>
+                    <td>@summary.TotalReps</td>
+                    <td>@summary.TotalVolume.ToString("#,0")</td>
+                    <td>@summary.AverageReps.ToString("#.0")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
