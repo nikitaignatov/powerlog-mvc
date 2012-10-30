@@ -13,6 +13,7 @@ namespace PowerLog.Web
                         "~/Scripts/bootstrap.js",
                 //          "~/Scripts/Highlight/highlight.pack.js",
                         "~/Scripts/jQuery.tmpl.js",
+                        "~/Scripts/chosen.jquery.js",
                         "~/Scripts/jquery-mousewheel.js",
                         "~/Scripts/antiscroll.js"
                         ));
@@ -36,6 +37,7 @@ namespace PowerLog.Web
                 "~/Content/bootstrap-responsive-hack.css",
                 "~/Content/bootstrap-responsive.css",
                 "~/Content/antiscroll.css",
+                "~/Content/chosen.css",
             //    "~/Content/Highlight/default.css",
                 "~/Content/site.css"
                 ));
