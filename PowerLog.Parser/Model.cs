@@ -71,12 +71,24 @@ namespace PowerLog.Parser
 
     public class Set
     {
+        private int _sets;
+
         public Set()
         {
             Sets = 1;
         }
 
-        public int Sets { get; set; }
+        public int Sets
+        {
+            get { return _sets; }
+            set
+            {
+                if (value > 25)
+                    throw new Exception("Cannot define more than 25 sets");
+                _sets = value;
+            }
+        }
+
         public double Weight { get; set; }
         public int Reps { get; set; }
         public bool FailedToLift { get; set; }

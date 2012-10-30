@@ -13,8 +13,9 @@ namespace PowerLog.Web
         public static IEnumerable<LoggedExercise> ParseLog(UsersContext db, int userId, string comment, DateTime date, List<string> data, bool perssist = true, TrainingSession session = null)
         {
             int id = userId;
+            var user = db.UserProfiles.Find(id);
             if (session == null)
-                session = new TrainingSession { Date = date, UserId = id, Comment = comment };
+                session = new TrainingSession { Date = date, UserId = id, UserProfile = user,Comment = comment };
             if (perssist)
             {
                 db.TrainingSessions.Add(session);
@@ -32,8 +33,9 @@ namespace PowerLog.Web
                             list.Add(new LoggedExercise
                                          {
                                              UserId = id,
+                                             UserProfile = user,
                                              Reps = set.Reps,
-                                             WeightValue = set.Weight,
+                                             Weight = set.Weight,
                                              Date = date,
                                              FailedToLift = set.FailedToLift,
                                              ForcedReps = set.ForcedReps,
