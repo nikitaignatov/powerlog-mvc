@@ -14,8 +14,7 @@ namespace PowerLog.Web
                 //          "~/Scripts/Highlight/highlight.pack.js",
                         "~/Scripts/jQuery.tmpl.js",
                         "~/Scripts/chosen.jquery.js",
-                        "~/Scripts/jquery-mousewheel.js",
-                        "~/Scripts/antiscroll.js"
+                        "~/Scripts/jquery-mousewheel.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
@@ -36,7 +35,6 @@ namespace PowerLog.Web
                 "~/Content/bootstrap.css",
                 "~/Content/bootstrap-responsive-hack.css",
                 "~/Content/bootstrap-responsive.css",
-                "~/Content/antiscroll.css",
                 "~/Content/chosen.css",
             //    "~/Content/Highlight/default.css",
                 "~/Content/site.css"

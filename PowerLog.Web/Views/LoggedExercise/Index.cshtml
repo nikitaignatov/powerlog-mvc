@@ -22,8 +22,6 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryui")
-    <script src="/Scripts/js/highcharts.js" type="text/javascript"></script>
-    <script src="/Scripts/jquery.nanoscroller.min.js"></script>
     <script type="text/javascript">
             @if (clearLocalStorage)
             { 
@@ -31,26 +29,8 @@
         localStorage.removeItem("expressions");
         </text>   
             }
-
-        $(function () {
-            $(".antiscroll-wrap").antiscroll();
-            $("select").chosen();
-        });
     </script>
 }
-<style>
-    .antiscroll-wrap, .antiscroll-inner {
-        height: 450px;
-    }
-
-    .antiscroll-wrap {
-        box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    }
-
-    #details {
-        display: none;
-    }
-</style>
 @using (Html.BeginForm("Filter", "LoggedExercise", FormMethod.Post))
 {
     <div class="well">
