@@ -35,6 +35,12 @@ namespace PowerLog.Web.Controllers
             {
                 log.UserProfile = user;
             }
+
+            ViewBag.ExersiceID = new SelectList(loggedexercises.Select(x => x.Exercise).Distinct().ToList(), "ID", "Name");
+            ViewBag.Force = new SelectList(loggedexercises.Select(x => x.Exercise.Force).Distinct().ToList());
+            ViewBag.BodyPart = new SelectList(loggedexercises.Select(x => x.Exercise.BodyPart).Distinct().ToList());
+            ViewBag.Mechanics = new SelectList(loggedexercises.Select(x => x.Exercise.Mechanics).Distinct().ToList());
+
             return View(loggedexercises);
         }
 

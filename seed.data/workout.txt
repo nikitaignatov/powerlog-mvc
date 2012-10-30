@@ -130,3 +130,6 @@
 2012-10-26,barbell close grip bench press 10x40 10x60 8x80 6x85 6x90
 2012-10-26,barbell bench press 8x90 8x90-tf 10x60 8x60
 2012-10-26,barbell deadlift 2x10x60 10x80
+#
+2012-10-29,barbell bench press 3x60 3x80 8x100-tf 3x110 3x100 9x90 10x85-tf
+2012-10-29,dumbbell fly 2x8x16 3x5x20
