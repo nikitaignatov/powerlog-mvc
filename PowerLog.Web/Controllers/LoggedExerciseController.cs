@@ -36,12 +36,38 @@ namespace PowerLog.Web.Controllers
                 log.UserProfile = user;
             }
 
-            ViewBag.ExersiceID = new SelectList(loggedexercises.Select(x => x.Exercise).Distinct().ToList(), "ID", "Name");
+            ViewBag.ExersiceID = new MultiSelectList(loggedexercises.Select(x => x.Exercise).Distinct().ToList(), "ID", "Name");
+            ViewBag.BodyPart = new MultiSelectList(loggedexercises.Select(x => x.Exercise.BodyPart).Distinct().ToList());
             ViewBag.Force = new SelectList(loggedexercises.Select(x => x.Exercise.Force).Distinct().ToList());
-            ViewBag.BodyPart = new SelectList(loggedexercises.Select(x => x.Exercise.BodyPart).Distinct().ToList());
             ViewBag.Mechanics = new SelectList(loggedexercises.Select(x => x.Exercise.Mechanics).Distinct().ToList());
 
             return View(loggedexercises);
+        }
+
+        public ActionResult Filter(string[] BodyPart, int[] ExersiceID, string Force, string Mechanics)
+        {
+
+            var userId = GetUserId();
+            var user = db.UserProfiles.FirstOrDefault(x => x.UserId == userId);
+
+            var loggedexercises = db.LoggedExercises.Where(x => x.UserId == userId).Include(l => l.Exercise).ToList();
+            foreach (var log in loggedexercises)
+            {
+                log.UserProfile = user;
+            }
+
+            ViewBag.ExersiceID = new MultiSelectList(loggedexercises.Select(x => x.Exercise).Distinct().ToList(), "ID", "Name", ExersiceID);
+            ViewBag.BodyPart = new MultiSelectList(loggedexercises.Select(x => x.Exercise.BodyPart).Distinct().ToList(), BodyPart);
+            ViewBag.Force = new SelectList(loggedexercises.Select(x => x.Exercise.Force).Distinct().ToList(), (object)Force);
+            ViewBag.Mechanics = new SelectList(loggedexercises.Select(x => x.Exercise.Mechanics).Distinct().ToList());
+
+            loggedexercises = BodyPart != null && BodyPart.Any() ? loggedexercises.Where(x => BodyPart.Contains(x.Exercise.BodyPart)).ToList() : loggedexercises;
+            loggedexercises = ExersiceID != null && ExersiceID.Any() ? loggedexercises.Where(x => ExersiceID.Contains(x.ExerciseId)).ToList() : loggedexercises;
+            loggedexercises = ExersiceID != null && ExersiceID.Any() ? loggedexercises.Where(x => ExersiceID.Contains(x.ExerciseId)).ToList() : loggedexercises;
+            loggedexercises = !string.IsNullOrWhiteSpace(Force) ? loggedexercises.Where(x => x.Exercise.Force == Force).ToList() : loggedexercises;
+            loggedexercises = !string.IsNullOrWhiteSpace(Mechanics) ? loggedexercises.Where(x => x.Exercise.Mechanics == Mechanics).ToList() : loggedexercises;
+
+            return View("Index", loggedexercises);
         }
 
         public ActionResult Create()
